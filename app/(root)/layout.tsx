@@ -9,7 +9,7 @@ export default function RootLayout({
     children: React.ReactNode;
   }>) {
     return (
-        <body>
+        <body className="h-full bg-black w-full">
             <Header/>
         {children}
         <Footer/>
