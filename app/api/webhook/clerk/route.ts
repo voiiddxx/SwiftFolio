@@ -57,35 +57,33 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if(eventType=='user.created'){
-    const {id , first_name , last_name , email_addresses  , username , image_url} = evt.data;
-
+    const {id , first_name , last_name ,  email_addresses , username , image_url} = evt.data;
     const user = {
-        clerkId : id,
-        firstname: first_name,
-        lastname: last_name,
-        username : username,
-        email : email_addresses[0].email_address,
+        clerkId:id,
+        username:username,
+        email:email_addresses[0].email_address,
+        firstname:first_name,
+        lastname:last_name,
         avatar:image_url
     }
 
+    try {
+       await connectToDatabase();
+        const newUser = await User.create(user);
+        const registerUser = await JSON.parse(JSON.stringify(newUser));
+        if(registerUser) {
+            await clerkClient.users.updateUserMetadata(id, {
+              publicMetadata: {
+                userId: registerUser._id
+              }
+            })
+          }
+          return NextResponse.json({ message: 'OK', user: registerUser })
 
-    // try {
-    //     await connectToDatabase();
-    //     const newuser = await User.create(user);
-    //     const registerUser = await JSON.parse(JSON.stringify(newuser));
-    //     if(registerUser) {
-    //         await clerkClient.users.updateUserMetadata(id, {
-    //           publicMetadata: {
-    //             userId: registerUser._id
-    //           }
-    //         })
-    //       }
-    //       return NextResponse.json({ message: 'OK', user: registerUser })
-    // } catch (error) {
-    //     console.log(error);
-    //     throw new Error("Caught some error while using clerk webhook");
-        
-    // }
+
+    } catch (error) {
+        throw new Error(error as string);
+    }
   }
  
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
