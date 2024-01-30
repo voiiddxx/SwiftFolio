@@ -69,23 +69,23 @@ export async function POST(req: Request) {
     }
 
 
-    try {
-        await connectToDatabase();
-        const newuser = await User.create(user);
-        const registerUser = await JSON.parse(JSON.stringify(newuser));
-        if(registerUser) {
-            await clerkClient.users.updateUserMetadata(id, {
-              publicMetadata: {
-                userId: registerUser._id
-              }
-            })
-          }
-          return NextResponse.json({ message: 'OK', user: registerUser })
-    } catch (error) {
-        console.log(error);
-        throw new Error("Caught some error while using clerk webhook");
+    // try {
+    //     await connectToDatabase();
+    //     const newuser = await User.create(user);
+    //     const registerUser = await JSON.parse(JSON.stringify(newuser));
+    //     if(registerUser) {
+    //         await clerkClient.users.updateUserMetadata(id, {
+    //           publicMetadata: {
+    //             userId: registerUser._id
+    //           }
+    //         })
+    //       }
+    //       return NextResponse.json({ message: 'OK', user: registerUser })
+    // } catch (error) {
+    //     console.log(error);
+    //     throw new Error("Caught some error while using clerk webhook");
         
-    }
+    // }
   }
  
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
