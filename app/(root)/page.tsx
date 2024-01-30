@@ -1,6 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import './Main.css'
+import connectToDatabase from "@/lib/database/mongodb";
 export default function Home() {
+
+  const db = ()=>{
+    connectToDatabase();
+  }
   return (
     <div className="mainhai">
       <div className="min-h-screen w-full flex flex-col justify-start items-center pt-28">
