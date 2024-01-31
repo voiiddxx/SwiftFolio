@@ -10,7 +10,6 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
@@ -18,6 +17,7 @@ import { createPortfolio } from "@/lib/actions/portfolio.action"
 import { useState } from "react"
 
 import uploadDataonCloudinary from "./Cloudinary"
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -31,6 +31,9 @@ const formSchema = z.object({
 
 
 const PortfolioForm = () => {
+
+
+  const router = useRouter();
 
 
   const [avatar, setavatar] = useState<any>();
@@ -55,7 +58,12 @@ const PortfolioForm = () => {
      async function onSubmit(values: z.infer<typeof formSchema>) {
       const avatarurl = await uploadDataonCloudinary(avatar);
       const resumeurl = await uploadDataonCloudinary(resume);
-      console.log(values);
+
+      const response = await createPortfolio({portfolio:{...values , avatar:avatarurl , resume:resumeurl}});
+      if(response){
+        form.reset();
+        router.push(`/portfolio/${response._id}`)
+      }
       
         
       }

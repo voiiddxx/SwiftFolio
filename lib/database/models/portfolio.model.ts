@@ -10,8 +10,8 @@ const portfoliSchema = new Schema({
     githuburl:{type: String},
     mailurl:{type: String},
     extraurl:{type: String},
-    avatarurl:{type: String},
-    resumeurl:{type: String},
+    avatar:{type: String},
+    resume:{type: String},
     projects:[],
     acheivements:[],
 
