@@ -1,4 +1,5 @@
 "use server"
+
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent, clerkClient } from '@clerk/nextjs/server'
@@ -71,14 +72,14 @@ export async function POST(req: Request) {
        await connectToDatabase();
         const newUser = await User.create(user);
         const registerUser = await JSON.parse(JSON.stringify(newUser));
-        // if(registerUser) {
-        //     await clerkClient.users.updateUserMetadata(id, {
-        //       publicMetadata: {
-        //         userId: registerUser._id
-        //       }
-        //     })
-        //   }
-        //   return NextResponse.json({ message: 'OK', user: registerUser })
+        if(registerUser) {
+            await clerkClient.users.updateUserMetadata(id, {
+              publicMetadata: {
+                userId: registerUser._id
+              }
+            })
+          }
+          return NextResponse.json({ message: 'OK', user: registerUser })
         console.log(registerUser);
         
 
