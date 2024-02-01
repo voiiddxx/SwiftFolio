@@ -1,0 +1,183 @@
+*{
+    margin: 0;padding: 0;
+    
+}
+.hero-main{
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    background-image: url("/check.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.hero-text{
+    background-color: transparent;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.hero-text .upper-light{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.hero-text .upper-light img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-text .mid-bold-text{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+     color: white; 
+}
+
+.hero-text .mid-bold-text h1 span{
+    
+  background: -webkit-linear-gradient(#3dfff5, #34ff82);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    
+}
+
+.bottom-light-text{
+    color: rgb(235, 235, 235);
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
+
+.hero-button{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.core{
+    height: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+}
+
+.core h3{
+    font-size: 15px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+}
+
+.core-detail{
+    color: rgb(157, 157, 157);
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Manrope', sans-serif;
+}
+.core-images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 20px;
+}
+.core-images img{
+    height: 35px;
+    width: 35px;
+}
+
+
+.connect-button{
+    height: 40px;
+    width: 200px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-button a{
+    text-decoration: none;
+    color: rgb(0, 70, 50);
+}
+
+.connect-button p{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+}
+.github-button{
+    height: 40px;
+    width: 200px;
+    background-color: transparent;
+    border: 1px solid rgba(66, 66, 66, 0.623);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+
+.github-button p{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 738px) {
+
+   .mid-bold-text h1{
+    font-size: 35px;
+    margin-left: 30px;
+    margin-right: 30px;
+   }
+
+   .bottom-light-text p{
+    font-size: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+   }
+
+   .connect-button{
+    height: auto;
+    width:auto;
+    padding: 10px;
+   }
+
+   .github-button{
+    height: auto;
+    width: auto;
+    padding: 10px;
+   }
+
+   .connect-button p{
+    font-size: 15px;
+   }
+   .github-button p{
+    font-size: 14px;
+   }
+
+   
+   
+}
