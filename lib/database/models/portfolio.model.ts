@@ -1,7 +1,5 @@
 import { Schema, model, models } from "mongoose";
 
-
-
 const portfoliSchema = new Schema({
     name:{type: String},
     heading:{type: String},
@@ -14,9 +12,6 @@ const portfoliSchema = new Schema({
     resume:{type: String},
     projects:[],
     acheivements:[],
-
-
-
 });
 
 
