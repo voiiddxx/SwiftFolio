@@ -30,9 +30,12 @@ const formSchema = z.object({
 
 
 
-const PortfolioForm = () => {
+type portfolioformProps = {
+  userId : string | any
+}
 
-
+const PortfolioForm =  ({userId} : portfolioformProps) => {
+  
   const router = useRouter();
 
 
@@ -59,10 +62,10 @@ const PortfolioForm = () => {
       const avatarurl = await uploadDataonCloudinary(avatar);
       const resumeurl = await uploadDataonCloudinary(resume);
 
-      const response = await createPortfolio({portfolio:{...values , avatar:avatarurl , resume:resumeurl}});
+      const response = await createPortfolio({portfolio:{...values , avatar:avatarurl , resume:resumeurl , clerkId:userId}});
       if(response){
         form.reset();
-        router.push(`/portfolio/${response._id}`)
+        router.push(`/template}`)
       }
       
         

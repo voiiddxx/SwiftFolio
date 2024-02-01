@@ -3,6 +3,7 @@
 
 export type createPortfolioparams = {
     portfolio:{
+        clerkId: string
         name: string
         heading: string
         about?:string

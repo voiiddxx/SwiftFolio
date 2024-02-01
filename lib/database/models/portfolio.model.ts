@@ -1,6 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 const portfoliSchema = new Schema({
+    clerkId:{type:String},
     name:{type: String},
     heading:{type: String},
     about:{type : String},
@@ -10,8 +11,6 @@ const portfoliSchema = new Schema({
     extraurl:{type: String},
     avatar:{type: String},
     resume:{type: String},
-    projects:[],
-    acheivements:[],
 });
 
 
