@@ -1,8 +1,26 @@
+import { Iportfolio } from '@/lib/database/models/portfolio.model'
 import './Darkheroprem.css'
+import Editbutton from '@/components/shared/edit/Editbutton'
 
 
-const DarkpremHero = () => {
+  type portfolioProps = {
+    data:Iportfolio,
+    adminData: boolean
+  }
+
+const DarkpremHero = ({data , adminData} : portfolioProps) => {
+
+  
   return (
+    <>
+    {
+      adminData && (
+        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
+          <Editbutton/>
+          <div className='text-white'>Share this portfolio</div>
+        </div>
+      )
+    }
     <div>
     <div className="hero-main">
       <div className="navbar">
@@ -11,24 +29,24 @@ const DarkpremHero = () => {
       <div className="hero-text">
           <div className="upper-light">
               <p>Connect With One Click</p>
-            <a href="mailto:nikhildesign00@gmail.com">
+            <a href={data.mailurl}>
             {/* <img src={person} alt="person" /> */}
             </a>
           </div>
           <div className="mid-bold-text">
-            <h1>Hey, My Name is <span> Nikhil Kumar</span>  <br /> Am A Full Stack Developer</h1>
+            <h1>Hey, My Name is <span> {data.name}</span>  <br /> {data.heading}</h1>
           </div>
           <div className="bottom-light-text">
             <p>computer science student with passion for cross platform dev  & Web App dev looking  for internship <br /> where i can apply my  skills! and highly motivated  to learn new technologies!</p>
           </div>
 
           <div className="hero-button">
-           <a href="https://www.linkedin.com/in/nikhil-kumar-1043b7239/">
+           <a href={data.linkedinurl}>
            <div className="connect-button">
               <p>Connect⚡</p>
             </div>
            </a>
-            <a href="https://github.com/voiiddxx">
+            <a href={data.githuburl}>
             <div className="github-button">
               <p>Star on Github 💫</p>
             </div>
@@ -63,6 +81,7 @@ const DarkpremHero = () => {
       </div>
     </div>  
   </div>
+  </>
   )
 }
 

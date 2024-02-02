@@ -1,4 +1,18 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models , Document } from "mongoose";
+
+
+
+export interface Iportfolio extends Document {
+    _id: string;
+    name:string;
+    heading:string;
+    linkedinurl:string;
+    githuburl:string;
+    mailurl:string;
+    extraurl:string;
+    avatar:string;
+    resume:string;
+}
 
 const portfoliSchema = new Schema({
     clerkId:{type:String},
