@@ -34,6 +34,7 @@ const formSchema = z.object({
   projectname: z.string().min(2).max(50),
   projectdetail: z.string().min(2).max(50),
   projectlink: z.string().url(),
+  projectstatus: z.enum(["Under Developement" , "Github Deployed" , "Live Deployed" , "Shipped"]),
   
 })
 
@@ -48,6 +49,7 @@ const Addproject = () => {
       projectname: "",
       projectdetail: "",
       projectlink: "",
+      projectstatus:"Github Deployed"
     },
   })
 
@@ -111,13 +113,47 @@ const Addproject = () => {
             </FormItem>
           )}
         />
+        
+        <div>
+          <input className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
+        </div>
         <FormField
           control={form.control}
-          name="projectlink"
+          name="projectstatus"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input type="file" placeholder="Project Link" {...field} />
+              <Select onValueChange={field.onChange} >
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Project Status" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="Under Developement">
+          <div className="flex items-center justify-between gap-2 text-green-300 w-full" >
+            <AlertTriangle height={15}/>
+            <p>Under developement</p>
+          </div>
+          </SelectItem>
+          <SelectItem value="Github Deployedk">
+          <div className="flex items-center justify-between gap-2 text-red-300" >
+            <Github height={15}/>
+            <p>Github Deployed</p>
+          </div>
+          </SelectItem>
+          <SelectItem value="Live Deployed">
+          <div className="flex items-center justify-between gap-2 text-white" >
+            <Radio height={15}/>
+            <p>Live Deployed</p>
+          </div>
+          </SelectItem>
+          <SelectItem value="Shipped">
+          <div className="flex items-center justify-between gap-2 text-orange-300" >
+            <Truck height={15}/>
+            <p>Shipped</p>
+          </div>
+          </SelectItem>
+        </SelectContent>
+      </Select>
               </FormControl>
               <FormDescription>
                 Please attached link of your project for better access
@@ -128,37 +164,7 @@ const Addproject = () => {
         />
 
 
-      <Select>
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Project Status" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="light">
-          <div className="flex items-center justify-between gap-2 text-green-300 w-full" >
-            <AlertTriangle height={15}/>
-            <p>Under developement</p>
-          </div>
-          </SelectItem>
-          <SelectItem value="dark">
-          <div className="flex items-center justify-between gap-2 text-red-300" >
-            <Github height={15}/>
-            <p>Github Deployed</p>
-          </div>
-          </SelectItem>
-          <SelectItem value="system">
-          <div className="flex items-center justify-between gap-2 text-white" >
-            <Radio height={15}/>
-            <p>Live Deployed</p>
-          </div>
-          </SelectItem>
-          <SelectItem value="system">
-          <div className="flex items-center justify-between gap-2 text-orange-300" >
-            <Truck height={15}/>
-            <p>Shipped</p>
-          </div>
-          </SelectItem>
-        </SelectContent>
-      </Select>
+     
 
         <Button className="w-full" type="submit">Submit</Button>
       </form>

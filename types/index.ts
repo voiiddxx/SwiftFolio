@@ -2,6 +2,7 @@
 
 
 export type createPortfolioparams = {
+    clerkId:string
     portfolio:{
         clerkId: string
         name: string
@@ -13,5 +14,16 @@ export type createPortfolioparams = {
         extraurl:string
         avatar:string
         resume:string
+    }
+}
+
+
+export type addProjectParams = {
+    project:{
+        projectname:string,
+        projectdetail:string,
+        projectlink:string,
+        projectstatus:string,
+        projectthumbnail:string,
     }
 }
