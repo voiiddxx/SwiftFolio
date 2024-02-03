@@ -46,11 +46,11 @@ const formSchema = z.object({
 
 type addProjectProps = {
   ownerId: string,
-  clerkId: string | undefined
+  useridclerk: any
 }
   
 
-const Addproject = ({ownerId , clerkId}:addProjectProps) => {
+const Addproject = ({ownerId , useridclerk}:addProjectProps) => {
 
   const [projectThumbname, setprojectThumbname] = useState<any>();
   
@@ -68,16 +68,17 @@ const Addproject = ({ownerId , clerkId}:addProjectProps) => {
   })
 
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-
-
-    
+  async function onSubmit(values: z.infer<typeof formSchema>) { 
     const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
    const response = await addProjecttoDatabase({project:{
      ...values, projectthumbnail: projectImageUrl,
-     clerkId: clerkId 
-   } , ownerId:ownerId})
-    console.log(response)
+     clerkId: useridclerk 
+   } , ownerId:ownerId});
+
+   console.log(response);
+   
+
+  
   }
   return (
     <Dialog>
