@@ -17,7 +17,6 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
       adminData && (
         <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
           <Editbutton/>
-          <div className='text-white'>Share this portfolio</div>
         </div>
       )
     }

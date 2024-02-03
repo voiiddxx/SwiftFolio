@@ -24,7 +24,6 @@ const page = async ({
   return (
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
-      <h1>{id}</h1>
       
     </div>
   )

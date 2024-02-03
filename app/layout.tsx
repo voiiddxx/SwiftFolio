@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark, neobrutalism } from "@clerk/themes";
+import { ThemeProvider } from "@/components/theme-provider"
 const kanit = Roboto({ 
   subsets: ["latin"],
   weight:["300" ,  "400" , "500" , "700" , "900"]
@@ -23,7 +24,12 @@ export default function RootLayout({
         baseTheme: dark
     }} >
       <html lang="en">
-      <body className={kanit.className}>{children}</body>
+      <body className={kanit.className}>
+        <ThemeProvider attribute="class"
+            defaultTheme="dark" >
+        {children}
+        </ThemeProvider>
+        </body>
     </html>
     </ClerkProvider>
   );
