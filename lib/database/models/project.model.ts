@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 
 
 const ProjectSchema = new Schema({
+    clerkId:{type: String},
     projectname:{type: String},
     projectdetail:{type: String},
     projectlink:{type: String},

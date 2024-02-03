@@ -45,13 +45,14 @@ const formSchema = z.object({
 
 
 type addProjectProps = {
-  ownerId: string
+  ownerId: string,
+  clerkId: string | undefined
 }
   
 
-const Addproject = ({ownerId}:addProjectProps) => {
+const Addproject = ({ownerId , clerkId}:addProjectProps) => {
 
-  const [projectThumbname, setprojectThumbname] = useState<any>(null);
+  const [projectThumbname, setprojectThumbname] = useState<any>();
   
 
   
@@ -68,9 +69,15 @@ const Addproject = ({ownerId}:addProjectProps) => {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
-   const response = await addProjecttoDatabase({project:{...values , projectthumbnail:"jsjs"} , ownerId:ownerId})
-    console.log(values)
+
+
+    
+    const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
+   const response = await addProjecttoDatabase({project:{
+     ...values, projectthumbnail: projectImageUrl,
+     clerkId: clerkId 
+   } , ownerId:ownerId})
+    console.log(response)
   }
   return (
     <Dialog>
@@ -129,7 +136,7 @@ const Addproject = ({ownerId}:addProjectProps) => {
         
         <div>
           <input onChange={(e)=>{
-            setprojectThumbname(e.target.value);
+            setprojectThumbname(e.target.files);
           }} className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
         </div>
         <FormField

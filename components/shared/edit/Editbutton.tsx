@@ -10,12 +10,18 @@ import {
 import { Edit, Medal, Projector, User } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
+import { currentUser } from '@clerk/nextjs'
 
   type editButtonProps = {
     portfolioId: string
   }
 
-const Editbutton = ({portfolioId} : editButtonProps) => {
+const Editbutton = async ({portfolioId} : editButtonProps) => {
+
+
+  const user = await currentUser();
+  console.log("this is current user" , user?.id);
+  
 
   return (
     <Sheet>

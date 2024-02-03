@@ -20,6 +20,7 @@ export type createPortfolioparams = {
 
 export type addProjectParams = {
     project:{
+        clerkId?:string,
         projectname:string,
         projectdetail:string,
         projectlink:string,
