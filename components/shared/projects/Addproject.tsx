@@ -1,4 +1,5 @@
 "use client"
+
 import {
     Dialog,
     DialogContent,
@@ -28,6 +29,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { AlertTriangle, ArrowUp, Github, Radio, Truck } from "lucide-react"
+import uploadDataonCloudinary from "../Cloudinary"
+import { addProjecttoDatabase } from "@/lib/actions/project.action"
+import { useState } from "react"
 
 
 const formSchema = z.object({
@@ -38,10 +42,19 @@ const formSchema = z.object({
   
 })
 
+
+
+type addProjectProps = {
+  ownerId: string
+}
   
 
-const Addproject = () => {
+const Addproject = ({ownerId}:addProjectProps) => {
 
+  const [projectThumbname, setprojectThumbname] = useState<any>(null);
+  
+
+  
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,9 +67,9 @@ const Addproject = () => {
   })
 
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    // const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
+   const response = await addProjecttoDatabase({project:{...values , projectthumbnail:"jsjs"} , ownerId:ownerId})
     console.log(values)
   }
   return (
@@ -115,7 +128,9 @@ const Addproject = () => {
         />
         
         <div>
-          <input className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
+          <input onChange={(e)=>{
+            setprojectThumbname(e.target.value);
+          }} className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
         </div>
         <FormField
           control={form.control}

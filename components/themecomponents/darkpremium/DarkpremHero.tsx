@@ -11,12 +11,14 @@ import Editbutton from '@/components/shared/edit/Editbutton'
 const DarkpremHero = ({data , adminData} : portfolioProps) => {
 
   
+
+  
   return (
     <>
     {
       adminData && (
         <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
-          <Editbutton/>
+          <Editbutton portfolioId={data._id} />
         </div>
       )
     }

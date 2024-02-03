@@ -62,7 +62,10 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       const avatarurl = await uploadDataonCloudinary(avatar);
       const resumeurl = await uploadDataonCloudinary(resume);
 
-      const response = await createPortfolio({portfolio:{...values , avatar:avatarurl , resume:resumeurl , clerkId:userId}});
+      const response = await createPortfolio({portfolio:{
+        ...values, avatar: avatarurl, resume: resumeurl,
+        clerkId: userId
+      } , clerkId:userId});
       if(response){
         form.reset();
         router.push(`/template}`)

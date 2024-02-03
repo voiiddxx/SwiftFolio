@@ -24,6 +24,7 @@ export type addProjectParams = {
         projectdetail:string,
         projectlink:string,
         projectstatus:string,
-        projectthumbnail:string,
-    }
+        projectthumbnail:any,
+    },
+    ownerId: string
 }

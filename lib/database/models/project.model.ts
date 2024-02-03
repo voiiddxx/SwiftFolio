@@ -8,7 +8,9 @@ const ProjectSchema = new Schema({
     projectlink:{type: String},
     projectstatus:{type: String},
     projectthumbnail:{type: String},
-    owner:{type: String},
+    owner:{
+        type:Schema.Types.ObjectId , ref:'Portfolio'
+    },
 });
 
 

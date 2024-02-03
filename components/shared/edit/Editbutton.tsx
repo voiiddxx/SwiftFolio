@@ -11,9 +11,12 @@ import { Edit, Medal, Projector, User } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 
+  type editButtonProps = {
+    portfolioId: string
+  }
 
+const Editbutton = ({portfolioId} : editButtonProps) => {
 
-const Editbutton = () => {
   return (
     <Sheet>
   <SheetTrigger>
@@ -36,7 +39,7 @@ const Editbutton = () => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-300">
         <Projector height={40}/>
-      <Addproject/>
+      <Addproject ownerId={portfolioId} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-blue-300">
         <Medal height={40}/>
@@ -48,7 +51,7 @@ const Editbutton = () => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-500">
         <Projector height={40}/>
-      <Addproject/>
+      <Addproject ownerId={portfolioId} />
       </div>
     </div>
   </SheetContent>

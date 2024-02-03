@@ -5,10 +5,14 @@ import connectToDatabase from "../database/mongodb";
 import Project from "../database/models/project.model";
 
 
-const addProject =  async({project}:addProjectParams) => {
+export const addProjecttoDatabase =  async({project , ownerId}:addProjectParams) => {
     try {
-        await connectToDatabase();
-        Project.create({...project , })
+        await connectToDatabase();    
+        const newProject = await Project.create({...project , owner:ownerId});
+        console.log("this is posted project");
+        
+        console.log(newProject);
+        
         
     } catch (error) {
         console.log(error);
@@ -16,3 +20,5 @@ const addProject =  async({project}:addProjectParams) => {
         
     }
 }
+
+
