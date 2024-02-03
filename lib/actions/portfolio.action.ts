@@ -26,8 +26,10 @@ export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
 export const getPortfolioBasedonuserClerkId = async (clerkId : string) => {
     try {
         await connectToDatabase();
-        const conditions = {};
-        const portFolio = await Portfolio.find(conditions);
+        // const conditions = {
+        //     clerkId:clerkId
+        // };
+        const portFolio = await Portfolio.find({clerkId});
         console.log(portFolio);
         return JSON.parse(JSON.stringify(portFolio));
         
