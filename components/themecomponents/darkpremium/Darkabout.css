@@ -1,0 +1,71 @@
+*{
+    margin: 0;padding: 0;
+
+}
+
+.about-main{
+    width: 100%;
+    background-image: url("/grid.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+    
+}
+
+
+
+.about-text{
+    flex-basis: 40%; 
+}
+
+.about-text h1{
+    color: #FF4545;
+    font-family: 'Manrope', sans-serif; 
+    font-size: 25px;
+}
+
+.about-text p{
+    margin-top: 50px;
+    color: rgb(204, 204, 204);
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 1px;
+    font-size: 13x;
+    line-height: 25px;
+    margin-right: 100px;
+}
+
+
+
+.about-image img{
+    margin-top: 40px;
+    height: 450px;
+    width: 450px;
+    object-fit: contain; 
+    border-radius: 30px;
+}
+
+
+@media screen and (max-width: 738px) {
+
+   
+
+   
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 100%;
+        padding: 25px;
+    }
+    .about-text p{
+        margin-right: 10px;
+        text-align: center;
+    }
+}
