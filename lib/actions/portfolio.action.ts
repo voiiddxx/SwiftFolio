@@ -7,6 +7,7 @@ import Portfolio from "../database/models/portfolio.model";
 
 
 
+
 export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
     try {           
         console.log(portfolio);

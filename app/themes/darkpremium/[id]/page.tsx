@@ -31,7 +31,7 @@ const page = async ({
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
-      <DarkProject/>
+      <DarkProject data={projects}/>
       
     </div>
 

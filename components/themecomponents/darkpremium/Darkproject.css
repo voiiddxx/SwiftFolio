@@ -3,8 +3,8 @@
     height:100vh;
     background-image: url("/grid.svg");
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: flex-start;
     padding-bottom: 32px;
 }
 
