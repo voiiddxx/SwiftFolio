@@ -39,3 +39,11 @@ export type AddAchivementParams = {
         aimage:string
     }
 }
+
+
+export type addSkillParams = {
+    skill:{
+        clerkId: string,
+        userSkill: string
+    }
+}
