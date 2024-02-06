@@ -12,6 +12,7 @@ import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
 import Addachivement from '../achievements/Addachivement'
+import Addskill from '../skills/Addskill'
 
   type editButtonProps = {
     portfolioId: string
@@ -49,11 +50,12 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-blue-300">
         <Medal height={40}/>
-        <Addachivement/>
+        <Addachivement useridclerk={user?.id} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-yellow-300">
         <Projector height={40}/>
-        <p>Add Skills</p>
+        <Addskill userclerkId={user?.id}/>
+
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-500">
         <Projector height={40}/>
