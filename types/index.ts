@@ -29,3 +29,13 @@ export type addProjectParams = {
     },
     ownerId: string
 }
+
+
+
+export type AddAchivementParams = {
+    achivement:{
+        clerkId:string
+        acaption:string,
+        aimage:string
+    }
+}

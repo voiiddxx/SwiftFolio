@@ -21,7 +21,7 @@ const DarkProject = ({data} : projectstypeProps) => {
         <h1 className='text-2xl font-bold text-green-300'>Checkout The Projects</h1>
         <p className='font-normal text-zinc-500' >All the projects out there with deployed links</p>
 
-        <div className='flex gap-6 flex-wrap'>
+        <div className=' w-full  flex gap-6 flex-wrap justify-center items-center'>
           {
             data.map((curr : any) => {
               return  <div className='h-[370px] w-[350px] bg-zinc-800 rounded-lg border-[1px] border-zinc-300' >

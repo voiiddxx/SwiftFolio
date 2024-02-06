@@ -11,6 +11,7 @@ import { Edit, Medal, Projector, User } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
+import Addachivement from '../achievements/Addachivement'
 
   type editButtonProps = {
     portfolioId: string
@@ -48,7 +49,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-blue-300">
         <Medal height={40}/>
-      <p>Add Achievments</p>
+        <Addachivement/>
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-yellow-300">
         <Projector height={40}/>
