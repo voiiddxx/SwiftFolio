@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Edit, Layers, Medal, Projector, User } from 'lucide-react'
+import { Edit, Layers, Medal, Projector, Rocket, User } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
@@ -15,6 +15,7 @@ import Addachivement from '../achievements/Addachivement'
 import Addskill from '../skills/Addskill'
 import CustomForm from '../custom/CustomForm'
 import { getCustomSection } from '@/lib/actions/custom.action'
+import CustomFieldform from '../custom/CustomFieldform'
 
   type editButtonProps = {
     portfolioId: string
@@ -69,9 +70,10 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
 
       {
         custom.map((curr: any) => {
-          return <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-cyan-300">
-          <Layers height={40}/>
-          <h1>{curr.heading}</h1>
+          return <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-red-300">
+          <Rocket height={40}/>
+   
+          <CustomFieldform customId={curr._id} useridclerk={user?.id} key={curr._id} heading={curr.heading} />
         </div>
         })
       }

@@ -10,7 +10,9 @@ const customSchema = new Schema({
     data:[
         {
             customTitle:{type: String,},
+            customLink: {type: String},
             customImage:{type: String},
+
         }
     ]
 });

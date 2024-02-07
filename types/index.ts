@@ -56,3 +56,13 @@ export type createCustomParams = {
     }
 }
 
+
+
+export type addCustomFieldParams = {
+    custom:{
+        customId: string,
+        customTitle: string
+        customLink: string
+        customImage: string
+    }
+}
