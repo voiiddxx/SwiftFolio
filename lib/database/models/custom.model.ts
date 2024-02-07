@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 
 
 const customSchema = new Schema({
+    clerkId:{type: String},
     heading:{
         type : String,
     },

@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react'
+import React from 'react'
 import {
   Sheet,
   SheetContent,
@@ -13,6 +13,8 @@ import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
 import Addachivement from '../achievements/Addachivement'
 import Addskill from '../skills/Addskill'
+import CustomForm from '../custom/CustomForm'
+import { getCustomSection } from '@/lib/actions/custom.action'
 
   type editButtonProps = {
     portfolioId: string
@@ -20,8 +22,10 @@ import Addskill from '../skills/Addskill'
 
 const Editbutton = async ({portfolioId} : editButtonProps) => {
 
-
   const user = await currentUser();
+
+  const custom = await getCustomSection(user?.id);
+  
   
 
   return (
@@ -57,9 +61,10 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
         <Addskill userclerkId={user?.id}/>
 
       </div>
-      <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-500">
+      <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-cyan-300">
         <Layers height={40}/>
-      <Addproject ownerId={portfolioId} useridclerk={user?.id} />
+      <CustomForm useridclerk={user?.id}  />
+     
       </div>
     </div>
   </SheetContent>

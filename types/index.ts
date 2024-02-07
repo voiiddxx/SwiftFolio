@@ -42,8 +42,17 @@ export type AddAchivementParams = {
 
 
 export type addSkillParams = {
+    clerkId: string,
     skill:{
-        clerkId: string,
         userSkill: string
     }
 }
+
+
+export type createCustomParams = {
+    clerkId: string,
+    customSection: {
+        heading: string,
+    }
+}
+
