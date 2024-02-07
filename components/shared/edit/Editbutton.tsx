@@ -64,8 +64,17 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-cyan-300">
         <Layers height={40}/>
       <CustomForm useridclerk={user?.id}  />
-     
       </div>
+
+
+      {
+        custom.map((curr: any) => {
+          return <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-cyan-300">
+          <Layers height={40}/>
+          <h1>{curr.heading}</h1>
+        </div>
+        })
+      }
     </div>
   </SheetContent>
 </Sheet>

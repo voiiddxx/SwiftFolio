@@ -23,12 +23,11 @@ export const createCustomSection = async ({clerkId , customSection} : createCust
 
 
 
-export const getCustomSection = async (clerkId : string) => {
+export const getCustomSection = async (clerkId : any) => {
     try {
         await connectToDatabase();
         const customsection = await Custom.find({clerkId: clerkId});
-        console.log("this is custom sextion", customsection);
-        
+        return JSON.parse(JSON.stringify(customsection));       
 
     } catch (error) {
         throw new Error(error as string);
