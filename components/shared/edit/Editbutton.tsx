@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Edit, Medal, Projector, User } from 'lucide-react'
+import { Edit, Layers, Medal, Projector, User } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
@@ -58,7 +58,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
 
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-500">
-        <Projector height={40}/>
+        <Layers height={40}/>
       <Addproject ownerId={portfolioId} useridclerk={user?.id} />
       </div>
     </div>
