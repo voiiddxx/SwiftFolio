@@ -1,3 +1,5 @@
+import { Medal, Trophy } from 'lucide-react'
+import Image from 'next/image'
 import React from 'react'
 
 
@@ -8,29 +10,43 @@ import React from 'react'
     }
 
 const Darkachivement = ( {achivements} : darkAchivementProps) => {
-  return (
-    <div>
-      {
-        achivements.length < 1 ? <div></div> : <div className=' w-full bg-heroBgImage'> 
-        <div className='h-10 w-full flex justify-center items-center flex-col'>
-        <h1 className='text-2xl font-semibold'>Achivements</h1>
-        <p className='text-sm font-light text-zinc-600' >My Achivements Out There</p>
-        </div>
 
-        <div className='h-auto w-full flex justify-center items-center gap-4 mt-6'>
-            {
-                achivements.map(({curr , index} : any) => {
-                    return <div className='h-[250px] w-[400px] bg-yellow-500 rounded-lg'>
+  console.log("this is achivement section" , achivements[0]);
+  console.log(achivements[0].aimage);
+  
+  if(achivements.length <1 ) {
+    return <div></div>
+  }
+  else{
+    return <div className='w-full bg-heroBgImage'>
+      <div className='h-20 w-full flex items-center justify-center'>
+        <h1 className='font-semibold text-2xl text-white'>Achivements</h1>
 
-                    </div>
-                })
-            }
-
-        </div>
-        </div>
-      }
+      </div>
+      <div className='w-full flex justify-center items-center gap-3'>
+        {
+          achivements.map((curr : any) => {
+            return <div className='h-[400px] w-[400px]' >
+              <div className='h-[250px] w-full  rounded-t-lg'>
+              <Image className='h-[250px] w-full rounded-t-lg object-cover' src={curr.aimage} height={250} width={400} alt='achivementImage'/>
+              <div className='h-12 w-full bg-zinc-500 bg-opacity-20 rounded-md flex justify-center items-center gap-2 mt-5'>
+                <div className='text-green-300 opacity-100 '>
+                <Trophy size={20}/>
+                </div>
+                <p className='font-normal text-blue-300 text-sm'>{curr.acaption}</p>
+              
+              </div>
+              </div>
+              </div>
+  
+          })
+        }
+      </div>
+      
     </div>
-  )
+  }
+
+
 }
 
 export default Darkachivement
