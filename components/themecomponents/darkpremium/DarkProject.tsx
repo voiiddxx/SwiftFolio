@@ -20,7 +20,7 @@ const DarkProject = ({data} : projectstypeProps) => {
     data.length < 1 ? <div className='h-20 w-full flex items-center justify-center'
     > <h1>There is no any projects</h1></div> :  
      <div className='project-main'>
-       <div className='h-20 w-full  flex flex-col mt-5 items-center justify-center' >
+       <div className='h-20 w-full  flex flex-col mt-12 items-center justify-center' >
         <h1 className='text-2xl font-bold text-green-300'>Checkout The Projects</h1>
         <p className='font-normal text-zinc-500' >All the projects out there with deployed links</p>
         </div>

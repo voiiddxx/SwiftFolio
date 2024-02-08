@@ -1,3 +1,4 @@
+import { url } from "inspector"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -17,6 +18,7 @@ const config = {
         "2xl": "1400px",
       },
     },
+
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -52,6 +54,9 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      backgroundImage:{
+        'heroBgImage': "url(/check.svg)"
       },
       borderRadius: {
         lg: "var(--radius)",

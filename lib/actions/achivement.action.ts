@@ -9,9 +9,13 @@ import { log } from "console";
 
 export const addAchevementtoDatabase = async ({achivement} : AddAchivementParams) => {
     try {
+        console.log("this us claue" , achivement);
+        
         await connectToDatabase();
 
         const achevements = await Achivement.create({...achivement});
+        console.log(achevements);
+        
         return JSON.parse(JSON.stringify(achevements));
 
     } catch (error) {

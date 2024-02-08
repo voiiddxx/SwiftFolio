@@ -22,16 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { AlertTriangle, ArrowUp, Github, Radio, Truck } from "lucide-react"
 import uploadDataonCloudinary from "../Cloudinary"
-import { addProjecttoDatabase } from "@/lib/actions/project.action"
 import { useState } from "react"
 import { addAchevementtoDatabase } from '@/lib/actions/achivement.action'
 
@@ -57,7 +48,7 @@ const Addachivement = ({useridclerk} : achementProps) => {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) { 
-
+  
     if(AchivementImage){
           const achivementimageUrl = await uploadDataonCloudinary(AchivementImage);
           const response = await addAchevementtoDatabase({achivement:{...values , aimage:achivementimageUrl , clerkId:useridclerk}});
