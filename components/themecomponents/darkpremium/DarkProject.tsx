@@ -1,7 +1,5 @@
-import React from 'react'
-import "./DarkProject.css"
+
 import Image from 'next/image'
-import logo from '../../../public/logo.svg'
 
 
 
