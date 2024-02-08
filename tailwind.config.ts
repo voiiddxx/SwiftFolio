@@ -56,7 +56,7 @@ const config = {
         },
       },
       backgroundImage:{
-        'heroBgImage': "url(/check.svg)"
+        'heroBgImage': "url(/grid.svg)"
       },
       borderRadius: {
         lg: "var(--radius)",

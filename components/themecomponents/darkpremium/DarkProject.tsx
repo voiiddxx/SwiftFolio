@@ -2,16 +2,14 @@
 import Image from 'next/image'
 
 
-
 type projectstypeProps = {
   data: any
 }
 
+
 const DarkProject = ({data} : projectstypeProps) => {
 
-
   
-
   return (
    <>
    {
