@@ -1,8 +1,9 @@
+import Image from 'next/image'
 import React from 'react'
 
 
-    type customProps = {
-        customData: any
+type customProps = {
+  customData: any
     }
 const DarkCustom = ( {customData} : customProps) => {
   return (
@@ -21,8 +22,12 @@ const DarkCustom = ( {customData} : customProps) => {
                        <div className='w-full flex justify-center items-center gap-4'>
                        {
                             curr.data.map((card : any) => {
-                                return <div className='h-36 w-44 bg-yellow-50'>
-
+                                return <div className='h-[300px] w-[400px] bg-yellow-50 rounded-md mt-5 '>
+                                  <div className='h-[300px] w-full rounded-md bg-blue-500'>
+                              <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
+                             
+                              {/* <Image className='h-[180px] w-full rounded-t-md' src={card.customImage} height={180} width={450} alt="logo" /> */}
+                                  </div>
                                 </div>
                             })
                         }
