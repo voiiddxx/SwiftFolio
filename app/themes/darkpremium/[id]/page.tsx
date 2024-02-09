@@ -45,7 +45,7 @@ const page = async ({
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
-      <DarkProject data={projects}/>
+      <DarkProject admin={admin} data={projects}/>
       <Darkachivement achivements={achivements} />
       <DarkCustom customData={customData} />
       <DarkSkill skills={skills}/>

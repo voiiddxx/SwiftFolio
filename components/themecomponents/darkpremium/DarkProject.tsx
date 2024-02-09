@@ -1,13 +1,15 @@
 
+import { Edit } from 'lucide-react'
 import Image from 'next/image'
 
 
 type projectstypeProps = {
   data: any
+  adminData : boolean
 }
 
 
-const DarkProject = ({data} : projectstypeProps) => {
+const DarkProject = ({data , adminData} : projectstypeProps) => {
 
   
   return (
@@ -23,7 +25,7 @@ const DarkProject = ({data} : projectstypeProps) => {
         <div className='h-auto w-full flex items-center justify-center gap-5 mt-6'>
           {
             data.map((curr : any) => {
-              return  <div className='h-[370px] w-[350px] bg-zinc-800 rounded-lg border-[1px] border-zinc-300' >
+              return  <div className='w-[350px] bg-zinc-800 rounded-lg border-[1px] border-zinc-300' >
                             <div className='h-[180px] w-full bg-red-50 rounded-t-lg'>
                             <Image className='h-[180px] w-full rounded-t-md object-cover' src={curr.projectthumbnail} height={180} width={450} alt="logo" />
                             </div>
@@ -48,6 +50,21 @@ const DarkProject = ({data} : projectstypeProps) => {
                                   </div>
                                 </div>
                             </div>
+                 {
+                  adminData===undefined ?  <div className='w-full flex justify-between'>
+                    
+                  <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2 w-24 py-1 flex justify-center items-center gap-3 rounded-md'>
+                              <Edit size={15}/>
+                              <p className='text-[12px] text-orange-300'>Add Skills</p>
+                            </div>
+                            
+                            <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
+                              <Edit size={15}/>
+                              <p className='text-[12px] text-teal-300'>Edit Project/Delete</p>
+                            </div>
+                  </div> : <div></div>
+                 }
+                            <div className='h-3 w-full'></div>
                             </div>
             })
           }
