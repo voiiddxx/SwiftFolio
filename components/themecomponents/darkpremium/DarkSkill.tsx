@@ -7,10 +7,11 @@ import React from 'react'
 
 const DarkSkill = ({skills} : any) => {
 
-    console.log(skills[0].allSkill);
+  console.log("this is skills sections" , skills.length);
+  
+  // return <div></div>
 
-
-    if(skills[0].allSkill.length < 1) {
+    if(skills.length < 1) {
         return <div></div>
     }else{
         return (

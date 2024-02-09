@@ -13,8 +13,7 @@ const DarkProject = ({data} : projectstypeProps) => {
   return (
    <>
    {
-    data.length < 1 ? <div className='h-20 w-full flex items-center justify-center'
-    > <h1>There is no any projects</h1></div> :  
+    data.length < 1 ? <div></div> :  
      <div className='w-full bg-heroBgImage pb-16 pt-8 flex justify-center items-center flex-col'>
        <div className='h-20 w-full flex flex-col mt-12 items-center justify-center' >
         <h1 className='text-2xl font-bold text-green-300'>Checkout The Projects</h1>
@@ -26,7 +25,7 @@ const DarkProject = ({data} : projectstypeProps) => {
             data.map((curr : any) => {
               return  <div className='h-[370px] w-[350px] bg-zinc-800 rounded-lg border-[1px] border-zinc-300' >
                             <div className='h-[180px] w-full bg-red-50 rounded-t-lg'>
-                            <Image className='h-[180px] w-full rounded-t-md' src={curr.projectthumbnail} height={180} width={450} alt="logo" />
+                            <Image className='h-[180px] w-full rounded-t-md object-cover' src={curr.projectthumbnail} height={180} width={450} alt="logo" />
                             </div>
                             <div className='p-2'>
                                <div className='h-10 w-full flex justify-between items-center '>

@@ -4,6 +4,7 @@ import DarkCustom from "@/components/themecomponents/darkpremium/DarkCustom"
 import DarkProject from "@/components/themecomponents/darkpremium/DarkProject"
 import DarkSkill from "@/components/themecomponents/darkpremium/DarkSkill"
 import Darkachivement from "@/components/themecomponents/darkpremium/Darkachivement"
+import Darkfooter from "@/components/themecomponents/darkpremium/Darkfooter"
 import DarkpremHero from "@/components/themecomponents/darkpremium/DarkpremHero"
 import { getAcheivemtUSingClerkid } from "@/lib/actions/achivement.action"
 import { getCustomSection } from "@/lib/actions/custom.action"
@@ -48,6 +49,7 @@ const page = async ({
       <Darkachivement achivements={achivements} />
       <DarkCustom customData={customData} />
       <DarkSkill skills={skills}/>
+      <Darkfooter data={portfolio[0]} />
       
     </div>
 

@@ -11,8 +11,7 @@ import React from 'react'
 
 const Darkachivement = ( {achivements} : darkAchivementProps) => {
 
-  console.log("this is achivement section" , achivements[0]);
-  console.log(achivements[0].aimage);
+
   
   if(achivements.length <1 ) {
     return <div></div>
