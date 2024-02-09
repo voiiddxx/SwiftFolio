@@ -11,7 +11,7 @@ import Editbutton from '@/components/shared/edit/Editbutton'
 const DarkpremHero = ({data , adminData} : portfolioProps) => {
 
   
-
+  
   
   return (
     <>

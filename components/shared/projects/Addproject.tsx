@@ -30,7 +30,7 @@ import {
 } from "@/components/ui/select"
 import { AlertTriangle, ArrowUp, Github, Radio, Truck } from "lucide-react"
 import uploadDataonCloudinary from "../Cloudinary"
-import { addProjecttoDatabase } from "@/lib/actions/project.action"
+import { addProjecttoDatabase, updateProject } from "@/lib/actions/project.action"
 import { useState } from "react"
 
 
@@ -45,12 +45,13 @@ const formSchema = z.object({
 
 
 type addProjectProps = {
-  ownerId: string,
   useridclerk: any
+  projectId?: any
+  type:"ADD" | "EDIT"
 }
   
 
-const Addproject = ({ownerId , useridclerk}:addProjectProps) => {
+const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
 
   const [projectThumbname, setprojectThumbname] = useState<any>();
   
@@ -69,13 +70,25 @@ const Addproject = ({ownerId , useridclerk}:addProjectProps) => {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) { 
-    const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
-   const response = await addProjecttoDatabase({project:{
-     ...values, projectthumbnail: projectImageUrl,
-     clerkId: useridclerk 
-   } , ownerId:ownerId});
 
-   console.log(response);
+    if(type=="ADD"){
+      
+    const projectImageUrl = await uploadDataonCloudinary(projectThumbname);
+    const response = await addProjecttoDatabase({project:{
+   ...values, projectthumbnail: projectImageUrl,
+   clerkId: useridclerk 
+ } });
+  console.log(response);
+    }
+
+
+    if(type=="EDIT"){
+      console.log("this is project id we have",projectId);
+      
+      const editResponse = await updateProject({project:{...values} , projectId:projectId});
+      console.log(editResponse);
+      
+    }
    
 
   

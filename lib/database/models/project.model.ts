@@ -12,9 +12,6 @@ const ProjectSchema = new Schema({
     projectSkill:[
         {skill:{type: String},}
     ],
-    owner:{
-        type:Schema.Types.ObjectId , ref:'Portfolio'
-    },
 });
 
 

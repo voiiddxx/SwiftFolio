@@ -51,7 +51,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-300">
         <Projector height={40}/>
-      <Addproject ownerId={portfolioId} useridclerk={user?.id} />
+      <Addproject type='ADD'  useridclerk={user?.id} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-blue-300">
         <Medal height={40}/>

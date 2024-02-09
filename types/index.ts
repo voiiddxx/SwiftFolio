@@ -27,7 +27,6 @@ export type addProjectParams = {
         projectstatus:string,
         projectthumbnail:any,
     },
-    ownerId: string
 }
 
 
@@ -65,4 +64,15 @@ export type addCustomFieldParams = {
         customLink: string
         customImage: string
     }
+}
+
+export type UpdateProjectParams = {
+    project:{
+        projectname?:string
+        projectdetail?:string
+        projectlink?:string
+        projectstatus?:string
+        projectthumbnail?:any
+    }
+    projectId: string
 }

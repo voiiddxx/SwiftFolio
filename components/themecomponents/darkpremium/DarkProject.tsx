@@ -1,5 +1,7 @@
 
-import { Edit } from 'lucide-react'
+import Addproject from '@/components/shared/projects/Addproject'
+import { currentUser } from '@clerk/nextjs'
+import {  Edit, Trash } from 'lucide-react'
 import Image from 'next/image'
 
 
@@ -9,7 +11,10 @@ type projectstypeProps = {
 }
 
 
-const DarkProject = ({data , adminData} : projectstypeProps) => {
+const DarkProject = async ({data , adminData} : projectstypeProps) => {
+
+  const user = await currentUser();
+
 
   
   return (
@@ -51,16 +56,17 @@ const DarkProject = ({data , adminData} : projectstypeProps) => {
                                 </div>
                             </div>
                  {
-                  adminData===undefined ?  <div className='w-full flex justify-between'>
+                  adminData===true ?  <div className='w-full flex justify-between'>
                     
-                  <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2 w-24 py-1 flex justify-center items-center gap-3 rounded-md'>
+                  <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
                               <Edit size={15}/>
-                              <p className='text-[12px] text-orange-300'>Add Skills</p>
+                              {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
+                              <Addproject type='EDIT'  useridclerk={user?.id} projectId={curr._id}/>
                             </div>
                             
                             <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
-                              <Edit size={15}/>
-                              <p className='text-[12px] text-teal-300'>Edit Project/Delete</p>
+                              <Trash size={15}/>
+                              <p className='text-[12px] text-teal-300'>Delete </p>
                             </div>
                   </div> : <div></div>
                  }
