@@ -1,3 +1,4 @@
+import { ChevronsRight, Trophy } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -22,9 +23,14 @@ const DarkCustom = ( {customData} : customProps) => {
                        <div className='w-full flex justify-center items-center gap-4'>
                        {
                             curr.data.map((card : any) => {
-                                return <div className='h-[300px] w-[400px] bg-yellow-50 rounded-md mt-5 '>
+                                return <div className='h-[400px] w-[400px]  rounded-md mt-5 '>
                                   <div className='h-[300px] w-full rounded-md bg-blue-500'>
                               <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
+                              <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
+                              
+                              <p className='font-light text-zinc-400'>{card.customTitle}</p>
+                              <ChevronsRight size={18} color='gray'/>
+                              </div>
                              
                               {/* <Image className='h-[180px] w-full rounded-t-md' src={card.customImage} height={180} width={450} alt="logo" /> */}
                                   </div>
