@@ -39,14 +39,23 @@ export const addProjecttoDatabase =  async({project }:addProjectParams) => {
 
 export const updateProject = async({project , projectId} : UpdateProjectParams) => {
     try {
-        console.log(project , projectId);
+        await connectToDatabase();
         const projectForUpdate = await Project.findByIdAndUpdate(projectId , {...project} , {new:true});
         console.log(projectForUpdate);
         return JSON.parse(JSON.stringify(projectForUpdate));
-        
-        
     } catch (error) {
         throw new Error(error as string);
+    }
+}
+
+
+export const DeleteProject = async (projectId : string) => {
+    try {
+        await connectToDatabase();
+        const deleted = await Project.findByIdAndDelete(projectId);
+    } catch (error) {
+        throw new Error(error as string);
+
     }
 }
 
