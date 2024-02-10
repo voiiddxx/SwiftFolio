@@ -38,9 +38,10 @@ const formSchema = z.object({
     useridclerk: string | any
     customId : string | any
     heading : string
+    type: "ADD" | "DELETE"
   }
 
-const CustomFieldform = ({useridclerk , customId , heading} : CustomFieldProps) => {
+const CustomFieldform = ({useridclerk , customId , heading , type} : CustomFieldProps) => {
 
    const [customImage, setcustomImage] = useState<any>();
    

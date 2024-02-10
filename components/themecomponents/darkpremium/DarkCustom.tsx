@@ -1,3 +1,6 @@
+import Addachivement from '@/components/shared/achievements/Addachivement'
+import CustomFieldform from '@/components/shared/custom/CustomFieldform'
+import DeleteSection from '@/components/shared/delete/DeleteSection'
 import { ChevronsRight, Trophy } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -24,8 +27,14 @@ const DarkCustom = ( {customData} : customProps) => {
                        {
                             curr.data.map((card : any) => {
                                 return <div className='h-[400px] w-[400px]  rounded-md mt-5 '>
-                                  <div className='h-[300px] w-full rounded-md bg-blue-500'>
+                                   
+                                  <div className='h-[300px] w-full rounded-md bg-blue-500 relative'>
+                                    
+                                 
                               <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
+                              <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md' >
+                                <CustomFieldform customId={curr._id} type='ADD' useridclerk="550"  />
+                              </div>
                               <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
                               
                               <p className='font-light text-zinc-400'>{card.customTitle}</p>

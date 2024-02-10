@@ -73,7 +73,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
           return <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-red-300">
           <Rocket height={40}/>
    
-          <CustomFieldform customId={curr._id} useridclerk={user?.id} key={curr._id} heading={curr.heading} />
+          <CustomFieldform customId={curr._id} useridclerk={user?.id} key={curr._id} heading={curr.heading} type='ADD' />
         </div>
         })
       }
