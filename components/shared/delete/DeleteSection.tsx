@@ -12,6 +12,7 @@ import {
   } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { delteAchivement } from "@/lib/actions/achivement.action"
+import { deleteCustomSection } from "@/lib/actions/custom.action"
 import { DeleteProject } from "@/lib/actions/project.action"
 import { Trash } from "lucide-react"
   
@@ -19,7 +20,7 @@ import { Trash } from "lucide-react"
 
     type deleteSectionProps = {
         deleteId: string,
-        type: "PROJECT" | "ACHIVEMENT"
+        type: "PROJECT" | "ACHIVEMENT" | "CUSTOM"
     }
 
 const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
@@ -34,6 +35,10 @@ const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
               alert("this is called");
               await delteAchivement(deleteId);
             }
+            else if(type == "CUSTOM"){
+              await deleteCustomSection(deleteId);
+              
+            }
         } catch (error) {
             throw new Error(error as string);
         }
@@ -44,7 +49,7 @@ const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
       <AlertDialog>
         
   {
-    type=="ACHIVEMENT" ? <AlertDialogTrigger>
+    type!=="PROJECT" ? <AlertDialogTrigger>
       <Trash size={15} color="red"/> 
     </AlertDialogTrigger> : <AlertDialogTrigger className="text-sm text-red-400">Delete</AlertDialogTrigger>
   }

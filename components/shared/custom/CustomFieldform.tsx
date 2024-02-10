@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { addCustomFieldtoDatabase } from '@/lib/actions/custom.action'
 import uploadDataonCloudinary from '../Cloudinary'
+import { Edit } from 'lucide-react'
 
 
 
@@ -37,7 +38,7 @@ const formSchema = z.object({
   type CustomFieldProps = {
     useridclerk: string | any
     customId : string | any
-    heading : string
+    heading? : string
     type: "ADD" | "DELETE"
   }
 
@@ -68,7 +69,11 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
   return (
     <div>
         <Dialog>
-    <DialogTrigger>Add {heading}</DialogTrigger>
+    {
+      type=='DELETE' ? <DialogTrigger>Add {heading}</DialogTrigger> : <DialogTrigger>
+        <Edit color='black' size={18}/>
+      </DialogTrigger> 
+    }
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>

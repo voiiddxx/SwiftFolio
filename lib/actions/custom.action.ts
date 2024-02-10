@@ -48,3 +48,15 @@ export const addCustomFieldtoDatabase = async ({custom} : addCustomFieldParams) 
         throw new Error(error as string);
     }
 }
+
+
+export const deleteCustomSection = async (deleteId: string)=>{
+    try {
+        await connectToDatabase();
+        const deleteSec = await Custom.findById(deleteId);
+        console.log("this is delete part",deleteSec);
+        
+    } catch (error) {
+        throw Error(error as string);
+    }
+}
