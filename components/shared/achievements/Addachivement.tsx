@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input"
 import uploadDataonCloudinary from "../Cloudinary"
 import { useState } from "react"
 import { addAchevementtoDatabase } from '@/lib/actions/achivement.action'
+import { Edit } from 'lucide-react'
 
 
 const formSchema = z.object({
@@ -33,9 +34,13 @@ const formSchema = z.object({
 
    type achementProps = {
     useridclerk: any
+    achivementId?: any
+    type: "ADD" | "EDIT"
    }
 
-const Addachivement = ({useridclerk} : achementProps) => {
+const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
+  console.log("this is type and id is" , type , achivementId );
+  
 
   const [AchivementImage, setAchivementImage] = useState<any>()
 
@@ -65,7 +70,12 @@ const Addachivement = ({useridclerk} : achementProps) => {
 
   return (
     <Dialog>
-    <DialogTrigger>Add Your Achievements</DialogTrigger>
+    <DialogTrigger>
+      {
+        type=='EDIT' ? <Edit size={15} color='black'/> : <div>Add Your Achievements</div>
+      }
+
+    </DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>
@@ -78,10 +88,10 @@ const Addachivement = ({useridclerk} : achementProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Your project Name" {...field} />
+                  <Input placeholder="Achivement caption" {...field} />
                 </FormControl>
                 <FormDescription>
-                  This is Your Project Name.
+                  This is Your Achivement caption .
                 </FormDescription>
                 <FormMessage />
               </FormItem>

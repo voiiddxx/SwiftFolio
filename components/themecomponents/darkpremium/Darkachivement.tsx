@@ -1,4 +1,6 @@
-import { Medal, Trophy } from 'lucide-react'
+import Addachivement from '@/components/shared/achievements/Addachivement'
+import { currentUser } from '@clerk/nextjs'
+import { Edit, Medal, Trophy } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -9,7 +11,9 @@ import React from 'react'
         achivements: any
     }
 
-const Darkachivement = ( {achivements} : darkAchivementProps) => {
+const Darkachivement = async ( {achivements} : darkAchivementProps) => {
+
+  const user = await currentUser();
 
 
   
@@ -26,7 +30,11 @@ const Darkachivement = ( {achivements} : darkAchivementProps) => {
         {
           achivements.map((curr : any) => {
             return <div className='h-[400px] w-[400px]' >
-              <div className='h-[250px] w-full  rounded-t-lg'>
+              <div className='h-[250px] w-full  rounded-t-lg relative'>
+                <div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
+                {/* <Edit size={15} color='black'/> */}
+                <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
+                </div>
               <Image className='h-[250px] w-full rounded-t-lg object-cover' src={curr.aimage} height={250} width={400} alt='achivementImage'/>
               <div className='h-12 w-full bg-zinc-500 bg-opacity-20 rounded-md flex justify-center items-center gap-2 mt-5'>
                 <div className='text-green-300 opacity-100 '>

@@ -95,7 +95,9 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
   }
   return (
     <Dialog>
-  <DialogTrigger>Add project</DialogTrigger>
+  <DialogTrigger> {
+    type=="EDIT" ? <p>Edit</p> : <div>Add Project</div> 
+    } </DialogTrigger>
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Fill Required Information</DialogTitle>
