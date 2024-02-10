@@ -1,4 +1,5 @@
 import Addachivement from '@/components/shared/achievements/Addachivement'
+import DeleteSection from '@/components/shared/delete/DeleteSection'
 import { currentUser } from '@clerk/nextjs'
 import { Edit, Medal, Trophy } from 'lucide-react'
 import Image from 'next/image'
@@ -33,6 +34,9 @@ const Darkachivement = async ( {achivements} : darkAchivementProps) => {
               <div className='h-[250px] w-full  rounded-t-lg relative'>
                 <div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
                 <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
+                </div>
+                <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
+                <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
                 </div>
               <Image className='h-[250px] w-full rounded-t-lg object-cover' src={curr.aimage} height={250} width={400} alt='achivementImage'/>
               <div className='h-12 w-full bg-zinc-500 bg-opacity-20 rounded-md flex justify-center items-center gap-2 mt-5'>

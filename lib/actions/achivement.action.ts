@@ -50,3 +50,15 @@ export const updateAchivementSection = async ( {achivement , achivementId } : up
         throw new Error(error as string);
     }
 }
+
+
+export const delteAchivement =  async ( deleteId: string) => {
+    try {
+        await connectToDatabase();
+        const deletedProject = await Achivement.findByIdAndDelete(deleteId);
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}

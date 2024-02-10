@@ -11,7 +11,9 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import { delteAchivement } from "@/lib/actions/achivement.action"
 import { DeleteProject } from "@/lib/actions/project.action"
+import { Trash } from "lucide-react"
   
 
 
@@ -28,6 +30,10 @@ const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
             if(type=="PROJECT"){
                 await DeleteProject(deleteId);
             }
+            else if(type =="ACHIVEMENT"){
+              alert("this is called");
+              await delteAchivement(deleteId);
+            }
         } catch (error) {
             throw new Error(error as string);
         }
@@ -36,7 +42,12 @@ const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
   return (
     <div>
       <AlertDialog>
-  <AlertDialogTrigger className="text-sm text-red-400">Delete</AlertDialogTrigger>
+        
+  {
+    type=="ACHIVEMENT" ? <AlertDialogTrigger>
+      <Trash size={15} color="red"/> 
+    </AlertDialogTrigger> : <AlertDialogTrigger className="text-sm text-red-400">Delete</AlertDialogTrigger>
+  }
   <AlertDialogContent>
     <AlertDialogHeader>
       <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
