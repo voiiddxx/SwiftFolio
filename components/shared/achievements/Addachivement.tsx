@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import uploadDataonCloudinary from "../Cloudinary"
 import { useState } from "react"
-import { addAchevementtoDatabase } from '@/lib/actions/achivement.action'
+import { addAchevementtoDatabase, updateAchivementSection } from '@/lib/actions/achivement.action'
 import { Edit } from 'lucide-react'
 
 
@@ -54,16 +54,18 @@ const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) { 
   
-    if(AchivementImage){
-          const achivementimageUrl = await uploadDataonCloudinary(AchivementImage);
-          const response = await addAchevementtoDatabase({achivement:{...values , aimage:achivementimageUrl , clerkId:useridclerk}});
-          console.log(response);
-          
-
-    } else{
+    if(type=='ADD'){
+      if(AchivementImage){
+        const achivementimageUrl = await uploadDataonCloudinary(AchivementImage);
+        const response = await addAchevementtoDatabase({achivement:{...values , aimage:achivementimageUrl , clerkId:useridclerk}});
+        console.log(response);
+        }   else{
       alert("Please select Image")
-      
+    
     }
+ } else{
+   const updateRes = await updateAchivementSection({achivement:{...values} ,  achivementId:achivementId});
+ }
   
   }
 

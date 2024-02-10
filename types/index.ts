@@ -76,3 +76,12 @@ export type UpdateProjectParams = {
     }
     projectId: string
 }
+
+
+export type updateAchivementParams = {
+    achivement:{
+        acaption?:string,
+        aimage?:string
+    },
+    achivementId: string
+}

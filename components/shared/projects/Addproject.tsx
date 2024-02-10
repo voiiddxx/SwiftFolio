@@ -83,15 +83,9 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
 
 
     if(type=="EDIT"){
-      console.log("this is project id we have",projectId);
-      
       const editResponse = await updateProject({project:{...values} , projectId:projectId});
-      console.log(editResponse);
-      
+      console.log(editResponse); 
     }
-   
-
-  
   }
   return (
     <Dialog>
@@ -149,7 +143,6 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
             </FormItem>
           )}
         />
-        
         <div>
           <input onChange={(e)=>{
             setprojectThumbname(e.target.files);
@@ -200,10 +193,6 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
             </FormItem>
           )}
         />
-
-
-     
-
         <Button className="w-full" type="submit">Submit</Button>
       </form>
     </Form>

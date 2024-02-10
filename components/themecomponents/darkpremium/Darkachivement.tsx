@@ -32,7 +32,6 @@ const Darkachivement = async ( {achivements} : darkAchivementProps) => {
             return <div className='h-[400px] w-[400px]' >
               <div className='h-[250px] w-full  rounded-t-lg relative'>
                 <div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
-                {/* <Edit size={15} color='black'/> */}
                 <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
                 </div>
               <Image className='h-[250px] w-full rounded-t-lg object-cover' src={curr.aimage} height={250} width={400} alt='achivementImage'/>
