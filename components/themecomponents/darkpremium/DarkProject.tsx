@@ -1,5 +1,7 @@
 
+import DeleteSection from '@/components/shared/delete/DeleteSection'
 import Addproject from '@/components/shared/projects/Addproject'
+import { DeleteProject } from '@/lib/actions/project.action'
 import { currentUser } from '@clerk/nextjs'
 import {  Edit, Trash } from 'lucide-react'
 import Image from 'next/image'
@@ -66,7 +68,7 @@ const DarkProject = async ({data , adminData} : projectstypeProps) => {
                             
                             <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
                               <Trash size={15}/>
-                              <p className='text-[12px] text-teal-300'>Delete </p>
+                              <DeleteSection type='PROJECT' deleteId={curr._id} />
                             </div>
                   </div> : <div></div>
                  }
