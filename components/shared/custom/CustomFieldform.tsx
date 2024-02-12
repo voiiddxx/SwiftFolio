@@ -39,7 +39,7 @@ const formSchema = z.object({
     useridclerk: string | any
     customId : string | any
     heading? : string
-    type: "ADD" | "DELETE"
+    type: "ADD" | "EDIT"
   }
 
 const CustomFieldform = ({useridclerk , customId , heading , type} : CustomFieldProps) => {
@@ -70,7 +70,7 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
     <div>
         <Dialog>
     {
-      type=='DELETE' ? <DialogTrigger>Add {heading}</DialogTrigger> : <DialogTrigger>
+      type=='ADD' ? <DialogTrigger>Add {heading}</DialogTrigger> : <DialogTrigger>
         <Edit color='black' size={18}/>
       </DialogTrigger> 
     }

@@ -19,8 +19,10 @@ const TemplateComponents = () => {
             }} className='h-80 w-80 bg-white rounded-lg flex justify-center items-center' >
                 <h1 className='text-blue-600 font-bold text-2xl' >Dark Premium</h1>
             </div>
-            <div className='h-80 w-80 bg-white rounded-lg flex justify-center items-center' >
-                <h1 className='text-blue-600 font-bold text-2xl' >Blue Spark</h1>
+            <div onClick={()=>{
+                router.push(`themes/whitecreative/${userId}`)
+            }} className='h-80 w-80 bg-white rounded-lg flex justify-center items-center' >
+                <h1 className='text-blue-600 font-bold text-2xl' >White Creative</h1>
             </div>
         </div>
       )
