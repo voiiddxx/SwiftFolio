@@ -50,11 +50,21 @@ export const addCustomFieldtoDatabase = async ({custom} : addCustomFieldParams) 
 }
 
 
-export const deleteCustomSection = async (deleteId: string)=>{
+export const deleteCustomSection = async (deleteId: string , cardId: string)=>{
     try {
         await connectToDatabase();
         const deleteSec = await Custom.findById(deleteId);
-        console.log("this is delete part",deleteSec);
+        for(let i =0;i<deleteSec.data.length;i++){
+            if(deleteSec.data[i]._id==cardId){
+                deleteSec.data.splice(i , 1);
+                await deleteSec.save();
+                
+            } else{
+                console.log("no data found");
+                
+            }
+        }
+
         
     } catch (error) {
         throw Error(error as string);

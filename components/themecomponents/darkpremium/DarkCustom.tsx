@@ -36,7 +36,7 @@ const DarkCustom = ( {customData} : customProps) => {
                                 <CustomFieldform customId={curr._id} type='ADD' useridclerk="550"  />
                               </div>
                               <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
-                                <DeleteSection deleteId={card._id} type='CUSTOM'/>
+                                <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
                               </div>
                               <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
                               

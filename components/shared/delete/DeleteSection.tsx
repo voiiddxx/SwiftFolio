@@ -20,10 +20,11 @@ import { Trash } from "lucide-react"
 
     type deleteSectionProps = {
         deleteId: string,
+        additionsId?: any
         type: "PROJECT" | "ACHIVEMENT" | "CUSTOM"
     }
 
-const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
+const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) => {
 
 
     const handleSubmition =  async() => {
@@ -36,7 +37,9 @@ const DeleteSection = ( {deleteId , type} : deleteSectionProps) => {
               await delteAchivement(deleteId);
             }
             else if(type == "CUSTOM"){
-              await deleteCustomSection(deleteId);
+              console.log("this is delte section component" , deleteId);
+              
+              await deleteCustomSection(deleteId , additionsId);
               
             }
         } catch (error) {
