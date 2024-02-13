@@ -90,7 +90,7 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
   return (
     <Dialog>
   <DialogTrigger> {
-    type=="EDIT" ? <p>Edit</p> : <div>Add Project</div> 
+    type=="EDIT" ? <p className="text-blue-700 text-sm" >Edit project</p> : <div>Add Project</div> 
     } </DialogTrigger>
   <DialogContent>
     <DialogHeader>

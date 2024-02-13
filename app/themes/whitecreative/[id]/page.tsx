@@ -29,7 +29,7 @@ const page = async ({
   return (
     <div >
         <WhiteHero data={portfolio[0]} adminData={admin} />
-        <WhiteProject/>
+        <WhiteProject data={projects} adminData={admin}/>
     </div>
   )
 }
