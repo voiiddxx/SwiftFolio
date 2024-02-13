@@ -22,7 +22,7 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
     {
       data.length < 1 ?  <div></div>:
 
-    <div className='w-full min-h-screen bg-whiteCreativeBGImage pl-52'>
+    <div className='w-full pb-9 bg-whiteCreativeBGImage pl-52'>
         <div>
             <h1 className='font-semibold text-xl text-zinc-800'>Latest projects</h1>
         </div>
