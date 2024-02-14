@@ -17,7 +17,7 @@ const WhiteAchivement = async ({achivements , adminData} : WhiteAchivementprops)
     
     <>
     {
-        achivements.length < 1 ?  <div></div>:<div className='min-h-screen w-full bg-whiteCreativeBGImage pt-9 pl-52'>
+        achivements.length < 1 ?  <div></div>:<div className='pb-16 w-full bg-whiteCreativeBGImage pt-9 pl-52'>
         <div>
             <h1 className='text-zinc-900 font-bold text-xl'>My Achivements</h1>
             <p className='text-zinc-500 mt-2'>Checkout my all achivements which are mentioned below</p>

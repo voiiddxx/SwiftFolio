@@ -1,4 +1,5 @@
 import WhiteAchivement from '@/components/themecomponents/whiteCreative/WhiteAchivement';
+import WhiteCustom from '@/components/themecomponents/whiteCreative/WhiteCustom';
 import WhiteHero from '@/components/themecomponents/whiteCreative/WhiteHero'
 import WhiteProject from '@/components/themecomponents/whiteCreative/WhiteProject';
 import { getAcheivemtUSingClerkid } from '@/lib/actions/achivement.action';
@@ -32,6 +33,7 @@ const page = async ({
         <WhiteHero data={portfolio[0]} adminData={admin} />
         <WhiteProject data={projects} adminData={admin}/>
         <WhiteAchivement achivements={achivements} adminData={admin}  />
+        <WhiteCustom customData={customData}/>
     </div>
   )
 }
