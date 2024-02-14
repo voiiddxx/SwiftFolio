@@ -1,5 +1,6 @@
 import WhiteAchivement from '@/components/themecomponents/whiteCreative/WhiteAchivement';
 import WhiteCustom from '@/components/themecomponents/whiteCreative/WhiteCustom';
+import WhiteFooter from '@/components/themecomponents/whiteCreative/WhiteFooter';
 import WhiteHero from '@/components/themecomponents/whiteCreative/WhiteHero'
 import WhiteProject from '@/components/themecomponents/whiteCreative/WhiteProject';
 import WhiteSkill from '@/components/themecomponents/whiteCreative/WhiteSkill';
@@ -38,7 +39,8 @@ const page = async ({
         <WhiteProject data={projects} adminData={admin}/>
         <WhiteAchivement achivements={achivements} adminData={admin}  />
         <WhiteCustom customData={customData} IsAdmin={admin}/>
-        <WhiteSkill skills={skills}/>
+        <WhiteSkill skills={skills} />
+        <WhiteFooter data={portfolio[0]}  />
     </div>
   )
 }
