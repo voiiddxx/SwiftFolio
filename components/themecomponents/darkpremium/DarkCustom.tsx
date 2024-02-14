@@ -7,9 +7,10 @@ import React from 'react'
 
 
 type customProps = {
+  IsAdmin: boolean
   customData: any
     }
-const DarkCustom = ( {customData} : customProps) => {
+const DarkCustom = ( {customData , IsAdmin} : customProps) => {
   return (
     <div className='w-full flex justify-center items-center bg-heroBgImage'>
       {
@@ -32,19 +33,21 @@ const DarkCustom = ( {customData} : customProps) => {
                                     
                                  
                               <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
-                              <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
-                                <CustomFieldform customId={curr._id} type='ADD' useridclerk="550"  />
+                             {
+                              IsAdmin == true ? <div>
+                                 <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
+                                <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
                               </div>
                               <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
                                 <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
                               </div>
+                              </div> : <div></div>
+                             }
                               <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
                               
                               <p className='font-light text-zinc-400'>{card.customTitle}</p>
                               <ChevronsRight size={18} color='gray'/>
                               </div>
-                             
-                              {/* <Image className='h-[180px] w-full rounded-t-md' src={card.customImage} height={180} width={450} alt="logo" /> */}
                                   </div>
                                 </div>
                             })

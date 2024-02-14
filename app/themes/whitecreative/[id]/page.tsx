@@ -37,7 +37,7 @@ const page = async ({
         <WhiteHero data={portfolio[0]} adminData={admin} />
         <WhiteProject data={projects} adminData={admin}/>
         <WhiteAchivement achivements={achivements} adminData={admin}  />
-        <WhiteCustom customData={customData}/>
+        <WhiteCustom customData={customData} IsAdmin={admin}/>
         <WhiteSkill skills={skills}/>
     </div>
   )
