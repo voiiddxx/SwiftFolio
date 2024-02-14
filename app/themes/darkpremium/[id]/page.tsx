@@ -29,8 +29,6 @@ const page = async ({
   const achivements = await getAcheivemtUSingClerkid(id);
   const customData = await getCustomSection(id);
   const skills = await getSkillUsingclerkId(id);
-
-  console.log("this is custom section data " , customData);
   
   
 
@@ -46,7 +44,7 @@ const page = async ({
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
       <DarkProject  data={projects} adminData={admin} />
-      <Darkachivement achivements={achivements} />
+      <Darkachivement achivements={achivements} IsAdmin={admin} />
       <DarkCustom customData={customData} />
       <DarkSkill skills={skills}/>
       <Darkfooter data={portfolio[0]} />

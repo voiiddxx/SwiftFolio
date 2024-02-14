@@ -10,9 +10,13 @@ import React from 'react'
 
     type darkAchivementProps = {
         achivements: any
+        IsAdmin: boolean
     }
 
-const Darkachivement = async ( {achivements} : darkAchivementProps) => {
+const Darkachivement = async ( {achivements , IsAdmin} : darkAchivementProps) => {
+
+  console.log("this is admin data lemme chec,int" , IsAdmin );
+  
 
   const user = await currentUser();
 
@@ -32,12 +36,17 @@ const Darkachivement = async ( {achivements} : darkAchivementProps) => {
           achivements.map((curr : any) => {
             return <div className='h-[400px] w-[400px]' >
               <div className='h-[250px] w-full  rounded-t-lg relative'>
-                <div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
-                <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
-                </div>
-                <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
-                <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
-                </div>
+                {
+                  IsAdmin==false ?  <h1></h1>
+               
+                   : <div><div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
+                   <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
+                   </div>
+                   <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
+                   <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
+                   </div></div>
+
+                }
               <Image className='h-[250px] w-full rounded-t-lg object-cover' src={curr.aimage} height={250} width={400} alt='achivementImage'/>
               <div className='h-12 w-full bg-zinc-500 bg-opacity-20 rounded-md flex justify-center items-center gap-2 mt-5'>
                 <div className='text-green-300 opacity-100 '>
