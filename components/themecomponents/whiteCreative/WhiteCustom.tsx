@@ -6,7 +6,7 @@ type customDataprops = {
 }
 const WhiteCustom = ({customData} : customDataprops) => {
   return (
-        <div className="min-h-screen w-full bg-whiteCreativeBGImage">
+        <div className="w-full pb-8 bg-whiteCreativeBGImage">
             {
                 customData.map((curr : any)=> {
                     return <div className="pl-52">
