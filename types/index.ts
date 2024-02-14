@@ -1,6 +1,5 @@
 
 
-
 export type createPortfolioparams = {
     clerkId:string
     portfolio:{
@@ -85,3 +84,26 @@ export type updateAchivementParams = {
     },
     achivementId: string
 }
+
+export type AddSchoolingParams = {
+    clerkId: string,
+    school:{
+        schoolClass:string
+        schoolName:string
+        finalYear:string
+        extraDetail:string
+    }
+}
+
+
+export type addCollegeParams = {
+    clerkId: string,
+    college:{
+        degree:string
+        batchStartDate:string
+        batchEndDate:string
+        instituteName:string
+        extraDetail:string
+    }
+}
+
