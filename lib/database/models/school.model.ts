@@ -1,19 +1,21 @@
 import { Schema, model, models } from "mongoose";
-import { string } from "zod";
 
 
 const SchoolSchema = new Schema({
+    clerkId:{
+        type:String
+    },
     schoolClass:{
-        type:string
+        type:String
     },
     schoolName:{
-        type:string,
+        type:String,
     },
     finalYear:{
-        type: string,
+        type: String,
     },
     extraDetail:{
-        type:string,
+        type:String,
     }
 });
 

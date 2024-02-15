@@ -9,6 +9,8 @@ export const addSchooling =  async ({school , clerkId} : AddSchoolingParams) => 
     try {
         await connectToDatabase();
         const savedschool = await School.create({...school , clerkId:clerkId});
+        console.log(savedschool);
+        
         return JSON.parse(JSON.stringify(savedschool));
     } catch (error) {
         console.log(error);
