@@ -17,6 +17,7 @@ import CustomForm from '../custom/CustomForm'
 import { getCustomSection } from '@/lib/actions/custom.action'
 import CustomFieldform from '../custom/CustomFieldform'
 import Schooling from '../schooling/Schooling'
+import College from '../college/College'
 
   type editButtonProps = {
     portfolioId: string
@@ -56,7 +57,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-orange-300">
         <GraduationCap height={40}/>
-      <p>Add Your College degree</p>
+      <College type='ADD' userId={user?.id} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-300">
         <Projector height={40}/>

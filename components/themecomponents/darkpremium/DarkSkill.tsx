@@ -7,7 +7,6 @@ import React from 'react'
 
 const DarkSkill = ({skills} : any) => {
 
-  console.log("this is skills sections" , skills.length);
   
   // return <div></div>
 
