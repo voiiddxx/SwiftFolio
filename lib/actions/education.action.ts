@@ -27,3 +27,16 @@ export const addCollege =  async ({college , clerkId} : addCollegeParams) => {
         throw new Error(error as string);
     }
 }
+
+export const getCollegeasPerClerkId = async ( clerkId:string) =>{
+    try {
+        await connectToDatabase();
+        const userCollege = await College.find({clerkId:clerkId});
+        return JSON.parse(JSON.stringify(userCollege));
+        
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}
