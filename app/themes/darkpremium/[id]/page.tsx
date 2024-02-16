@@ -9,8 +9,10 @@ import Darkfooter from "@/components/themecomponents/darkpremium/Darkfooter"
 import DarkpremHero from "@/components/themecomponents/darkpremium/DarkpremHero"
 import { getAcheivemtUSingClerkid } from "@/lib/actions/achivement.action"
 import { getCustomSection } from "@/lib/actions/custom.action"
+import { getCollegeasPerClerkId } from "@/lib/actions/education.action"
 import { getPortfolioBasedonuserClerkId } from "@/lib/actions/portfolio.action"
 import { getProjectByclerkId } from "@/lib/actions/project.action"
+import { getSchoolasperClerkId } from "@/lib/actions/school.action"
 import { getSkillUsingclerkId } from "@/lib/actions/skill.action"
 import { getWorkExperinceAsPerclerkId } from "@/lib/actions/work.action"
 import { currentUser } from "@clerk/nextjs"
@@ -27,11 +29,14 @@ const page = async ({
   const user = await currentUser();
 
   const portfolio = await getPortfolioBasedonuserClerkId(id);
+  const schools = await getSchoolasperClerkId(id);
+  const colleges= await getCollegeasPerClerkId(id);
   const projects = await getProjectByclerkId(id);
   const works = await getWorkExperinceAsPerclerkId(id);
   const achivements = await getAcheivemtUSingClerkid(id);
   const customData = await getCustomSection(id);
   const skills = await getSkillUsingclerkId(id);
+
   
 
   
@@ -49,7 +54,7 @@ const page = async ({
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
-      <DarkQualification userwork={works}/>
+      <DarkQualification userwork={works} userCollege={colleges} userSchool={schools} />
       <DarkProject  data={projects} adminData={admin} />
       <Darkachivement achivements={achivements} IsAdmin={admin} />
       <DarkCustom customData={customData} IsAdmin={admin} />
