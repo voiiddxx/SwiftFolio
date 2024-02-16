@@ -1,4 +1,14 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models , Document } from "mongoose";
+
+
+export interface IWork extends Document {
+        _id:string,
+        companyName:string,
+        role:string,
+        contribution:string,
+        startDate:string,
+        endDate:string
+}
 
 
 const workSchema = new Schema({

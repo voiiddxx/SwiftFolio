@@ -12,6 +12,7 @@ import { getCustomSection } from "@/lib/actions/custom.action"
 import { getPortfolioBasedonuserClerkId } from "@/lib/actions/portfolio.action"
 import { getProjectByclerkId } from "@/lib/actions/project.action"
 import { getSkillUsingclerkId } from "@/lib/actions/skill.action"
+import { getWorkExperinceAsPerclerkId } from "@/lib/actions/work.action"
 import { currentUser } from "@clerk/nextjs"
 
 
@@ -27,9 +28,13 @@ const page = async ({
 
   const portfolio = await getPortfolioBasedonuserClerkId(id);
   const projects = await getProjectByclerkId(id);
+  const works = await getWorkExperinceAsPerclerkId(id);
   const achivements = await getAcheivemtUSingClerkid(id);
   const customData = await getCustomSection(id);
   const skills = await getSkillUsingclerkId(id);
+  
+
+  
   
   
 
@@ -44,7 +49,7 @@ const page = async ({
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
-      <DarkQualification/>
+      <DarkQualification userwork={works}/>
       <DarkProject  data={projects} adminData={admin} />
       <Darkachivement achivements={achivements} IsAdmin={admin} />
       <DarkCustom customData={customData} IsAdmin={admin} />

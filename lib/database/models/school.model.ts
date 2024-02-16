@@ -5,18 +5,22 @@ const SchoolSchema = new Schema({
     clerkId:{
         type:String
     },
-    schoolClass:{
-        type:String
-    },
-    schoolName:{
-        type:String,
-    },
-    finalYear:{
-        type: String,
-    },
-    extraDetail:{
-        type:String,
+   school:[
+    {
+        schoolClass:{
+            type:String
+        },
+        schoolName:{
+            type:String,
+        },
+        finalYear:{
+            type: String,
+        },
+        extraDetail:{
+            type:String,
+        }
     }
+   ]
 });
 
 const School = models.School || model("School" , SchoolSchema);
