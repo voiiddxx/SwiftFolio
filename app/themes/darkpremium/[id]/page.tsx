@@ -2,6 +2,7 @@
 import DarkAbout from "@/components/themecomponents/darkpremium/DarkAbout"
 import DarkCustom from "@/components/themecomponents/darkpremium/DarkCustom"
 import DarkProject from "@/components/themecomponents/darkpremium/DarkProject"
+import DarkQualification from "@/components/themecomponents/darkpremium/DarkQualification"
 import DarkSkill from "@/components/themecomponents/darkpremium/DarkSkill"
 import Darkachivement from "@/components/themecomponents/darkpremium/Darkachivement"
 import Darkfooter from "@/components/themecomponents/darkpremium/Darkfooter"
@@ -43,6 +44,7 @@ const page = async ({
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
       <DarkAbout/>
+      <DarkQualification/>
       <DarkProject  data={projects} adminData={admin} />
       <Darkachivement achivements={achivements} IsAdmin={admin} />
       <DarkCustom customData={customData} IsAdmin={admin} />
