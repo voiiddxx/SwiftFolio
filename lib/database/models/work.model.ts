@@ -19,9 +19,7 @@ const workSchema = new Schema({
             startDate:{
                 type: String,
             },
-            stillWorking:{
-                type:true,
-            },
+            
             endDate:{
                 type: String,
             }

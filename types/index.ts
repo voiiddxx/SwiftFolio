@@ -107,3 +107,15 @@ export type addCollegeParams = {
     }
 }
 
+
+export type AddWorkParams = {
+    clerkId: string,
+    work:{
+        companyName:string,
+        role:string
+        contribution:string
+        startDate:string
+        endDate:string
+    }
+}
+

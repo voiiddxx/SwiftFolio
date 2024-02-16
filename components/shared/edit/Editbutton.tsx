@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Edit, GraduationCap, Layers, Medal, Projector, Rocket, School, User } from 'lucide-react'
+import { Edit, GraduationCap, Layers, Medal, Projector, Rocket, School, User, WorkflowIcon } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
@@ -18,6 +18,7 @@ import { getCustomSection } from '@/lib/actions/custom.action'
 import CustomFieldform from '../custom/CustomFieldform'
 import Schooling from '../schooling/Schooling'
 import College from '../college/College'
+import WorkForm from '../works/WorkForm'
 
   type editButtonProps = {
     portfolioId: string
@@ -51,13 +52,17 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
         <User height={40}/>
       <p>Persenol Data</p>
       </div>
-      <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-orange-300">
+      <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-pink-300">
         <School height={40}/>
       <Schooling type='ADD' userId={user?.id} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-orange-300">
         <GraduationCap height={40}/>
       <College type='ADD' userId={user?.id} />
+      </div>
+      <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-yellow-300">
+        <WorkflowIcon height={40}/>
+      <WorkForm type='ADD' userId={user?.id} />
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-green-300">
         <Projector height={40}/>
