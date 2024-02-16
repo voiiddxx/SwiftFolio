@@ -44,9 +44,50 @@ const DarkQualification = () => {
       </div>        
       {/* work experince section  */}
 
-      <div>
-        <h1 className='text-green-400' >Work Experience</h1>
+      <div className='pl-60 mt-4'>
+        <h1 className='text-green-400 text-xl' >Work Experience</h1>
+        <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
       </div>
+
+
+      <div className='w-full flex pl-52 gap-2 items-start mt-10'>
+        {/* //border line  */}
+        <div className='flex flex-col'>
+            <Image className='h-24 w-32' src="/job.svg" height={500} width={500} alt='schoo and college icons'/>
+            <div className='ml-8'>
+                <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-teal-300 to-zinc-900'>
+                    
+                </div>
+            </div>
+        </div>
+        {/* schooling informaton */}
+        <div className='pr-52 mt-3' >
+            <p className='text-zinc-500 font-normal text-sm' >August 2021 - July 2025</p>
+            <h1 className='text-lg font-normal text-teal-400'>Super Beta - A Mobile Based Startup</h1>
+            <p className='text-zinc-600 font-normal mr-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+        </div>
+
+      </div>  
+      <div className='w-full flex pl-52 gap-2 items-start mt-10'>
+        {/* //border line  */}
+        <div className='flex flex-col'>
+            <Image className='h-24 w-32' src="/job2.svg" height={500} width={500} alt='schoo and college icons'/>
+            <div className='ml-8'>
+                <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-teal-300 to-zinc-900'>
+                    
+                </div>
+            </div>
+        </div>
+        {/* schooling informaton */}
+        <div className='pr-52 mt-10' >
+            <p className='text-zinc-500 font-normal text-sm' >August 2021 - July 2025</p>
+            <h1 className='text-lg font-normal text-teal-400'>Super Beta - A Mobile Based Startup</h1>
+            <p className='text-zinc-600 font-normal mr-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+        </div>
+
+      </div>  
+
+    
 
     </div>
   )
