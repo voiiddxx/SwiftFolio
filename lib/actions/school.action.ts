@@ -12,9 +12,7 @@ export const addSchooling =  async ({school , clerkId} : AddSchoolingParams) => 
         const isSchool = await School.find({clerkId:clerkId});
         if(isSchool.length < 1){
             const savedSchool = await School.create({clerkId:clerkId});
-            await savedSchool.school.push({
-                ...School
-            });
+            await savedSchool.school.push({schoolName:school.schoolName , schoolClass:school.schoolClass , finalYear:school.finalYear , extraDetail:school.extraDetail});
             await savedSchool.save();
             console.log(savedSchool);
             

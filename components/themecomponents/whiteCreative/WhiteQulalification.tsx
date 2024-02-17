@@ -1,3 +1,6 @@
+import { ICollege } from '@/lib/database/models/education.model'
+import { ISchool } from '@/lib/database/models/school.model'
+import { IWork } from '@/lib/database/models/work.model'
 import { GraduationCap, RocketIcon, School } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -22,7 +25,7 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
                 <p className='font-normal text-zinc-700' >School and college from where i have gained knowledege have been mentioned below</p>
             </div>
             {
-                userSchool[0].school.map((curr : any) => {
+                userSchool[0].school.map((curr : ISchool) => {
                     return  <div className='w-full flex gap-2 items-start justify-start'>
       {/* //border line  */}
       <div className='flex flex-col items-center'>
@@ -37,9 +40,9 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
       </div>
       {/* schooling informaton */}
       <div className='pr-52 ' >
-          <p className='text-zinc-500 font-normal text-sm' >August 2023</p>
-          <h1 className='text-lg font-semibold text-zinc-900  mt-2'>Kiran Public School Bathinda</h1>
-          <p className='text-zinc-700 font-normal text-sm mt-2' >Bathinda India</p>
+          <p className='text-zinc-500 font-normal text-sm' >{curr.finalYear}</p>
+          <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.schoolClass}</h1>
+          <p className='text-blue-500 font-normal text-sm mt-2' >{curr.schoolName}</p>
           <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
       </div>
 
@@ -53,7 +56,7 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
         {
             userCollege.length < 1 ? <div></div> : <div>
                 {
-                    userCollege[0].college.map((curr : any) => {
+                    userCollege[0].college.map((curr : ICollege , collegeindex : number ) => {
                         return  <div className='w-full flex gap-2 items-start justify-start'>
                         {/* //border line  */}
                         <div className='flex flex-col items-center'>
@@ -61,16 +64,20 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
                               <GraduationCap className='text-teal-700' size={20} />
                            </div>
                             <div className='mt-5 mb-5'>
-                                <div className='h-40 w-[1px] rounded-md mt-[-14px] bg-zinc-300'>
-                                    
-                                </div>
+                            {
+                collegeindex == userCollege[0].college.length -1 ? <div className='h-40 w-[1px] rounded-md mt-[-14px] bg-transparent'>
+                  
+                </div> : <div className='h-40 w-[1px] rounded-md mt-[-14px] bg-zinc-300'>
+                  
+                </div>
+            }
                             </div>
                         </div>
                         {/* schooling informaton */}
                         <div className='pr-52 ' >
-                            <p className='text-zinc-500 font-normal text-sm' >August 2023</p>
-                            <h1 className='text-lg font-semibold text-zinc-900  mt-2'>Kiran Public School Bathinda</h1>
-                            <p className='text-zinc-700 font-normal text-sm mt-2' >Bathinda India</p>
+                            <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
+                            <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.degree}</h1>
+                            <p className='text-blue-600 font-normal text-sm mt-2' >{curr.instituteName}</p>
                             <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
                         </div>
                   
@@ -90,7 +97,7 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
                 <p className='font-normal text-zinc-700' >All the work experince i have are mentioned below</p>
             </div>
             {
-                userWork[0].work.map((curr : any , index:number) => {
+                userWork[0].work.map((curr : IWork , index:number) => {
                     return  <div className='w-full flex gap-2 items-start justify-start'>
       {/* //border line  */}
       <div className='flex flex-col items-center'>
@@ -112,9 +119,9 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
       </div>
       {/* schooling informaton */}
       <div className='pr-52 ' >
-          <p className='text-zinc-500 font-normal text-sm' >August 2023  </p>
-          <h1 className='text-lg font-semibold text-zinc-900  mt-2'>Kiran Public School Bathinda</h1>
-          <p className='text-zinc-700 font-normal text-sm mt-2' >Bathinda India</p>
+          <p className='text-zinc-500 font-normal text-sm' >{curr.startDate} - {curr.endDate}  </p>
+          <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.role}</h1>
+          <p className='text-blue-700 font-normal text-sm mt-2' >{curr.companyName}</p>
           <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
       </div>
 

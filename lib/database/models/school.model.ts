@@ -1,5 +1,13 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models , Document } from "mongoose";
 
+
+    export interface ISchool extends Document  {
+        _id:string
+        schoolClass:string
+        schoolName:string
+        finalYear:string
+        extraDetail:string
+    }
 
 const SchoolSchema = new Schema({
     clerkId:{

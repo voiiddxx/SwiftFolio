@@ -1,3 +1,5 @@
+import { ICollege } from '@/lib/database/models/education.model'
+import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
 import Image from 'next/image'
 import React from 'react'
@@ -23,12 +25,12 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
 
     {
        userSchool.length   < 1 ? <div></div> :  <>
-      <div className='pl-60 mt-4'>
-    <h1 className='text-yellow-300 text-xl' >Schooling</h1>
+      <div className='pl-60 mt-4 mb-10'>
+    <h1 className='text-yellow-300 text-xl' >My Education</h1>
     <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
   </div> 
 {
-    userSchool[0].school.map((curr : any) => {
+    userSchool[0].school.map((curr : ISchool) => {
       return  <div className='w-full flex pl-52 gap-2 items-start'>
       {/* //border line  */}
       <div className='flex flex-col'>
@@ -40,10 +42,11 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 mt-7' >
-          <p className='text-zinc-500 font-normal text-sm' >August 2023</p>
-          <h1 className='text-lg font-normal text-green-400'>Kiran Public School Bathinda</h1>
-          <p className='text-zinc-600 font-normal mr-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+      <div className='pr-52 ' >
+          <p className='text-zinc-500 font-normal text-sm' >{curr.finalYear}</p>
+          <h1 className='text-lg font-semibold text-zinc-200 mt-2'>{curr.schoolClass}</h1>
+          <p className='text-green-300 font-normal text-sm mt-2' >{curr.schoolName}</p>
+          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
       </div>
 
     </div>
@@ -55,34 +58,40 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
       }
     {
        userCollege.length   < 1 ? <div></div> :  <>
-      <div className='pl-60 mt-4'>
-    <h1 className='text-teal-300 text-xl' >College</h1>
-    <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
-  </div> 
-{
-    userCollege[0].college.map((curr : any) => {
+      {
+    userCollege[0].college.map((curr : ICollege , index : number) => {
       return  <div className='w-full flex pl-52 gap-2 items-start'>
       {/* //border line  */}
       <div className='flex flex-col'>
           <Image className='h-24 w-32' src="/college.svg" height={500} width={500} alt='schoo and college icons'/>
           <div className='ml-8'>
-              <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
+
+            {
+              index == userCollege[0].college.length -1 ?  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-transparent'>
+                  
+              </div> :  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
                   
               </div>
+            }
+
+
+             
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 mt-7' >
-          <p className='text-zinc-500 font-normal text-sm' >August 2023</p>
-          <h1 className='text-lg font-normal text-green-400'>Kiran Public School Bathinda</h1>
-          <p className='text-zinc-600 font-normal mr-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
-      </div>
+      <div className='pr-52 ' >
+       <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
+        <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.degree}</h1>
+              <p className='text-green-300 font-normal text-sm mt-2' >{curr.instituteName}</p>
+            <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+                        </div>
 
     </div>
     })
 }
 
 </>
+
 
       }
 
@@ -92,7 +101,7 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
       
 
        {
-       userwork.length   < 1 ? <div></div> :  <><div className='pl-60 mt-4'>
+       userwork.length   < 1 ? <div></div> :  <> <div className='pl-60 mt-4 mb-10 w-full bg-heroBgImage'>
         <h1 className='text-green-400 text-xl' >Work Experience</h1>
         <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
       </div>
@@ -103,17 +112,24 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
           <div className='flex flex-col'>
               <Image className='h-24 w-32' src="/job2.svg" height={500} width={500} alt='schoo and college icons'/>
               <div className='ml-8'>
-                  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-teal-300 to-zinc-900'>
-                      
-                  </div>
+
+              {
+              index == userwork[0].work.length -1 ?  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-transparent'>
+                  
+              </div> :  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-blue-300 to-zinc-900'>
+                  
+              </div>
+            }
+
               </div>
           </div>
           {/* schooling informaton */}
-          <div className='pr-52 mt-10' >
-              <p className='text-zinc-500 font-normal text-sm' >{curr.startDate} {index} {curr.endDate}</p>
-              <h1 className='text-lg font-normal text-teal-400'>{curr.companyName}</h1>
-              <p className='text-zinc-600 font-normal mr-80'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
-          </div>
+          <div className='pr-52 ' >
+          <p className='text-zinc-500 font-normal text-sm' >{curr.startDate} - {curr.endDate}  </p>
+          <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.role}</h1>
+          <p className='text-blue-300 font-normal text-sm mt-2' >{curr.companyName}</p>
+          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+      </div>
   
         </div> 
         })
