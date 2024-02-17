@@ -15,15 +15,14 @@ type eductaionandWorkExperince = {
 
 const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandWorkExperince) => {
 
-  console.log("this is user work" ,userwork[0].work.length);
   
   
   return (
-    <div className='w-full min-h-screen bg-heroBgImage pt-14'>
+    <div className='w-full  bg-heroBgImage pt-14'>
       {/* schooling section  */}
 
     {
-       userSchool[0].school.length   < 1 ? <div></div> :  <>
+       userSchool.length   < 1 ? <div></div> :  <>
       <div className='pl-60 mt-4'>
     <h1 className='text-yellow-300 text-xl' >Schooling</h1>
     <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
@@ -55,7 +54,7 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
 
       }
     {
-       userCollege[0].college.length   < 1 ? <div></div> :  <>
+       userCollege.length   < 1 ? <div></div> :  <>
       <div className='pl-60 mt-4'>
     <h1 className='text-teal-300 text-xl' >College</h1>
     <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
@@ -93,7 +92,7 @@ const DarkQualification = ({userwork , userSchool , userCollege} : eductaionandW
       
 
        {
-       userwork[0].work.length   < 1 ? <div></div> :  <><div className='pl-60 mt-4'>
+       userwork.length   < 1 ? <div></div> :  <><div className='pl-60 mt-4'>
         <h1 className='text-green-400 text-xl' >Work Experience</h1>
         <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
       </div>

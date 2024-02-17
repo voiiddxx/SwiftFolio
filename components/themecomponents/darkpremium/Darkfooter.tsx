@@ -10,7 +10,7 @@ const Darkfooter = ({data} : darkFooterProps) => {
   return (
     <div className='w-full bg-heroBgImage flex flex-col justify-center items-center'>
         <div className='h-[100px] w-[100px] mt-28 bg-pink-300 rounded-full'>
-            <Image src={data.avatar} className='object-cover rounded-full h-[100px] w-[100px]' height={100} width={50} alt='avatar'/>
+            <Image src={data.avatar} className='object-cover rounded-full h-[100px] w-[100px]' height={400} width={400} alt='avatar'/>
         </div>
         <h1 className='mt-6 text-blue-300 text-2xl font-bold'>{data.name}</h1>
         <p className='font-normal text-zinc-500 text-sm'>Connect With Me</p>
