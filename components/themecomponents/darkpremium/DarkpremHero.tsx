@@ -31,7 +31,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
           <div className="upper-light">
               <p>Connect With One Click</p>
             <a href={data.mailurl}>
-            {/* <img src={person} alt="person" /> */}
+            <img src={data.avatar} alt="person" />
             </a>
           </div>
           <div className="mid-bold-text">

@@ -53,7 +53,7 @@ const page = async ({
   return (
     <div>
       <DarkpremHero data={portfolio[0]} adminData={admin} />
-      <DarkAbout/>
+      <DarkAbout data={portfolio[0]}/>
       <DarkQualification userwork={works} userCollege={colleges} userSchool={schools} />
       <DarkProject  data={projects} adminData={admin} />
       <Darkachivement achivements={achivements} IsAdmin={admin} />

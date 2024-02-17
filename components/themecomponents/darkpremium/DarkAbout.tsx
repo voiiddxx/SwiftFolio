@@ -1,6 +1,10 @@
 import React from 'react'
 import "./Darkabout.css"
-const DarkAbout = () => {
+
+type darkAboutProps = {
+  data : any
+}
+const DarkAbout = ({data} : darkAboutProps) => {
   return (
     <div className="about-main">
     <div className="about-text">
@@ -9,7 +13,7 @@ const DarkAbout = () => {
 Fast-forward to today, and I’ve had the privilege of making some good mobile application and web application with clean and minimal function and ui and still learning to make myself better </p>
     </div>
     <div className="about-image">
-{/* <img src={abouthero} alt="aboutherosvg" /> */}
+<img src={data.avatar} alt="aboutherosvg" />
     </div>    
 </div>
   )
