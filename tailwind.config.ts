@@ -58,7 +58,8 @@ const config = {
       backgroundImage:{
         'heroBgImage': "url(/grid.svg)",
         'whiteCreativeBGImage': "url(/whiteCreative.svg)",
-        'loginBgImage':"url(/login.svg)"
+        'loginBgImage':"url(/login.svg)",
+        'darkpremTheme':"url(/dark.svg)"
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -2,6 +2,7 @@
 
 import { auth, useAuth } from "@clerk/nextjs";
 import { log } from "console";
+import Image from "next/image";
 import { useRouter } from "next/navigation"
 
 
@@ -13,17 +14,22 @@ const TemplateComponents = () => {
 
     const router = useRouter();
     return (
-        <div className='min-h-screen w-full bg-gray-950 flex justify-center items-center gap-4 cursor-pointer'>
+        <div className='min-h-screen w-full pt-8 bg-gray-950 flex flex-col justify-center items-center gap-1 cursor-pointer bg-loginBgImage repeat-0'>
+           <div className="w-full pl-80 mb-6">
+           <h1 className="mt-14 font-semibold text-white text-2xl" >Select Themes</h1>
+            <p className="text-zinc-400">Select Any theme any of them below</p>
+           </div>
             <div  onClick={()=>{
                 router.push(`/themes/darkpremium/${userId}`)
-            }} className='h-80 w-80 bg-white rounded-lg flex justify-center items-center' >
-                <h1 className='text-blue-600 font-bold text-2xl' >Dark Premium</h1>
+            }} className='w-[900px] object-cover  rounded-lg flex justify-center items-center ' >
+              <Image src={`/dark.svg`} height={800} width={900} alt="darktemplate" />
             </div>
-            <div onClick={()=>{
-                router.push(`themes/whitecreative/${userId}`)
-            }} className='h-80 w-80 bg-white rounded-lg flex justify-center items-center' >
-                <h1 className='text-blue-600 font-bold text-2xl' >White Creative</h1>
+            <div  onClick={()=>{
+               router.push(`themes/whitecreative/${userId}`)
+            }} className='h-[450px] w-[900px] object-cover  rounded-lg flex justify-center items-center ' >
+              <Image src={`/white.svg`} height={800} width={900} alt="darktemplate" />
             </div>
+           
         </div>
       )
 }
