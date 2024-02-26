@@ -1,6 +1,6 @@
 "use server"
 
-import { addCollegeParams } from "@/types";
+import { DeletCollegeParams, addCollegeParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import College from "../database/models/education.model";
 
@@ -34,6 +34,24 @@ export const getCollegeasPerClerkId = async ( clerkId:string) =>{
         const userCollege = await College.find({clerkId:clerkId});
         return JSON.parse(JSON.stringify(userCollege));
         
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}
+
+export const DeleteCollegeAsPerId = async ({collegeId , college} : DeletCollegeParams) =>{
+    try {
+        console.log(collegeId);
+        
+        await connectToDatabase();
+        
+        const allCollege = await College.findById(collegeId)
+        console.log("this is data for all college " , allCollege);
+        
+
+
     } catch (error) {
         console.log(error);
         throw new Error(error as string);

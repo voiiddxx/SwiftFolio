@@ -1,9 +1,10 @@
+import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
 import { Delete, Edit, GraduationCap, RocketIcon, School, Trash } from 'lucide-react'
-import Image from 'next/image'
 import React from 'react'
+
 
     type WhiteQulalificationProps = {
         userSchool : any
@@ -12,7 +13,9 @@ import React from 'react'
         isAdmin: any
     }
 
-const WhiteQulalification = ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
+const WhiteQulalification = async ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
+
+    const data = DeleteCollegeAsPerId({collegeId:userCollege._id}); 
 
 
   
