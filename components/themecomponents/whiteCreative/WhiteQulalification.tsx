@@ -1,7 +1,7 @@
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
-import { GraduationCap, RocketIcon, School } from 'lucide-react'
+import { Delete, Edit, GraduationCap, RocketIcon, School, Trash } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -9,9 +9,10 @@ import React from 'react'
         userSchool : any
         userCollege : any
         userWork : any
+        isAdmin: any
     }
 
-const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulalificationProps) => {
+const WhiteQulalification = ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
 
 
   
@@ -44,6 +45,13 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
           <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.schoolClass}</h1>
           <p className='text-blue-500 font-normal text-sm mt-2' >{curr.schoolName}</p>
           <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+
+       {
+        isAdmin && ( <div className='flex gap-4 mt-4' >
+        <Edit className='text-blue-700' size={16} />
+        <Trash className='text-red-800' size={16} />
+      </div>)
+       }
       </div>
 
     </div>
@@ -79,6 +87,12 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
                             <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.degree}</h1>
                             <p className='text-blue-600 font-normal text-sm mt-2' >{curr.instituteName}</p>
                             <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+                            {
+        isAdmin && ( <div className='flex gap-4 mt-4' >
+        <Edit className='text-blue-700' size={16} />
+        <Trash className='text-red-800' size={16} />
+      </div>)
+       }
                         </div>
                   
                       </div>
@@ -123,6 +137,12 @@ const WhiteQulalification = ({userSchool ,  userCollege , userWork} : WhiteQulal
           <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.role}</h1>
           <p className='text-blue-700 font-normal text-sm mt-2' >{curr.companyName}</p>
           <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+          {
+        isAdmin && ( <div className='flex gap-4 mt-4' >
+        <Edit className='text-blue-700' size={16} />
+        <Trash className='text-red-800' size={16} />
+      </div>)
+       }
       </div>
 
     </div>

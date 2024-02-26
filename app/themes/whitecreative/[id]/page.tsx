@@ -43,7 +43,7 @@ const page = async ({
   return (
     <div >
         <WhiteHero data={portfolio[0]} adminData={admin} />
-        <WhiteQulalification userSchool={schooling} userCollege={college} userWork={work} />
+        <WhiteQulalification isAdmin={admin}  userSchool={schooling} userCollege={college} userWork={work} />
         <WhiteProject data={projects} adminData={admin}/>
         <WhiteAchivement achivements={achivements} adminData={admin}  />
         <WhiteCustom customData={customData} IsAdmin={admin}/>
