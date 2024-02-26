@@ -1,3 +1,4 @@
+"use client"
 import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
@@ -13,10 +14,18 @@ import React from 'react'
         isAdmin: any
     }
 
-const WhiteQulalification = async ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
+const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
+    console.log("this is user college id ",userCollege[0]._id);
 
-    const data = DeleteCollegeAsPerId({collegeId:userCollege._id}); 
+    
 
+
+    const handleDelete = async ( deleteId : string) =>{
+      alert("called")
+        
+        const data = await DeleteCollegeAsPerId({collegeId: userCollege[0]._id , deleteId:deleteId});
+
+    }
 
   
   return (
@@ -52,7 +61,7 @@ const WhiteQulalification = async ({userSchool ,  userCollege , userWork , isAdm
        {
         isAdmin && ( <div className='flex gap-4 mt-4' >
         <Edit className='text-blue-700' size={16} />
-        <Trash className='text-red-800' size={16} />
+        <Trash className='text-red-800 cursor-pointer' size={16} />
       </div>)
        }
       </div>
@@ -93,7 +102,10 @@ const WhiteQulalification = async ({userSchool ,  userCollege , userWork , isAdm
                             {
         isAdmin && ( <div className='flex gap-4 mt-4' >
         <Edit className='text-blue-700' size={16} />
-        <Trash className='text-red-800' size={16} />
+        <Trash  onClick={()=>{
+            alert("called")
+            handleDelete(curr._id);
+        }} className='text-red-800' size={16} />
       </div>)
        }
                         </div>

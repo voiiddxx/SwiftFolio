@@ -41,13 +41,23 @@ export const getCollegeasPerClerkId = async ( clerkId:string) =>{
     }
 }
 
-export const DeleteCollegeAsPerId = async ({collegeId , college} : DeletCollegeParams) =>{
+export const DeleteCollegeAsPerId = async ({collegeId  , deleteId} : DeletCollegeParams) =>{
     try {
         console.log(collegeId);
         
         await connectToDatabase();
         
-        const allCollege = await College.findById(collegeId)
+        const allCollege = await College.findByIdAndUpdate({
+            "_id":collegeId
+        } , {
+            $pull:{
+                "college":{
+                    "_id":deleteId
+                }
+            },
+            "multi":false
+        });
+        
         console.log("this is data for all college " , allCollege);
         
 

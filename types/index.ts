@@ -123,11 +123,5 @@ export type AddWorkParams = {
 
 export type DeletCollegeParams = {
     collegeId: string
-    college:{
-        degree:string
-        batchStartDate:string
-        batchEndDate:string
-        instituteName:string
-        extraDetail:string
-    }
+    deleteId:string
 }
