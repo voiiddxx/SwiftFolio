@@ -44,3 +44,15 @@ export const getSchoolasperClerkId = async (clerkId : string) => {
         
     }
 }
+
+
+export const deletSchoolWithId = async ()=>{
+    try {
+        await connectToDatabase();
+        
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}

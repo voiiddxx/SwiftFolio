@@ -1,5 +1,6 @@
 "use client"
 import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
+import { deletSchoolWithId } from '@/lib/actions/school.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
@@ -24,6 +25,12 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
       alert("called")
         
         const data = await DeleteCollegeAsPerId({collegeId: userCollege[0]._id , deleteId:deleteId});
+
+    }
+
+    const handleSchoolDelte = async (deleteId:string)=>{
+        const deleted = await deletSchoolWithId({schoolId:userSchool[0]._id , deleteId: deleteId});
+
 
     }
 
@@ -61,7 +68,9 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
        {
         isAdmin && ( <div className='flex gap-4 mt-4' >
         <Edit className='text-blue-700' size={16} />
-        <Trash className='text-red-800 cursor-pointer' size={16} />
+        <Trash onClick={()=>{
+            handleSchoolDelte(curr._id);
+        }} className='text-red-800 cursor-pointer' size={16} />
       </div>)
        }
       </div>

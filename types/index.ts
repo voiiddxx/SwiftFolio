@@ -125,3 +125,8 @@ export type DeletCollegeParams = {
     collegeId: string
     deleteId:string
 }
+
+export type deletSchoolParams = {
+    schoolId: string,
+    deleteId:string
+}
