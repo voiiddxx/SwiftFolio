@@ -1,6 +1,6 @@
 "use server"
 
-import { AddSchoolingParams } from "@/types";
+import { AddSchoolingParams, deletSchoolParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import School from "../database/models/school.model";
 
@@ -46,10 +46,23 @@ export const getSchoolasperClerkId = async (clerkId : string) => {
 }
 
 
-export const deletSchoolWithId = async ()=>{
+export const deletSchoolWithId = async ({deleteId , schoolId} : deletSchoolParams)=>{
+
+    console.log("this func have beel called and delete id is ",  deleteId , " and school id is " , schoolId);
+    
     try {
         await connectToDatabase();
-        
+        const deletedData = await School.findByIdAndUpdate({
+            '_id':schoolId,
+        } , 
+        {
+            $pull:{
+                'school':{
+                    '_id':deleteId
+                }
+            },
+            'multi':false
+        })
     } catch (error) {
         console.log(error);
         throw new Error(error as string);
