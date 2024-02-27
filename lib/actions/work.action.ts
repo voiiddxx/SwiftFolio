@@ -1,6 +1,6 @@
 "use server"
 
-import { AddWorkParams } from "@/types";
+import { AddWorkParams, DeleteWorkParams } from "@/types";
 import connectToDatabase from "../database/mongodb"
 import Work from "../database/models/work.model";
 
@@ -36,5 +36,28 @@ export const getWorkExperinceAsPerclerkId = async (clerkId: string) => {
         
     } catch (error) {
         throw new Error(error as string);
+    }
+}
+
+
+export const deleteWorkById = async ({ workId , deleteId} : DeleteWorkParams) =>{
+    try {
+        await connectToDatabase();
+        const deleteWork = await Work.findByIdAndUpdate({
+            '_id' : workId
+
+        } , {
+            $pull:{
+                'work':{
+                    '_id':deleteId
+                }
+            },
+            'multi':false
+        });
+        
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
     }
 }

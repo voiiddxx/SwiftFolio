@@ -1,6 +1,7 @@
 "use client"
 import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
 import { deletSchoolWithId } from '@/lib/actions/school.action'
+import { deleteWorkById } from '@/lib/actions/work.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
@@ -34,6 +35,11 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
 
     }
 
+
+    const handleWorkDelete = async  (workDeleteId : string)=>{
+        const deleted = await deleteWorkById({workId:userWork[0]._id , deleteId:workDeleteId});
+        
+    }
   
   return (
     <div className='min-h-screen w-full pl-52 bg-whiteCreativeBGImage'>
@@ -163,8 +169,10 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
           <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
           {
         isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700' size={16} />
-        <Trash className='text-red-800' size={16} />
+        <Edit className='text-blue-700 ' size={16} />
+        <Trash onClick={()=>{
+            handleWorkDelete(curr._id);
+        }} className='text-red-800 cursor-pointer' size={16} />
       </div>)
        }
       </div>
