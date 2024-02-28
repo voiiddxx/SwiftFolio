@@ -50,7 +50,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
     <div className='mt-9 flex gap-4 flex-col'>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-orange-300">
         <User height={40}/>
-      <p>Persenol Data</p>
+      <p>Personol Data</p>
       </div>
       <div className="flex items-center justify-start pl-3 rounded-xl gap-2 hover:bg-zinc-900 text-pink-300">
         <School height={40}/>

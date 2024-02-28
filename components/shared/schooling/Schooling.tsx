@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from '@/components/ui/input'
 import { addSchooling } from '@/lib/actions/school.action'
+import { Textarea } from '@/components/ui/textarea'
 
 
 const formSchema = z.object({
@@ -79,9 +80,7 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
                 <FormControl>
                   <Input placeholder="Your School Name" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}
@@ -95,9 +94,7 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
                 <FormControl>
                   <Input placeholder="Your Higher Class" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+               
                 <FormMessage />
               </FormItem>
             )}
@@ -111,9 +108,7 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
                 <FormControl>
                   <Input placeholder="Higher Class Passing year" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+
                 <FormMessage />
               </FormItem>
             )}
@@ -125,11 +120,9 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Additiniols Details" {...field} />
+                  <Textarea placeholder="Additiniols Details" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+                
                 <FormMessage />
               </FormItem>
             )}

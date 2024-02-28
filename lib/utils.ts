@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge"
 import OpenAI from 'openai';
 
 
-const apikey = "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";
+const apikeyforopenai = "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";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -13,6 +13,6 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export const openai = new OpenAI({
-  apiKey: apikey,
+  apiKey: apikeyforopenai,
   dangerouslyAllowBrowser: true // This is the default and can be omitted
 });

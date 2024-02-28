@@ -1,19 +1,31 @@
 "use server"
 
+import { AiTextGenreation } from "@/types";
 import { openai } from "../utils";
+import { json } from "stream/consumers";
 
 
-export const createAboutusingAi = async ()=>{
+
+
+export const createAboutusingAi = async ({promptMessage}: AiTextGenreation)=>{
     try {   
 
-        const chatCompletion = await openai.chat.completions.create({
-            messages: [
-                { role: 'user', content: 'Say this is a test' }
-            ],
-            model: 'gpt-3.5-turbo',
-          });
+        const aiResponse = await openai.chat.completions.create({
+            model:'gpt-3.5-turbo',
+            messages:[
+                {
+                    role:'user',
+                    content:promptMessage
+                }
+            ]
+        });
 
-          console.log(chatCompletion.choices[0].message);
+        console.log(aiResponse.choices[0].message.content);
+
+        return JSON.parse(JSON.stringify(aiResponse.choices[0].message.content));
+
+        
+        
           
         
     } catch (error) {

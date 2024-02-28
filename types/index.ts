@@ -136,3 +136,8 @@ export type DeleteWorkParams = {
     workId: string
     deleteId : string
 }
+
+export type AiTextGenreation = {
+    promptMessage:string
+
+}
