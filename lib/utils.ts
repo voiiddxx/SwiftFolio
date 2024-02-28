@@ -2,6 +2,9 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import OpenAI from 'openai';
 
+
+const apikey = "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";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -9,9 +12,7 @@ export function cn(...inputs: ClassValue[]) {
 
 
 
-
 export const openai = new OpenAI({
-  apiKey: process.env[`${process.env.OPEN_AI_KEY}`], // This is the default and can be omitted
+  apiKey: apikey,
+  dangerouslyAllowBrowser: true // This is the default and can be omitted
 });
-
-

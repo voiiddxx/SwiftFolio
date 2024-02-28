@@ -5,11 +5,17 @@ import connectToDatabase from "@/lib/database/mongodb";
 import Hero from "@/components/shared/home/Hero";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
-export default function Home() {
+import { createAboutusingAi } from "@/lib/actions/openai.action";
+export default async function Home() {
 
   const db = ()=>{
     connectToDatabase();
   }
+
+  const apidata = await createAboutusingAi();
+
+
+  
   return (
     <>
     <Header/>
