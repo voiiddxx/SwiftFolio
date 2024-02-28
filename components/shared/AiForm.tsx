@@ -14,23 +14,26 @@ import {
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { createAboutusingAi } from '@/lib/actions/openai.action'
-import { Sparkle, Sparkles } from 'lucide-react'
+import { Loader, Loader2, Rotate3D, Sparkle, Sparkles } from 'lucide-react'
   
 const AiForm = () => {
 
     const [prompt, setprompt] = useState<any>('');
 
     const [GenreatedRes, setGenreatedRes] = useState<any>('');
+    let IsLoading = false;
 
 
     const handleGenreation = async ()=>{
+      IsLoading = true;
         try {
             alert("func have been called");
             const res = await createAboutusingAi({promptMessage:prompt});
-            console.log("this is res whiich in showing in frontend" , res);
+            IsLoading = false;
             setGenreatedRes(res);
             
         } catch (error) {
+          IsLoading = false;
             console.log(error);
             throw new Error(error as string);
             
@@ -51,6 +54,15 @@ const AiForm = () => {
             setprompt(e.target.value);
         }} className='mt-3 mb-3'  placeholder='Suggest here...' />
         <Button onClick={handleGenreation} className='bg-blue-500 text-white w-full hover:bg-zinc-800 hover:bg-opacity-20' > <Sparkles  size={16}/>  Genreate</Button>
+
+        {
+          IsLoading  && (
+            <div className='mt-4 flex gap-2 '>
+            <Loader2 className='text-blue-500 animate-spin' />
+            <p>SwiftAI is Thinking...</p>
+            </div>
+          )
+        }
         {
           GenreatedRes != '' && (
             <div className='w-full min-h-11 bg-zinc-800 bg-opacity-20 rounded-md mt-4 px-4 py-4 text-zinc-200  '>
