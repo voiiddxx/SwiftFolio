@@ -2,14 +2,12 @@
 
 import { AiTextGenreation } from "@/types";
 import { openai } from "../utils";
-import { json } from "stream/consumers";
 
 
 
 
-export const createAboutusingAi = async ({promptMessage}: AiTextGenreation)=>{
+export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
     try {   
-
         const aiResponse = await openai.chat.completions.create({
             model:'gpt-3.5-turbo',
             messages:[

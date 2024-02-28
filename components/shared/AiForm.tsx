@@ -14,6 +14,7 @@ import {
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { createAboutusingAi } from '@/lib/actions/openai.action'
+import { Sparkle, Sparkles } from 'lucide-react'
   
 const AiForm = () => {
 
@@ -27,6 +28,7 @@ const AiForm = () => {
             alert("func have been called");
             const res = await createAboutusingAi({promptMessage:prompt});
             console.log("this is res whiich in showing in frontend" , res);
+            setGenreatedRes(res);
             
         } catch (error) {
             console.log(error);
@@ -48,7 +50,14 @@ const AiForm = () => {
         <Input onChange={(e)=>{
             setprompt(e.target.value);
         }} className='mt-3 mb-3'  placeholder='Suggest here...' />
-        <Button onClick={handleGenreation} className='bg-blue-500 text-white w-full hover:bg-zinc-800 hover:bg-opacity-20' >Genreate</Button>
+        <Button onClick={handleGenreation} className='bg-blue-500 text-white w-full hover:bg-zinc-800 hover:bg-opacity-20' > <Sparkles  size={16}/>  Genreate</Button>
+        {
+          GenreatedRes != '' && (
+            <div className='w-full min-h-11 bg-zinc-800 bg-opacity-20 rounded-md mt-4 px-4 py-4 text-zinc-200  '>
+              <p className='leading-7 tracking-normal' >{GenreatedRes}</p>
+            </div>
+          )
+        }
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter className='flex flex-col' >
