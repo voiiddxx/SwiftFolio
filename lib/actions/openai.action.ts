@@ -18,7 +18,7 @@ export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
             ]
         });
 
-        console.log(aiResponse.choices[0].message.content);
+        console.log(aiResponse.choices);
 
         return JSON.parse(JSON.stringify(aiResponse.choices[0].message.content));
 
@@ -35,16 +35,21 @@ export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
 
 export const genreateCustomImageusingAI = async ({promptMessage}:GenreateImageParams)=>{
     try {
-        const AiImageRes = await openai.images.generate({
-            model: "dall-e-3",
+
+        console.log("your promps gets here" , promptMessage);
+        
+        const res = await openai.images.generate({
+            model:"dall-e-2",
             prompt:promptMessage,
-            size:"512x512",
-            quality:"standard",
             n:1
         });
-        console.log(AiImageRes.data[0].url);
-        return JSON.parse(JSON.stringify(AiImageRes.data[0].url));
+        console.log(res.data);
+        console.log(res.data[0].url);
         
+        
+        return JSON.parse(JSON.stringify(res.data[0].url));
+        
+
         
     } catch (error) {
         

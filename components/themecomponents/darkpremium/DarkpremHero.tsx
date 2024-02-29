@@ -2,6 +2,7 @@ import { Iportfolio } from '@/lib/database/models/portfolio.model'
 import './Darkheroprem.css'
 import Editbutton from '@/components/shared/edit/Editbutton'
 import AiForm from '@/components/shared/AiForm'
+import AiImageForm from '@/components/shared/AiImageForm'
 
 
   type portfolioProps = {
@@ -25,10 +26,17 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
     }
     {
       adminData && (
-        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
+        <div className='absolute top  h-20 w-full flex justify-end items-center pr-12'>
           <div className='h-10  flex justify-center items-center px-4 border-[1px] border-white absolute right-64 rounded-full'>
             <AiForm/>
           </div>
+        </div>
+      )
+    }
+    {
+      adminData && (
+        <div className='h-10  flex justify-center items-center px-4 py-2 bg-zinc-700 rounded-full bg-opacity-25 absolute mt-6 right-[500px] '>
+          <AiImageForm/>
         </div>
       )
     }
