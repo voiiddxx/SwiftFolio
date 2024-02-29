@@ -41,6 +41,7 @@ export const genreateCustomImageusingAI = async ({promptMessage}:GenreateImagePa
         const res = await openai.images.generate({
             model:"dall-e-2",
             prompt:promptMessage,
+            quality:'hd',
             n:1
         });
         console.log(res.data);
