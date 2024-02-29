@@ -14,26 +14,26 @@ import {
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { createAboutusingAi } from '@/lib/actions/openai.action'
-import { Loader, Loader2, Rotate3D, Sparkle, Sparkles } from 'lucide-react'
+import {  Loader2,  Sparkles } from 'lucide-react'
   
 const AiForm = () => {
 
     const [prompt, setprompt] = useState<any>('');
 
     const [GenreatedRes, setGenreatedRes] = useState<any>('');
-    let IsLoading = false;
+    const [IsLoading, setIsLoading] = useState<boolean>(false);
 
 
     const handleGenreation = async ()=>{
-      IsLoading = true;
+      setIsLoading(true);
         try {
             alert("func have been called");
             const res = await createAboutusingAi({promptMessage:prompt});
-            IsLoading = false;
+            setIsLoading(false);
             setGenreatedRes(res);
             
         } catch (error) {
-          IsLoading = false;
+          setIsLoading(false);
             console.log(error);
             throw new Error(error as string);
             

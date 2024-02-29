@@ -141,3 +141,8 @@ export type AiTextGenreation = {
     promptMessage:string
 
 }
+
+
+export type GenreateImageParams = {
+    promptMessage: string
+}

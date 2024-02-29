@@ -1,6 +1,6 @@
 "use server"
 
-import { AiTextGenreation } from "@/types";
+import { AiTextGenreation, GenreateImageParams } from "@/types";
 import { openai } from "../utils";
 
 
@@ -28,6 +28,25 @@ export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
         
     } catch (error) {
         console.log(error);
+        
+    }
+}
+
+
+export const genreateCustomImageusingAI = async ({promptMessage}:GenreateImageParams)=>{
+    try {
+        const AiImageRes = await openai.images.generate({
+            model: "dall-e-3",
+            prompt:promptMessage,
+            size:"512x512",
+            quality:"standard",
+            n:1
+        });
+        console.log(AiImageRes.data[0].url);
+        return JSON.parse(JSON.stringify(AiImageRes.data[0].url));
+        
+        
+    } catch (error) {
         
     }
 }
