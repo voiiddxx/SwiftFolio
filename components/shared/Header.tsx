@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Button } from "../ui/button"
 import logo from '../../public/logo.svg'
 import { User } from "lucide-react"
+import Link from "next/link"
 
 const Header = () => {
   return (
@@ -10,7 +11,8 @@ const Header = () => {
       <div className="mr-24" >
         <div className="px-3 py-3 rounded-sm bg-violet-700  flex justify-center items-center" >
 
-          <p className="flex gap-2 items-center" ><User size={20} /> Create Your Account </p>
+         <Link href="/portfolio/create" >
+         <p className="flex gap-2 items-center" ><User size={20} /> Create Your Account </p></Link>
         </div>
       </div>
     </div>
