@@ -12,7 +12,7 @@ import {
   } from "@/components/ui/alert-dialog"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
-import { Sparkles } from "lucide-react"
+import { Download, Sparkles } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
 import { genreateCustomImageusingAI } from "@/lib/actions/openai.action"
@@ -44,7 +44,16 @@ const AiImageForm = () => {
       <AlertDialogTitle>Create Your Custom Poster Avatar With SwiftAI</AlertDialogTitle>
       <AlertDialogDescription>
         You can genreate your custom poster or any kind of image which you need for genreating your portfolio with the help of SwiftAI
-        <div className="w-full h-60 border-[1px] border-zinc-500 mt-8 rounded-lg" >
+        <div className="w-full h-60 border-[1px] border-zinc-500 mt-8 rounded-lg relative" >
+          {
+            Imageurl!='/' && (
+              <div className="absolute h-10 w-10 bg-zinc-800 bg-opacity-35 rounded-full right-3 flex items-center justify-center top-4 cursor-pointer" >
+                <a onClick={()=>{
+                  alert("working")
+                }}  download={Imageurl} > <Download className="text-white" /></a>
+              </div>
+            )
+          }
           {
             Imageurl!='/' ?   <Image className="h-full w-full px-2 object-cover py-2 rounded-lg" src={Imageurl} height={800} width={800} alt="AIGenreatedImage" /> :   <Image className="h-full w-full px-2 object-cover py-2 rounded-lg" src="http://res.cloudinary.com/dwkmxsthr/image/upload/v1707495923/xszdeg0ywgnw3apa5vdx.svg" height={800} width={800} alt="AIGenreatedImage" />
           }
