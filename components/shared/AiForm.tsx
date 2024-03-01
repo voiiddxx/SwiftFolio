@@ -43,7 +43,7 @@ const AiForm = () => {
 
   return (
     <AlertDialog>
-    <AlertDialogTrigger>Customize Text With AI</AlertDialogTrigger>
+    <AlertDialogTrigger><p className="flex gap-1 text-sm items-center justify-center text-green-300" ><Sparkles size={15}/> Genreate</p></AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Now Customize your captions with AI</AlertDialogTitle>

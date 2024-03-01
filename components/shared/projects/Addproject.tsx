@@ -28,15 +28,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { AlertTriangle, ArrowUp, Github, Radio, Truck } from "lucide-react"
+import { AlertTriangle, ArrowUp, Github, Radio, Sparkles, Truck } from "lucide-react"
 import uploadDataonCloudinary from "../Cloudinary"
 import { addProjecttoDatabase, updateProject } from "@/lib/actions/project.action"
 import { useState } from "react"
+import { Textarea } from "@/components/ui/textarea"
+import AiForm from "../AiForm"
+import AiImageForm from "../AiImageForm"
 
 
 const formSchema = z.object({
   projectname: z.string().min(2).max(50),
-  projectdetail: z.string().min(2).max(50),
+  projectdetail: z.string().min(2).max(100),
   projectlink: z.string().url(),
   projectstatus: z.enum(["Under Developement" , "Github Deployed" , "Live Deployed" , "Shipped"]),
   
@@ -119,7 +122,12 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
           render={({ field }) => (
             <FormItem >
               <FormControl>
-                <Input placeholder="Project Details" {...field} />
+               <div className="relative" >
+               <Textarea placeholder="Explain your project..." {...field} />
+               <div className="flex px-2 py-2 rounded-md bg-opacity-30 justify-center items-center bg-zinc-800 absolute top-2 right-2" >
+                <AiForm/>
+               </div> 
+               </div>
               </FormControl>
               <FormDescription>
                 Detail should be less than 30 words.
@@ -143,10 +151,13 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
             </FormItem>
           )}
         />
-        <div>
+        <div className="relative flex">
           <input onChange={(e)=>{
             setprojectThumbname(e.target.files);
-          }} className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
+          }} className="bg-zinc-900 p-3 rounded-3xl" type="file"/>
+          <div className="bg-zinc-800 bg-opacity-30 rounded-md absolute px-2 py-2 top-2 right-4 flex justify-center items-center">
+            <AiImageForm/>
+          </div>
         </div>
         <FormField
           control={form.control}
@@ -165,7 +176,7 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
             <p>Under developement</p>
           </div>
           </SelectItem>
-          <SelectItem value="Github Deployedk">
+          <SelectItem value="Github Deployed">
           <div className="flex items-center justify-between gap-2 text-red-300" >
             <Github height={15}/>
             <p>Github Deployed</p>

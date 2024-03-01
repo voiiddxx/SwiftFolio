@@ -38,7 +38,7 @@ const AiImageForm = () => {
     }
   return (
     <AlertDialog>
-  <AlertDialogTrigger>Genreate Image With SWiftAI</AlertDialogTrigger>
+  <AlertDialogTrigger><p className="flex gap-1 text-sm items-center justify-center text-green-300" ><Sparkles size={15}/> Genreate</p></AlertDialogTrigger>
   <AlertDialogContent>
     <AlertDialogHeader>
       <AlertDialogTitle>Create Your Custom Poster Avatar With SwiftAI</AlertDialogTitle>

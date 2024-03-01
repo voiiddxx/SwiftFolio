@@ -24,7 +24,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
         </div>
       )
     }
-    {
+    {/* {
       adminData && (
         <div className='absolute top  h-20 w-full flex justify-end items-center pr-12'>
           <div className='h-10  flex justify-center items-center px-4 border-[1px] border-white absolute right-64 rounded-full'>
@@ -32,14 +32,14 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
           </div>
         </div>
       )
-    }
-    {
+    } */}
+    {/* {
       adminData && (
         <div className='h-10  flex justify-center items-center px-4 py-2 bg-zinc-700 rounded-full bg-opacity-25 absolute mt-6 right-[500px] '>
           <AiImageForm/>
         </div>
       )
-    }
+    } */}
     <div>
     <div className="hero-main">
       <div className="navbar">
