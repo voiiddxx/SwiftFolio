@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images:{
-        domains:['res.cloudinary.com' , 'oaidalleapiprodscus.blob.core.windows.net'],
+        domains:['res.cloudinary.com' , 'oaidalleapiprodscus.blob.core.windows.net' , 'asset.cloudinary.com'],
         remotePatterns:[
             {
                 protocol:'https',
@@ -10,7 +10,11 @@ const nextConfig = {
             {
                 protocol:'https',
                 hostname:'oaidalleapiprodscus.blob.core.windows.net'
-            }
+            },
+            {
+                protocol:'https',
+                hostname:'asset.cloudinary.com'
+            },
         ]
     }
 };

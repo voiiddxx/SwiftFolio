@@ -80,7 +80,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       }
   return (
    <>
-  <div className="min-h-screen w-full bg-white" >
+  <div className="min-h-screen w-full bg-whiteLogin" >
     <Header/>
     <div className="min-h-screen w-full px-44" >
       {/* Heading of portfolio form */}

@@ -61,6 +61,7 @@ const config = {
         'loginBgImage':"url(/login.svg)",
         'darkpremTheme':"url(/dark.svg)",
         'HeroPageTheme':"url(/newHero.png)",
+        'whiteLogin':"url(/whiteLogin.png)",
       },
       borderRadius: {
         lg: "var(--radius)",
