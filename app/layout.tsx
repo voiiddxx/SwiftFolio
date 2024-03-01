@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark, neobrutalism } from "@clerk/themes";
 import { ThemeProvider } from "@/components/theme-provider"
-const kanit = Roboto({ 
+const kanit = Poppins({ 
   subsets: ["latin"],
   weight:["300" ,  "400" , "500" , "700" , "900"]
    });

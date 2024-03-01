@@ -59,7 +59,8 @@ const config = {
         'heroBgImage': "url(/grid.svg)",
         'whiteCreativeBGImage': "url(/whiteCreative.svg)",
         'loginBgImage':"url(/login.svg)",
-        'darkpremTheme':"url(/dark.svg)"
+        'darkpremTheme':"url(/dark.svg)",
+        'HeroPageTheme':"url(/newHero.png)",
       },
       borderRadius: {
         lg: "var(--radius)",

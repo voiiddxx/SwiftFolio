@@ -16,9 +16,7 @@ export default async function Home() {
   
   return (
     <>
-    <Header/>
     <Hero/>
-    <Footer/>
     </>
   );
 }
