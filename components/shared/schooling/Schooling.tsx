@@ -24,6 +24,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { addSchooling } from '@/lib/actions/school.action'
 import { Textarea } from '@/components/ui/textarea'
+import AiForm from '../AiForm'
 
 
 const formSchema = z.object({
@@ -120,7 +121,12 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Textarea placeholder="Additiniols Details" {...field} />
+                <div className="relative" >
+               <Textarea placeholder="Additinols details" {...field} />
+               <div className="flex px-2 py-2 rounded-md bg-opacity-30 justify-center items-center bg-zinc-800 absolute top-2 right-2" >
+                <AiForm/>
+               </div> 
+               </div>
                 </FormControl>
                 
                 <FormMessage />

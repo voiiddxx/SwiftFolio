@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from '@/components/ui/input'
 import { AddWorkExperince } from '@/lib/actions/work.action'
+import { Textarea } from '@/components/ui/textarea'
+import AiForm from '../AiForm'
 
 
     type WorkFormProps = {
@@ -70,7 +72,7 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="companyName"
@@ -80,9 +82,7 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
                 <FormControl>
                   <Input placeholder="Organization Name" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+               
                 <FormMessage />
               </FormItem>
             )}
@@ -96,9 +96,7 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
                 <FormControl>
                   <Input placeholder="Your Role in organization" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}
@@ -110,11 +108,14 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Your contribution to that organization" {...field} />
+                <div className="relative" >
+               <Textarea placeholder="Explain Your contribution to organizaton...." {...field} />
+               <div className="flex px-2 py-2 rounded-md bg-opacity-30 justify-center items-center bg-zinc-800 absolute top-2 right-2" >
+                <AiForm/>
+               </div> 
+               </div>
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}
@@ -128,9 +129,7 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
                 <FormControl>
                   <Input placeholder="Starting Year " {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}
@@ -144,9 +143,7 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
                 <FormControl>
                   <Input placeholder="Ending Year or Present" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}

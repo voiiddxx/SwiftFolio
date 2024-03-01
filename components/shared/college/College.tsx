@@ -24,6 +24,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { addSchooling } from '@/lib/actions/school.action'
 import { addCollege } from '@/lib/actions/education.action'
+import { Textarea } from '@/components/ui/textarea'
+import AiForm from '../AiForm'
 
 
 const formSchema = z.object({
@@ -79,7 +81,7 @@ const College = ({userId , type}: CollegeProps) => {
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="instituteName"
@@ -89,9 +91,7 @@ const College = ({userId , type}: CollegeProps) => {
                 <FormControl>
                   <Input placeholder="Your Insitute Name" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+                
                 <FormMessage />
               </FormItem>
             )}
@@ -105,9 +105,7 @@ const College = ({userId , type}: CollegeProps) => {
                 <FormControl>
                   <Input placeholder="Your Higher Degree" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+               
                 <FormMessage />
               </FormItem>
             )}
@@ -121,9 +119,7 @@ const College = ({userId , type}: CollegeProps) => {
                 <FormControl>
                   <Input placeholder="Batch Starting year" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+               
                 <FormMessage />
               </FormItem>
             )}
@@ -137,9 +133,7 @@ const College = ({userId , type}: CollegeProps) => {
                 <FormControl>
                   <Input placeholder="Batch Ending Year" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+               
                 <FormMessage />
               </FormItem>
             )}
@@ -151,11 +145,14 @@ const College = ({userId , type}: CollegeProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Additiniols Details" {...field} />
+                <div className="relative" >
+               <Textarea placeholder="Describe Your college expernience" {...field} />
+               <div className="flex px-2 py-2 rounded-md bg-opacity-30 justify-center items-center bg-zinc-800 absolute top-2 right-2" >
+                <AiForm/>
+               </div> 
+               </div>
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+                
                 <FormMessage />
               </FormItem>
             )}
