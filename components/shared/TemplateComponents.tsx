@@ -71,31 +71,31 @@ const TemplateComponents = () => {
     return (
         <>
         <Header/>
-        <div className="min-h-screen w-full bg-white px-40" >
+        <div className="min-h-screen w-full bg-white md:px-40 px-8" >
           <div className="h-24 w-full border-b border-zinc-200 flex items-start flex-col justify-center">
             <div className="">
-              <h1 className="text-violet-600 font-semibold text-2xl" >Choose Template</h1>
-              <p className="text-zinc-600" >Choose the theme as per your mood</p>
+              <h1 className="text-violet-600 font-semibold md:text-2xl text-lg" >Choose Template</h1>
+              <p className="text-zinc-600 md:text-base text-sm" >Choose the theme as per your mood</p>
             </div>
           </div>
 
 
           {/* category sections */}
 
-          <div className="flex gap-4 flex-wrap text-zinc-700 font-medium mt-8" >
-           <div className="bg-violet-700 px-4 py-2 rounded-md text-white" > <p>Developer</p></div>
-           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Freelancer</p></div>
-           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Photographer</p></div>
-           <div className=" px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Video Editor</p></div>
-           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>UI/UX Designer</p></div>
-           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Graphic Designer</p></div>
+          <div className="flex gap-4 flex-wrap text-zinc-700 font-medium mt-8 " >
+           <div className="bg-violet-700 px-4 py-2 rounded-md text-white" > <p className="md:text-base text-[13px] " >Developer</p></div>
+           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30 border-[1px]" > <p className="md:text-base text-[13px] " >Freelancer</p></div>
+           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30 border-[1px]" > <p className="md:text-base text-[13px] " >Photographer</p></div>
+           <div className=" px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30 border-[1px]" > <p className="md:text-base text-[13px] " >Video Editor</p></div>
+           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30 border-[1px]" > <p className="md:text-base text-[13px] " >UI/UX Designer</p></div>
+           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30 border-[1px]" > <p className="md:text-base text-[13px] " >Graphic Designer</p></div>
           </div>
 
 
           {/* template Section where all cards are shown */}
 
           
-      <div className="flex gap-4   mt-10 flex-wrap" >
+      <div className="flex gap-4   mt-10 flex-wrap md:justify-start justify-center" >
       {
         tempRes.map((curr)=>{
           return <Link href={curr.link+userId} ><div className="h-[450px] w-[380px] " >

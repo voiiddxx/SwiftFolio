@@ -62,6 +62,7 @@ const config = {
         'darkpremTheme':"url(/dark.svg)",
         'HeroPageTheme':"url(/newHero.png)",
         'whiteLogin':"url(/whiteLogin.png)",
+        'MobileMailBgImage':"url(/mobile.svg)",
       },
       borderRadius: {
         lg: "var(--radius)",

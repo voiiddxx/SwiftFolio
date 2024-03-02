@@ -19,9 +19,10 @@ import { useState } from "react"
 import uploadDataonCloudinary from "./Cloudinary"
 import { useRouter } from "next/navigation"
 import Header from "./Header"
-import { Ghost } from "lucide-react"
+import { CandyCaneIcon, Check, Cross, Ghost, LoaderIcon, X } from "lucide-react"
 import { Textarea } from "../ui/textarea"
 import { Label } from "../ui/label"
+import Footer from "./Footer"
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -63,6 +64,10 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       
 
      async function onSubmit(values: z.infer<typeof formSchema>) {
+
+      // setTimeout(() => {
+      //   alert("hey");
+      // }, 6000);
       
       const avatarurl = await uploadDataonCloudinary(avatar);
       const resumeurl = await uploadDataonCloudinary(resume);
@@ -80,26 +85,26 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       }
   return (
    <>
-  <div className="min-h-screen w-full bg-whiteLogin" >
+  <div className="min-h-screen w-full md:bg-whiteLogin" >
     <Header/>
-    <div className="min-h-screen w-full px-44" >
+    <div className="min-h-screen w-full md:px-44 px-6" >
       {/* Heading of portfolio form */}
       <Form {...form}>
 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       <div className="h-28 w-full  flex border-b border-zinc-200 justify-between items-center" >
        <div>
 
-       <h1 className="text-2xl font-semibold text-violet-700 flex items-center gap-2 mb-1"> <Ghost/> Portfolio Form</h1>
-        <p className="text-zinc-600" >Please enter prior informaation for initial portfolio</p>
+       <h1 className="md:text-2xl font-semibold text-violet-700 flex items-center gap-2 mb-1"> <Ghost/> Portfolio Form</h1>
+        <p className="text-zinc-600 text-[10px] mt-2 md:text-[15px]" >Please enter prior informaation for initial portfolio</p>
        </div>
        <div className="flex gap-2" >
-        <Button  className="bg-white text-zinc-700 border-zinc-300" variant="outline" >Cancel</Button>
+        <Button  className="bg-white text-zinc-700 border-zinc-300 " variant="outline" size="icon" ><X className="text-red-500" /></Button>
 
 
 
-        <Button disabled={form.formState.isSubmitting} type="submit" className="bg-violet-600 text-white hover:bg-zinc-800" >{form.formState.isSubmitting ? (
-            'Submitting...'
-          ): `Create Now `}</Button>
+        <Button size="icon" disabled={form.formState.isSubmitting} type="submit" className="bg-violet-600 text-white hover:bg-zinc-800" >{form.formState.isSubmitting ? (
+            <LoaderIcon className="animate-spin" />
+          ):<Check/> }</Button>
        </div>
       </div>
 
@@ -110,14 +115,14 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium" >Your Name 📛 </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Name 📛 </h1>
     </div>
     <div>
     <FormField
     control={form.control}
     name="name"
     render={({ field }) => (
-      <FormItem className="w-[500px]">
+      <FormItem className="md:w-[500px]">
         <FormControl>
           <Input className="outline-none border-zinc-300 text-zinc-800 bg-transparent" placeholder="Your complete name" {...field} />
         </FormControl>
@@ -129,14 +134,14 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
   </div>
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium" >Your Email Address 💌</h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Email Address 💌</h1>
     </div>
     <div>
     <FormField
     control={form.control}
     name="mailurl"
     render={({ field }) => (
-      <FormItem className="w-[500px]">
+      <FormItem className="md:w-[500px]">
         <FormControl>
           <Input className="outline-none border-zinc-300 text-zinc-800 bg-transparent" placeholder="Your Email Address" {...field} />
         </FormControl>
@@ -148,14 +153,14 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
   </div>
   <div className="h-28 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium" >Your Caption/Headline 👍</h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Caption/Headline 👍</h1>
     </div>
     <div>
     <FormField
     control={form.control}
     name="heading"
     render={({ field }) => (
-      <FormItem className="w-[500px]">
+      <FormItem className="md:w-[500px]">
         <FormControl>
           <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Please write your caption/headline"  />
         </FormControl>
@@ -169,14 +174,14 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium" >Your Links ⛈️ </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Your Links ⛈️ </h1>
     </div>
     <div className="flex gap-4" >
     <FormField
     control={form.control}
     name="linkedinurl"
     render={({ field }) => (
-      <FormItem className="w-[280px]">
+      <FormItem className="md:w-[280px]">
         <FormControl>
           <Input className="outline-none border-zinc-300 text-zinc-800 bg-transparent" placeholder="Your LinkedIn Url " {...field} />
         </FormControl>
@@ -188,7 +193,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
     control={form.control}
     name="githuburl"
     render={({ field }) => (
-      <FormItem className="w-[280px]">
+      <FormItem className="md:w-[280px]">
         <FormControl>
           <Input className="outline-none border-zinc-300 text-zinc-800 bg-transparent" placeholder="Your Github Url" {...field} />
         </FormControl>
@@ -200,7 +205,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
     control={form.control}
     name="extraurl"
     render={({ field }) => (
-      <FormItem className="w-[280px]">
+      <FormItem className="md:w-[280px]">
         <FormControl>
           <Input className="outline-none border-zinc-300 text-zinc-800 bg-transparent" placeholder="Any other link" {...field} />
         </FormControl>
@@ -216,7 +221,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-36 w-full  border-b border-zinc-200 flex items-center justify-between">
   <div>
-      <h1 className="text-zinc-500 font-medium" >Important* 📸 </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Important* 📸 </h1>
     </div>
 <div className=" flex gap-4" >
    <div>
@@ -239,6 +244,8 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       
     </div>
   </div>
+
+  <Footer/>
   
    </>
   )
