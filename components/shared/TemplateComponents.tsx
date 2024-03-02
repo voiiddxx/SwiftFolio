@@ -5,6 +5,7 @@ import { log } from "console";
 import Image from "next/image";
 import { useRouter } from "next/navigation"
 import Header from "./Header";
+import { Crown } from "lucide-react";
 
 
 const TemplateComponents = () => {
@@ -19,20 +20,20 @@ const TemplateComponents = () => {
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps"
     },
     {
-      "title":"New Carbon Black",
+      "title":"Minimal White",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps"
     },
     
     {
-      "title":"New Carbon Black",
+      "title":"Linkedin Style Theme",
       "subtitle":"get your free new carbon theme for free",
-      "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps"
+      "price":"Paid",
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709357308/gahaczixumnwll3d61jx.jpg?_s=public-apps"
     },
     {
-      "title":"New Carbon Black",
+      "title":"Linkedin Style Theme",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps"
@@ -75,11 +76,11 @@ const TemplateComponents = () => {
 
           <div className="flex gap-4 flex-wrap text-zinc-700 font-medium mt-8" >
            <div className="bg-violet-700 px-4 py-2 rounded-md text-white" > <p>Developer</p></div>
-           <div className="px-4 py-2 rounded-md" > <p>Freelancer</p></div>
-           <div className="px-4 py-2 rounded-md" > <p>Photographer</p></div>
-           <div className=" px-4 py-2 rounded-md " > <p>Video Editor</p></div>
-           <div className="px-4 py-2 rounded-md " > <p>UI/UX Designer</p></div>
-           <div className="px-4 py-2 rounded-md " > <p>Graphic Designer</p></div>
+           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Freelancer</p></div>
+           <div className="px-4 py-2 rounded-md hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Photographer</p></div>
+           <div className=" px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Video Editor</p></div>
+           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>UI/UX Designer</p></div>
+           <div className="px-4 py-2 rounded-md  hover:bg-violet-300 cursor-pointer hover:bg-opacity-30" > <p>Graphic Designer</p></div>
           </div>
 
 
@@ -90,8 +91,8 @@ const TemplateComponents = () => {
       {
         tempRes.map((curr)=>{
           return <div className="h-[450px] w-[380px] " >
-            <div className="h-[350px] w-full  rounded-md" >
-              <Image className="h-[350px] w-full object-cover rounded-t-xl" src={curr.image} height={800} width={800} alt="templateimage"/>
+            <div className="h-[350px] w-full  rounded-sm" >
+              <Image className="h-[350px] w-full object-cover rounded-t-md" src={curr.image} height={800} width={800} alt="templateimage"/>
             </div>
             <div className="flex justify-between items-center px-2 py-4" >
               <div className="" >
@@ -100,7 +101,9 @@ const TemplateComponents = () => {
               </div>
               <div>
                <div className="bg-green-100 px-4 py-1 rounded-full" >
-               <p className="text-green-800 text-sm" >Free</p>
+               {
+                curr.price == "free" ? <p className="text-green-800 text-sm" >Free</p> : <p className="flex text-green-950 items-center gap-1" > <Crown size={16} /> Paid </p>
+               }
                </div>
               </div>
             </div>
