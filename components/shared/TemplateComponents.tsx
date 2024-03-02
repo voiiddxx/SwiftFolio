@@ -27,7 +27,7 @@ const TemplateComponents = () => {
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
-      "link":"/themes/darkpremium/",
+      "link":"/themes/whitecreative/",
     },
     
     {

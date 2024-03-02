@@ -22,12 +22,12 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
     {
       data.length < 1 ?  <div></div>:
 
-    <div className='w-full pb-9 bg-whiteCreativeBGImage pl-52'>
+    <div className='w-full pb-9 bg-whiteCreativeBGImage md:pl-52 px-10'>
         <div>
             <h1 className='font-semibold text-xl text-zinc-800'>Latest projects</h1>
         </div>
 
-        <div className='w-full flex gap-10 mt-10'>
+        <div className='w-full flex gap-10 mt-10 flex-wrap'>
             {
               data.map((curr : any) => {
                 return <div className='w-[350px] border-[0.5px] border-zinc-300 rounded-lg  p-5'>

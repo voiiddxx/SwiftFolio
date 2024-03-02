@@ -12,12 +12,12 @@ const WhiteCustom = ({customData , IsAdmin} : customDataprops) => {
         <div className="w-full pb-8 bg-whiteCreativeBGImage">
             {
                 customData.map((curr : any)=> {
-                    return <div className="pl-52">
+                    return <div className="md:pl-52 px-10">
                         <div>
                             <h1 className="text-xl text-black font-bold">{curr.heading}</h1>
                             <p className="text-zinc-600 font-normal" >Checkout the {curr.heading} all of them are mentioned below</p>
                         </div>
-                        <div className="w-full flex gap-5 " >
+                        <div className="w-full flex gap-5 flex-wrap" >
                             {
                                 curr.data.map((card : any)=>{
                                     return <div>

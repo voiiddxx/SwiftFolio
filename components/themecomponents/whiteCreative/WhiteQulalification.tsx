@@ -42,7 +42,7 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
     }
   
   return (
-    <div className='min-h-screen w-full pl-52 bg-whiteCreativeBGImage'>
+    <div className='min-h-screen w-full md:pl-52 px-10 bg-whiteCreativeBGImage'>
        {/* this is school section z */}
        {
         userSchool.length < 1? <div></div> : <div>
@@ -65,11 +65,11 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 ' >
+      <div className='md:pr-52 ' >
           <p className='text-zinc-500 font-normal text-sm' >{curr.finalYear}</p>
           <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.schoolClass}</h1>
           <p className='text-blue-500 font-normal text-sm mt-2' >{curr.schoolName}</p>
-          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+          <p className='text-zinc-600 font-normal md:mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendi</p>
 
        {
         isAdmin && ( <div className='flex gap-4 mt-4' >
@@ -109,11 +109,11 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
                             </div>
                         </div>
                         {/* schooling informaton */}
-                        <div className='pr-52 ' >
+                        <div className='md:pr-52 ' >
                             <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
                             <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.degree}</h1>
                             <p className='text-blue-600 font-normal text-sm mt-2' >{curr.instituteName}</p>
-                            <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+                            <p className='text-zinc-600 font-normal md:mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores</p>
                             {
         isAdmin && ( <div className='flex gap-4 mt-4' >
         <Edit className='text-blue-700' size={16} />
@@ -162,11 +162,11 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 ' >
+      <div className='md:pr-52 ' >
           <p className='text-zinc-500 font-normal text-sm' >{curr.startDate} - {curr.endDate}  </p>
           <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.role}</h1>
           <p className='text-blue-700 font-normal text-sm mt-2' >{curr.companyName}</p>
-          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+          <p className='text-zinc-600 font-normal md:mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           {
         isAdmin && ( <div className='flex gap-4 mt-4' >
         <Edit className='text-blue-700 ' size={16} />
