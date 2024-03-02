@@ -31,7 +31,7 @@ const formSchema = z.object({
     schoolClass: z.string().min(2).max(50),
     schoolName:z.string().min(2).max(50),
     finalYear:z.string().min(2).max(50),
-    extraDetail:z.string().min(2).max(50),
+    extraDetail:z.string().min(2).max(500),
   })
 
 
@@ -133,7 +133,9 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
               </FormItem>
             )}
           />          
-          <Button className="w-full" type="submit">Submit</Button>
+          <Button disabled={form.formState.isSubmitting} className="w-full" type="submit"> {
+            form.formState.isSubmitting ? ('submitting..') : 'Submit'
+          } </Button>
         </form>
       </Form>
       </DialogHeader>

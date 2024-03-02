@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import Header from "../Header";
 import { Ghost, Zap } from "lucide-react";
+import Footer from "../Footer";
 
 const Hero = () => {
 
@@ -24,6 +25,7 @@ const Hero = () => {
       </div>
 
     </div>
+    <Footer/>
    </div>
   )
 }

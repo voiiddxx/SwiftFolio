@@ -1,10 +1,21 @@
+import { Github, Linkedin, Mail } from "lucide-react"
+import Image from "next/image"
 
 const Footer = () => {
   return (
-    <div className="h-20 w-full bg-black flex items-center justify-center" >
-      <div className="flex flex-col items-center justify-center">
+    <div className=" w-full bg-transparent flex items-center justify-center" >
+      <div className="flex flex-col items-center justify-center pb-16">
         <h1 className="text-white font-bold">SwiftFolio</h1>
-        <p className="text-gray-400" >Created By Voiiddxx 💚</p>
+        <div className="" >
+          
+      <Image className="h-16" src={`/logo.svg`} height={500} width={500} alt="logo"/>
+        </div>
+        <p className="text-zinc-800 font-medium" >Created By Nikhil Kumar 💚</p>
+        <div className="flex gap-10 mt-9" >
+          <Github className="text-red-500" size={20} />
+          <Linkedin className="text-indigo-500" size={20} />
+          <Mail className="text-orange-500" size={20} />
+        </div>
       </div>
     </div>
   )

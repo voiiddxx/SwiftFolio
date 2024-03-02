@@ -6,6 +6,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation"
 import Header from "./Header";
 import { Crown } from "lucide-react";
+import Footer from "./Footer";
+import Link from "next/link";
 
 
 const TemplateComponents = () => {
@@ -17,39 +19,45 @@ const TemplateComponents = () => {
       "title":"New Carbon Black",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     {
       "title":"Minimal White",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     
     {
       "title":"Linkedin Style Theme",
       "subtitle":"get your free new carbon theme for free",
       "price":"Paid",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709357308/gahaczixumnwll3d61jx.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709357308/gahaczixumnwll3d61jx.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     {
       "title":"Linkedin Style Theme",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     
     {
       "title":"New Carbon Black",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     {
       "title":"New Carbon Black",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps"
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
+      "link":"/themes/darkpremium/",
     },
     
 
@@ -90,32 +98,33 @@ const TemplateComponents = () => {
       <div className="flex gap-4   mt-10 flex-wrap" >
       {
         tempRes.map((curr)=>{
-          return <div className="h-[450px] w-[380px] " >
-            <div className="h-[350px] w-full  rounded-sm" >
-              <Image className="h-[350px] w-full object-cover rounded-t-md" src={curr.image} height={800} width={800} alt="templateimage"/>
+          return <Link href={curr.link+userId} ><div className="h-[450px] w-[380px] " >
+          <div className="h-[350px] w-full  rounded-sm" >
+            <Image className="h-[350px] w-full object-cover rounded-t-md" src={curr.image} height={800} width={800} alt="templateimage"/>
+          </div>
+          <div className="flex justify-between items-center px-2 py-4" >
+            <div className="" >
+            <h1 className="text-violet-700 font-medium text-lg" >{curr.title}</h1>
+            <p className="text-zinc-600 text-sm" >New carbon Colt theme for free</p>
             </div>
-            <div className="flex justify-between items-center px-2 py-4" >
-              <div className="" >
-              <h1 className="text-violet-700 font-medium text-lg" >{curr.title}</h1>
-              <p className="text-zinc-600 text-sm" >New carbon Colt theme for free</p>
-              </div>
-              <div>
-               <div className="bg-green-100 px-4 py-1 rounded-full" >
-               {
-                curr.price == "free" ? <p className="text-green-800 text-sm" >Free</p> : <p className="flex text-green-950 items-center gap-1" > <Crown size={16} /> Paid </p>
-               }
-               </div>
-              </div>
+            <div>
+             <div className="bg-green-100 px-4 py-1 rounded-full" >
+             {
+              curr.price == "free" ? <p className="text-green-800 text-sm" >Free</p> : <p className="flex text-green-950 items-center gap-1" > <Crown size={16} /> Paid </p>
+             }
+             </div>
             </div>
           </div>
+        </div></Link>
           
         })
       }
       </div>
 
 
-
+      <Footer/>
         </div>
+        
         </>
       )
 }

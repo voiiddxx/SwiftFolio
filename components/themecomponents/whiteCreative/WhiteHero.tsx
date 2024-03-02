@@ -1,3 +1,4 @@
+import Footer from '@/components/shared/Footer'
 import Editbutton from '@/components/shared/edit/Editbutton'
 import { ArrowRightIcon, Dot, Github, Linkedin, Radio, Twitter } from 'lucide-react'
 import React from 'react'
@@ -37,6 +38,7 @@ const WhiteHero = ({data , adminData} : whiteHeroProps) => {
         <Twitter/>
     </div>
     </div>
+    <Footer/>
     </>
   )
 }

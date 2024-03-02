@@ -24,7 +24,7 @@ const DarkCustom = ( {customData , IsAdmin} : customProps) => {
                             <p className='font-light text-zinc-500'>This is custom section subtitle</p>
                         </div>
 
-                       <div className='w-full flex justify-center items-center gap-4'>
+                       <div className='w-full flex justify-center items-center gap-4 flex-wrap'>
                        {
                             curr.data.map((card : any) => {
                                 return <div className='h-[400px] w-[400px]  rounded-md mt-5 '>

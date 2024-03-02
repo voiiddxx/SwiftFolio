@@ -52,33 +52,33 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
       {/* schooling section  */}
 
     {
-       userSchool.length   < 1 ? <div></div> :  <>
-      <div className='pl-60 mt-4 mb-10'>
+       userSchool[0].length   < 1 ? <div></div> :  <>
+      <div className='pl-10 mt-4 mb-10 md:pl-60'>
     <h1 className='text-yellow-300 text-xl' >My Education</h1>
     <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
   </div> 
 {
     userSchool[0].school.map((curr : ISchool) => {
-      return  <div className='w-full flex pl-52 gap-2 items-start'>
+      return  <div className='w-full flex pl-10 md:pl-52 gap-2 items-start'>
       {/* //border line  */}
       <div className='flex flex-col'>
           <Image className='h-24 w-32' src="/college.svg" height={500} width={500} alt='schoo and college icons'/>
-          <div className='ml-8'>
-              <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
+          <div className='ml-14'>
+              <div className='md:h-40 h-20 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
                   
               </div>
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 ' >
+      <div className='md:pr-52 pr-10' >
           <p className='text-zinc-500 font-normal text-sm' >{curr.finalYear}</p>
           <h1 className='text-lg font-semibold text-zinc-200 mt-2'>{curr.schoolClass}</h1>
           <p className='text-green-300 font-normal text-sm mt-2' >{curr.schoolName}</p>
-          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+          <p className='text-zinc-600 font-normal md:mr-80 mt-2'>{curr.extraDetail}</p>
 
           {
         isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700' size={16} />
+       
         <Trash onClick={()=>{
             handleSchoolDelte(curr._id);
         }} className='text-red-800 cursor-pointer' size={16} />
@@ -93,70 +93,60 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
 </>
 
       }
-    {
-       userCollege.length   < 1 ? <div></div> :  <>
-      {
-    userCollege[0].college.map((curr : ICollege , index : number) => {
-      return  <div className='w-full flex pl-52 gap-2 items-start'>
+
+
+
+{
+    userCollege[0].college.map((curr : ICollege) => {
+      return  <div className='w-full flex pl-10 md:pl-52 gap-2 items-start '>
       {/* //border line  */}
       <div className='flex flex-col'>
           <Image className='h-24 w-32' src="/college.svg" height={500} width={500} alt='schoo and college icons'/>
-          <div className='ml-8'>
-
-            {
-              index == userCollege[0].college.length -1 ?  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-transparent'>
-                  
-              </div> :  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
+          <div className='ml-14'>
+              <div className='md:h-40 h-20 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
                   
               </div>
-            }
-
-
-             
           </div>
       </div>
       {/* schooling informaton */}
-      <div className='pr-52 ' >
-       <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
-        <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.degree}</h1>
-              <p className='text-green-300 font-normal text-sm mt-2' >{curr.instituteName}</p>
-            <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
-            {
+      <div className='md:pr-52 pr-10' >
+          <p className='text-zinc-500 font-normal text-sm' >{curr.batchStartDate} - {curr.batchEndDate}</p>
+          <h1 className='text-lg font-semibold text-zinc-200 mt-2'>{curr.degree}</h1>
+          <p className='text-green-300 font-normal text-sm mt-2' >{curr.instituteName}</p>
+          <p className='text-zinc-600 font-normal md:mr-80 mt-2 text-sm md:text-md'></p>
+
+          {
         isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700' size={16} />
-        <Trash  onClick={()=>{
-            alert("called")
-            handleDelete(curr._id);
-        }} className='text-red-800' size={16} />
+       
+        <Trash onClick={()=>{
+            handleSchoolDelte(curr._id);
+        }} className='text-red-800 cursor-pointer' size={16} />
       </div>)
        }
-                        </div>
+      </div>
 
     </div>
     })
 }
 
-</>
 
-
-      }
-
+   
          
       {/* work experince section  */}
 
       
 
        {
-       userwork.length   < 1 ? <div></div> :  <> <div className='pl-60 mt-4 mb-10 w-full bg-heroBgImage'>
+       userwork.length   < 1 ? <div></div> :  <> <div className='md:pl-60 pl-10 mt-4 mb-10 w-full bg-heroBgImage'>
         <h1 className='text-green-400 text-xl' >Work Experience</h1>
         <p className='mt-2 text-zinc-500' >All of my work experinece have been mentioned below</p>
       </div>
       {
         userwork[0].work.map((curr : IWork , index : number) => {
-          return  <div className='w-full flex pl-52 gap-2 items-start'>
+          return  <div className='w-full flex md:pl-52 pl-10 gap-2 items-start'>
           {/* //border line  */}
           <div className='flex flex-col'>
-              <Image className='h-24 w-32' src="/job2.svg" height={500} width={500} alt='schoo and college icons'/>
+              <Image className='h-24 w-34' src="/job2.svg" height={500} width={500} alt='schoo and college icons'/>
               <div className='ml-8'>
 
               {
@@ -170,15 +160,15 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
               </div>
           </div>
           {/* schooling informaton */}
-          <div className='pr-52 ' >
+          <div className='md:pr-52 pr-10' >
           <p className='text-zinc-500 font-normal text-sm' >{curr.startDate} - {curr.endDate}  </p>
           <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.role}</h1>
           <p className='text-blue-300 font-normal text-sm mt-2' >{curr.companyName}</p>
           
-          <p className='text-zinc-600 font-normal mr-80 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolores adipisci delectus hic ad officia. Lorem, ipsum dolor sit amet consectetu adipisicing elit. Labore quia inventore dolor. Culpa aliquid repudiandae alias, distinctio optio magni! Quidem!</p>
+          <p className='text-zinc-600 font-normal md:mr-80 mt-2 text-[12px] md:text-md'>{curr.contribution}</p>
           {
         isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700 ' size={16} />
+      
         <Trash onClick={()=>{
             handleWorkDelete(curr._id);
         }} className='text-red-800 cursor-pointer' size={16} />
@@ -205,3 +195,59 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
 }
 
 export default DarkQualification
+
+
+
+
+
+
+
+
+
+// {
+//   userCollege.length   < 1 ? <div></div> :  <>
+//  {
+// userCollege[0].college.map((curr : ICollege , index : number) => {
+//  return  <div className='w-full flex pl-52 gap-2 items-start'>
+//  {/* //border line  */}
+//  <div className='flex flex-col'>
+//      <Image className='h-24 w-32' src="/college.svg" height={500} width={500} alt='schoo and college icons'/>
+//      <div className='ml-8'>
+
+//        {
+//          index == userCollege[0].college.length -1 ?  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-transparent'>
+             
+//          </div> :  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
+             
+//          </div>
+//        }
+
+
+        
+//      </div>
+//  </div>
+//  {/* schooling informaton */}
+//  <div className='pr-52 ' >
+//   <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
+//    <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.degree}</h1>
+//          <p className='text-green-300 font-normal text-sm mt-2' >{curr.instituteName}</p>
+//        <p className='text-zinc-600 font-normal mr-80 mt-2'>{curr.extraDetail}</p>
+//        {
+//    isAdmin && ( <div className='flex gap-4 mt-4' >
+   
+//    <Trash  onClick={()=>{
+//        alert("called")
+//        handleDelete(curr._id);
+//    }} className='text-red-800' size={16} />
+//  </div>)
+//   }
+//                    </div>
+
+// </div>
+// })
+// }
+
+// </>
+
+
+//  }

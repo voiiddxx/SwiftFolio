@@ -26,7 +26,6 @@ import { AddWorkExperince } from '@/lib/actions/work.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
 
-
     type WorkFormProps = {
         userId: any,
         type : "ADD" | "EDIT"
@@ -36,7 +35,7 @@ import AiForm from '../AiForm'
     const formSchema = z.object({
         companyName: z.string().min(2).max(50),
         role:z.string().min(2).max(50),
-        contribution:z.string().min(2).max(50),
+        contribution:z.string().min(2).max(500),
         startDate:z.string().min(2).max(50),
         endDate:z.string().min(2).max(50),
       });
@@ -148,7 +147,12 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
               </FormItem>
             )}
           />                  
-          <Button className="w-full" type="submit">Submit</Button>
+          <Button 
+          disabled={form.formState.isSubmitting} className="w-full" type="submit">
+            {
+              form.formState.isSubmitting ? ('Submitting..') : 'Submit'
+            }
+          </Button>
         </form>
       </Form>
       </DialogHeader>

@@ -29,7 +29,7 @@ const DarkProject = async ({data , adminData} : projectstypeProps) => {
         <p className='font-normal text-zinc-500' >All the projects out there with deployed links</p>
         </div>
 
-        <div className='h-auto w-full flex items-center justify-center gap-5 mt-6'>
+        <div className='h-auto w-full flex items-start flex-wrap justify-center gap-5 mt-6'>
           {
             data.map((curr : any) => {
               return  <div className='w-[350px] bg-zinc-800 rounded-lg border-[1px] border-zinc-300' >
