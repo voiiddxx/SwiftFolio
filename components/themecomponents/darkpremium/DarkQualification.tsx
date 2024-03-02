@@ -5,7 +5,7 @@ import { deleteWorkById } from '@/lib/actions/work.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
-import { BookOpen, Building2, Edit, GraduationCap, Trash } from 'lucide-react'
+import { Blend, BookOpen, Building2, Edit, GraduationCap, Target, Trash } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -48,14 +48,15 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
   
   
   return (
-    <div className='w-full  bg-heroBgImage pt-14 md:px-32'>
+    <div className='w-full  bg-heroBgImage pt-14 md:px-32 px-10'>
       {/* schooling section  */}
     {
       userSchool[0].school.length < 1 ? <div></div> : <>
-      <div>
+      <div >
         <h1 className='text-green-300 text-2xl font-medium' >Education</h1>
         <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
       </div>
+      <div className='md:flex gap-4 flex-wrap' >
      <div className='mt-9' >
      {
         userSchool[0].school.map((curr : ISchool)=>{
@@ -94,9 +95,36 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
         })
       }
      </div>
+     </div>
       </>
     }
       
+      {
+        userwork[0].work.length < 1 ? <div></div> : <div>
+           <div >
+        <h1 className='text-red-300 text-2xl font-medium mt-5' >Work Experince</h1>
+        <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
+      </div>
+      <div className='mt-9' >
+     {
+        userwork[0].work.map((curr : IWork)=>{
+          return <div className='flex gap-4' >
+           <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
+            <Blend className='text-indigo-300' size={30} />
+           </div>
+           <div>
+            <h1 className='text-indigo-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
+            <p className='text-zinc-100 mt-1' >12th Non Medical</p>
+           <div className='w-[350px] h-16 mt-1 overflow-hidden' >
+           <p  className='text-zinc-500 text-[12px] ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, officiis laudantium. Commodi, error illo.</p>
+           </div>
+           </div>
+          </div>
+        })
+      }
+     </div>
+        </div>
+      }
 
     
 

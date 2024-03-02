@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Edit, GraduationCap, Layers, Medal, Projector, Rocket, School, User, WorkflowIcon } from 'lucide-react'
+import { Edit, GraduationCap, Layers, Medal, Pen, Projector, Rocket, School, User, WorkflowIcon } from 'lucide-react'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
@@ -19,6 +19,7 @@ import CustomFieldform from '../custom/CustomFieldform'
 import Schooling from '../schooling/Schooling'
 import College from '../college/College'
 import WorkForm from '../works/WorkForm'
+import { Button } from '@/components/ui/button'
 
   type editButtonProps = {
     portfolioId: string
@@ -35,10 +36,11 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
   return (
     <Sheet>
   <SheetTrigger>
-    <div className='flex items-center justify-center gap-2 border-[0.5px] text-white border-zinc-700 px-3 rounded-xl hover:bg-zinc-800'>
+    <Button size="icon"> <Pen/> </Button>
+    {/* <div className='flex items-center justify-center gap-2 border-[0.5px] text-white border-zinc-700 px-3 rounded-xl hover:bg-zinc-800'>
       <Edit height={40}  color='teal' />
       <p>Edit Your Portfolio</p>
-    </div>
+    </div> */}
   </SheetTrigger>
   <SheetContent>
     <SheetHeader>

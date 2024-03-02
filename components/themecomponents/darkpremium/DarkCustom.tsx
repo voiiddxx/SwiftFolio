@@ -3,6 +3,7 @@ import CustomFieldform from '@/components/shared/custom/CustomFieldform'
 import DeleteSection from '@/components/shared/delete/DeleteSection'
 import { ChevronsRight, Trophy } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -27,29 +28,29 @@ const DarkCustom = ( {customData , IsAdmin} : customProps) => {
                        <div className='w-full flex justify-center items-center gap-4 flex-wrap'>
                        {
                             curr.data.map((card : any) => {
-                                return <div className='h-[400px] w-[400px]  rounded-md mt-5 '>
+                                return <Link href={card.customLink} ><div className='h-[400px] w-[400px]  rounded-md mt-5 '>
                                    
-                                  <div className='h-[300px] w-full rounded-md bg-blue-500 relative'>
-                                    
-                                 
-                              <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
-                             {
-                              IsAdmin == true ? <div>
-                                 <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
-                                <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
-                              </div>
-                              <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
-                                <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
-                              </div>
-                              </div> : <div></div>
-                             }
-                              <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
-                              
-                              <p className='font-light text-zinc-400'>{card.customTitle}</p>
-                              <ChevronsRight size={18} color='gray'/>
-                              </div>
-                                  </div>
+                                <div className='h-[300px] w-full rounded-md bg-blue-500 relative'>
+                                  
+                               
+                            <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
+                           {
+                            IsAdmin == true ? <div>
+                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
+                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
+                            </div>
+                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
+                              <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
+                            </div>
+                            </div> : <div></div>
+                           }
+                            <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
+                            
+                            <p className='font-light text-zinc-400'>{card.customTitle}</p>
+                            <ChevronsRight size={18} color='gray'/>
+                            </div>
                                 </div>
+                              </div></Link>
                             })
                         }
                        </div>

@@ -62,7 +62,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
           <div className="hero-button">
            <a href={data.linkedinurl}>
            <div className="connect-button">
-              <p>Connect⚡</p>
+              <p className='text-zinc-800 font-semibold' >Connect With me⚡</p>
             </div>
            </a>
             <a href={data.githuburl}>
@@ -73,30 +73,11 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
           </div>
         
       </div>
-
-      <div className="core">
-        <h3>The Core Tech-Stack</h3>
-        <p className="core-detail">
-          The Core tech Stack currently am working on
-        </p>
-
-        <div className="core-images">
-          <div className='h-7 p-4 flex justify-center items-center bg-blend-hue rounded-lg' >
-            <h1 className='opacity- text-blue-300 font-light'>-NextJs</h1>
-          </div>
-          <div className='h-7 p-4 flex justify-center items-center bg-blend-hue rounded-lg' >
-            <h1 className='opacity- text-red-300 font-light'>-Typescipt</h1>
-          </div>
-          <div className='h-7 p-4 flex justify-center items-center bg-blend-hue rounded-lg' >
-            <h1 className='opacity- text-green-300 font-light'>-Reactjs</h1>
-          </div>
-          <div className='h-7 p-4 flex justify-center items-center bg-blend-hue rounded-lg' >
-            <h1 className='opacity- text-yellow-300 font-light'>-Mongodb</h1>
-          </div>
-          <div className='h-7 p-4 flex justify-center items-center bg-blend-hue rounded-lg' >
-            <h1 className='opacity- text-teal-400 font-light'>-Flutter</h1>
-          </div>
-        </div>
+      <div className=' w-full flex flex-wrap items-center justify-center gap-8 text-teal-300 mt-4 ' >
+        <p className='text-green-300' >-NextJs</p>
+        <p className='text-red-300'>-ReactJs</p>
+        <p>-TypeScript</p>
+        <p className='text-yellow-300' >-Flutter</p>
       </div>
     </div>  
   </div>
