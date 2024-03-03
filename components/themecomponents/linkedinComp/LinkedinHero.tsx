@@ -1,15 +1,29 @@
 import Header from '@/components/shared/Header'
-import { Link, School } from 'lucide-react'
+import { Github, Link, Link2, Linkedin, Mail, School } from 'lucide-react'
 import React from 'react'
 import LinkedInTabs from './LinkedInTabs';
+import Image from 'next/image';
+import { ISchool } from '@/lib/database/models/school.model';
+import { ICollege } from '@/lib/database/models/education.model';
+import { IWork } from '@/lib/database/models/work.model';
 
-const LinkedinHero = () => {
+type LinkedProps = {
+    persenolData:any
+    school:any
+    college:any
+    work:any
+    project:any
+    achivement:any 
+    custom:any
+}
+
+const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom} : LinkedProps) => {
 
     const res = [5,3,];
   return (
     <div className='bg-slate-100' >
         <Header/>
-        <div className='min-h-screen mt-6 rounded-t-sm md:mx-56 mx-10 bg-white' >
+        <div className='min-h-screen md:mt-6 rounded-t-sm md:mx-56  bg-white' >
             {/* Cover Image or upper part */}
             <div className='w-full h-52 bg-black relative ' >
                 {/* here we have to put the image later */}
@@ -17,14 +31,16 @@ const LinkedinHero = () => {
 
                 
             {/* Avatar Just Like Linkedin */}
-            <div className='h-36 w-36 rounded-full bg-yellow-300 absolute border-[4px] border-white bottom-[-70px] left-8' ></div>
+            <div className='h-36 w-36 rounded-full bg-yellow-300 absolute border-[4px] border-white bottom-[-70px] left-8' >
+                <Image src={persenolData.avatar} height={800} width={800} alt='profile'/>
+            </div>
             </div>
 
 
             {/* Upper Text Part Just Below of avatar */}
             <div className='mt-24  ml-10 border-b pb-4' >
-                <h1 className='text-xl font-bold' >Nikhil Kumar <span className='text-sm text-zinc-600 font-medium' >(He/Her)</span> </h1>
-                <h1 className='font-medium mt-1 text-zinc-700' >SIH 2K23 Finalist🚀 | Next Js | Typescript | React | Flutter | Node Js</h1>
+                <h1 className='text-xl font-bold' >{persenolData.name} <span className='text-sm text-zinc-600 font-medium' >(He/Her)</span> </h1>
+                <h1 className='font-medium mt-1 text-zinc-700 mr-10' >{persenolData.heading}</h1>
                 <p  className='text-sm text-zinc-500 mt-2'>Bathinda | Punjab , India</p>
                 <p className='text-indigo-600 mt-2 font-semibold text-sm flex items-center gap-1' >Connect Now <Link size={15} /> </p>
             </div>
@@ -36,21 +52,43 @@ const LinkedinHero = () => {
             </div>
 
             {/* Education and Schooling Part */}
-            <div className='mx-12  mt-4 pb-4' >
+            {
+                school.length == 0 ? <div></div> : <div>
+                    <div className='mx-12  mt-4 pb-4' >
                 <h1 className='text-xl font-medium text-zinc-800' >Education</h1>
                 <div className='flex flex-col gap-8 mt-4' >
                 {
-                    res.map((curr : any)=>{
-                        return <div className='flex gap-2 border-b pb-8' >
-                            <div className='h-20 w-20 border-[1px] border-zinc-400  rounded-full flex justify-center items-center basis-24 ' >
-                                <School className='text-indigo-600' size={30} />
+                    school[0].school.map((curr : ISchool)=>{
+                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
+                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                                <School className='text-indigo-600 h-7'  />
                             </div>
 
                             <div>
-                                <h1 className='text-zinc-800 font-medium' >Baba Farid College of engineering and technology</h1>
-                                <p className='text-indigo-700 mt-1 font-medium' >Bachelor of Technology</p>
+                                <h1 className='text-zinc-800 font-medium' >{curr.schoolName}</h1>
+                                <p className='text-indigo-700 mt-1 font-medium' >{curr.schoolClass}</p>
                                 <p className='mt-1 font-normal text-zinc-500 text-sm' >2021-2025</p>
-                                <p className='text-sm text-zinc-600' >Activities and societies: CodeX Club (Technichal Team Head) || RobotRoys Club (Web Master) || School Of Skill Development (Head Of Web Designing) || Theatre</p>
+                                <p className='text-sm text-zinc-600' >{curr.extraDetail}</p>
+
+                            </div>
+
+                        </div>
+                    })
+                }
+
+                {/* College Section */}
+                {
+                    college[0].college.map((curr : ICollege)=>{
+                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
+                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                                <School className='text-indigo-600 h-7'  />
+                            </div>
+
+                            <div>
+                                <h1 className='text-zinc-800 font-medium' >{curr.instituteName}</h1>
+                                <p className='text-indigo-700 mt-1 font-medium' >{curr.degree}</p>
+                                <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.batchStartDate} - {curr.batchEndDate}</p>
+                                <p className='text-sm text-zinc-600' >{curr.extraDetail}</p>
 
                             </div>
 
@@ -59,10 +97,41 @@ const LinkedinHero = () => {
                 }
                 </div>
             </div>
+                </div>  
+            }
+            {/* Work Experince Part*/}
+            {
+                work.length == 0 ? <div></div> : <div>
+                    <div className='mx-12  mt-4 pb-4' >
+                <h1 className='text-xl font-medium text-zinc-800' >Work Experience</h1>
+                <div className='flex flex-col gap-8 mt-4' >
+                {
+                    work[0].work.map((curr : IWork)=>{
+                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
+                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                                <School className='text-indigo-600 h-7'  />
+                            </div>
+
+                            <div>
+                                <h1 className='text-zinc-800 font-medium' >{curr.companyName}</h1>
+                                <p className='text-indigo-700 mt-1 font-medium' >{curr.role}</p>
+                                <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.startDate} - {curr.endDate}</p>
+                                <p className='text-sm text-zinc-600' >{curr.contribution}</p>
+
+                            </div>
+
+                        </div>
+                    })
+                }
+
+                </div>
+            </div>
+                </div>  
+            }
 
 
             {/* Project Achivements and custom sections */}
-            <LinkedInTabs/>
+            <LinkedInTabs achivement={achivement} custom={custom} project={project} />
 
 
             {/* Skills Section */}
@@ -80,6 +149,20 @@ const LinkedinHero = () => {
                 </div>
                 
             </div>
+
+
+        {/* Footer or links tabse */}
+        <div className='mt-32 w-full flex justify-center items-center gap-12' >
+            
+            <Github className='text-indigo-600'/>
+            <Linkedin  className='text-red-700'/>
+            <Mail className='text-teal-700' />
+            <Link2 className='text-orange-700' />
+        </div>
+
+        <div className='flex - justify-center items-center mt-1' >
+            <p className='text-sm text-zinc-600 font-medium' >SwiftFolio || Created By Nikhil Kumar</p>
+        </div>
 
 
 
