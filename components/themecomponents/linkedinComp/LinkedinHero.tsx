@@ -1,3 +1,4 @@
+
 import Header from '@/components/shared/Header'
 import { Briefcase, Github, GraduationCap, Link, Link2, Linkedin, Mail, School } from 'lucide-react'
 import React from 'react'
@@ -6,6 +7,8 @@ import Image from 'next/image';
 import { ISchool } from '@/lib/database/models/school.model';
 import { ICollege } from '@/lib/database/models/education.model';
 import { IWork } from '@/lib/database/models/work.model';
+import Editbutton from '@/components/shared/edit/Editbutton';
+import LinkedinQualification from './LinkedinQualification';
 
 type LinkedProps = {
     persenolData:any
@@ -15,14 +18,24 @@ type LinkedProps = {
     project:any
     achivement:any 
     custom:any
+    admin:any
 }
 
-const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom} : LinkedProps) => {
+const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin} : LinkedProps) => {
 
-    const res = [5,3,];
+    // Schooling and college delete action integreations=========//
+    // Schooling and college delete action integreations emd========//
+
   return (
     <div className='bg-slate-100' >
         <Header/>
+        {
+      admin && (
+        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
+          <Editbutton portfolioId={persenolData._id} />
+        </div>
+      )
+    }
         <div className='min-h-screen md:mt-6 rounded-t-sm md:mx-56  bg-white' >
             {/* Cover Image or upper part */}
             <div className='w-full h-52 bg-black relative ' >
@@ -51,90 +64,8 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 <p className='text-sm mt-2 text-zinc-700' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, obcaecati recusandae delectus tempora quis consequuntur odio quas? Aperiam deleniti voluptatem pariatur unde nulla ipsam culpa illo eum quibusdam rerum mollitia maiores, alias aliquid. Aperiam, a aliquid dolore itaque aut optio sequi reiciendis ex, unde eius dignissimos exercitationem velit assumenda vitae.</p>
             </div>
 
-            {/* Education and Schooling Part */}
-            {
-                school.length == 0 ? <div></div> : <div>
-                    <div className='mx-12  mt-4 pb-4' >
-                <h1 className='text-xl font-medium text-zinc-800' >Education</h1>
-                <div className='flex flex-col gap-8 mt-4' >
-                {
-                    school[0].school.map((curr : ISchool)=>{
-                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
-                           <div>
-                           <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <School className='text-indigo-600 h-7'  />
-                            </div>
-                           </div>
-
-                            <div>
-                                <h1 className='text-zinc-800 font-medium' >{curr.schoolName}</h1>
-                                <p className='text-indigo-700 mt-1 font-medium' >{curr.schoolClass}</p>
-                                <p className='mt-1 font-normal text-zinc-500 text-sm' >2021-2025</p>
-                                <p className='text-sm text-zinc-600' >{curr.extraDetail}</p>
-
-                            </div>
-
-                        </div>
-                    })
-                }
-
-                {/* College Section */}
-                {
-                    college[0].college.map((curr : ICollege)=>{
-                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
-                           <div>
-                           <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <GraduationCap className='text-orange-600 h-7'  />
-                            </div>
-                           </div>
-
-                            <div>
-                                <h1 className='text-zinc-800 font-medium' >{curr.instituteName}</h1>
-                                <p className='text-orange-600 mt-1 font-medium' >{curr.degree}</p>
-                                <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.batchStartDate} - {curr.batchEndDate}</p>
-                                <p className='text-sm text-zinc-600' >{curr.extraDetail}</p>
-
-                            </div>
-
-                        </div>
-                    })
-                }
-                </div>
-            </div>
-                </div>  
-            }
-            {/* Work Experince Part*/}
-            {
-                work.length == 0 ? <div></div> : <div>
-                    <div className='mx-12  mt-4 pb-4' >
-                <h1 className='text-xl font-medium text-zinc-800' >Work Experience</h1>
-                <div className='flex flex-col gap-8 mt-4' >
-                {
-                    work[0].work.map((curr : IWork)=>{
-                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
-                            <div>
-                            <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <Briefcase className='text-teal-600 h-7'  />
-                            </div>
-                            </div>
-
-                            <div>
-                                <h1 className='text-zinc-800 font-medium' >{curr.companyName}</h1>
-                                <p className='text-teal-700 mt-1 font-medium' >{curr.role}</p>
-                                <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.startDate} - {curr.endDate}</p>
-                                <p className='text-sm text-zinc-600' >{curr.contribution}</p>
-
-                            </div>
-
-                        </div>
-                    })
-                }
-
-                </div>
-            </div>
-                </div>  
-            }
-
+                {/* Qualification part  */}
+            <LinkedinQualification college={college} school={school} work={work} admin={admin} />
 
             {/* Project Achivements and custom sections */}
             <LinkedInTabs achivement={achivement} custom={custom} project={project} />

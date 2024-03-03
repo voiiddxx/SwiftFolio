@@ -6,6 +6,7 @@ import { getPortfolioBasedonuserClerkId } from '@/lib/actions/portfolio.action';
 import { getProjectByclerkId } from '@/lib/actions/project.action';
 import { getSchoolasperClerkId } from '@/lib/actions/school.action';
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action';
+import { currentUser } from '@clerk/nextjs';
 import React from 'react'
 
 const page = async ({
@@ -16,7 +17,7 @@ const page = async ({
 
 
   
-  // const user = await currentUser();
+  const user = await currentUser();
 
   const portfolio = await getPortfolioBasedonuserClerkId(id);
   const projects = await getProjectByclerkId(id);
@@ -28,7 +29,7 @@ const page = async ({
   const work = await getWorkExperinceAsPerclerkId(id);
 
   
-  // const admin = portfolio[0].clerkId===user?.id;
+  const admin = portfolio[0].clerkId===user?.id;
 
   
 
@@ -38,7 +39,7 @@ const page = async ({
 
   return (
     <div>
-      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} />
+      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} admin={admin} />
     </div>
   )
 }
