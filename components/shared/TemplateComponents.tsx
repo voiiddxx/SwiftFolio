@@ -35,7 +35,7 @@ const TemplateComponents = () => {
       "subtitle":"get your free new carbon theme for free",
       "price":"Paid",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709357308/gahaczixumnwll3d61jx.jpg?_s=public-apps",
-      "link":"/themes/darkpremium/",
+      "link":"/themes/linkedin/",
     },
     {
       "title":"Linkedin Style Theme",
