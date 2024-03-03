@@ -1,5 +1,5 @@
 import Header from '@/components/shared/Header'
-import { Github, Link, Link2, Linkedin, Mail, School } from 'lucide-react'
+import { Briefcase, Github, GraduationCap, Link, Link2, Linkedin, Mail, School } from 'lucide-react'
 import React from 'react'
 import LinkedInTabs from './LinkedInTabs';
 import Image from 'next/image';
@@ -28,7 +28,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
             <div className='w-full h-52 bg-black relative ' >
                 {/* here we have to put the image later */}
 
-
+    <Image className='w-full h-52 object-cover' src={persenolData.resume} height={900} width={800} alt='cover image'/>
                 
             {/* Avatar Just Like Linkedin */}
             <div className='h-36 w-36 rounded-full bg-yellow-300 absolute border-[4px] border-white bottom-[-70px] left-8' >
@@ -39,7 +39,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
 
             {/* Upper Text Part Just Below of avatar */}
             <div className='mt-24  ml-10 border-b pb-4' >
-                <h1 className='text-xl font-bold' >{persenolData.name} <span className='text-sm text-zinc-600 font-medium' >(He/Her)</span> </h1>
+                <h1 className='text-xl font-bold' >{persenolData.name} <span className='text-sm text-zinc-600 font-medium' >(He/Him)</span> </h1>
                 <h1 className='font-medium mt-1 text-zinc-700 mr-10' >{persenolData.heading}</h1>
                 <p  className='text-sm text-zinc-500 mt-2'>Bathinda | Punjab , India</p>
                 <p className='text-indigo-600 mt-2 font-semibold text-sm flex items-center gap-1' >Connect Now <Link size={15} /> </p>
@@ -59,10 +59,12 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 <div className='flex flex-col gap-8 mt-4' >
                 {
                     school[0].school.map((curr : ISchool)=>{
-                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
-                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
+                           <div>
+                           <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
                                 <School className='text-indigo-600 h-7'  />
                             </div>
+                           </div>
 
                             <div>
                                 <h1 className='text-zinc-800 font-medium' >{curr.schoolName}</h1>
@@ -79,14 +81,16 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 {/* College Section */}
                 {
                     college[0].college.map((curr : ICollege)=>{
-                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
-                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <School className='text-indigo-600 h-7'  />
+                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
+                           <div>
+                           <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                                <GraduationCap className='text-orange-600 h-7'  />
                             </div>
+                           </div>
 
                             <div>
                                 <h1 className='text-zinc-800 font-medium' >{curr.instituteName}</h1>
-                                <p className='text-indigo-700 mt-1 font-medium' >{curr.degree}</p>
+                                <p className='text-orange-600 mt-1 font-medium' >{curr.degree}</p>
                                 <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.batchStartDate} - {curr.batchEndDate}</p>
                                 <p className='text-sm text-zinc-600' >{curr.extraDetail}</p>
 
@@ -107,14 +111,16 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 <div className='flex flex-col gap-8 mt-4' >
                 {
                     work[0].work.map((curr : IWork)=>{
-                        return <div className='flex md:flex-row flex-col gap-2 border-b pb-8' >
-                            <div className='md:h-20 md:w-20 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <School className='text-indigo-600 h-7'  />
+                        return <div className='flex md:flex-row flex-col gap-4 border-b pb-8' >
+                            <div>
+                            <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
+                                <Briefcase className='text-teal-600 h-7'  />
+                            </div>
                             </div>
 
                             <div>
                                 <h1 className='text-zinc-800 font-medium' >{curr.companyName}</h1>
-                                <p className='text-indigo-700 mt-1 font-medium' >{curr.role}</p>
+                                <p className='text-teal-700 mt-1 font-medium' >{curr.role}</p>
                                 <p className='mt-1 font-normal text-zinc-500 text-sm' >{curr.startDate} - {curr.endDate}</p>
                                 <p className='text-sm text-zinc-600' >{curr.contribution}</p>
 
@@ -160,7 +166,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
             <Link2 className='text-orange-700' />
         </div>
 
-        <div className='flex - justify-center items-center mt-1' >
+        <div className='flex - justify-center items-center mt-12' >
             <p className='text-sm text-zinc-600 font-medium' >SwiftFolio || Created By Nikhil Kumar</p>
         </div>
 
