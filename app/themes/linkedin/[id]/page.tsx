@@ -39,7 +39,7 @@ const page = async ({
 
   return (
     <div>
-      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} admin={admin} />
+      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} admin={admin} userId={user?.id} />
     </div>
   )
 }

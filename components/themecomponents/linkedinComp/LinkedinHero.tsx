@@ -19,9 +19,10 @@ type LinkedProps = {
     achivement:any 
     custom:any
     admin:any
+    userId:any
 }
 
-const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin} : LinkedProps) => {
+const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin , userId} : LinkedProps) => {
 
     // Schooling and college delete action integreations=========//
     // Schooling and college delete action integreations emd========//
@@ -68,7 +69,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
             <LinkedinQualification college={college} school={school} work={work} admin={admin} />
 
             {/* Project Achivements and custom sections */}
-            <LinkedInTabs achivement={achivement} custom={custom} project={project} />
+            <LinkedInTabs achivement={achivement} custom={custom} project={project} admin={admin} userid={userId}  />
 
 
             {/* Skills Section */}

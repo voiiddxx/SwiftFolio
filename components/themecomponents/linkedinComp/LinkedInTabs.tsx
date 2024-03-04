@@ -1,14 +1,20 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, ArrowRightSquare } from 'lucide-react';
+import { ArrowRight, ArrowRightSquare, Edit, Trash } from 'lucide-react';
 import Image from 'next/image';
+import Addproject from '@/components/shared/projects/Addproject';
+import DeleteSection from '@/components/shared/delete/DeleteSection';
+import Addachivement from '@/components/shared/achievements/Addachivement';
+import CustomFieldform from '@/components/shared/custom/CustomFieldform';
 
     type LinkedinProps = {
         project:any
         achivement:any 
         custom:any
+        admin:any
+        userid:any
     }
-const LinkedInTabs = ({achivement , custom , project} : LinkedinProps) => {
+const LinkedInTabs = ({achivement , custom , project , admin , userid} : LinkedinProps) => {
 
 
     console.log("this is custom section" , custom);
@@ -58,7 +64,21 @@ const LinkedInTabs = ({achivement , custom , project} : LinkedinProps) => {
                             <ArrowRight className='hover:animate-bounce'  size={15}/>
                         </div>
 
-
+                        {
+    admin===true ?  <div className='w-full flex justify-between'>
+      
+    <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
+                <Edit size={15}/>
+                {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
+                <Addproject type='EDIT'  useridclerk={userid} projectId={curr._id}/>
+              </div>
+              
+              <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
+                <Trash size={15}/>
+                <DeleteSection type='PROJECT' deleteId={curr._id} />
+              </div>
+    </div> : <div></div>
+   }
                     </div>
                 </div>
             })
@@ -70,7 +90,18 @@ const LinkedInTabs = ({achivement , custom , project} : LinkedinProps) => {
     <div className='mt-5 flex flex-wrap gap-4' >
         {
             achivement.map((curr : any)=>{
-                return <div className='w-[300px]'  >
+                return <div className='w-[300px] relative'  >
+                    {
+                  admin==false ?  <h1></h1>
+               
+                   : <div><div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
+                   <Addachivement type='EDIT' achivementId={curr._id} useridclerk={userid} />
+                   </div>
+                   <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
+                   <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
+                   </div></div>
+
+                }
                     <div className='h-[250px] w-[300px] rounded-md border-[1px] px-2 py-2' >
                     <div className='h-full w-full bg-red-200 rounded' >
                         <Image className='h-full w-full rounded object-cover'  src={curr.aimage} height={900} width={900} alt='achivement image' />
@@ -93,8 +124,18 @@ const LinkedInTabs = ({achivement , custom , project} : LinkedinProps) => {
             curr.data.map((card : any)=>{
                 return <div className='w-[300px]'  >
                 <div className='h-[250px] w-[300px] rounded-md border-[1px] px-2 py-2' >
-                <div className='h-full w-full bg-red-200 rounded' >
+                <div className='h-full w-full bg-red-200 rounded relative' >
                     <Image className='h-full w-full rounded object-cover'  src={card.customImage} height={900} width={900} alt='achivement image' />
+                    {
+                            admin == true ? <div>
+                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
+                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
+                            </div>
+                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
+                              <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
+                            </div>
+                            </div> : <div></div>
+                           }
                 </div>
 
             </div>
