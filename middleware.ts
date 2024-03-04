@@ -5,6 +5,8 @@ export default authMiddleware({
     publicRoutes:[
         '/',
         '/themes/darkpremium/:id',
+        '/themes/whitecreative/:id',
+        '/themes/linkedin/:id',
         '/api/webhook/clerk'
     ],
     ignoredRoutes:[
