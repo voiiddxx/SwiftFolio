@@ -40,7 +40,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
         </div>
       )
     } */}
-    <div>
+    <div >
     <div className="hero-main">
       <div className="navbar">
         {/* <Nav/> */}

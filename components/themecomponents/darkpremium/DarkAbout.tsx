@@ -13,7 +13,7 @@ const DarkAbout = ({data} : darkAboutProps) => {
 Fast-forward to today, and I’ve had the privilege of making some good mobile application and web application with clean and minimal function and ui and still learning to make myself better </p>
     </div>
     <div className="about-image">
-<img src={data.avatar} alt="aboutherosvg" />
+<img className='rounded-md'  src={data.resume} alt="aboutherosvg" />
     </div>    
 </div>
   )

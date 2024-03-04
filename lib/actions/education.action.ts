@@ -58,7 +58,6 @@ export const DeleteCollegeAsPerId = async ({collegeId  , deleteId} : DeletColleg
             "multi":false
         });
         
-        console.log("this is data for all college " , allCollege);
         
 
 

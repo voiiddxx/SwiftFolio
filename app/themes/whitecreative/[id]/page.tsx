@@ -21,6 +21,8 @@ const page = async ({
 } : {params:{
   id : string
 }}) => {
+  
+  
 
 
   const user = await currentUser();

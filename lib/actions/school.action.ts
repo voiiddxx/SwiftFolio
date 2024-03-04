@@ -14,15 +14,10 @@ export const addSchooling =  async ({school , clerkId} : AddSchoolingParams) => 
             const savedSchool = await School.create({clerkId:clerkId});
             await savedSchool.school.push({schoolName:school.schoolName , schoolClass:school.schoolClass , finalYear:school.finalYear , extraDetail:school.extraDetail});
             await savedSchool.save();
-            console.log(savedSchool);
-            
         } else{
             isSchool[0].school.push({...school});
         await isSchool[0].save();
-        console.log(isSchool);
         }
-        
-        
         return JSON.parse(JSON.stringify(isSchool));
     } catch (error) {
         console.log(error);
@@ -37,7 +32,6 @@ export const getSchoolasperClerkId = async (clerkId : string) => {
         await connectToDatabase();
         const userSchool = await School.find({clerkId:clerkId});
         return JSON.parse(JSON.stringify(userSchool));
-        
     } catch (error) {
         console.log(error);
         throw new Error(error as string);
@@ -48,7 +42,6 @@ export const getSchoolasperClerkId = async (clerkId : string) => {
 
 export const deletSchoolWithId = async ({deleteId , schoolId} : deletSchoolParams)=>{
 
-    console.log("this func have beel called and delete id is ",  deleteId , " and school id is " , schoolId);
     
     try {
         await connectToDatabase();

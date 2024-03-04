@@ -17,7 +17,6 @@ import CustomFieldform from '@/components/shared/custom/CustomFieldform';
 const LinkedInTabs = ({achivement , custom , project , admin , userid} : LinkedinProps) => {
 
 
-    console.log("this is custom section" , custom);
     
     const res = [2,4,5];
   return (

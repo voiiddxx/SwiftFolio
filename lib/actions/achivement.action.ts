@@ -9,15 +9,10 @@ import { log } from "console";
 
 export const addAchevementtoDatabase = async ({achivement} : AddAchivementParams) => {
     try {
-        console.log("this us claue" , achivement);
         
         await connectToDatabase();
-
         const achevements = await Achivement.create({...achivement});
-        console.log(achevements);
-        
         return JSON.parse(JSON.stringify(achevements));
-
     } catch (error) {
         console.log(error);
         throw new Error(error as string)
@@ -46,7 +41,6 @@ export const updateAchivementSection = async ( {achivement , achivementId } : up
 
     } catch (error) {
         console.log(error);
-        
         throw new Error(error as string);
     }
 }

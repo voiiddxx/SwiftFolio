@@ -11,9 +11,7 @@ export const getProjectByclerkId = async (clerkId : string) => {
     try {
         await connectToDatabase();
         const projects = await Project.find({clerkId});
-        console.log(projects);
         return JSON.parse(JSON.stringify(projects));
-        
     } catch (error) {
         console.log(error);
         throw new Error(error as string);
@@ -41,7 +39,6 @@ export const updateProject = async({project , projectId} : UpdateProjectParams) 
     try {
         await connectToDatabase();
         const projectForUpdate = await Project.findByIdAndUpdate(projectId , {...project} , {new:true});
-        console.log(projectForUpdate);
         return JSON.parse(JSON.stringify(projectForUpdate));
     } catch (error) {
         throw new Error(error as string);

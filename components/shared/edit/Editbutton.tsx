@@ -8,7 +8,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Edit, GraduationCap, Layers, Medal, Pen, Projector, Rocket, School, User, WorkflowIcon } from 'lucide-react'
-import { Separator } from '@radix-ui/react-dropdown-menu'
 import Addproject from '../projects/Addproject'
 import { currentUser } from '@clerk/nextjs'
 import Addachivement from '../achievements/Addachivement'

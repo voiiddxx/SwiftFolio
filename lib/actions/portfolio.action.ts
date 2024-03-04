@@ -10,11 +10,9 @@ import Portfolio from "../database/models/portfolio.model";
 
 export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
     try {           
-        console.log(portfolio);
-        
         await connectToDatabase();
         const newPortfolio = await Portfolio.create({...portfolio});
-        console.log(newPortfolio);
+     
         return JSON.parse(JSON.stringify(newPortfolio));
     } catch (error) {
         console.log(error);
@@ -27,11 +25,9 @@ export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
 export const getPortfolioBasedonuserClerkId = async (clerkId : string) => {
     try {
         await connectToDatabase();
-        // const conditions = {
-        //     clerkId:clerkId
-        // };
+        
         const portFolio = await Portfolio.find({clerkId});
-        console.log(portFolio);
+    
         return JSON.parse(JSON.stringify(portFolio));
         
     } catch (error) {

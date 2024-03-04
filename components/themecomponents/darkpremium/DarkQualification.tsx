@@ -61,9 +61,11 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
      {
         userSchool[0].school.map((curr : ISchool)=>{
           return <div className='flex gap-4' >
-           <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
+          <div>
+          <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
             <Building2 className='text-green-400' size={30} />
            </div>
+          </div>
            <div>
             <h1 className='text-green-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
             <p className='text-zinc-100 mt-1' >12th Non Medical</p>
@@ -81,8 +83,10 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
      {
         userSchool[0].school.map((curr : ISchool)=>{
           return <div className='flex gap-4' >
+           <div>
            <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
             <BookOpen className='text-orange-300' size={30} />
+           </div>
            </div>
            <div>
             <h1 className='text-orange-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
@@ -109,8 +113,10 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
      {
         userwork[0].work.map((curr : IWork)=>{
           return <div className='flex gap-4' >
+           <div>
            <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
             <Blend className='text-indigo-300' size={30} />
+           </div>
            </div>
            <div>
             <h1 className='text-indigo-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>

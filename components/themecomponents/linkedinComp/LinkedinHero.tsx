@@ -1,6 +1,6 @@
 
 import Header from '@/components/shared/Header'
-import { Briefcase, Github, GraduationCap, Link, Link2, Linkedin, Mail, School } from 'lucide-react'
+import { Briefcase, Github,  Link, Link2, Linkedin, Mail, School } from 'lucide-react'
 import React from 'react'
 import LinkedInTabs from './LinkedInTabs';
 import Image from 'next/image';
@@ -24,15 +24,13 @@ type LinkedProps = {
 
 const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin , userId} : LinkedProps) => {
 
-    // Schooling and college delete action integreations=========//
-    // Schooling and college delete action integreations emd========//
 
   return (
     <div className='bg-slate-100' >
         <Header/>
         {
       admin && (
-        <div className='absolute z-10 top-14 right-2 h-20 w-full flex justify-end items-center md:pr-12'>
+        <div className='absolute z-10 md:top-24 top-14 right-2 h-20 w-full flex justify-end items-center md:pr-12'>
           <Editbutton portfolioId={persenolData._id} />
         </div>
       )
@@ -47,7 +45,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 
             {/* Avatar Just Like Linkedin */}
             <div className='h-36 w-36 rounded-full bg-yellow-300 absolute border-[4px] border-white bottom-[-70px] left-8' >
-                <Image className='h-36 w-36 rounded-full'  src={persenolData.avatar} height={800} width={800} alt='profile'/>
+                <Image className='h-36 w-36 rounded-full object-cover'  src={persenolData.avatar} height={800} width={800} alt='profile'/>
             </div>
             </div>
 

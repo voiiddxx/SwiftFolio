@@ -36,7 +36,6 @@ export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
 export const genreateCustomImageusingAI = async ({promptMessage}:GenreateImageParams)=>{
     try {
 
-        console.log("your promps gets here" , promptMessage);
         
         const res = await openai.images.generate({
             model:"dall-e-2",
