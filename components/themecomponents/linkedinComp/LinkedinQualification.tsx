@@ -81,7 +81,10 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                 }
 
                 {/* College Section */}
-                {
+               {
+                college.length > 0 && (
+                    <div>
+                         {
                     college[0].college.map((curr : ICollege)=>{
                         return <div className="border-b" >
                             <div className='flex md:flex-row flex-col gap-4  pb-8' >
@@ -115,6 +118,9 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                         </div>
                     })
                 }
+                    </div>
+                )
+               }
                 </div>
             </div>
                 </div>  
