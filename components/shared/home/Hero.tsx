@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import Header from "../Header";
 import { Ghost, Zap } from "lucide-react";
 import Footer from "../Footer";
+import Link from "next/link";
 
 const Hero = () => {
 
@@ -18,10 +19,10 @@ const Hero = () => {
       <h1 className="text-indigo-700 md:text-5xl text-3xl text-center font-semibold  mt-3 " >Help of SwiftFolio</h1>
       <p className="text-zinc-700 md:mr-96 md:ml-96 px-4 text-center mt-5" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus dignissimos, praesentium quos dolores dolorum impedit dicta magnam doloribus! </p>
       <div className="flex gap-2 mt-6 mx-16" >
-        <Button className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-indigo-800  flex items-center" >
+      <Link href='/sign-in' >  <Button className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-indigo-800  flex items-center" >
           <Zap className="mr-1 text-indigo-800"  size={16} />
-          Register Now</p></Button>
-        <Button className="bg-indigo-700 text-white hover:bg-zinc-900"  > <Ghost className="mr-1" color="white" size={16} /> Create  Portfolio</Button>
+          Register Now</p></Button></Link>
+        <Link href="/portfolio/create" ><Button className="bg-indigo-700 text-white hover:bg-zinc-900"  > <Ghost className="mr-1" color="white" size={16} /> Create  Portfolio</Button></Link>
       </div>
 
     </div>
