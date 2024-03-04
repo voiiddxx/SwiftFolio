@@ -32,12 +32,13 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
         <Header/>
         {
       admin && (
-        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
+        <div className='absolute z-10 top-14 right-2 h-20 w-full flex justify-end items-center md:pr-12'>
           <Editbutton portfolioId={persenolData._id} />
         </div>
       )
     }
-        <div className='min-h-screen md:mt-6 rounded-t-sm md:mx-56  bg-white' >
+        <div className='min-h-screen md:mt-6 rounded-t-sm md:mx-56  bg-white ' >
+        
             {/* Cover Image or upper part */}
             <div className='w-full h-52 bg-black relative ' >
                 {/* here we have to put the image later */}
@@ -46,7 +47,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
                 
             {/* Avatar Just Like Linkedin */}
             <div className='h-36 w-36 rounded-full bg-yellow-300 absolute border-[4px] border-white bottom-[-70px] left-8' >
-                <Image src={persenolData.avatar} height={800} width={800} alt='profile'/>
+                <Image className='h-36 w-36 rounded-full'  src={persenolData.avatar} height={800} width={800} alt='profile'/>
             </div>
             </div>
 
