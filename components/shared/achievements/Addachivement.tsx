@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input"
 import uploadDataonCloudinary from "../Cloudinary"
 import { useState } from "react"
 import { addAchevementtoDatabase, updateAchivementSection } from '@/lib/actions/achivement.action'
-import { Edit } from 'lucide-react'
+import { Edit, Loader2 } from 'lucide-react'
 
 
 const formSchema = z.object({
@@ -100,11 +100,16 @@ const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
             )}
           />
           <div>
-          <input onChange={(e)=>{
+          <input  onChange={(e)=>{
             setAchivementImage(e.target.files);
-          }} className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
+          }} className="bg-zinc-300 p-4 rounded-3xl" type="file"/>
         </div>
-          <Button className="w-full" type="submit">Submit</Button>
+        <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Add Achivement' }
+        </Button>
         </form>
       </Form>
       </DialogHeader>

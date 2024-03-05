@@ -24,7 +24,7 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
 
     <div className='w-full pb-9 bg-whiteCreativeBGImage md:pl-52 px-10'>
         <div>
-            <h1 className='font-semibold text-xl text-zinc-800'>Latest projects</h1>
+            <h1 className='font-medium mt-6 text-xl text-zinc-800'>Latest projects</h1>
         </div>
 
         <div className='w-full flex gap-10 mt-10 flex-wrap'>
@@ -33,21 +33,21 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
                 return <div className='w-[350px] border-[0.5px] border-zinc-300 rounded-lg  p-5'>
 
                 <div className='w-full flex justify-between items-center'>
-                <div className='h-14 w-14 bg-blue-700 rounded-full'>
-                  <Image className=' h-14 w-14 object-cover rounded-full' src={curr.projectthumbnail} height={50} width={50} alt='project'/>
+                <div className='h-14 w-24 bg-blue-700 rounded-full'>
+                  <Image className=' h-16 w-24 object-cover rounded-md' src={curr.projectthumbnail} height={50} width={50} alt='project'/>
                 </div>
-                <div className='h-6 bg-green-100 flex justify-center items-center pl-2 pr-2 rounded-xl'>
+                <div className='h-6 bg-green-100 bg-opacity-65 flex justify-center items-center pl-2 pr-2 rounded-xl'>
                
-                  <p className='text-[12px] text-green-800 font-semibold space-x-1'>Hackathon project</p>
+                  <p className='text-[12px] text-green-800 font-normal space-x-1'>{curr.projectstatus}</p>
                 </div>
                 </div>
             
               <div>
                 <div className='flex justify-between mt-12'>
-                <p className='text-xl font-bold text-zinc-800'>{curr.projectname}</p>
+                <p className='text-xl font-medium text-zinc-800'>{curr.projectname}</p>
                 
                 </div>
-                <p className='text-zinc-700 font-normal  mt-3'>Swiftfolio is a platform by which any individiual can create their own portfolio by just choosing template</p>
+                <p className='text-zinc-700 font-normal text-sm mt-3'>{curr.projectdetail}</p>
 
                 <div className='mt-5 flex justify-end items-end'>
                   <ArrowRight className='text-blue-500 hover:text-black cursor-pointer' />

@@ -28,7 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { AlertTriangle, ArrowUp, Github, Radio, Sparkles, Truck } from "lucide-react"
+import { AlertTriangle, ArrowUp, Divide, Github, Loader2, Radio, Sparkles, Truck } from "lucide-react"
 import uploadDataonCloudinary from "../Cloudinary"
 import { addProjecttoDatabase, updateProject } from "@/lib/actions/project.action"
 import { useState } from "react"
@@ -204,7 +204,12 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit">Submit</Button>
+        <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Submit Project' }
+        </Button>
       </form>
     </Form>
     </DialogHeader>
