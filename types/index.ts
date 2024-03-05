@@ -6,7 +6,7 @@ export type createPortfolioparams = {
         clerkId: string
         name: string
         heading: string
-        about?:string
+        about:string
         linkedinurl:string
         githuburl:string
         mailurl:string
