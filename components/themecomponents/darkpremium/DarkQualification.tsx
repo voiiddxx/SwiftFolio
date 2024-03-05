@@ -67,12 +67,24 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            </div>
           </div>
            <div>
-            <h1 className='text-green-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
-            <p className='text-zinc-100 mt-1' >12th Non Medical</p>
+            <h1 className='text-green-300 text-lg' >{curr.schoolName} <span className='text-sm text-zinc-400 ml-2' >  ({curr.finalYear})</span> </h1>
+            <p className='text-zinc-100 mt-1' >{curr.schoolClass}</p>
            <div className='w-[350px] h-16 mt-1 overflow-hidden' >
-           <p  className='text-zinc-500 text-[12px] ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, officiis laudantium. Commodi, error illo.</p>
+           <p  className='text-zinc-500 text-[12px] ' >{curr.extraDetail}</p>
            </div>
            </div>
+
+           {
+                                isAdmin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleSchoolDelte(curr._id)
+                                        }} className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
           </div>
         })
       }
@@ -81,7 +93,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
 
      <div className='mt-9' >
      {
-        userSchool[0].school.map((curr : ISchool)=>{
+        userCollege[0].college.map((curr : ICollege)=>{
           return <div className='flex gap-4' >
            <div>
            <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
@@ -89,12 +101,23 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            </div>
            </div>
            <div>
-            <h1 className='text-orange-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
-            <p className='text-zinc-100 mt-1' >12th Non Medical</p>
+            <h1 className='text-orange-300 text-lg' >{curr.instituteName} <span className='text-sm text-zinc-400 ml-2' >  ({curr.batchStartDate} - {curr.batchEndDate})</span> </h1>
+            <p className='text-zinc-100 mt-1' >{curr.degree}</p>
            <div className='w-[350px] h-16 mt-1 overflow-hidden' >
-           <p  className='text-zinc-500 text-[12px] ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, officiis laudantium. Commodi, error illo.</p>
+           <p  className='text-zinc-500 text-[12px] ' >{curr.extraDetail}</p>
            </div>
            </div>
+           {
+                                isAdmin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleDelete(curr._id)
+                                        }}  className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
           </div>
         })
       }
@@ -119,12 +142,24 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            </div>
            </div>
            <div>
-            <h1 className='text-indigo-300 text-lg' >Kiran Public School <span className='text-sm text-zinc-400 ml-2' >  (2021-2025)</span> </h1>
-            <p className='text-zinc-100 mt-1' >12th Non Medical</p>
+            <h1 className='text-indigo-300 text-lg' >{curr.companyName} <span className='text-sm text-zinc-400 ml-2' >  ({curr.startDate}-{curr.endDate})</span> </h1>
+            <p className='text-zinc-100 mt-1' >{curr.role}</p>
            <div className='w-[350px] h-16 mt-1 overflow-hidden' >
-           <p  className='text-zinc-500 text-[12px] ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, officiis laudantium. Commodi, error illo.</p>
+           <p  className='text-zinc-500 text-[12px] ' >{curr.contribution}</p>
            </div>
            </div>
+           
+           {
+                                isAdmin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleWorkDelete(curr._id)
+                                        }}  className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
           </div>
         })
       }
