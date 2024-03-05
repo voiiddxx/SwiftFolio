@@ -5,7 +5,7 @@ import { deleteWorkById } from '@/lib/actions/work.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
-import { Blend, BookOpen, Building2, Edit, GraduationCap, Target, Trash } from 'lucide-react'
+import { Blend, BookOpen, Building2, Edit, GraduationCap, School, Target, Trash } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -60,10 +60,10 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
      <div className='mt-9' >
      {
         userSchool[0].school.map((curr : ISchool)=>{
-          return <div className='flex gap-4' >
+          return <div className='flex gap-4 flex-col md:flex-row' >
           <div>
-          <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
-            <Building2 className='text-green-400' size={30} />
+          <div className=' h-12 w-12 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
+            <School strokeWidth={1} className='text-green-400 h-72'  />
            </div>
           </div>
            <div>
@@ -94,10 +94,10 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
      <div className='mt-9' >
      {
         userCollege[0].college.map((curr : ICollege)=>{
-          return <div className='flex gap-4' >
+          return <div className='flex gap-4 flex-col md:flex-row' >
            <div>
-           <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
-            <BookOpen className='text-orange-300' size={30} />
+           <div className=' h-12 w-12 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
+            <GraduationCap strokeWidth={1} className='text-orange-300 h-72'  />
            </div>
            </div>
            <div>

@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { createCustomSection } from '@/lib/actions/custom.action'
+import { Loader2 } from 'lucide-react'
 
 
 
@@ -83,7 +84,12 @@ const CustomForm = ({useridclerk} : customFormProps) => {
               </FormItem>
             )}
           />          
-          <Button className="w-full" type="submit">Submit</Button>
+         <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Add Custom' }
+        </Button>
         </form>
       </Form>
       </DialogHeader>

@@ -15,13 +15,13 @@ const WhiteCustom = ({customData , IsAdmin} : customDataprops) => {
                     return <div className="md:pl-52 px-10">
                         <div>
                             <h1 className="text-xl text-black font-bold">{curr.heading}</h1>
-                            <p className="text-zinc-600 font-normal" >Checkout the {curr.heading} all of them are mentioned below</p>
+                            <p className="text-zinc-500 font-normal text-sm mt-2" >Checkout the {curr.heading} all of them are mentioned below</p>
                         </div>
                         <div className="w-full flex gap-5 flex-wrap" >
                             {
                                 curr.data.map((card : any)=>{
                                     return <div>
-                                        <div className="w-[400px] min-h-[200px] border-[1px] border-zinc-300 rounded-lg mt-6 flex justify-center items-center p-4 relative">
+                                        <div className="w-[380px] min-h-[200px] border-[1px] border-zinc-300 rounded-lg mt-6 flex justify-center items-center p-4 relative">
                                             {
                                                 IsAdmin == true ? <div>
                                                      <div className='h-8 w-8 bg-white absolute top-8 right-8 rounded-md flex justify-center items-center pt-1' >

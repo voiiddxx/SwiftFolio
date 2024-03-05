@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { addCustomFieldtoDatabase } from '@/lib/actions/custom.action'
 import uploadDataonCloudinary from '../Cloudinary'
-import { Edit } from 'lucide-react'
+import { Edit, Loader2 } from 'lucide-react'
 
 
 
@@ -86,11 +86,9 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Your project Name" {...field} />
+                  <Input placeholder="Title" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+                
                 <FormMessage />
               </FormItem>
             )}
@@ -102,11 +100,9 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Your project Name" {...field} />
+                  <Input placeholder="Any Link" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
+              
                 <FormMessage />
               </FormItem>
             )}
@@ -114,9 +110,14 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
           <div>
           <input onChange={(e)=>{
             setcustomImage(e.target.files);
-          }} className="bg-zinc-900 p-4 rounded-3xl" type="file"/>
+          }} className="bg-zinc-300 p-4 rounded-3xl" type="file"/>
         </div>
-          <Button className="w-full" type="submit">Submit</Button>
+        <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Submit Now' }
+        </Button>
         </form>
       </Form>
       </DialogHeader>

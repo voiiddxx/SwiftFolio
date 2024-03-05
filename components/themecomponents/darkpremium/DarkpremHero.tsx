@@ -73,7 +73,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
           </div>
         
       </div>
-      <div className=' w-full flex flex-wrap items-center justify-center gap-8 text-teal-300 mt-4 ' >
+      <div className='w-full flex flex-wrap items-center justify-center gap-8 text-teal-300 mt-16 ' >
         <p className='text-green-300' >-NextJs</p>
         <p className='text-red-300'>-ReactJs</p>
         <p>-TypeScript</p>
