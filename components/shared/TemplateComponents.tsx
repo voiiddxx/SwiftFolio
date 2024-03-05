@@ -41,23 +41,23 @@ const TemplateComponents = () => {
       "title":"Linkedin Style Theme",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
-      "link":"/themes/darkpremium/",
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
+      "link":"/themes/linkedin/",
     },
     
     {
       "title":"New Carbon Black",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps",
-      "link":"/themes/darkpremium/",
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
+      "link":"/themes/linkedin/",
     },
     {
       "title":"New Carbon Black",
       "subtitle":"get your free new carbon theme for free",
       "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
-      "link":"/themes/darkpremium/",
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
+      "link":"/themes/linkedin/",
     },
     
 
@@ -110,7 +110,7 @@ const TemplateComponents = () => {
             <div>
              <div className="bg-green-100 px-4 py-1 rounded-full" >
              {
-              curr.price == "free" ? <p className="text-green-800 text-sm" >Free</p> : <p className="flex text-green-950 items-center gap-1" > <Crown size={16} /> Paid </p>
+              curr.price == "free" ? <p className="text-green-800 text-sm" >Free</p> : <p className="flex text-green-950 items-center gap-1" > <Crown size={16} /> Free </p>
              }
              </div>
             </div>

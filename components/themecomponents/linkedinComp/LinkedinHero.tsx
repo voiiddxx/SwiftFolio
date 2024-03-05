@@ -27,7 +27,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
 
   return (
     <div className='bg-slate-100' >
-        <Header/>
+        {/* <Header/> */}
         {
       admin && (
         <div className='absolute z-10 md:top-24 top-14 right-2 h-20 w-full flex justify-end items-center md:pr-12'>
@@ -61,7 +61,7 @@ const LinkedinHero = ({persenolData , school , college , work , achivement , pro
             {/* About Section */}
             <div className='mx-12 border-b mt-4 pb-4' >
                 <h1 className='text-xl font-medium text-zinc-800' >About me</h1>
-                <p className='text-sm mt-2 text-zinc-700' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, obcaecati recusandae delectus tempora quis consequuntur odio quas? Aperiam deleniti voluptatem pariatur unde nulla ipsam culpa illo eum quibusdam rerum mollitia maiores, alias aliquid. Aperiam, a aliquid dolore itaque aut optio sequi reiciendis ex, unde eius dignissimos exercitationem velit assumenda vitae.</p>
+                <p className='text-sm mt-2 text-zinc-700' >{persenolData.about}</p>
             </div>
 
                 {/* Qualification part  */}

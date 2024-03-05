@@ -77,7 +77,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
       const response = await createPortfolio({portfolio:{
         ...values, avatar: avatarurl, resume: resumeurl,
-        clerkId: userId
+        clerkId: userId , 
       } , clerkId:userId});
       console.log("this is the response" , response);
       
