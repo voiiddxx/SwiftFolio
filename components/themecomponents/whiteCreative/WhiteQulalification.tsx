@@ -17,14 +17,12 @@ import React from 'react'
     }
 
 const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} : WhiteQulalificationProps) => {
-    console.log("this is user college id ",userCollege[0]._id);
+    
 
     
 
 
-    const handleDelete = async ( deleteId : string) =>{
-      alert("called")
-        
+    const handleDelete = async ( deleteId : string) =>{        
         const data = await DeleteCollegeAsPerId({collegeId: userCollege[0]._id , deleteId:deleteId});
 
     }
@@ -42,7 +40,7 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
     }
   
   return (
-    <div className='min-h-screen w-full md:pl-52 px-10 bg-whiteCreativeBGImage'>
+    <div className=' w-full md:pl-52 px-10 bg-whiteCreativeBGImage'>
        {/* this is school section z */}
        {
         userSchool.length < 1? <div></div> : <div>

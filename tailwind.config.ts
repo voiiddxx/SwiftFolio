@@ -63,6 +63,7 @@ const config = {
         'HeroPageTheme':"url(/newHero.png)",
         'whiteLogin':"url(/whiteLogin.png)",
         'MobileMailBgImage':"url(/ads.svg)",
+        'DottedBgImage':"url(/dotted.png)",
       },
       borderRadius: {
         lg: "var(--radius)",

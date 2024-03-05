@@ -1,8 +1,19 @@
 "use server"
 
 import { AiTextGenreation, GenreateImageParams } from "@/types";
-import { openai } from "../utils";
 
+
+import OpenAI from 'openai';
+
+
+const apikeyforopenai = "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";
+
+
+
+ const openai = new OpenAI({
+    apiKey: process.env.OPEN_AI_KEY,
+    dangerouslyAllowBrowser: true // This is the default and can be omitted
+  });
 
 
 

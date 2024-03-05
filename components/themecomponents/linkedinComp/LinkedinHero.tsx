@@ -20,9 +20,10 @@ type LinkedProps = {
     custom:any
     admin:any
     userId:any
+    skills:any
 }
 
-const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin , userId} : LinkedProps) => {
+const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin , userId , skills} : LinkedProps) => {
 
 
   return (

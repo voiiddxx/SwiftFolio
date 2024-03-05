@@ -43,7 +43,7 @@ const AiForm = () => {
 
   return (
     <AlertDialog>
-    <AlertDialogTrigger><p className="flex gap-1 text-sm items-center justify-center text-green-300" ><Sparkles size={15}/> Genreate</p></AlertDialogTrigger>
+    <AlertDialogTrigger><p className="flex gap-1 text-sm items-center justify-center text-green-700" ><Sparkles size={15}/> Genreate</p></AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Now Customize your captions with AI</AlertDialogTitle>
@@ -65,8 +65,8 @@ const AiForm = () => {
         }
         {
           GenreatedRes != '' && (
-            <div className='w-full min-h-11 bg-zinc-800 bg-opacity-20 rounded-md mt-4 px-4 py-4 text-zinc-200  '>
-              <p className='leading-7 tracking-normal' >{GenreatedRes}</p>
+            <div className='w-full min-h-11 bg-zinc-300 bg-opacity-20 rounded-md mt-4 px-4 py-4 text-zinc-200  '>
+              <p className='leading-7 tracking-normal text-zinc-900 font-medium' >{GenreatedRes}</p>
             </div>
           )
         }

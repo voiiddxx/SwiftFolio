@@ -23,7 +23,7 @@ const WhiteHero = ({data , adminData} : whiteHeroProps) => {
     </div>
     <p className='text-zinc-500 mt-4 mx-10' >{data.name} | {data.heading}</p>
     <h1 className='text-zinc-800 mt-4 font-semibold text-2xl mx-10 md:mr-[500px]'>
-        Passinote developer building products that will help the society to make enomorus grants and contiribute to inovation culture of world <br /> and  help to make it possible with developement
+        {data.about}
     </h1>
 
     <div className=' flex gap-2 mt-7 justify-center items-center mx-10'>

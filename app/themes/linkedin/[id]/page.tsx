@@ -5,6 +5,7 @@ import { getCollegeasPerClerkId } from '@/lib/actions/education.action';
 import { getPortfolioBasedonuserClerkId } from '@/lib/actions/portfolio.action';
 import { getProjectByclerkId } from '@/lib/actions/project.action';
 import { getSchoolasperClerkId } from '@/lib/actions/school.action';
+import { getSkillUsingclerkId } from '@/lib/actions/skill.action';
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action';
 import { currentUser } from '@clerk/nextjs';
 import React from 'react'
@@ -23,7 +24,7 @@ const page = async ({
   const projects = await getProjectByclerkId(id);
   const achivements = await getAcheivemtUSingClerkid(id);
   const customData = await getCustomSection(id);
-  // const skills = await getSkillUsingclerkId(id);
+  const skills = await getSkillUsingclerkId(id);
   const schooling = await getSchoolasperClerkId(id);
   const college = await getCollegeasPerClerkId(id);
   const work = await getWorkExperinceAsPerclerkId(id);
@@ -39,7 +40,7 @@ const page = async ({
 
   return (
     <div>
-      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} admin={admin} userId={user?.id} />
+      <LinkedinHero persenolData={portfolio[0]} school={schooling} college={college} work={work}  achivement={achivements} custom={customData} project={projects} admin={admin} userId={user?.id} skills={skills} />
     </div>
   )
 }

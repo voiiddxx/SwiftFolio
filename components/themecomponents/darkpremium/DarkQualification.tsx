@@ -51,7 +51,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
     <div className='w-full  bg-heroBgImage pt-14 md:px-32 px-10'>
       {/* schooling section  */}
     {
-      userSchool[0].school.length < 1 ? <div></div> : <>
+      userSchool.length < 1 ? <div></div> : <>
       <div >
         <h1 className='text-green-300 text-2xl font-medium' >Education</h1>
         <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
@@ -127,7 +127,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
     }
       
       {
-        userwork[0].work.length < 1 ? <div></div> : <div>
+        userwork.length < 1 ? <div></div> : <div>
            <div >
         <h1 className='text-red-300 text-2xl font-medium mt-5' >Work Experince</h1>
         <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
@@ -177,65 +177,3 @@ export default DarkQualification
 
 
 
-
-
-
-
-
-// {
-//   isAdmin && ( <div className='flex gap-4 mt-4' >
-
-//   <Trash onClick={()=>{
-//       handleWorkDelete(curr._id);
-//   }} className='text-red-800 cursor-pointer' size={16} />
-// </div>)
-//  }
-
-
-// {
-//   userCollege.length   < 1 ? <div></div> :  <>
-//  {
-// userCollege[0].college.map((curr : ICollege , index : number) => {
-//  return  <div className='w-full flex pl-52 gap-2 items-start'>
-//  {/* //border line  */}
-//  <div className='flex flex-col'>
-//      <Image className='h-24 w-32' src="/college.svg" height={500} width={500} alt='schoo and college icons'/>
-//      <div className='ml-8'>
-
-//        {
-//          index == userCollege[0].college.length -1 ?  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-transparent'>
-             
-//          </div> :  <div className='h-40 w-[3px] rounded-md mt-[-14px] bg-gradient-to-b from-green-300 to-zinc-900'>
-             
-//          </div>
-//        }
-
-
-        
-//      </div>
-//  </div>
-//  {/* schooling informaton */}
-//  <div className='pr-52 ' >
-//   <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
-//    <h1 className='text-lg font-semibold text-zinc-200  mt-2'>{curr.degree}</h1>
-//          <p className='text-green-300 font-normal text-sm mt-2' >{curr.instituteName}</p>
-//        <p className='text-zinc-600 font-normal mr-80 mt-2'>{curr.extraDetail}</p>
-//        {
-//    isAdmin && ( <div className='flex gap-4 mt-4' >
-   
-//    <Trash  onClick={()=>{
-//        alert("called")
-//        handleDelete(curr._id);
-//    }} className='text-red-800' size={16} />
-//  </div>)
-//   }
-//                    </div>
-
-// </div>
-// })
-// }
-
-// </>
-
-
-//  }

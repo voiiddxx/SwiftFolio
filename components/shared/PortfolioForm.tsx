@@ -23,14 +23,15 @@ import { CandyCaneIcon, Check, Cross, Ghost, LoaderIcon, X } from "lucide-react"
 import { Textarea } from "../ui/textarea"
 import { Label } from "../ui/label"
 import Footer from "./Footer"
+import AiForm from "./AiForm"
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   heading: z.string().min(2).max(50),
-  about: z.string().min(2).max(150),
+  about: z.string().min(2).max(250),
   githuburl: z.string().url(),
   linkedinurl: z.string().url(),
-  mailurl: z.string().url(),
+  mailurl: z.string().email(),
   extraurl: z.string().url(),
 })
 
@@ -167,7 +168,12 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
     render={({ field }) => (
       <FormItem className="md:w-[500px]">
         <FormControl>
-          <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Please write Something about you"  />
+         <div>
+         <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Please write Something about you"  />
+         <div className="flex justify-end mb-4 mt-3" >
+          <AiForm/>
+         </div>
+         </div>
         </FormControl>
         <FormMessage />
       </FormItem>
