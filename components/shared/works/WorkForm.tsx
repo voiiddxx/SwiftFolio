@@ -25,6 +25,7 @@ import { Input } from '@/components/ui/input'
 import { AddWorkExperince } from '@/lib/actions/work.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
+import { Loader2 } from 'lucide-react'
 
     type WorkFormProps = {
         userId: any,
@@ -147,12 +148,12 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
               </FormItem>
             )}
           />                  
-          <Button 
-          disabled={form.formState.isSubmitting} className="w-full" type="submit">
-            {
-              form.formState.isSubmitting ? ('Submitting..') : 'Submit'
-            }
-          </Button>
+          <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Submit Work' }
+        </Button>
         </form>
       </Form>
       </DialogHeader>

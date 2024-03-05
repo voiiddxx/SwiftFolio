@@ -18,22 +18,16 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
 
 
     const handleDelete = async ( deleteId : string) =>{
-        alert("called")
-          
           const data = await DeleteCollegeAsPerId({collegeId: college[0]._id , deleteId:deleteId});
-    
       }
     
       const handleSchoolDelte = async (deleteId:string)=>{
           const deleted = await deletSchoolWithId({schoolId:school[0]._id , deleteId: deleteId});
-    
-    
       }
     
     
       const handleWorkDelete = async  (workDeleteId : string)=>{
           const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
-          
       }
   return (
     <div>
@@ -50,7 +44,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                             <div className='flex md:flex-row flex-col gap-4  pb-8' >
                            <div>
                            <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <School className='text-indigo-600 h-7'  />
+                                <School strokeWidth={1.5}  className='text-indigo-600 h-7'  />
                             </div>
                            </div>
 
@@ -90,7 +84,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                             <div className='flex md:flex-row flex-col gap-4  pb-8' >
                            <div>
                            <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <GraduationCap className='text-orange-600 h-7'  />
+                                <GraduationCap strokeWidth={1.5}  className='text-orange-600 h-7'  />
                             </div>
                            </div>
 
@@ -137,7 +131,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                             <div className='flex md:flex-row flex-col gap-4  pb-8' >
                             <div>
                             <div className='md:h-16 md:w-16 h-12 w-12  border-[1px] border-zinc-400  rounded-full flex justify-center items-center md:basis-24  ' >
-                                <Briefcase className='text-teal-600 h-7'  />
+                                <Briefcase strokeWidth={1.5}  className='text-teal-600 h-7'  />
                             </div>
                             </div>
 

@@ -34,7 +34,7 @@ const Darkachivement = async ( {achivements , IsAdmin} : darkAchivementProps) =>
       <div className='w-full flex justify-center items-center gap-3 flex-wrap'>
         {
           achivements.map((curr : any) => {
-            return <div className='h-[400px] w-[400px]' >
+            return <div className='h-[400px] w-[350px]' >
               <div className='h-[250px] w-full  rounded-t-lg relative'>
                 {
                   IsAdmin==false ?  <h1></h1>

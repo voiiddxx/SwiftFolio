@@ -53,8 +53,8 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
     {
       userSchool.length < 1 ? <div></div> : <>
       <div >
-        <h1 className='text-green-300 text-2xl font-medium' >Education</h1>
-        <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
+        <h1 className='text-green-300 text-xl font-medium' >Education</h1>
+        <p className='text-zinc-500 mt-2 text-sm font-light' >Schooling and my college are mentioned below</p>
       </div>
       <div className='md:flex gap-4 flex-wrap' >
      <div className='mt-9' >
@@ -129,16 +129,16 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
       {
         userwork.length < 1 ? <div></div> : <div>
            <div >
-        <h1 className='text-red-300 text-2xl font-medium mt-5' >Work Experince</h1>
-        <p className='text-zinc-500 mt-2' >Schooling and my college are mentioned below</p>
+        <h1 className='text-red-300 text-xl font-medium mt-20' >Work Experince</h1>
+        <p className='text-zinc-500 mt-2 text-sm font-light' >Schooling and my college are mentioned below</p>
       </div>
       <div className='mt-9' >
      {
         userwork[0].work.map((curr : IWork)=>{
-          return <div className='flex gap-4' >
+          return <div className='flex gap-4 flex-col md:flex-row' >
            <div>
-           <div className='h-16 w-20 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
-            <Blend className='text-indigo-300' size={30} />
+           <div className=' h-12 w-12 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
+            <Blend strokeWidth={1} className='text-indigo-400 h-72'  />
            </div>
            </div>
            <div>

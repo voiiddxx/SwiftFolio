@@ -33,7 +33,7 @@ const DarkProject = async ({data , adminData} : projectstypeProps) => {
         <div className='h-auto w-full flex items-start flex-wrap justify-center gap-5 mt-6'>
           {
             data.map((curr : any) => {
-              return  <Link href={curr.projectlink} ><div className='min-h-[350px] w-[350px] bg-zinc-800 bg-opacity-60 rounded-lg border-[1px] border-zinc-700' >
+              return  <Link href={curr.projectlink} ><div className='max-h-[400px] w-[350px] bg-zinc-800 bg-opacity-60 rounded-lg border-[1px] border-zinc-700' >
               <div className='h-[180px] w-full bg-red-50 rounded-t-lg'>
               <Image className='h-[180px] w-full rounded-t-md object-cover' src={curr.projectthumbnail} height={180} width={450} alt="logo" />
               </div>
@@ -44,7 +44,7 @@ const DarkProject = async ({data , adminData} : projectstypeProps) => {
                   <p className='text-[11px] py-[2px] px-2 text-orange-300'>Deployed</p>
                  </div>
                  </div>
-                  <p className='font-normal text-zinc-600 text-[12px] leading-5'> {curr.projectdetail} </p>
+                  <p className='font-normal text-zinc-300 text-[12px] leading-5'> {curr.projectdetail} </p>
               </div>
    {
     adminData===true ?  <div className='w-full flex justify-between'>
