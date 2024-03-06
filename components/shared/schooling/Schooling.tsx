@@ -66,7 +66,7 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
        
   return (
     <Dialog>
-    <DialogTrigger>Add Your Schooling</DialogTrigger>
+    <DialogTrigger>Schooling</DialogTrigger>
     <DialogContent className='' >
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>

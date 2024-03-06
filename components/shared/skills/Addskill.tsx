@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
-
-
+import { Toaster, toast } from 'sonner'
 import {
     Dialog,
     DialogContent,
@@ -55,12 +54,18 @@ const Addskill = ({userclerkId} : SkillProps) => {
       },
     })
   
-    async function onSubmit(values: z.infer<typeof formSchema>) { 
-  
-     alert("this is working");
+    async function onSubmit(values: z.infer<typeof formSchema>) {  
      const res = await addSkilltoDatabase({skill:{
          ...values,
      } , clerkId:userclerkId});
+
+     if(res){
+      toast.success("Skill Added");
+      form.reset();
+     }
+     else{
+      toast.error('Some error occured');
+     }
 
     
     }
@@ -69,11 +74,13 @@ const Addskill = ({userclerkId} : SkillProps) => {
     
   return (
     <>
+  
      <Dialog>
     <DialogTrigger>Add Skills</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>
+        <Toaster className='z-30 absolute' position='top-center' richColors />
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
