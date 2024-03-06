@@ -3,6 +3,9 @@ import './Darkheroprem.css'
 import Editbutton from '@/components/shared/edit/Editbutton'
 import AiForm from '@/components/shared/AiForm'
 import AiImageForm from '@/components/shared/AiImageForm'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { HeartHandshake } from 'lucide-react'
 
 
   type portfolioProps = {
@@ -53,18 +56,17 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
             </a>
           </div>
           <div className="mid-bold-text">
-            <h1>Hey, My Name is <span> {data.name}</span>  <br /> {data.heading}</h1>
+            <h1>Hey, My Name is <span> {data.name}</span>  <br /> </h1>
+            <h1 className='text-4xl font-medium' >{data.heading}</h1>
           </div>
           <div className="bottom-light-text">
-            <p>computer science student with passion for cross platform dev  & Web App dev looking  for internship <br /> where i can apply my  skills! and highly motivated  to learn new technologies!</p>
+            <p className='text-zinc-400' >computer science student with passion for cross platform dev  & Web App dev looking  for internship <br /> where i can apply my  skills! and highly motivated  to learn new technologies!</p>
           </div>
 
           <div className="hero-button">
-           <a href={data.linkedinurl}>
-           <div className="connect-button">
-              <p className='text-zinc-800 font-semibold' >Connect With me⚡</p>
-            </div>
-           </a>
+           <Link href={data.linkedinurl}>
+            <Button className='bg-white text-teal-700 font-medium' > <HeartHandshake className='mr-1' /> Connect Now</Button>
+           </Link>
             <a href={data.githuburl}>
             <div className="github-button">
               <p>Star on Github 💫</p>
