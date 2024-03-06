@@ -36,6 +36,7 @@ export const addCustomFieldtoDatabase = async ({custom} : addCustomFieldParams) 
         let section = await Custom.findById(custom.customId);
         await section.data.push({customTitle:custom.customTitle , customLink:custom.customLink , customImage: custom.customImage});
         await section.save();
+        return JSON.parse(JSON.stringify(section));
     
     } catch (error) {
         throw new Error(error as string);

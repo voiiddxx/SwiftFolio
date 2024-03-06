@@ -18,6 +18,7 @@ export const addCollege =  async ({college , clerkId} : addCollegeParams) => {
         await isCollege[0].college.push({...college});
         await isCollege[0].save();
        }
+       return JSON.parse(JSON.stringify({isCollege}));
         
 
 

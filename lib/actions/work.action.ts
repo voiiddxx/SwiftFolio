@@ -18,6 +18,8 @@ export const AddWorkExperince =  async ({work , clerkId} : AddWorkParams) => {
          await isWork[0].work.push({...work});
          await isWork[0].save();
         }
+
+        return JSON.parse(JSON.stringify(isWork));
     } catch (error) {
         throw new Error(error as string);
     }

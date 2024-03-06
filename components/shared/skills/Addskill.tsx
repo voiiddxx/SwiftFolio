@@ -80,7 +80,7 @@ const Addskill = ({userclerkId} : SkillProps) => {
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>
-        <Toaster className='z-30 absolute' position='top-center' richColors />
+        <Toaster className='z-30 absolute' position='top-center' richColors  duration={2000}  />
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -90,14 +90,11 @@ const Addskill = ({userclerkId} : SkillProps) => {
               <FormItem className="mt-6" >
              
                 <FormControl>
-                  <Input placeholder="Your project Name" {...field} />
+                  <Input placeholder="Your Skill.." {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is Your Project Name.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
-            )}
+            )}  
           />          
           <Button className="w-full" type="submit">Submit</Button>
         </form>

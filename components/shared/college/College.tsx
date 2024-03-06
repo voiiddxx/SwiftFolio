@@ -26,7 +26,7 @@ import { addSchooling } from '@/lib/actions/school.action'
 import { addCollege } from '@/lib/actions/education.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
-
+import { Toaster, toast } from 'sonner'
 
 const formSchema = z.object({
     degree: z.string().min(2).max(50),
@@ -65,6 +65,12 @@ const College = ({userId , type}: CollegeProps) => {
 
         const response = await addCollege({college:{...values} , clerkId:userId})
         console.log(response);
+        if(response){
+          toast.success("College added");
+        }
+        else{
+          toast.error("Some error occured");
+        }
         
         // const response = await addSchooling({school:{...values} , clerkId:userId});
     //    console.log(response);
@@ -79,6 +85,7 @@ const College = ({userId , type}: CollegeProps) => {
     <DialogTrigger>Add Your College Degree</DialogTrigger>
     <DialogContent>
       <DialogHeader>
+      <Toaster position='top-center' duration={2000} richColors />
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

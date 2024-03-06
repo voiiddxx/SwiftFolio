@@ -32,7 +32,7 @@ import {
 } from "@/components/ui/select"
 import { createCustomSection } from '@/lib/actions/custom.action'
 import { Loader2 } from 'lucide-react'
-
+import { Toaster, toast } from 'sonner'
 
 
 const formSchema = z.object({
@@ -55,8 +55,13 @@ const CustomForm = ({useridclerk} : customFormProps) => {
       })
     
       async function onSubmit(values: z.infer<typeof formSchema>) { 
-       alert("this is working");
-       createCustomSection({customSection:{...values} , clerkId:useridclerk});
+    
+     const data = await  createCustomSection({customSection:{...values} , clerkId:useridclerk});
+     if(data){
+      toast.success("Added");
+     }else{
+      toast.error("Some error");
+     }
       
       }
   
@@ -66,6 +71,7 @@ const CustomForm = ({useridclerk} : customFormProps) => {
     <DialogTrigger>Add Custom Section</DialogTrigger>
     <DialogContent>
       <DialogHeader>
+      <Toaster position='top-right' richColors duration={2000} />
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

@@ -35,7 +35,7 @@ import { useState } from "react"
 import { Textarea } from "@/components/ui/textarea"
 import AiForm from "../AiForm"
 import AiImageForm from "../AiImageForm"
-
+import { Toaster, toast } from 'sonner'
 
 const formSchema = z.object({
   projectname: z.string().min(2).max(50),
@@ -87,7 +87,12 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
 
     if(type=="EDIT"){
       const editResponse = await updateProject({project:{...values} , projectId:projectId});
-      console.log(editResponse); 
+      if(editResponse){
+        toast.success("Project added");
+      }
+      else{
+        toast.error("Some error occured");
+      }
     }
   }
   return (
@@ -97,6 +102,7 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
     } </DialogTrigger>
   <DialogContent>
     <DialogHeader>
+    <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
       <DialogTitle>Fill Required Information</DialogTitle>
       <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

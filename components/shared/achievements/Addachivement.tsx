@@ -26,7 +26,7 @@ import uploadDataonCloudinary from "../Cloudinary"
 import { useState } from "react"
 import { addAchevementtoDatabase, updateAchivementSection } from '@/lib/actions/achivement.action'
 import { Edit, Loader2 } from 'lucide-react'
-
+import { Toaster, toast } from 'sonner'
 
 const formSchema = z.object({
   acaption: z.string().min(2).max(50),
@@ -58,13 +58,19 @@ const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
       if(AchivementImage){
         const achivementimageUrl = await uploadDataonCloudinary(AchivementImage);
         const response = await addAchevementtoDatabase({achivement:{...values , aimage:achivementimageUrl , clerkId:useridclerk}});
-        console.log(response);
+        if(response){
+          toast.success("College added");
+        }
+        else{
+          toast.error("Some error occured");
+        }
         }   else{
       alert("Please select Image")
     
     }
  } else{
    const updateRes = await updateAchivementSection({achivement:{...values} ,  achivementId:achivementId});
+   
  }
   
   }
@@ -80,6 +86,7 @@ const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>
+      <Toaster className='z-30 absolute' position='top-center' richColors duration={2000}  />
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

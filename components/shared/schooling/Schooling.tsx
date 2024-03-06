@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-
+import { Toaster, toast } from 'sonner'
 import {
     Dialog,
     DialogContent,
@@ -60,6 +60,13 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
     async function onSubmit(values: z.infer<typeof formSchema>) { 
         const response = await addSchooling({school:{...values} , clerkId:userId});
        console.log(response);
+
+       if(response){
+        toast.success("Schooling added");
+       }
+       else{
+        toast.error("Some error occured");
+       }
        
        }
 
@@ -69,6 +76,7 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
     <DialogTrigger>Schooling</DialogTrigger>
     <DialogContent className='' >
       <DialogHeader>
+      <Toaster position='top-center' richColors />
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
