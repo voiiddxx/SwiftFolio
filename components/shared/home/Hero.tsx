@@ -3,21 +3,27 @@
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import Header from "../Header";
-import { Ghost, Zap } from "lucide-react";
+import { Ghost, Radio, Zap } from "lucide-react";
 import Footer from "../Footer";
 import Link from "next/link";
 
 const Hero = () => {
 
   const router = useRouter();
+  // bg-MobileMailBgImage
   return (
-   <div className="bg-white  bg-MobileMailBgImage" >
+   <div className="bg-white " >
     <Header/>
     <div className=" px-4 md:min-h-screen w-full flex flex-col items-center justify-start pb-24">
-      <h1 className="text-zinc-900 md:text-5xl text-3xl text-center font-semibold md:mt-44 mt-28" >Unleash Your Creativity</h1>
-      <h1 className="text-zinc-900 md:text-5xl text-3xl text-center font-semibold  mt-3 " >Boom Your Portfolio With the </h1>
-      <h1 className="text-indigo-700 md:text-5xl text-3xl text-center font-semibold  mt-3 " >Help of SwiftFolio</h1>
-      <p className="text-zinc-700 md:mr-96 md:ml-96 px-4 text-center mt-5" >Swiftfolio is a platform where any individual can create thier portfolio with just one click, and boost their portfolio with creative design templates  </p>
+      {/* hEADING PART */}
+      <div className="mt-20 flex justify-center flex-col items-center">
+        <div>
+        <p className="bg-violet-100 mb-4 text-center text-violet-700 gap-2 border-[1px] border-violet-100 bg-opacity-65 cursor-pointer px-4 py-2 rounded-full flex items-center" ><Radio/> Get Access to all template</p>
+        </div>
+        <p className="text-5xl font-semibold text-violet-700 text-center" > Effortlessly Build Portfolio with </p>
+        <p className="text-5xl font-semibold  text-zinc-800 text-center mt-2" >Creative Designs and Fully Customization</p>
+      </div>
+      <p className="text-gray-500 md:mr-96 md:ml-96 px-4 text-center font-normal text-lg  mt-5 leading-7" >Swiftfolio is a platform where any individual can create thier portfolio with just one click, and boost their portfolio with creative design  </p>
       <div className="flex gap-2 mt-6 mx-16" >
       <Link href='/sign-in' >  <Button className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-indigo-800  flex items-center" >
           <Zap className="mr-1 text-indigo-800"  size={16} />
