@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button } from "../ui/button"
 import logo from '../../public/logo.svg'
-import { ArrowRight, Code2, Dices, Flame, LayoutTemplate, ListVideo, Play, Sparkles, User, View } from "lucide-react"
+import { ArrowRight, Code2, Dices, Flame, Gem, LayoutTemplate, ListVideo, Menu, Play, Shapes, Sparkles, User, View, Workflow } from "lucide-react"
 import Link from "next/link"
 import {
   NavigationMenu,
@@ -36,7 +36,10 @@ const Header = () => {
   <NavigationMenuList>
     <NavigationMenuItem>
       <NavigationMenuTrigger>
-        <p className="text-black font-medium tect-lg" >Getting Started</p>
+       <div className="flex items-center" >
+        <Shapes className="mr-2 text-violet-700"  size={15} />
+       <p className="text-black font-medium tect-lg" >Getting Started</p>
+       </div>
         </NavigationMenuTrigger>
       <NavigationMenuContent>
         <div className="pb-3 w-[500px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]" >
@@ -93,7 +96,10 @@ const Header = () => {
     </NavigationMenuItem>
     <NavigationMenuItem>
       <NavigationMenuTrigger>
-        <p className="text-black font-medium tect-lg" >Pricing</p>
+      <div className="flex items-center" >
+        <Gem className="mr-2 text-violet-700"  size={15} />
+       <p className="text-black font-medium tect-lg" >Pricing</p>
+       </div>
         </NavigationMenuTrigger>
       <NavigationMenuContent>
         {/* <NavigationMenuLink>Link</NavigationMenuLink> */}
@@ -101,7 +107,10 @@ const Header = () => {
     </NavigationMenuItem>
     <NavigationMenuItem>
       <NavigationMenuTrigger>
-        <p className="text-black font-medium tect-lg" >Workflow</p>
+      <div className="flex items-center" >
+        <Workflow className="mr-2 text-violet-700"  size={15} />
+       <p className="text-black font-medium tect-lg" >Workflow</p>
+       </div>
         </NavigationMenuTrigger>
       <NavigationMenuContent>
        
