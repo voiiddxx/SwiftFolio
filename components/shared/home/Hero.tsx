@@ -11,7 +11,7 @@ const Hero = () => {
 
   const router = useRouter();
   return (
-   <div className="bg-white  md:bg-HeroPageTheme bg-MobileMailBgImage" >
+   <div className="bg-white  bg-MobileMailBgImage" >
     <Header/>
     <div className=" px-4 md:min-h-screen w-full flex flex-col items-center justify-start pb-24">
       <h1 className="text-zinc-900 md:text-5xl text-3xl text-center font-semibold md:mt-44 mt-28" >Unleash Your Creativity</h1>
