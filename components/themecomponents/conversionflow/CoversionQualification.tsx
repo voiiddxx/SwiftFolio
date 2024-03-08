@@ -1,4 +1,4 @@
-import { ArrowUpRight, LucideArrowUpRightSquare } from 'lucide-react';
+import { ArrowUpRight, LucideArrowUpRightSquare, School } from 'lucide-react';
 import React from 'react'
 
 const CoversionQualification = () => {
@@ -22,9 +22,15 @@ const CoversionQualification = () => {
                             edu.map((curr:any)=>{
                                 return <div className='py-4 md:w-[500px] min-w-[450px]  border-b flex justify-between' >
                                     {/* left div */}
-                                    <div>
-                                        <h1 className='md:text-2xl text-xl font-medium text-zinc-900' >Stanford University</h1>
-                                        <p className='text-zinc-500 font-medium' >12th Non Medical</p>
+                                    <div className='flex items-center gap-2' >
+                                        <div className='h-14 w-14 bg-slate-100 rounded-full flex justify-center items-center ' >
+                                            <School strokeWidth={1.5}/>
+                                        </div>
+                                       <div>
+                                       <h1 className='md:text-2xl text-xl font-medium text-zinc-900' >Stanford University</h1>
+                                       <p className='text-zinc-500 font-medium' >12th Non Medical</p>
+                                       </div>
+                                       
                                     </div>
                                         {/* right div */}
                                         <div className=' flex' >
@@ -61,9 +67,15 @@ const CoversionQualification = () => {
                             edu.map((curr:any)=>{
                                 return <div className='py-4 md:w-[500px] min-w-[450px]  border-b flex justify-between' >
                                     {/* left div */}
-                                    <div>
-                                        <h1 className='md:text-2xl text-xl font-medium text-zinc-900' >Stanford University</h1>
-                                        <p className='text-zinc-500 font-medium' >12th Non Medical</p>
+                                    <div className='flex items-center gap-2' >
+                                        <div className='h-14 w-14 bg-slate-100 rounded-full flex justify-center items-center ' >
+                                            <School strokeWidth={1.5}/>
+                                        </div>
+                                       <div>
+                                       <h1 className='md:text-2xl text-xl font-medium text-zinc-900' >Stanford University</h1>
+                                       <p className='text-zinc-500 font-medium' >12th Non Medical</p>
+                                       </div>
+                                       
                                     </div>
                                         {/* right div */}
                                         <div className=' flex' >
