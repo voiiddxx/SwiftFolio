@@ -22,42 +22,42 @@ const Hero = () => {
 
   const content = [
     {
-      title: "Collaborative Editing",
+      title: "No Coding Required",
       description:
         "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          Collaborative Editing
+          No Coding Required
         </div>
       ),
     },
     {
-      title: "Real time changes",
+      title: "Easily Cusomizable",
       description:
-        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of Minimal Designs and embrace the simplicity of real-time updates.",
       content: (
         <div className="h-full w-full  flex items-center justify-center text-white">
-          
+          Easy Customizable
         </div>
       ),
     },
     {
-      title: "Version control",
+      title: "Minimal Designs",
       description:
-        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "Experience real-time updates and never stress about Minimal Designs again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-          Version control
+          Minimal Designs
         </div>
       ),
     },
     {
-      title: "Running out of content",
+      title: "AI Powered Features",
       description:
-        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "Experience real-time updates and never stress about Minimal Designs again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          Running out of content
+          AI Powered Features
         </div>
       ),
     },
