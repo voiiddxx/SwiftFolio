@@ -26,7 +26,7 @@ const Header = () => {
         Free access to all template to our first 50 coustomer</p>
     </div>
     {/* MobileNav */}
-    <div className=" flex justify-between px-6 md:hidden" >
+    <div className=" sticky top-0 bg-white flex justify-between px-6 md:hidden" >
       <div  >
       <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
       </div>
@@ -36,6 +36,7 @@ const Header = () => {
       </div>
 
     </div>
+    {/* desktop navbat */}
     <div className=" sticky top-0 w-full h-20 py-4 md:px-32  items-center justify-between  border-zinc-200 bg-white text-white z-50 hidden md:flex" > 
     <div>
       <Image className="h-40 w-40"  src="/logo.svg" height={800} width={800} alt="logo" />

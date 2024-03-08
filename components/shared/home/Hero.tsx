@@ -70,12 +70,12 @@ const Hero = () => {
     <Header/>
     <div className=" px-4  w-full flex flex-col items-center justify-start pb-24">
       {/* hEADING PART */}
-      <div className="md:mt-20 mt-10 flex justify-center flex-col items-center px-12 md:px-2">
+      <div className="md:mt-20 mt-10 flex justify-center flex-col items-center px-4 md:px-2">
         <div>
         <p className="bg-violet-100 mb-4 text-center text-violet-700 gap-2 border-[1px] border-violet-100 bg-opacity-65 text-sm cursor-pointer px-4 py-2 rounded-full flex items-center" ><Radio/> Get Access to all template</p>
         </div>
-        <p className="md:text-5xl text-4xl font-semibold md:font-semibold text-violet-700 text-center" > Effortlessly Build Portfolio with </p>
-        <p className="md:text-5xl text-4xl font-semibold  text-zinc-800 text-center mt-2" >Creative Designs and Customization</p>
+        <p className="md:text-5xl text-3xl font-semibold md:font-semibold text-violet-700 text-center" > Effortlessly Build Portfolio with </p>
+        <p className="md:text-5xl text-2xl md:font-semibold font-semibold  text-zinc-800 text-center mt-2" >Creative Designs and Customization</p>
       </div>
       <p className="text-gray-500 md:mr-96 md:ml-96 px-4 text-center font-normal md:text-lg  mt-5 leading-7 text-[14px]" >Swiftfolio is a platform where any individual can create thier portfolio with just one click, and boost their portfolio with creative design  and boost your resume selection proces  </p>
       <div className="flex gap-2 mt-6 mx-16" >
