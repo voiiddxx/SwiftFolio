@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button } from "../ui/button"
 import logo from '../../public/logo.svg'
-import { ArrowRight, Code2, Dices, Flame, Gem, LayoutTemplate, ListVideo, Menu, Play, Shapes, Sparkles, User, View, Workflow } from "lucide-react"
+import { ArrowRight, Code2, Dices, Flame, Gem, LayoutTemplate, ListVideo, Menu, MenuIcon, Play, Shapes, Sparkles, User, View, Workflow } from "lucide-react"
 import Link from "next/link"
 import {
   NavigationMenu,
@@ -25,7 +25,18 @@ const Header = () => {
       <p className="text-[12px] text-white" >
         Free access to all template to our first 50 coustomer</p>
     </div>
-    <div className=" sticky top-0 w-full h-20 py-4 md:px-32 flex items-center justify-between  border-zinc-200 bg-white text-white z-50" > 
+    {/* MobileNav */}
+    <div className=" flex justify-between px-6 md:hidden" >
+      <div  >
+      <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
+      </div>
+      <div className="flex gap-4 items-center" >
+        <Button size={"lg"} >Signup</Button>
+        <MenuIcon className="text-violet-700" size={28} />
+      </div>
+
+    </div>
+    <div className=" sticky top-0 w-full h-20 py-4 md:px-32  items-center justify-between  border-zinc-200 bg-white text-white z-50 hidden md:flex" > 
     <div>
       <Image className="h-40 w-40"  src="/logo.svg" height={800} width={800} alt="logo" />
      
