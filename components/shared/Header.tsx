@@ -25,7 +25,7 @@ const Header = () => {
       <p className="text-[12px] text-white" >
         Free access to all template to our first 50 coustomer</p>
     </div>
-    <div className=" sticky top-0 w-full h-20 py-4 md:px-32 flex items-center justify-between  border-zinc-200 bg-white text-white" > 
+    <div className=" sticky top-0 w-full h-20 py-4 md:px-32 flex items-center justify-between  border-zinc-200 bg-white text-white z-50" > 
     <div>
       <Image className="h-40 w-40"  src="/logo.svg" height={800} width={800} alt="logo" />
      
