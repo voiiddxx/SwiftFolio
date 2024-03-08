@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
+import MobileNav from "./home/MobileNav"
 
 
 const Header = () => {
@@ -32,7 +33,7 @@ const Header = () => {
       </div>
       <div className="flex gap-4 items-center" >
         <Button size={"lg"} >Signup</Button>
-        <MenuIcon className="text-violet-700" size={28} />
+        <MobileNav/>
       </div>
 
     </div>

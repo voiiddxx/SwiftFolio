@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input"
 import { addCustomFieldtoDatabase } from '@/lib/actions/custom.action'
 import uploadDataonCloudinary from '../Cloudinary'
 import { Edit, Loader2 } from 'lucide-react'
-
+import { Toaster, toast } from 'sonner'
 
 
 
@@ -62,7 +62,13 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
       async function onSubmit(values: z.infer<typeof formSchema>) { 
         const customImageUrl = await uploadDataonCloudinary(customImage);
        alert("this is working");
-       addCustomFieldtoDatabase({custom:{...values , customImage:customImageUrl , customId:customId}})
+      const data = await addCustomFieldtoDatabase({custom:{...values , customImage:customImageUrl , customId:customId}})
+      if(data){
+        toast.success("Added");
+      }else{
+        toast.error("Some error");
+      }
+
       
       
       }
@@ -76,6 +82,7 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
     }
     <DialogContent>
       <DialogHeader>
+      <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
         <DialogTitle>Fill Required Information</DialogTitle>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

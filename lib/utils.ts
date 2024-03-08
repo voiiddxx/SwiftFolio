@@ -16,3 +16,4 @@ export const openai = new OpenAI({
   apiKey: apikeyforopenai,
   dangerouslyAllowBrowser: true // This is the default and can be omitted
 });
+

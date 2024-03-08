@@ -63,8 +63,7 @@ const College = ({userId , type}: CollegeProps) => {
            
     async function onSubmit(values: z.infer<typeof formSchema>) { 
 
-        const response = await addCollege({college:{...values} , clerkId:userId})
-        console.log(response);
+        const response = await addCollege({college:{...values} , clerkId:userId});
         if(response){
           toast.success("College added");
         }

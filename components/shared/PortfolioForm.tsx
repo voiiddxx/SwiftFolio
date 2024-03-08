@@ -28,7 +28,7 @@ import AiForm from "./AiForm"
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   heading: z.string().min(2).max(50),
-  about: z.string().min(2).max(250),
+  about: z.string().min(2).max(500),
   githuburl: z.string().url(),
   linkedinurl: z.string().url(),
   mailurl: z.string().email(),
@@ -91,13 +91,13 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       }
   return (
    <>
-  <div className="min-h-screen w-full md:bg-whiteLogin" >
+  <div className="min-h-screen w-full " >
     <Header/>
     <div className="min-h-screen w-full md:px-44 px-6" >
       {/* Heading of portfolio form */}
       <Form {...form}>
 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-      <div className="h-28 w-full  flex border-b border-zinc-200 justify-between items-center" >
+      <div className=" sticky  top-20 bg-white h-28 w-full  flex border-b border-zinc-200 justify-between items-center" >
        <div>
 
        <h1 className="md:text-2xl font-semibold text-violet-700 flex items-center gap-2 mb-1"> <Ghost/> Portfolio Form</h1>
@@ -121,7 +121,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Name 📛 </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Name </h1>
     </div>
     <div>
     <FormField
@@ -140,7 +140,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
   </div>
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Email Address 💌</h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Email Address </h1>
     </div>
     <div>
     <FormField
@@ -159,7 +159,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
   </div>
   <div className="h-28 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >About👍</h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >About</h1>
     </div>
     <div>
     <FormField
@@ -169,7 +169,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
       <FormItem className="md:w-[500px]">
         <FormControl>
          <div>
-         <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Please write Something about you"  />
+         <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Hello! My name is Nikhil Kumar and I enjoy creating things that live on the "  />
          <div className="flex justify-end mb-4 mt-3" >
           <AiForm/>
          </div>
@@ -183,7 +183,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
   </div>
   <div className="h-28 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Caption/Headline 👍</h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm" >Your Caption/Headline </h1>
     </div>
     <div>
     <FormField
@@ -192,7 +192,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
     render={({ field }) => (
       <FormItem className="md:w-[500px]">
         <FormControl>
-          <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Please write your caption/headline"  />
+          <Textarea className="bg-transparent border-zinc-300 text-zinc-800" {...field} placeholder="Full Stack developer | NextJs"  />
         </FormControl>
         <FormMessage />
       </FormItem>
@@ -204,7 +204,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-16 w-full  border-b border-zinc-200 flex items-center justify-between">
     <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Your Links ⛈️ </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Your Links  </h1>
     </div>
     <div className="flex gap-4" >
     <FormField
@@ -251,20 +251,20 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
 
   <div className="h-36 w-full  border-b border-zinc-200 flex items-center justify-between">
   <div>
-      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Important* 📸 </h1>
+      <h1 className="text-zinc-500 font-medium md:text-[15px] text-sm hidden md:block" >Important*  </h1>
     </div>
 <div className=" flex gap-4" >
    <div>
  <Label className="text-zinc-600" >Your Professinol Avatar</Label>
       <Input onChange={(e)=>{
         setavatar(e.target.files)
-      }} className="bg-violet-800 outline-none border-none"  type="file"/>
+      }} className="bg-violet-700 outline-none border-none"  type="file"/>
  </div>
  <div>
  <Label className="text-zinc-600" >Your casual Image</Label>
       <Input onChange={(e)=>{
         setresume(e.target.files)
-      }} className="bg-violet-800 outline-none border-none"  type="file"/>
+      }} className="bg-violet-700 outline-none border-none"  type="file"/>
  </div></div>
   </div>
 
