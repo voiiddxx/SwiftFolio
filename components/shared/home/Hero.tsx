@@ -8,6 +8,9 @@ import Footer from "../Footer";
 import Link from "next/link";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import ParllaxEffectLanding from "./ParllaxEffectLanding";
+import Testimoniol from "./Testimoniol";
+import Questions from "./Questions";
 
 const Hero = () => {
 
@@ -86,27 +89,7 @@ const Hero = () => {
       </div>
 
 
-      {/*   SERVICE HIGHLIGHT CATEGORY */}
-
-      {/* <div className="flex gap-6 mt-10" >
-        <div className="flex gap-2" >
-          <CheckCheck className="text-violet-700" size={17} strokeWidth={1.5} />
-          <p className="text-sm font-medium text-gray-800" >No Coding Required</p>
-        </div>
-        <div className="flex gap-2" >
-          <CheckCheck className="text-violet-700" size={17} strokeWidth={1.5} />
-          <p className="text-sm font-medium text-gray-800" >No Coding Required</p>
-        </div>
-        <div className="flex gap-2" >
-          <CheckCheck className="text-violet-700" size={17} strokeWidth={1.5} />
-          <p className="text-sm font-medium text-gray-800" >No Coding Required</p>
-        </div>
-        <div className="flex gap-2" >
-          <CheckCheck className="text-violet-700" size={17} strokeWidth={1.5} />
-          <p className="text-sm font-medium text-gray-800" >No Coding Required</p>
-        </div>
-       
-      </div> */}
+    
         {/* HERO ANIMATION CONTAINER */}
 
         <div className="text-black" >
@@ -131,7 +114,18 @@ const Hero = () => {
     </div>
 
 
+    {/* Parllax Effect for landing */}
 
+    <ParllaxEffectLanding/>
+
+
+    {/* TESTIMONIOL SECTION */}
+    <Testimoniol/>
+
+
+    {/* QUESTION SECTIONS */}
+
+    <Questions/>
     <Footer  />
    </div>
   )
