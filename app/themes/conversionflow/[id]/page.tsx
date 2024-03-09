@@ -6,13 +6,43 @@ import ConversionProject from '@/components/themecomponents/conversionflow/Conve
 import ConversionSkill from '@/components/themecomponents/conversionflow/ConversionSkill'
 import Conversionachivement from '@/components/themecomponents/conversionflow/Conversionachivement'
 import CoversionQualification from '@/components/themecomponents/conversionflow/CoversionQualification'
-import React from 'react'
+import { getAcheivemtUSingClerkid } from "@/lib/actions/achivement.action"
+import { getCustomSection } from "@/lib/actions/custom.action"
+import { getCollegeasPerClerkId } from "@/lib/actions/education.action"
+import { getPortfolioBasedonuserClerkId } from "@/lib/actions/portfolio.action"
+import { getProjectByclerkId } from "@/lib/actions/project.action"
+import { getSchoolasperClerkId } from "@/lib/actions/school.action"
+import { getSkillUsingclerkId } from "@/lib/actions/skill.action"
+import { getWorkExperinceAsPerclerkId } from "@/lib/actions/work.action"
+import { currentUser } from "@clerk/nextjs"
+const page = async ({
+  params:{ id },
+} : {params:{
+  id : string
+}}) => {
 
-const page = () => {
+
+  const user = await currentUser();
+
+  const portfolio = await getPortfolioBasedonuserClerkId(id);
+  const schools = await getSchoolasperClerkId(id);
+  const colleges= await getCollegeasPerClerkId(id);
+  const projects = await getProjectByclerkId(id);
+  const works = await getWorkExperinceAsPerclerkId(id);
+  const achivements = await getAcheivemtUSingClerkid(id);
+  const customData = await getCustomSection(id);
+  const skills = await getSkillUsingclerkId(id);
+
+  
+
+  
+
+  const admin = portfolio[0].clerkId===user?.id;
+  
   return (
     <div>
-      <ConversionHero/>
-      <CoversionQualification/>
+      <ConversionHero data={portfolio[0]} admin={admin} />
+      <CoversionQualification admin={admin} college={colleges} school={schools} work={works}/>
       <ConversionProject/>
       <Conversionachivement/>
       <ConversionAbout/>
