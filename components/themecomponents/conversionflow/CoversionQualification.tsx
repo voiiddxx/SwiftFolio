@@ -21,7 +21,7 @@ const CoversionQualification = () => {
                            <div className='flex gap-3 w-full flex-col justify-start items-start' >
                            {
                             edu.map((curr:any)=>{
-                                return <div className='py-4 md:w-[500px] px-1 w-[300px]  border-b flex justify-between' >
+                                return <div className='py-4 md:w-[500px] px-1 w-[350px]  border-b flex justify-between' >
                                     {/* left div */}
                                     <div className='flex items-center gap-2' >
                                         <div className='h-10 w-10 md:h-12 md:w-12 bg-slate-100 rounded-full flex justify-center items-center ' >
@@ -65,7 +65,7 @@ const CoversionQualification = () => {
                            <div className='flex gap-3 w-full flex-col justify-start items-start' >
                            {
                             edu.map((curr:any)=>{
-                                return <div className='py-4 md:w-[500px] px-1 w-[300px]  border-b flex justify-between' >
+                                return <div className='py-4 md:w-[500px] px-1 w-[350px]  border-b flex justify-between' >
                                     {/* left div */}
                                     <div className='flex items-center gap-2' >
                                         <div className='h-10 w-10 md:h-12 md:w-12 bg-slate-100 rounded-full flex justify-center items-center ' >

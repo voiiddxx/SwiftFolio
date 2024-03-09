@@ -9,7 +9,7 @@ const ConversionProject = () => {
        <div className='min-h-screen w-[100%] bg-black absolute top-3/4' ></div>
         {
             projects.length> 1 && (
-                <div className='min-h-screen w-full md:px-32 pl-5 pt-20' >
+                <div className='min-h-screen w-full md:px-32 pl-8 pt-20' >
         <div>
             <p className='text-xl bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text font-semibold' >PROJECTS</p>
             <h1 className='md:text-4xl text-2xl font-semibold mt-2 leading-snug' >I Build <br /> Projects That matters</h1>

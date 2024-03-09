@@ -12,7 +12,7 @@ const ConversionHero = () => {
         {/* HERO SECTION */}
         <div className='h-[600px] w-full flex md:flex-row flex-col justify-center items-center md:px-32 mt-12' >
             {/* HERO TEXT SECTION */}
-            <div className='md:mr-16 px-8 mt-40 md:mt-10' >
+            <div className='md:mr-16 px-8 mt-60 md:mt-10' >
                 <h1 className='md:text-7xl text-5xl leading-[60px] font-semibold tracking-normal md:leading-[80px]' ><span className='bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text' >I design products </span>
 that delight and inspire people</h1>
 <p className='text-xl font-medium mt-4 text-gray-600' >Hi! I’m Jake, a product designer based in Berlin. I create user-friendly interfaces for fast-growing startups.</p>
