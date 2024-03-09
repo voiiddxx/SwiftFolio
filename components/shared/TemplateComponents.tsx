@@ -17,14 +17,21 @@ const TemplateComponents = () => {
   const tempRes = [
     {
       "title":"New Carbon Black",
-      "subtitle":"get your free new carbon theme for free",
+      "subtitle":"Get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709310672/x26ifr18ce7ybvmidspe.jpg?_s=public-apps",
       "link":"/themes/darkpremium/",
     },
     {
+      "title":"ConversionFlow",
+      "subtitle":"Get your canversion flow theme",
+      "price":"free",
+      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709991441/ftslpxlsisccqndbpuvv.svg",
+      "link":"/themes/conversionflow/",
+    },
+    {
       "title":"Minimal White",
-      "subtitle":"get your free new carbon theme for free",
+      "subtitle":"Get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709311050/hirrtbrwatnemw4uvv0w.jpg?_s=public-apps",
       "link":"/themes/whitecreative/",
@@ -32,29 +39,22 @@ const TemplateComponents = () => {
     
     {
       "title":"Linkedin Style Theme",
-      "subtitle":"get your free new carbon theme for free",
+      "subtitle":"Get your free new carbon theme for free",
       "price":"Paid",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1709357308/gahaczixumnwll3d61jx.jpg?_s=public-apps",
       "link":"/themes/linkedin/",
     },
-    {
-      "title":"Linkedin Style Theme",
-      "subtitle":"get your free new carbon theme for free",
-      "price":"free",
-      "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
-      "link":"/themes/conversionflow/",
-    },
     
     {
       "title":"New Carbon Black",
-      "subtitle":"get your free new carbon theme for free",
+      "subtitle":"Get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
       "link":"/themes/linkedin/",
     },
     {
       "title":"New Carbon Black",
-      "subtitle":"get your free new carbon theme for free",
+      "subtitle":"Get your free new carbon theme for free",
       "price":"free",
       "image":"https://res.cloudinary.com/dwkmxsthr/image/upload/v1709617036/p6vwlsp7ar9x9l9kydhr.svg",
       "link":"/themes/linkedin/",
@@ -100,12 +100,12 @@ const TemplateComponents = () => {
         tempRes.map((curr)=>{
           return <Link href={curr.link+userId} ><div className="h-[450px] w-[380px] " >
           <div className="h-[350px] w-full  rounded-sm" >
-            <Image className="h-[350px] w-full object-cover rounded-t-md" src={curr.image} height={800} width={800} alt="templateimage"/>
+            <Image className="h-[350px] w-full object-cover rounded-t-md" src={curr.image} height={1800} width={1800} alt="templateimage"/>
           </div>
           <div className="flex justify-between items-center px-2 py-4" >
             <div className="" >
             <h1 className="text-violet-700 font-medium text-lg" >{curr.title}</h1>
-            <p className="text-zinc-600 text-sm" >New carbon Colt theme for free</p>
+            <p className="text-zinc-600 text-sm" >{curr.subtitle}</p>
             </div>
             <div>
              <div className="bg-green-100 px-4 py-1 rounded-full" >
