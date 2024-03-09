@@ -43,12 +43,12 @@ const page = async ({
     <div>
       <ConversionHero data={portfolio[0]} admin={admin} />
       <CoversionQualification admin={admin} college={colleges} school={schools} work={works}/>
-      <ConversionProject/>
-      <Conversionachivement/>
-      <ConversionAbout/>
-      <ConversionCustom/>
-      <ConversionSkill/>
-      <ConversionFooter/>
+      <ConversionProject admin={admin} projects={projects} />
+      <Conversionachivement achivement={achivements} admin={admin} />
+      <ConversionAbout data={portfolio[0]}/>
+      <ConversionCustom admin={admin} custom={customData} />
+      <ConversionSkill skill={skills}/>
+      <ConversionFooter data={portfolio[0]}/>
     </div>
   )
 }

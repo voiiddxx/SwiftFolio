@@ -1,18 +1,34 @@
-import { MenuIcon } from 'lucide-react'
+import Editbutton from '@/components/shared/edit/Editbutton'
+import { MenuIcon, MessageSquare, MessagesSquare } from 'lucide-react'
 import React from 'react'
 
-const ConversionHeader = () => {
+  type conversionHeaderProps = {
+    data:any,
+    admin:any
+  }
+
+const ConversionHeader = ({data ,admin} : conversionHeaderProps) => {
   return (
-    <div className='w-full border-b flex items-center py-8 md:px-20 px-8 justify-between' >
-        <div><h1 className='text-zinc-800 font-semibold text-xl font' >Nikhil Kumar</h1></div>
-        <div className='gap-16 hidden md:flex' >
-            <div><p className='text-zinc-700 font-medium font' >Linkedin</p></div>
-            <div><p className='text-zinc-700 font-medium' >Linkedin</p></div>
-            <div><p className='text-zinc-700 font-medium' >Linkedin</p></div>
-            <div><p className='text-zinc-700 font-medium' >Linkedin</p></div>
-        </div>
+    <div className='w-full  flex items-center py-8 md:px-20 px-8 justify-between' >
+        <div><h1 className='text-zinc-800 font-semibold text-xl font' >{data.name}</h1></div>
+      
         <div>
-            <MenuIcon className='text-zinc-900' />
+           {
+            admin==true && (
+              <div>
+                <Editbutton  portfolioId={data._id} />
+              </div>
+            )
+           }
+           {
+            admin==false && (
+              <div>
+                <div>
+           <MessagesSquare strokeWidth={1.5} />
+           </div>
+              </div>
+            )
+           }
         </div>
     </div>
   )

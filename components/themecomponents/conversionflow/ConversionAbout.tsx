@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
 
-const ConversionAbout = () => {
+  type conversionAboutProps = {
+    data:any
+  }
+
+const ConversionAbout = ({data} : conversionAboutProps) => {
   return (
     <div className='min-h-screen w-full bg-white relative flex flex-col justify-center items-center' >
       {/* about heading */}
@@ -11,14 +15,14 @@ const ConversionAbout = () => {
             <h1 className='text-5xl text-black font-semibold mt-2' >THAT'S ME!</h1>
         </div>
         <div className='md:w-1/2 w-full mt-4 ' >
-            <p className='text-gray-700 font-medium md:text-xl text-lg' >Over the past 12 years, I've worked with a diverse range of clients, from startups to Fortune 500 companies. I love crafting interfaces that delight users and help businesses grow.</p>
+            <p className='text-gray-700 font-medium md:text-xl text-lg' >{data.about}</p>
         </div>
 
 
       </div>
       {/* about image */}
       <div className='mt-20 md:h-[600px] md:w-[1300px] bg-slate-400' >
-    <Image className='h-full w-full object-cover brightness-[30%] hover:brightness-[100%] ease-in' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709568480/a0hvqsrxcoqv4rcdnarn.jpg" height={900} width={900} alt='about me image' />
+    <Image className='h-full w-full object-cover brightness-[30%] hover:brightness-[100%] ease-in' src={data.resume} height={900} width={900} alt='about me image' />
       </div>
 
     </div>

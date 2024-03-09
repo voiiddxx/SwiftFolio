@@ -1,7 +1,11 @@
+"use client"
+import { DeleteCollegeAsPerId } from '@/lib/actions/education.action';
+import { deletSchoolWithId } from '@/lib/actions/school.action';
+import { deleteWorkById } from '@/lib/actions/work.action';
 import { ICollege } from '@/lib/database/models/education.model';
 import { ISchool } from '@/lib/database/models/school.model';
 import { IWork } from '@/lib/database/models/work.model';
-import { ArrowUpRight, Building2, GraduationCap, LucideArrowUpRightSquare, School } from 'lucide-react';
+import { ArrowUpRight, Building2, GraduationCap, LucideArrowUpRightSquare, School, Trash } from 'lucide-react';
 import React from 'react'
 
 
@@ -13,11 +17,29 @@ import React from 'react'
     }
 const CoversionQualification = ({ admin , college , school , work} : converSionQualificationProps) => {
 
-  
-    
 
-    const edu = [2,6,5];
-    const workHai = [2,6,9,4,];
+    
+  
+  const handleDelete = async ( deleteId : string) =>{
+    alert("called")
+      
+      const data = await DeleteCollegeAsPerId({collegeId: college[0]._id , deleteId:deleteId});
+
+  }
+
+  const handleSchoolDelte = async (deleteId:string)=>{
+      const deleted = await deletSchoolWithId({schoolId:school[0]._id , deleteId: deleteId});
+
+
+  }
+
+
+  const handleWorkDelete = async  (workDeleteId : string)=>{
+      const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
+      
+  }
+
+
   return (
     <div className='flex flex-col md:flex-row justify-between items-center md:px-32 mt-32
     ' >
@@ -47,9 +69,28 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                        
                                     </div>
                                         {/* right div */}
+                                       
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' >{curr.finalYear}</p>
-                                            <ArrowUpRight size={15} />
+                                            {
+                                admin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleSchoolDelte(curr._id)
+                                        }} className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                admin == false && (
+                                    <div>
+                                        <ArrowUpRight size={15} />
+                                    </div>
+                                )
+                            }
+                                            
                                         </div>
                                 </div>
                                 }
@@ -62,10 +103,12 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                             college[0].college.map((curr:ICollege)=>{
                                 return <div className='py-4 md:w-[500px] px-1 w-[350px]  border-b flex justify-between' >
                                     {/* left div */}
-                                    <div className='flex items-center gap-2' >
-                                        <div className='h-10 w-10 md:h-12 md:w-12 bg-slate-100 rounded-full flex justify-center items-center ' >
+                                    <div className='flex items-start gap-2' >
+                                       <div>
+                                       <div className='h-10 w-10 md:h-12 md:w-12 bg-slate-100 rounded-full flex justify-center items-center ' >
                                             <GraduationCap strokeWidth={1.5}/>
                                         </div>
+                                       </div>
                                        <div>
                                        <h1 className='md:text-2xl text-lg font-medium text-zinc-900' >{curr.instituteName}</h1>
                                        <p className='text-zinc-500 font-medium' >{curr.degree}</p>
@@ -75,7 +118,24 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                         {/* right div */}
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' >{curr.batchStartDate} - {curr.batchEndDate}</p>
-                                            <ArrowUpRight size={15} />
+                                            {
+                                admin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleDelete(curr._id)
+                                        }} className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                admin == false && (
+                                    <div>
+                                        <ArrowUpRight size={15} />
+                                    </div>
+                                )
+                            }
                                         </div>
                                 </div>
                                 }
@@ -122,7 +182,24 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                         {/* right div */}
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' > {curr.startDate} - {curr.endDate}</p>
-                                            <ArrowUpRight size={15} />
+                                            {
+                                admin && (
+                                    <div className="w-full flex justify-start" >
+                                        <div onClick={()=>{
+                                            handleWorkDelete(curr._id)
+                                        }} className="mb-3">
+                                            <Trash className="text-red-300" size={15} />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                admin == false && (
+                                    <div>
+                                        <ArrowUpRight size={15} />
+                                    </div>
+                                )
+                            }
                                         </div>
                                 </div>
                                 }

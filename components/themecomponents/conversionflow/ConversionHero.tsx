@@ -15,7 +15,7 @@ const ConversionHero = ({admin , data}: ConversionHeroProps) => {
   return (
     <div className='min-h-screen w-full bg-white' >
         {/* CONVERSION HEADER */}
-        <ConversionHeader/>
+        <ConversionHeader admin={admin} data={data} />
 
         {/* HERO SECTION */}
         <div className='h-[600px] w-full flex md:flex-row flex-col justify-center items-center md:px-32 mt-12' >
@@ -26,7 +26,7 @@ that delight and inspire people</h1>
 <p className='text-xl font-medium mt-8 text-gray-600' >{data.heading}</p>
             {/* hero buttons */}
             <div className='flex gap-2 mt-8' >
-                <Button className='bg-zinc-950' size={'lg'} >Book a Call</Button>
+                <Button className='bg-zinc-950' size={'lg'} >Connect With me</Button>
                 <Button size={'lg'} variant={'outline'}>Download CV</Button>
             </div>
             </div>
