@@ -5,7 +5,7 @@ import React from 'react'
         data:any
     }
 const ConversionFooter = ({data} : conversionFooterprops) => {
-    console.log(data);
+
     
   return (
     <div className='pb-10 w-full bg-black md:px-32 pt-20 px-4' >

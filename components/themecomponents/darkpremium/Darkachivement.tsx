@@ -14,8 +14,6 @@ import React from 'react'
     }
 
 const Darkachivement = async ( {achivements , IsAdmin} : darkAchivementProps) => {
-
-  console.log("this is admin data lemme chec,int" , IsAdmin );
   
 
   const user = await currentUser();

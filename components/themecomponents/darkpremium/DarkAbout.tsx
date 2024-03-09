@@ -2,7 +2,7 @@ import React from 'react'
 import "./Darkabout.css"
 
 type darkAboutProps = {
-  data : any
+data : any
 }
 const DarkAbout = ({data} : darkAboutProps) => {
   return (

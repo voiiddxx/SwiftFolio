@@ -87,7 +87,7 @@ const Hero = () => {
           Register Now</p></Button ></Link>
         <Link href="/portfolio/create" ><Button size={"lg"} className="bg-violet-700 text-white hover:bg-zinc-900"  > <Ghost className="mr-1" color="white" size={16} /> Genreate Portfolio</Button></Link>
       </div>
-
+he
 
     
         {/* HERO ANIMATION CONTAINER */}
