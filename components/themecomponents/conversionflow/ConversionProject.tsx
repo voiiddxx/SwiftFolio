@@ -1,11 +1,16 @@
-import { ArrowRight } from 'lucide-react'
+import DeleteSection from '@/components/shared/delete/DeleteSection'
+import Addproject from '@/components/shared/projects/Addproject'
+import { currentUser } from '@clerk/nextjs/server'
+import { ArrowRight, Edit, Trash } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
     type conversionPprojectProps = {
         projects:any,
         admin:any
     }
-const ConversionProject = ({admin , projects}:conversionPprojectProps) => {
+const ConversionProject =  async ({admin , projects}:conversionPprojectProps) => {
+
+    const user = await currentUser();
  
         
   return (
@@ -24,7 +29,7 @@ const ConversionProject = ({admin , projects}:conversionPprojectProps) => {
             {
                 projects.map((curr:any)=>{
                     return <div>
-                        <div className='md:h-[500px] md:w-[500px] h-[500px] w-[380px] bg-white z-50 ' >
+                        <div className='md:h-[540px] md:w-[500px] h-[530px] w-[380px] bg-white z-50 relative' >
                             <div className='h-[353px] w-full' >
                             <Image className='h-[353px] w-[500px] object-cover hover:w-[700px]' src={curr.projectthumbnail} height={900} width={900} alt='project image'/>
                             </div>
@@ -36,6 +41,21 @@ const ConversionProject = ({admin , projects}:conversionPprojectProps) => {
                                     <h1>View Project</h1>
                                     <ArrowRight/>
                                 </div>
+                                {
+                  admin===true ?  <div className='w-full flex justify-between'>
+                    
+                  <div className='px-2  mx-3 bg-blue-200 bg-opacity-25 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
+                              <Edit className='text-blue-600' size={15}/>
+                              {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
+                              <Addproject type='EDIT'  useridclerk={user?.id} projectId={curr._id}/>
+                            </div>
+                            
+                            <div className='px-2 mx-3 bg-red-300 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
+                              <Trash className='text-red-600' size={15}/>
+                              <DeleteSection type='PROJECT' deleteId={curr._id} />
+                            </div>
+                  </div> : <div></div>
+                 }
                             </div>
                         </div>
                     </div>

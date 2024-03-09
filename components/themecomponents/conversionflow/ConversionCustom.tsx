@@ -1,3 +1,6 @@
+import CustomFieldform from '@/components/shared/custom/CustomFieldform';
+import DeleteSection from '@/components/shared/delete/DeleteSection';
+import { currentUser } from '@clerk/nextjs/server';
 import { ArrowRight, Sparkle } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react'
@@ -6,8 +9,8 @@ type conversionCustomprops = {
     custom:any
     admin:any
 }
-const ConversionCustom = ({admin , custom}:conversionCustomprops) => {
-   
+const ConversionCustom = async ({admin , custom}:conversionCustomprops) => {
+   const user = await currentUser();
     
     const data = [8 ,0]
   return (
@@ -26,7 +29,7 @@ const ConversionCustom = ({admin , custom}:conversionCustomprops) => {
                                     <div className='flex gap-5 mt-8 md:flex-row flex-col' >
                                         {
                                             curr.data.map((curr:any)=>{
-                                                return <div className='h-[400px] md:w-[400px] ' >
+                                                return <div className='h-[400px] md:w-[400px] relative' >
                                                     <div className='h-[300px] w-full bg-red-400 rounded' >
                                                             <Image className='h-full w-full object-cover'  src={curr.customImage} height={900} width={900} alt='image'/>
                                                     </div>
@@ -38,6 +41,16 @@ const ConversionCustom = ({admin , custom}:conversionCustomprops) => {
                                                             <p className='font-medium text-zinc-300' >Visit</p>
                                                             <ArrowRight className='text-zinc-300'  size={15}/>
                                                         </div>
+                                                        {
+                            admin == true ? <div>
+                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
+                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk={user?.id}  />
+                            </div>
+                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
+                              <DeleteSection deleteId={curr._id}  additionsId={curr._id} type='CUSTOM'/>
+                            </div>
+                            </div> : <div></div>
+                           }
                                                     </div>
                                                 </div>
                                             })

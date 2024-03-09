@@ -1,11 +1,14 @@
+import Addachivement from '@/components/shared/achievements/Addachivement'
+import DeleteSection from '@/components/shared/delete/DeleteSection'
+import { currentUser } from '@clerk/nextjs/server'
 import { ArrowRight } from 'lucide-react'
 import React from 'react'
   type conversionAchivementProps = {
     admin:any
     achivement:any
       }
-const Conversionachivement = ({achivement , admin} : conversionAchivementProps) => {
-    
+const Conversionachivement = async ({achivement , admin} : conversionAchivementProps) => {
+    const user = await currentUser();
   return (
    <div>
     {
@@ -21,7 +24,7 @@ const Conversionachivement = ({achivement , admin} : conversionAchivementProps) 
         <div className='md:w-1/2 flex gap-4 flex-col'>
           {
             achivement.map((curr : any , index : number)=>{
-              return <div className='w-full py-4 cursor-pointer bg-zinc-900 bg-opacity-20 border-b' >
+              return <div className='w-full py-4 cursor-pointer bg-zinc-900 bg-opacity-20 border-b relative' >
                   <p className='text-lg font-normal text-zinc-700 mt-4' >{index+1}</p>
                   <h1 className='md:text-3xl text-2xl mt-2 font-semibold text-white hover:bg-gradient-to-r from-violet-500 to-orange-500 hover:text-transparent hover:bg-clip-text' >{curr.acaption}</h1>
   
@@ -29,6 +32,17 @@ const Conversionachivement = ({achivement , admin} : conversionAchivementProps) 
                     <p className='text-white text-sm' >Explore</p>
                     <ArrowRight className='text-white' size={15} />
                   </div>
+                  {
+                  admin==false ?  <h1></h1>
+               
+                   : <div  ><div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
+                   <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
+                   </div>
+                   <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
+                   <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
+                   </div></div>
+
+                }
   
               </div>
             })
