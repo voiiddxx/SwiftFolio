@@ -6,10 +6,10 @@ const ConversionProject = () => {
     const projects = [2,5,3,25]
   return (
     <div className='relative' >
-       <div className='min-h-screen w-full bg-black absolute top-3/4' ></div>
+       <div className='min-h-screen w-[100%] bg-black absolute top-3/4' ></div>
         {
             projects.length> 1 && (
-                <div className='min-h-screen w-full px-32 pt-20' >
+                <div className='min-h-screen w-full md:px-32 pl-5 pt-20' >
         <div>
             <p className='text-xl bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text font-semibold' >PROJECTS</p>
             <h1 className='md:text-4xl text-2xl font-semibold mt-2 leading-snug' >I Build <br /> Projects That matters</h1>
@@ -20,7 +20,7 @@ const ConversionProject = () => {
             {
                 projects.map((curr:any)=>{
                     return <div>
-                        <div className='h-[500px] w-[500px] bg-white z-50 ' >
+                        <div className='md:h-[500px] md:w-[500px] h-[500px] w-[350px] bg-white z-50 ' >
                             <div className='h-[353px] w-full' >
                             <Image className='h-[353px] w-[500px] object-cover hover:w-[700px]' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg" height={900} width={900} alt='project image'/>
                             </div>
