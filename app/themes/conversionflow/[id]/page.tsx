@@ -1,3 +1,4 @@
+import ConversionAbout from '@/components/themecomponents/conversionflow/ConversionAbout'
 import ConversionHero from '@/components/themecomponents/conversionflow/ConversionHero'
 import ConversionProject from '@/components/themecomponents/conversionflow/ConversionProject'
 import Conversionachivement from '@/components/themecomponents/conversionflow/Conversionachivement'
@@ -11,6 +12,7 @@ const page = () => {
       <CoversionQualification/>
       <ConversionProject/>
       <Conversionachivement/>
+      <ConversionAbout/>
     </div>
   )
 }

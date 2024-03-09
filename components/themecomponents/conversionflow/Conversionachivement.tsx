@@ -4,7 +4,7 @@ import React from 'react'
 const Conversionachivement = () => {
   const ach = [2,3,6,4]
   return (
-    <div className='min-h-screen min-w-full bg-black absolute md:px-32 px-8 py-8 flex md:flex-row flex-col justify-between' >
+    <div className='min-h-screen min-w-full bg-black  md:px-32 px-8 py-8 flex md:flex-row flex-col justify-between relative' >
       {/* Achivement Heading */}
       <div className='' >
       <h1 className='text-lg font-medium bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text' >ACHIVEMENTS</h1>
