@@ -3,31 +3,33 @@ import React from 'react'
 
 const ParllaxEffectLanding = () => {
     const products = [
-        {
-          title: "Moonbeam",
-          link: "https://gomoonbeam.com",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
-        {
-          title: "Cursor",
-          link: "https://cursor.so",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
-        {
-          title: "Rogue",
-          link: "https://userogue.com",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
+      {
+        title: "Cursor",
+        link: "https://cursor.so",
+        thumbnail:
+        "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709357308/gahaczixumnwll3d61jx.svg",
+      },
+      {
+        title: "Editorially",
+        link: "https://editorially.org",
+        thumbnail:
+          "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709310672/x26ifr18ce7ybvmidspe.svg",
+      },
+      
+      {
+        title: "Moonbeam",
+        link: "https://gomoonbeam.com",
+        thumbnail:
+          "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709991441/ftslpxlsisccqndbpuvv.svg",
+      },
+      {
+        title: "Rogue",
+        link: "https://userogue.com",
+        thumbnail:
+        "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709311050/hirrtbrwatnemw4uvv0w.svg",
+      },
        
-        {
-          title: "Editorially",
-          link: "https://editorially.org",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
+        
         {
           title: "Editrix AI",
           link: "https://editrix.ai",
@@ -42,23 +44,24 @@ const ParllaxEffectLanding = () => {
         },
        
         {
-          title: "Algochurn",
-          link: "https://algochurn.com",
+          title: "Rogue",
+          link: "https://userogue.com",
           thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
+          "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709311050/hirrtbrwatnemw4uvv0w.svg",
         },
         {
-          title: "Aceternity UI",
-          link: "https://ui.aceternity.com",
+          title: "Cursor",
+          link: "https://cursor.so",
           thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
+          "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709357308/gahaczixumnwll3d61jx.svg",
         },
         {
-          title: "Tailwind Master Kit",
-          link: "https://tailwindmasterkit.com",
+          title: "Editorially",
+          link: "https://editorially.org",
           thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
+            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709310672/x26ifr18ce7ybvmidspe.svg",
         },
+        
         {
           title: "SmartBridge",
           link: "https://smartbridgetech.com",
@@ -72,30 +75,7 @@ const ParllaxEffectLanding = () => {
             "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
         },
        
-        {
-          title: "Creme Digital",
-          link: "https://cremedigital.com",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
-        {
-          title: "Golden Bells Academy",
-          link: "https://goldenbellsacademy.com",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
-        {
-          title: "Invoker Labs",
-          link: "https://invoker.lol",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
-        {
-          title: "E Free Invoice",
-          link: "https://efreeinvoice.com",
-          thumbnail:
-            "https://res.cloudinary.com/dwkmxsthr/image/upload/v1709655664/zblnv8zceydice96ztqw.svg",
-        },
+        
       ];
   return (
     <div>

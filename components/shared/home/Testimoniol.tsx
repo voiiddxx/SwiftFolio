@@ -39,9 +39,9 @@ const testimonials = [
       {/* TESTIMONIO HEADING */}
       <div></div>
       {/* TESTMONIOL INFINITE CARDS */}
-      <div className="h-[65rem] px-32  flex flex-col antialiased bg-violet-700 dark:bg-grid-white/[0.05] items-start justify-center relative overflow-hidden">
+      <div className="h-[65rem] md:px-32 pr-8  flex flex-col antialiased bg-violet-700 dark:bg-grid-white/[0.05] items-start justify-center relative overflow-hidden">
        {/* HEADING */}
-       <div className='ml-8 my-10' >
+       <div className='ml-4 my-10' >
         <h1 className='md:text-3xl text-xl text-white font-semibold' >Testimonials of our clients,</h1>
         <h1 className='md:text-3xl text-xl font-semibold text-white' >prove why you need them from yours</h1>
 
@@ -50,12 +50,12 @@ const testimonials = [
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
-        speed="slow"
+        speed="normal"
       />
       <InfiniteMovingCards
         items={testimonials}
-        direction="right"
-        speed="slow"
+        direction="left"
+        speed="normal"
       />
     </div>
      

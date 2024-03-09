@@ -27,7 +27,7 @@ const MobileNav = () => {
       </div>
     </div>
 
-    <div className="pb-3 w-[350px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]" >
+    <div className="pb-3 w-[350px] bg-white" >
          {/* row 1 */}
          <div className="h-20 rounded border-b m-2 hover:bg-zinc-100 cursor-pointer" >
             <div className="m-2 h-full w-full flex gap-4 items-center" >
@@ -36,7 +36,7 @@ const MobileNav = () => {
               </div>
              <div>
              <h1 className="text-zinc-900 font-medium" >SwiftFolio Tour</h1>
-              <p className="text-[10px] font-medium text-zinc-500" >An overview of the swiftfolio for what we offer</p>
+              
              </div>
             </div>
           </div>
@@ -48,7 +48,7 @@ const MobileNav = () => {
               </div>
              <div>
              <h1 className="text-zinc-900 font-medium" >Minimal Design</h1>
-              <p className="text-[10px] font-medium text-zinc-500" >Get Large varity of creative and minimal designs </p>
+           
              </div>
             </div>
           </div>
@@ -60,7 +60,7 @@ const MobileNav = () => {
               </div>
              <div>
              <h1 className="text-zinc-900 font-medium" >Customization</h1>
-              <p className="text-[10px] font-medium text-zinc-500" >An overview of the swiftfolio for what we offer</p>
+            
              </div>
             </div>
           </div>
@@ -72,7 +72,7 @@ const MobileNav = () => {
               </div>
              <div>
              <h1 className="text-zinc-900 font-medium" >Swiftfolio AI</h1>
-              <p className="text-[10px] font-medium text-zinc-500" >Genreate cool and creative details about project , about , anything</p>
+             
              </div>
             </div>
           </div>

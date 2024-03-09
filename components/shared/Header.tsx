@@ -27,7 +27,7 @@ const Header = () => {
         Free access to all template to our first 50 coustomer</p>
     </div>
     {/* MobileNav */}
-    <div className=" sticky top-0 bg-white flex justify-between px-6 md:hidden" >
+    <div className="sticky top-0 z-50 bg-white flex justify-between px-6 md:hidden" >
       <div  >
       <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
       </div>
