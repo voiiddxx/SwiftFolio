@@ -6,7 +6,7 @@ const ConversionSkill = () => {
     <div>
         {
             skill.length > 1 && (
-                <div className='min-h-screen w-full bg-white md:px-32 px-10 mt-16' >
+                <div className=' pb-20 w-full bg-white md:px-32 px-10 mt-16' >
                     <h1 className='text-xl font-medium  bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text' >SKILLS</h1>
                     <h1 className='text-3xl font-semibold text-zinc-950' >Skills That Matters</h1>
 

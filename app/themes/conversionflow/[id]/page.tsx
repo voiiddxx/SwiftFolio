@@ -1,5 +1,6 @@
 import ConversionAbout from '@/components/themecomponents/conversionflow/ConversionAbout'
 import ConversionCustom from '@/components/themecomponents/conversionflow/ConversionCustom'
+import ConversionFooter from '@/components/themecomponents/conversionflow/ConversionFooter'
 import ConversionHero from '@/components/themecomponents/conversionflow/ConversionHero'
 import ConversionProject from '@/components/themecomponents/conversionflow/ConversionProject'
 import ConversionSkill from '@/components/themecomponents/conversionflow/ConversionSkill'
@@ -17,6 +18,7 @@ const page = () => {
       <ConversionAbout/>
       <ConversionCustom/>
       <ConversionSkill/>
+      <ConversionFooter/>
     </div>
   )
 }
