@@ -51,7 +51,7 @@ export const ContainerScroll = ({
       <div
         className="py-10 md:py-2 w-full relative"
         style={{
-          perspective: "2000px",
+          perspective: "500px",
         }}
       >
         <Card
@@ -96,7 +96,7 @@ export const Card = ({
     >
         
       <div className="bg-white h-full w-full rounded-2xl  p-4">
-        <Image className="h-full w-full object-cover" src={`/container.svg`} height={10000} width={10000} alt="containerimage"/>
+        <Image className="h-full w-full object-cover" src={`/container.svg`} height={15000} width={15000} alt="containerimage"/>
       </div>
     </motion.div>
     </>

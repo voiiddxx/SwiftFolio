@@ -14,6 +14,8 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import MobileNav from "./home/MobileNav"
+import { UserButton } from "@clerk/nextjs"
+import { SignedIn, SignedOut } from "@clerk/clerk-react"
 
 
 const Header = () => {
@@ -32,7 +34,17 @@ const Header = () => {
       <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
       </div>
       <div className="flex gap-4 items-center" >
+      <SignedIn>
+            <UserButton   showName={true} afterSignOutUrl="/" />
+      </SignedIn>
+      <SignedOut>
+        <Link href="/sign-in" >
+          
         <Button size={"lg"} >Signup</Button>
+        </Link>
+          </SignedOut>
+
+
         <MobileNav/>
       </div>
 
@@ -132,8 +144,17 @@ const Header = () => {
   </NavigationMenuList>
 </NavigationMenu>
     </div>
-    <div className="flex gap-2" >
+    <div className="flex gap-4 items-center" >
+    <SignedIn>
+            <UserButton   showName={true} afterSignOutUrl="/" />
+      </SignedIn>
+      <SignedOut>
+        <Link href="/sign-in" >
     <Button size={"lg"} variant={"outline"} className="text-zinc-800"  >Login Now</Button>
+        </Link>
+          </SignedOut>
+
+
     <Button className="bg-violet-700" size={"lg"} >Get Started For Free <ArrowRight className="ml-1"  strokeWidth={1.5} color="white" /> </Button>
     </div>
     </div>

@@ -10,6 +10,8 @@ import {
 import { Code2, LayoutTemplate, ListVideo, MenuIcon, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
   
 const MobileNav = () => {
   return (
@@ -23,7 +25,14 @@ const MobileNav = () => {
       <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
       </div>
       <div className="flex gap-4 items-center" >
-        <Button size={"sm"} >Signup</Button>
+      <SignedIn>
+            <UserButton   showName={true} afterSignOutUrl="/" />
+      </SignedIn>
+      <SignedOut>
+        <Link href="/sign-in" >
+        <Button size={"lg"} >Signup</Button>
+        </Link>
+          </SignedOut>
       </div>
     </div>
 

@@ -11,6 +11,7 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import ParllaxEffectLanding from "./ParllaxEffectLanding";
 import Testimoniol from "./Testimoniol";
 import Questions from "./Questions";
+import Feedback from "./Feedback";
 
 const Hero = () => {
 
@@ -124,8 +125,11 @@ const Hero = () => {
 
 
     {/* QUESTION SECTIONS */}
-
     <Questions/>
+
+
+    {/* FEEDBACK SECTION */}
+    {/* <Feedback/> */}
     <Footer  />
    </div>
   )
