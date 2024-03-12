@@ -29,7 +29,7 @@ const PersonolDetail = () => {
                            <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
                                 <User strokeWidth={1.5} size={17} />
                             </div>
-                            <Input/>
+                            <Input placeholder='Nikhil Kumar' />
                            </div>
                            
                             <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Email Address</p>
@@ -37,7 +37,7 @@ const PersonolDetail = () => {
                            <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
                                 <Mail strokeWidth={1.5} size={17} />
                             </div>
-                            <Input/>
+                            <Input placeholder='nikhildesign00@gmail.com' />
                            </div>
 
                            <Button className='w-full mt-5' >Submit</Button>
@@ -106,11 +106,11 @@ const PersonolDetail = () => {
                 <div className='w-full h-full  flex gap-4' >
                     <div className='w-1/2 mt-4' >
                         <p className='mb-1' >Heading</p>
-                        <Textarea className='h-40 w-full' />
+                        <Textarea className='h-40 w-full' placeholder='SIH2K23 Grand Finalist || NextJs || Typescript || Mern Stack' />
                     </div>
                     <div className='w-1/2 mt-4' >
-                        <p className='mb-1' >Heading</p>
-                        <Textarea className='h-40 w-full' />
+                        <p className='mb-1' >About  </p>
+                        <Textarea className='h-40 w-full ' placeholder='hey , my name is nikhil kumar am a mainly a web developer , and i dont know what i am writting but it is a placehorder so i have to write' />
                     </div>
                 </div>
 
