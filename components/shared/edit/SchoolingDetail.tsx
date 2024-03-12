@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button'
-import { School } from 'lucide-react'
+import { Plus, School } from 'lucide-react'
 import React from 'react'
 
 const SchoolingDetail = () => {
-    const schoolData = [2,6 ]
+    const schoolData = [2 ]
   return (
     <div className='w-full min-h-screen' >
             <div className='h-20 w-full border-b flex justify-center  px-12 flex-col' >
@@ -32,6 +32,17 @@ const SchoolingDetail = () => {
                             </div>
                         })
                     }
+
+                    <div className='h-[300px] w-[350px] bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 rounded-md px-4 py-2 border-dashed'>
+                    <div className='h-full w-full flex justify-center items-center rounded' >
+                        <div className='flex flex-col justify-center items-center' >
+                            <div className='h-14 w-14 bg-violet-700 rounded-full flex justify-center items-center' >
+                            <Plus className='text-white' />
+                            </div>
+                            <h1>Add Schooling</h1>
+                        </div>
+                    </div>
+                    </div>
 
                 </div>
 

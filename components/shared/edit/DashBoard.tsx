@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Option, School, Sidebar, Trophy, User, WorkflowIcon } from 'lucide-react'
 import PersonolDetail from './PersonolDetail'
 import SchoolingDetail from './SchoolingDetail'
+import ProjectDetailing from './ProjectDetailing'
 
     type DashBoardProps = {
         userId: string
@@ -61,7 +62,9 @@ const DashBoard = ({userId} : DashBoardProps) => {
                     </div>
                     <p>1</p>
                 </div>
-                <div className='h-14 w-full  flex justify-between items-center px-4' >
+                <div onClick={()=>{
+                    setsideBarOption("Project")
+                }} className='h-14 w-full  flex justify-between items-center px-4' >
                     <div className='flex items-center gap-2' >
                     <Boxes size={17} />
                     <p className='text-sm font-medium' >Projects</p>
@@ -105,6 +108,13 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 sideBarOption == "Schooling" && (
                     <div className='w-full' >
                          <SchoolingDetail/>
+                    </div>
+                )
+            }
+            {
+                sideBarOption == "Project" && (
+                    <div className='w-full' >
+                         <ProjectDetailing/>
                     </div>
                 )
             }
