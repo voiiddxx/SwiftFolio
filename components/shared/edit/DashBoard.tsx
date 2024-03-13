@@ -5,6 +5,7 @@ import PersonolDetail from './PersonolDetail'
 import SchoolingDetail from './SchoolingDetail'
 import ProjectDetailing from './ProjectDetailing'
 import AchivementDetail from './AchivementDetail'
+import CustomDetailing from './CustomDetailing'
 
     type DashBoardProps = {
         userId: string
@@ -88,7 +89,9 @@ const DashBoard = ({userId} : DashBoardProps) => {
                     </div>
                     <p>1</p>
                 </div>
-                <div className='h-14 w-full  flex justify-between items-center px-4' >
+                <div onClick={()=>{
+                    setsideBarOption('1');
+                }}  className='h-14 w-full  flex justify-between items-center px-4' >
                     <div className='flex items-center gap-2' >
                     <Gem size={17} />
                     <p className='text-sm font-medium' >Designs Elements</p>
@@ -125,6 +128,13 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 sideBarOption == "Ach" && (
                     <div className='w-full' >
                          <AchivementDetail/>
+                    </div>
+                )
+            }
+            {
+                sideBarOption == "1" && (
+                    <div className='w-full' >
+                         <CustomDetailing/>
                     </div>
                 )
             }
