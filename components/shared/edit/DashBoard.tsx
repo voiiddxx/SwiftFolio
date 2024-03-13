@@ -4,13 +4,14 @@ import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Option, Sc
 import PersonolDetail from './PersonolDetail'
 import SchoolingDetail from './SchoolingDetail'
 import ProjectDetailing from './ProjectDetailing'
+import AchivementDetail from './AchivementDetail'
 
     type DashBoardProps = {
         userId: string
     }
 const DashBoard = ({userId} : DashBoardProps) => {
 
-    const [sideBarOption, setsideBarOption] = useState<string>("");
+    const [sideBarOption, setsideBarOption] = useState<string>("persenol");
 
   return (
     <div className='min-h-screen w-full px-32' >
@@ -71,7 +72,9 @@ const DashBoard = ({userId} : DashBoardProps) => {
                     </div>
                     <p>5</p>
                 </div>
-                <div className='h-14 w-full  flex justify-between items-center px-4' >
+                <div  onClick={()=>{
+                    setsideBarOption("Ach");
+                }}  className='h-14 w-full  flex justify-between items-center px-4' >
                     <div className='flex items-center gap-2' >
                     <Trophy size={17} />
                     <p className='text-sm font-medium' >Achievments</p>
@@ -115,6 +118,13 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 sideBarOption == "Project" && (
                     <div className='w-full' >
                          <ProjectDetailing/>
+                    </div>
+                )
+            }
+            {
+                sideBarOption == "Ach" && (
+                    <div className='w-full' >
+                         <AchivementDetail/>
                     </div>
                 )
             }
