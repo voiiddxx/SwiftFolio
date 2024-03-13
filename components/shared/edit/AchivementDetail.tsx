@@ -1,3 +1,4 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { Edit, MoreVerticalIcon, Plus, Trash } from 'lucide-react'
 import {
@@ -5,10 +6,25 @@ import {
     PopoverContent,
     PopoverTrigger,
   } from "@/components/ui/popover"
+import { useEffect, useState } from 'react'
+import { getAcheivemtUSingClerkid } from '@/lib/actions/achivement.action'
+import Image from 'next/image'
 
+    type achivementProps = {
+        userId: string
+    }
   
-const AchivementDetail = () => {
-    const res = [5,6,6,9,64,14,4]
+const AchivementDetail = ({userId} : achivementProps) => {
+    const [Achivement, setAchivement] = useState<any>([]);
+    
+    
+    useEffect(()=>{
+        const getAchivement = async ()=>{
+            const res = await getAcheivemtUSingClerkid(userId);
+            setAchivement(res);
+        }
+        getAchivement();
+    }  , [])
   return (
     <div className='w-full min-h-screen overflow-hidden' >
          <div className='h-20 w-full border-b flex justify-between items-center  px-12 ' >
@@ -26,35 +42,40 @@ const AchivementDetail = () => {
                 </div>  
 
                 {/* achivements card shown below */}
-                <div className='flex px-12 flex-wrap gap-4' >
+                <div className='' >
                     {
-                        res.map((curr:any)=>{
-                            return <div className='h-[300px] w-[300px]  mt-10' >
-                                    <div className='w-full h-[250px] rounded-lg bg-yellow-300' >
-                                    </div>
-                                    <div className='flex justify-between items-center mt-4' >
-                                    <h1 className='mt-2 font-medium mr-8 text-zinc-800' >Winner of Smart India Hackathon 2K24</h1>
-                                    <Popover>
-                                        <PopoverTrigger>
-                                        <MoreVerticalIcon className='text-zinc-600' />
-                                        </PopoverTrigger>
-                                        <PopoverContent>
-                                            <div className='h-16 border-b flex gap-2 items-center' >
-                                    <Edit className='text-indigo-700' size={18}  />
-                                    <p>Edit Achivemt </p>
+                        Achivement.length < 1 ? <div></div> : <div className='flex px-12 flex-wrap gap-4' >
+                            {
+                                Achivement.map((curr:any)=>{
+                                    return <div className='h-[300px] w-[300px]  mt-10' >
+                                            <div className='w-full h-[250px] rounded-lg bg-yellow-300' >
+                                                <Image className='w-full h-full object-cover rounded-lg' src={curr.aimage}  height={900} width={900} alt='achivementImage' />
                                             </div>
-                                            <div className='h-16 border-b flex gap-2 items-center' >
-                                    <Trash className='text-red-500' size={18} />
-                                    <p>Edit Achivemt </p>
+                                            <div className='flex justify-between items-center mt-4' >
+                                            <h1 className='mt-2 font-medium mr-8 text-zinc-800' >{curr.acaption}</h1>
+                                            <Popover>
+                                                <PopoverTrigger>
+                                                <MoreVerticalIcon className='text-zinc-600' />
+                                                </PopoverTrigger>
+                                                <PopoverContent>
+                                                    <div className='h-16 border-b flex gap-2 items-center' >
+                                            <Edit className='text-indigo-700' size={18}  />
+                                            <p>Edit Achivemt </p>
+                                                    </div>
+                                                    <div className='h-16 border-b flex gap-2 items-center' >
+                                            <Trash className='text-red-500' size={18} />
+                                            <p>Edit Achivemt </p>
+                                                    </div>
+                                                    
+                                                </PopoverContent>
+                                                </Popover>
+        
                                             </div>
                                             
-                                        </PopoverContent>
-                                        </Popover>
-
                                     </div>
-                                    
-                            </div>
-                        })
+                                })
+                            }
+                        </div>
                     }
                 </div>
                   </div>

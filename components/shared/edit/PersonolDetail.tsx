@@ -1,10 +1,33 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { getPortfolioBasedonuserClerkId } from '@/lib/actions/portfolio.action'
 import { Mail, User } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+    
 
-const PersonolDetail = () => {
+
+    type persenolDetailprops = {
+        userId:string
+    }
+const PersonolDetail = ({userId} : persenolDetailprops) => {
+
+    const [Data, setData] = useState<any>(null)
+    
+
+    useEffect(()=>{
+        const getData = async()=>{
+            const res = await getPortfolioBasedonuserClerkId(userId);
+            setData(res);
+            console.log(res);
+            
+            
+            
+        }
+        getData();
+    } , [])
+    
   return (
  
       <div className='w-full min-h-screen' >
@@ -29,7 +52,7 @@ const PersonolDetail = () => {
                            <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
                                 <User strokeWidth={1.5} size={17} />
                             </div>
-                            <Input placeholder='Nikhil Kumar' />
+                            <Input placeholder="Enter Your Name" />
                            </div>
                            
                             <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Email Address</p>
@@ -109,7 +132,7 @@ const PersonolDetail = () => {
                         <Textarea className='h-40 w-full' placeholder='SIH2K23 Grand Finalist || NextJs || Typescript || Mern Stack' />
                     </div>
                     <div className='w-1/2 mt-4' >
-                        <p className='mb-1' >About  </p>
+                        <p className='mb-1' >About   </p>
                         <Textarea className='h-40 w-full ' placeholder='hey , my name is nikhil kumar am a mainly a web developer , and i dont know what i am writting but it is a placehorder so i have to write' />
                     </div>
                 </div>

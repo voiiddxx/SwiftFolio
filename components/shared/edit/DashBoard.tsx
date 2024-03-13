@@ -1,16 +1,21 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Option, School, Sidebar, Trophy, User, WorkflowIcon } from 'lucide-react'
 import PersonolDetail from './PersonolDetail'
 import SchoolingDetail from './SchoolingDetail'
 import ProjectDetailing from './ProjectDetailing'
 import AchivementDetail from './AchivementDetail'
 import CustomDetailing from './CustomDetailing'
+import { getProjectByclerkId } from '@/lib/actions/project.action'
 
     type DashBoardProps = {
-        userId: string
+        userId: any
     }
 const DashBoard = ({userId} : DashBoardProps) => {
+
+    useEffect(()=>{
+        alert(userId);
+    } , [])
 
     const [sideBarOption, setsideBarOption] = useState<string>("persenol");
 
@@ -106,7 +111,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {
                 sideBarOption == "persenol" && (
                     <div className='w-full' >
-                         <PersonolDetail/>
+                         <PersonolDetail userId={userId} />
                     </div>
                 )
             }
@@ -120,14 +125,14 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {
                 sideBarOption == "Project" && (
                     <div className='w-full' >
-                         <ProjectDetailing/>
+                         <ProjectDetailing userId={userId} />
                     </div>
                 )
             }
             {
                 sideBarOption == "Ach" && (
                     <div className='w-full' >
-                         <AchivementDetail/>
+                         <AchivementDetail userId={userId}/>
                     </div>
                 )
             }

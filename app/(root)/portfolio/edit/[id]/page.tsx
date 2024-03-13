@@ -1,11 +1,16 @@
 
 import DashBoard from '@/components/shared/edit/DashBoard'
+import { currentUser } from '@clerk/nextjs'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
+
+  const user = await currentUser();
+
+  
   return (
    <>
-   <DashBoard userId='4451215415' />
+   <DashBoard userId={user?.id} />
    </>
   )
 }
