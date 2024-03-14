@@ -61,6 +61,8 @@ export const deleteCustomSection = async (deleteId: string , cardId: string)=>{
 
         
     } catch (error) {
+        console.log(error);
+        
         throw Error(error as string);
     }
 }

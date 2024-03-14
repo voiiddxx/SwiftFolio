@@ -9,6 +9,8 @@ import {
 import { useEffect, useState } from 'react'
 import { getAcheivemtUSingClerkid } from '@/lib/actions/achivement.action'
 import Image from 'next/image'
+import Addachivement from '../achievements/Addachivement'
+import DeleteSection from '../delete/DeleteSection'
 
     type achivementProps = {
         userId: string
@@ -36,7 +38,7 @@ const AchivementDetail = ({userId} : achivementProps) => {
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
                         <Plus size={18} />
-                        Add Achivement
+                        <Addachivement type='ADD' useridclerk={userId} />
                     </Button>
                </div>
                 </div>  
@@ -55,16 +57,14 @@ const AchivementDetail = ({userId} : achivementProps) => {
                                             <h1 className='mt-2 font-medium mr-8 text-zinc-800' >{curr.acaption}</h1>
                                             <Popover>
                                                 <PopoverTrigger>
-                                                <MoreVerticalIcon className='text-zinc-600' />
+                                                <MoreVerticalIcon className='text-zinc-600' size={17} />
                                                 </PopoverTrigger>
                                                 <PopoverContent>
                                                     <div className='h-16 border-b flex gap-2 items-center' >
-                                            <Edit className='text-indigo-700' size={18}  />
-                                            <p>Edit Achivemt </p>
+                                            <Addachivement type='EDIT' useridclerk={userId} achivementId={curr._id} />
                                                     </div>
                                                     <div className='h-16 border-b flex gap-2 items-center' >
-                                            <Trash className='text-red-500' size={18} />
-                                            <p>Edit Achivemt </p>
+                                           <DeleteSection deleteId={curr._id} type='ACHIVEMENT'  />
                                                     </div>
                                                     
                                                 </PopoverContent>

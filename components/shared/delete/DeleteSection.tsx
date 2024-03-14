@@ -30,7 +30,9 @@ const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) =>
     const handleSubmition =  async() => {
         try {
             if(type=="PROJECT"){
-                await DeleteProject(deleteId);
+              const res =   await DeleteProject(deleteId);
+              console.log(res);
+              
             }
             else if(type =="ACHIVEMENT"){
               alert("this is called");

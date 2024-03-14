@@ -50,6 +50,7 @@ export const DeleteProject = async (projectId : string) => {
     try {
         await connectToDatabase();
         const deleted = await Project.findByIdAndDelete(projectId);
+        return JSON.parse(JSON.stringify({message:"OK"}));
     } catch (error) {
         throw new Error(error as string);
 
