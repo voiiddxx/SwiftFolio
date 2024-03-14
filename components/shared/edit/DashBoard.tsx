@@ -87,22 +87,16 @@ const DashBoard = ({userId} : DashBoardProps) => {
                     </div>
                     <p></p>
                 </div>
-                <div className='h-14 w-full  flex justify-between items-center px-4' >
+                <div  onClick={()=>[
+                    setsideBarOption("1")
+                ]} className='h-14 w-full  flex justify-between items-center px-4' >
                     <div className='flex items-center gap-2' >
                     <Gem size={17} />
-                    <p className='text-sm font-medium' >My Blogs</p>
+                    <p className='text-sm font-medium' >Custom Sections</p>
                     </div>
                     <p>1</p>
                 </div>
-                <div onClick={()=>{
-                    setsideBarOption('1');
-                }}  className='h-14 w-full  flex justify-between items-center px-4' >
-                    <div className='flex items-center gap-2' >
-                    <Gem size={17} />
-                    <p className='text-sm font-medium' >Designs Elements</p>
-                    </div>
-                    <p>1</p>
-                </div>
+                
                 
 
             </div>
@@ -139,7 +133,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {
                 sideBarOption == "1" && (
                     <div className='w-full' >
-                         <CustomDetailing/>
+                         <CustomDetailing data={userId} />
                     </div>
                 )
             }
