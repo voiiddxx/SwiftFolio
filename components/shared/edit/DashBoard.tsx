@@ -1,12 +1,13 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Option, School, Sidebar, Trophy, User, WorkflowIcon } from 'lucide-react'
+import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Network, Option, School, Sidebar, Trophy, User, WorkflowIcon } from 'lucide-react'
 import PersonolDetail from './PersonolDetail'
 import SchoolingDetail from './SchoolingDetail'
 import ProjectDetailing from './ProjectDetailing'
 import AchivementDetail from './AchivementDetail'
 import CustomDetailing from './CustomDetailing'
 import { getProjectByclerkId } from '@/lib/actions/project.action'
+import SkillDetail from './SkillDetail'
 
     type DashBoardProps = {
         userId: any
@@ -87,6 +88,15 @@ const DashBoard = ({userId} : DashBoardProps) => {
                     </div>
                     <p></p>
                 </div>
+                <div  onClick={()=>{
+                    setsideBarOption("Skill");
+                }}  className='h-14 w-full  flex justify-between items-center px-4' >
+                    <div className='flex items-center gap-2' >
+                    <Network size={17} />
+                    <p className='text-sm font-medium' >Skills</p>
+                    </div>
+                    <p></p>
+                </div>
                 <div  onClick={()=>[
                     setsideBarOption("1")
                 ]} className='h-14 w-full  flex justify-between items-center px-4' >
@@ -134,6 +144,13 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 sideBarOption == "1" && (
                     <div className='w-full' >
                          <CustomDetailing data={userId} />
+                    </div>
+                )
+            }
+            {
+                sideBarOption == "Skill" && (
+                    <div className='w-full' >
+                         <SkillDetail data={userId} />
                     </div>
                 )
             }

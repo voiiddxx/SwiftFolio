@@ -35,7 +35,7 @@ const CustomDetailing = ({data}: CustomProps ) => {
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
                         <Plus size={18} />
-                        Add project
+                        Add New Custom Section
                     </Button>
                </div>
                 </div>
@@ -48,8 +48,11 @@ const CustomDetailing = ({data}: CustomProps ) => {
                     return <div>
                         {
                             index % 2 == 0 ? <div className='pb-4 w-52 bg-orange-100 rounded flex flex-col px-2 py-2' >
+                            <div className='flex justify-between items-center' >
                             <div className='h-10 w-10 bg-white rounded-full flex justify-center items-center ' >
                             <Gem className='text-orange-700' strokeWidth={1.5} size={18} />
+                            </div>
+                            <MoreVerticalIcon className='text-zinc-500' strokeWidth={1.5} size={15} />
                             </div>
                             <div>
                                 <h1 className='text-sm font-medium mt-4' >{curr.heading}</h1>
@@ -57,8 +60,11 @@ const CustomDetailing = ({data}: CustomProps ) => {
                             </div>
     
                         </div> : <div className='pb-4 w-52 bg-slate-100 rounded flex flex-col px-2 py-2' >
+                            <div className='flex justify-between items-center' >
                             <div className='h-10 w-10 bg-white rounded-full flex justify-center items-center ' >
                             <Gem className='text-violet-700' strokeWidth={1.5} size={18} />
+                            </div>
+                            <MoreVerticalIcon className='text-zinc-500' strokeWidth={1.5} size={15} />
                             </div>
                             <div>
                                 <h1 className='text-sm font-medium mt-4' >{curr.heading}</h1>
