@@ -1,6 +1,6 @@
 "use server"
 
-import { createPortfolioparams } from "@/types";
+import { createPortfolioparams, updatePortFolioParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import Portfolio from "../database/models/portfolio.model";
 
@@ -31,6 +31,28 @@ export const getPortfolioBasedonuserClerkId = async (clerkId : string) => {
     
         return JSON.parse(JSON.stringify(portFolio));
         
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}
+
+
+
+//   SERVER ACTION FOR UPDATING THE PORTFOLIO DATA 
+export const updatePortFolio = async({clerkId , updateData} : updatePortFolioParams)=>{
+    try {
+        await connectToDatabase();
+
+        const filter = {clerkId:clerkId};
+        const UpdatedUser = await Portfolio.findOneAndUpdate(filter , {...updateData} , {
+            new:true
+        });
+        if(!UpdatedUser){
+            return JSON.parse(JSON.stringify({message:"Some issue occured"}));
+        }
+        return JSON.parse(JSON.stringify(UpdatedUser));
     } catch (error) {
         console.log(error);
         throw new Error(error as string);

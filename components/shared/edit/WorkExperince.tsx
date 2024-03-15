@@ -24,6 +24,22 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
                     </Button>
                </div>
                 </div>
+
+
+                {/* work componenet form */}
+
+                {
+                  work.length && (
+                    <div className='flex gap-4 px-12 mt-8' >
+                      {
+                        work[0].work.map((curr:any)=>{
+                          return <div className='h-52 w-60 bg-red-600' >
+                          </div>
+                        })
+                      }
+                    </div>
+                  )
+                }
     </div>
   )
 }

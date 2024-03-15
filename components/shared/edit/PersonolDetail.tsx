@@ -2,9 +2,12 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { getPortfolioBasedonuserClerkId } from '@/lib/actions/portfolio.action'
-import { Mail, User } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import { getPortfolioBasedonuserClerkId, updatePortFolio } from '@/lib/actions/portfolio.action'
+import { Edit2, Mail, User } from 'lucide-react'
+import Image from 'next/image'
+import React, { useEffect, useId, useRef, useState } from 'react'
+import uploadDataonCloudinary from '../Cloudinary'
+import { Toaster, toast } from 'sonner'
     
 
 
@@ -13,6 +16,11 @@ import React, { useEffect, useState } from 'react'
     }
 const PersonolDetail = ({userId} : persenolDetailprops) => {
 
+    const hiddenInputRef = useRef<any>(null);
+    const hiddenCasualRef = useRef<any>(null);
+    const [avatar, setavatar] = useState<any>(null);
+    const [casusalImage, setcasusalImage] = useState<any>(null);
+
     const [Data, setData] = useState<any>(null)
     
 
@@ -20,126 +28,122 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
         const getData = async()=>{
             const res = await getPortfolioBasedonuserClerkId(userId);
             setData(res);
-            console.log(res);
-            
-            
-            
+            console.log(res);   
         }
         getData();
-    } , [])
+    } , []);
+
+    const handleAvatarClick = ()=>{
+        hiddenInputRef.current.click();
+    }
+
+    const handleCasualRef = ()=>{
+        hiddenCasualRef.current.click();
+    }
+
+
+    const handleCasualImageonchange = (e:any)=>{
+        const file = e.target.files[0];
+        console.log(file);
+        
+        if(file){
+            const reader = new FileReader();
+            reader.onloadend = ()=>{
+                setcasusalImage(reader.result);
+            }
+            reader.readAsDataURL(file);
+        }else{
+            alert("Select Image");
+        }
+    }
+
+
+
+    const handleAvatarOnchange = async (e:any)=>{
+        const uploadableFile = e.target.files;
+        const file = e.target.files[0];
+        console.log(file);
+        
+        if(file){
+            const reader = new FileReader();
+            reader.onloadend = ()=>{
+                setavatar(reader.result);
+            }
+            reader.readAsDataURL(file);
+            const AvatarUrl = await uploadDataonCloudinary(uploadableFile);
+            const res = await updatePortFolio({clerkId:userId , updateData:{avatar:AvatarUrl}});
+            if(res){
+                toast.success("Avatar Updated");
+            }else{
+                toast.error("Some error occured");
+            }
+        }else{
+            alert("Select Image");
+        }
+    }
     
   return (
  
       <div className='w-full min-h-screen' >
+        
+    <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
                 <div className='h-20 w-full border-b flex justify-center  px-12 flex-col' >
                 <h1 className='text-lg font-semibold text-zinc-800' >Edit Your Personol Information</h1>
                 <p className='text-sm font-normal text-zinc-600' >Please fill information below given</p>
                 </div>
 
-                {/* PERSENOL DATA EDIT COMPONENTS */}
-                <div className='min-h-52 w-full flex px-12 gap-4' >
-                    {/* 1ST COLUMN FOR DATA OF EMAIL AND NAME UPDATION */}
-                    <div className='min-h-40 py-5 w-1/2 rounded-lg   border-[1px] border-zinc-300 bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] mt-5 px-4' >
-                        <div className=''  >
-                            <h1 className='text-xl font-medium' >Primary Info</h1>
-                            <p className='text-sm font-normal mt-1 text-zinc-600' >Please fill new email and name</p>
-                        </div>
+                {/* Your assets parts */}
+                <div className='mx-12 mt-8 border-b pb-6' >
+                    <h1 className='text-lg font-medium mb-2' >Your Assets</h1>
 
-                        
-                        <div className='mt-5' >
-                            <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Name</p>
-                           <div className='flex gap-2 items-center ' >
-                           <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
-                                <User strokeWidth={1.5} size={17} />
-                            </div>
-                            <Input placeholder="Enter Your Name" />
-                           </div>
-                           
-                            <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Email Address</p>
-                           <div className='flex gap-2 items-center ' >
-                           <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
-                                <Mail strokeWidth={1.5} size={17} />
-                            </div>
-                            <Input placeholder='nikhildesign00@gmail.com' />
-                           </div>
-
-                           <Button className='w-full mt-5' >Submit</Button>
-                           
-                            
-                        </div>
-                    
+                    <div className='flex gap-4 flex-wrap' >
+                    <div onClick={handleAvatarClick} className='h-28 w-28 border-[1px] border-zinc-600 p-1  rounded-full relative cursor-pointer' >
+                        {
+                            avatar != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709736817/x1sgofoxhunnio860nxn.jpg" height={1500} width={1500} alt='avatar' />
+                        }
+                        <input onChange={handleAvatarOnchange} type="file" hidden ref={hiddenInputRef} />
                     </div>
-                    {/* 1ST COLUMN FOR DATA OF EMAIL AND NAME UPDATION END */}
 
 
-                    {/* 2ST COLUMN FOR DATA OF IMAGE RESUME AND THE CASUAL AVATAR */}
-                    <div className='min-h-40 py-5 w-1/2 rounded-lg   border-[1px] border-zinc-300 bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] mt-5 px-4' >
-                        <div className=''  >
-                            <h1 className='text-xl font-medium' >Your Assets</h1>
-                            <p className='text-sm font-normal mt-1 text-zinc-600' >Update your assets</p>
-                        </div>
-
-                        
-                        <div className='mt-5' >
-                            <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your CV</p>
-                           <div className='flex gap-2 items-center ' >
-                           <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
-                                <User strokeWidth={1.5} size={17} />
-                            </div>
-                            <Input type='file' />
-                           </div>
-                           
-                            <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Avatar</p>
-                           <div className='flex gap-2 items-center ' >
-                           <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
-                                <Mail strokeWidth={1.5} size={17} />
-                            </div>
-                            <Input type='file' />
-                           </div>
-                            <p className='text-zinc-500 font-normal text-sm mt-4 mb-1' >Your Casual Image</p>
-                           <div className='flex gap-2 items-center ' >
-                           <div className='h-10  w-12 bg-slate-100 rounded flex justify-center items-center' >
-                                <Mail strokeWidth={1.5} size={17} />
-                            </div>
-                            <Input type='file' />
-                           </div>
-
-                           <Button className='w-full mt-5' >Submit</Button>
-                           
-                            
-                        </div>
-                    
+                    {/* casual image componenet */}
+                    <div onClick={handleCasualRef} className='h-28 w-28 p-1 border-[1px] border-zinc-700 rounded-full cursor-pointer' >
+                    {
+                            casusalImage     != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709736817/x1sgofoxhunnio860nxn.jpg" height={1500} width={1500} alt='avatar' />
+                        }
+                        <input onChange={(e)=>{
+                            setcasusalImage(e.target.files);
+                        }} type='file' hidden ref={hiddenCasualRef} />
                     </div>
-                    {/* 2nd column for upadtion of emage , resume  and the casual END */}
-                </div>
-
-
-        {/* CAPTION AND ABOUT US EDIT SECTION */}
-
-        <div className='w-full min-h-40 px-12 py-6 rounded-md' >
-            <div className='w-full  bg-white rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 px-5 py-4' >
-                {/* heading */}
-                <div>
-            <h1>Additnols</h1>
-            <p className='text-sm text-zinc-600' >Update as per requirement</p>
-                </div>
-
-                {/* flex for about and heading */}
-
-                <div className='w-full h-full  flex gap-4' >
-                    <div className='w-1/2 mt-4' >
-                        <p className='mb-1' >Heading</p>
-                        <Textarea className='h-40 w-full' placeholder='SIH2K23 Grand Finalist || NextJs || Typescript || Mern Stack' />
-                    </div>
-                    <div className='w-1/2 mt-4' >
-                        <p className='mb-1' >About   </p>
-                        <Textarea className='h-40 w-full ' placeholder='hey , my name is nikhil kumar am a mainly a web developer , and i dont know what i am writting but it is a placehorder so i have to write' />
                     </div>
                 </div>
 
-                <Button className='w-full mt-4' >Submit </Button>
-            </div>
-        </div>
+
+                {/* YOUR PERSENOL INFORMATION */}
+
+                <div className=' h-40  border-[1px] px-4 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
+                    <h1 className='text-lg font-semibold text-zinc-700' >Personol Info</h1>
+                    <div className='w-full flex justify-between' >
+                        <div>
+                            <h1 className='text-sm text-zinc-400 font-medium' >Full Name</h1>
+                            <p className='font-medium text-sm text-zinc-900' >Nikhil Kumar</p>
+                        </div>
+                        <div>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Email Address</h1>
+                            <p className='font-medium text-sm text-zinc-900' >nikhildesign00@gmail.com</p>
+                        </div>
+                        <div>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Username</h1>
+                            <p className='font-medium text-sm text-zinc-900' >void.tsx</p>
+                        </div>
+                        <div>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Mobile</h1>
+                            <p className='font-medium text-sm text-zinc-900' >9878827854</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
                
 
             </div>
