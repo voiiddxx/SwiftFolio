@@ -10,14 +10,19 @@ import CustomDetailing from './CustomDetailing'
 import { getProjectByclerkId } from '@/lib/actions/project.action'
 import SkillDetail from './SkillDetail'
 import { getSchoolasperClerkId } from '@/lib/actions/school.action'
+import { getCollegeasPerClerkId } from '@/lib/actions/education.action'
+import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action'
 
     type DashBoardProps = {
         userId: any
     }
 const DashBoard = ({userId} : DashBoardProps) => {
             const [IsAdmin, setIsAdmin] = useState<boolean>(false);
-
             const [SchoolData, setSchoolData] = useState<any>([]);
+            const [College, setCollege] = useState<any>([]);
+            const [work, setwork] = useState<any>([]);
+
+
     useEffect(()=>{ 
         const CheckingAdminorNot = async()=>{
             const res = await getProjectByclerkId(userId);
@@ -34,8 +39,25 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setSchoolData(res);
             }   
         }
+
+        const getCollegeData = async ()=>{
+            const res = await getCollegeasPerClerkId(userId);
+            if(res){
+                setCollege(res);
+
+            }
+        }
+
+        const getWorkData = async()=>{
+            const res = await getWorkExperinceAsPerclerkId(userId);
+            if(res){
+                setwork(res);
+            }
+        }
         CheckingAdminorNot();
         getSchoolData();
+        getCollegeData();
+        getWorkData();
     } , []);
 
 
@@ -76,17 +98,11 @@ const DashBoard = ({userId} : DashBoardProps) => {
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div  className='flex items-center gap-2' >
                 <School size={17} />
-                <p className='text-sm font-medium' >Schooling</p>
+                <p className='text-sm font-medium' >Qualification</p>
                 </div>
                 <p>2</p>
             </div>
-            <div className='h-14 w-full  flex justify-between items-center px-4' >
-                <div className='flex items-center gap-2' >
-                <GraduationCap size={17} />
-                <p className='text-sm font-medium' >College</p>
-                </div>
-                <p></p>
-            </div>
+            
             <div className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Briefcase size={17} />
@@ -146,7 +162,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
         {
             sideBarOption == "Schooling" && (
                 <div className='w-full' >
-                     <SchoolingDetail userId={userId} school={SchoolData} />
+                     <SchoolingDetail userId={userId} school={SchoolData} college={College} work={work} />
                 </div>
             )
         }
