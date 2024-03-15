@@ -27,6 +27,8 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
         email:"loading@gmail.com",
         avatar:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525817/bfk4wwqosg5khhornwl5.jpg",
         resume:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525850/s3hik5lctq2dzqtzvcnk.jpg",
+        heading:"I Am Full Stack Developer || SIH2K23 FInalist || NextJs || Nodejs || MERN",
+        about:" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, quae? Unde adipisci at earum laudantium alias pariatur maxime, placeat iste, voluptates quidem blanditiis culpa veniam velit! Accusamus aperiam non aliquid."
 
     })
     
@@ -143,7 +145,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
 
                 <div className=' pb-4 border-[1px] px-6 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
                     <div className=' flex justify-between' >
-                    <h1 className='text-lg font-semibold text-zinc-700' >Personol Info</h1>
+                    <h1 className='text-lg font-medium text-zinc-700' >Personol Info</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
                         <p className='text-sm font-medium' >Edit</p>
@@ -173,9 +175,40 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                         </div>
 
                     </div>
-
-
                 </div>
+
+
+                {/* HEADING SECTION */}
+               <div className='px-12 mt-5' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-300 px-6 py-2' >
+                <div className=' flex justify-between' >
+                    <h1 className='text-lg font-medium text-zinc-700' >Heading</h1>
+                    <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
+                        <Edit size={15} />
+                        <p className='text-sm font-medium' >Edit</p>
+                    </div>
+                    </div>
+                    <p className='mt-3 font-medium' >
+                        {Data.heading}
+                    </p>
+                </div>
+               </div>
+
+               {/* ABOUT SECTION COMPONENT */}
+               <div className='px-12 mt-5' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-300 px-6 py-2' >
+                <div className=' flex justify-between' >
+                    <h1 className='text-lg font-medium text-zinc-700' >About</h1>
+                    <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
+                        <Edit size={15} />
+                        <p className='text-sm font-medium' >Edit</p>
+                    </div>
+                    </div>
+                    <p className='mt-3 font-normal text-sm' >
+                       {Data.about}
+                    </p>
+                </div>
+               </div>
                
 
             </div>
