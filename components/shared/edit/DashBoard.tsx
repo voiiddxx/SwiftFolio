@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useEffect, useState } from 'react'
 import { Boxes, Briefcase, Flame, Gem, GraduationCap, LucideWorkflow, Network, Option, School, Sidebar, Trophy, User, WorkflowIcon } from 'lucide-react'
 import PersonolDetail from './PersonolDetail'
@@ -8,12 +9,15 @@ import AchivementDetail from './AchivementDetail'
 import CustomDetailing from './CustomDetailing'
 import { getProjectByclerkId } from '@/lib/actions/project.action'
 import SkillDetail from './SkillDetail'
+import { getSchoolasperClerkId } from '@/lib/actions/school.action'
 
     type DashBoardProps = {
         userId: any
     }
 const DashBoard = ({userId} : DashBoardProps) => {
             const [IsAdmin, setIsAdmin] = useState<boolean>(false);
+
+            const [SchoolData, setSchoolData] = useState<any>([]);
     useEffect(()=>{ 
         const CheckingAdminorNot = async()=>{
             const res = await getProjectByclerkId(userId);
@@ -23,7 +27,15 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 }
             }
         }
+
+        const getSchoolData = async()=>{
+            const res = await getSchoolasperClerkId(userId);
+            if(res){
+                setSchoolData(res);
+            }   
+        }
         CheckingAdminorNot();
+        getSchoolData();
     } , []);
 
 
@@ -134,7 +146,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
         {
             sideBarOption == "Schooling" && (
                 <div className='w-full' >
-                     <SchoolingDetail/>
+                     <SchoolingDetail userId={userId} school={SchoolData} />
                 </div>
             )
         }
