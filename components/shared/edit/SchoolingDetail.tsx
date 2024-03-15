@@ -12,10 +12,10 @@ import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
         userId:string
         school:any
         college:any
-        work:any
+        
     }
 
-const SchoolingDetail = ({userId , school , college , work} : SchoolDetailingProps) => {
+const SchoolingDetail = ({userId , school , college } : SchoolDetailingProps) => {
 
     const handleSchoolDelte = async (deleteId:string )=>{
         const deleted = await deletSchoolWithId({schoolId:school[0]._id , deleteId: deleteId});

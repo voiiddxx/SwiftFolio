@@ -12,6 +12,7 @@ import SkillDetail from './SkillDetail'
 import { getSchoolasperClerkId } from '@/lib/actions/school.action'
 import { getCollegeasPerClerkId } from '@/lib/actions/education.action'
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action'
+import WorkExperince from './WorkExperince'
 
     type DashBoardProps = {
         userId: any
@@ -103,7 +104,9 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 <p>2</p>
             </div>
             
-            <div className='h-14 w-full  flex justify-between items-center px-4' >
+            <div onClick={()=>{
+                setsideBarOption("Work")
+            }} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Briefcase size={17} />
                 <p className='text-sm font-medium' >Work Experince</p>
@@ -162,7 +165,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
         {
             sideBarOption == "Schooling" && (
                 <div className='w-full' >
-                     <SchoolingDetail userId={userId} school={SchoolData} college={College} work={work} />
+                     <SchoolingDetail userId={userId} school={SchoolData} college={College}  />
                 </div>
             )
         }
@@ -191,6 +194,13 @@ const DashBoard = ({userId} : DashBoardProps) => {
             sideBarOption == "Skill" && (
                 <div className='w-full' >
                      <SkillDetail data={userId} />
+                </div>
+            )
+        }
+        {
+            sideBarOption == "Work" && (
+                <div className='w-full' >
+                     <WorkExperince userId={userId} work={work} key={userId} />
                 </div>
             )
         }
