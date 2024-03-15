@@ -1,6 +1,6 @@
 "use server"
 
-import { addCustomFieldParams, createCustomParams } from "@/types";
+import { addCustomFieldParams, createCustomParams, updatingcustomSectionParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import Custom from "../database/models/custom.model";
 
@@ -17,6 +17,40 @@ export const createCustomSection = async ({clerkId , customSection} : createCust
 }
 
 
+
+// CREATING SERVER ACTION FOR UPDATING THE CUSTOM SECTION HEADING
+    export const UpdateCustomSectionHeadingAsperclerkId = async ({data} : updatingcustomSectionParams)=>{
+        try {
+            await connectToDatabase();
+            const customData = await Custom.findByIdAndUpdate(data.customid , {
+                heading:data.heading
+            });
+            return JSON.parse(JSON.stringify(customData));
+        } catch (error) {
+            console.log(error);
+            throw new Error(error as string);
+            
+        }
+    }
+
+
+//  CREATING SERVER ACTON FOR DELETING THE SERVER ACTION BASED AS PER CLERK ID 
+
+export const deleteCompleteCustomasperclerkid = async  (clerkId:string)=>{
+        try {
+            await connectToDatabase();
+            const deleted = await Custom.findByIdAndDelete(clerkId);
+            if(!deleted){
+                return JSON.parse(JSON.stringify({message:"Some issue occured while deletion"}));
+            }
+            return JSON.parse(JSON.stringify({message:"OK"}));
+
+        } catch (error) {
+            console.log(error);
+            throw new Error(error as string);
+            
+        }
+}
 
 export const getCustomSection = async (clerkId : any) => {
     try {

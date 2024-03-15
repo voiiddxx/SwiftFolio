@@ -1,3 +1,5 @@
+import { StringExpression } from "mongoose"
+import { string } from "zod"
 
 
 export type createPortfolioparams = {
@@ -145,4 +147,28 @@ export type AiTextGenreation = {
 
 export type GenreateImageParams = {
     promptMessage: string
+}
+
+
+export type updatePortFolioParams = {
+    clerkId:string
+   updateData:{
+    name?:string,
+    heading?:string
+    about?:string
+    linkedinurl?:string
+    githuburl?:string
+    mailurl?:string
+    extraurl?:string
+    avatar?:string
+    resume?:string
+   }
+}
+
+export type updatingcustomSectionParams = {
+    data:{
+        heading:string,
+        clerkId?:string,
+        customid:string
+    }
 }
