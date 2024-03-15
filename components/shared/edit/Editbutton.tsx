@@ -96,7 +96,7 @@ const Editbutton = async ({portfolioId} : editButtonProps) => {
       <div className='h-10 w-10 rounded-full bg-pink-100 flex justify-center items-center' >
         <Layers className='text-zinc-900 text-sm ' strokeWidth={1.5}  height={18}/>
         </div>
-      <CustomForm useridclerk={user?.id}  />
+      <CustomForm useridclerk={user?.id} type='ADD' />
       </div>
 
 

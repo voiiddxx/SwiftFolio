@@ -1,6 +1,6 @@
 "use server"
 
-import { AddSchoolingParams, deletSchoolParams } from "@/types";
+import { AddSchoolingParams, UpdateSchoolParams, deletSchoolParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import School from "../database/models/school.model";
 
@@ -55,7 +55,37 @@ export const deletSchoolWithId = async ({deleteId , schoolId} : deletSchoolParam
                 }
             },
             'multi':false
-        })
+        });
+
+        return JSON.parse(JSON.stringify({message:"OK"}));
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}
+
+
+//  SERVER ACTION FOR UPDATING THE SCHOOL DATA
+
+export const updateSchoolData = async ({  school , updateId  , schoolId}:UpdateSchoolParams)=>{
+
+
+    console.log(schoolId , updateId);
+    
+    try {
+        await connectToDatabase();
+        
+        const updatedData = await School.findByIdAndUpdate(
+            {'school._id':updateId},
+            {$set:{'school.$':school}},
+            {new:true},
+        );
+
+        if(!updatedData){
+            return JSON.parse(JSON.stringify({message:"We got some error"}));
+        }
+        return JSON.parse(JSON.stringify(updatedData));
     } catch (error) {
         console.log(error);
         throw new Error(error as string);

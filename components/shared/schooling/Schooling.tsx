@@ -22,26 +22,28 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from '@/components/ui/input'
-import { addSchooling } from '@/lib/actions/school.action'
+import { addSchooling, updateSchoolData } from '@/lib/actions/school.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
 
 
 const formSchema = z.object({
-    schoolClass: z.string().min(2).max(50),
-    schoolName:z.string().min(2).max(50),
-    finalYear:z.string().min(2).max(50),
-    extraDetail:z.string().min(2).max(500),
+    schoolClass: z.string().min(2).max(50).optional(),
+    schoolName:z.string().min(2).max(50).optional(),
+    finalYear:z.string().min(2).max(50).optional(),
+    extraDetail:z.string().min(2).max(500).optional(),
   })
 
 
     type SchoolingFormProps = {
       userId: any
       type: "ADD" | "EDIT"
+      schoolId?:any
+      updatedId?:any
     }
   
 
-const Schooling = ({userId , type} : SchoolingFormProps) => {
+const Schooling = ({userId , type , schoolId , updatedId} : SchoolingFormProps) => {
 
   
     const form = useForm<z.infer<typeof formSchema>>({
@@ -58,15 +60,21 @@ const Schooling = ({userId , type} : SchoolingFormProps) => {
 
         
     async function onSubmit(values: z.infer<typeof formSchema>) { 
-        const response = await addSchooling({school:{...values} , clerkId:userId});
-       console.log(response);
 
-       if(response){
-        toast.success("Schooling added");
-       }
-       else{
-        toast.error("Some error occured");
-       }
+      if(type=='ADD'){
+        const response = await addSchooling({school:{...values} , clerkId:userId});
+        console.log(response);
+        if(response){
+         toast.success("Schooling added");
+        }
+        else{
+         toast.error("Some error occured");
+        }
+      }
+      else{
+        const response = await updateSchoolData({schoolId:schoolId , updateId:updatedId , school:{...values}});
+
+      }
        
        }
 

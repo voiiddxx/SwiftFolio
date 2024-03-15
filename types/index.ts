@@ -90,13 +90,24 @@ export type updateAchivementParams = {
 export type AddSchoolingParams = {
     clerkId: string,
     school:{
-        schoolClass:string
-        schoolName:string
-        finalYear:string
-        extraDetail:string
+        schoolClass?:string
+        schoolName?:string
+        finalYear?:string
+        extraDetail?:string
     }
 }
 
+
+export type UpdateSchoolParams = {
+    schoolId:string,
+    updateId:string,
+    school:{
+        schoolClass?:string
+        schoolName?:string
+        finalYear?:string
+        extraDetail?:string
+    }
+}
 
 export type addCollegeParams = {
     clerkId: string,
