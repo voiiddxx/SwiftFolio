@@ -27,8 +27,8 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
     useEffect(()=>{
         const getData = async()=>{
             const res = await getPortfolioBasedonuserClerkId(userId);
-            setData(res);
-            console.log(res);   
+            setData(res[0]);
+            console.log(res[0].name);   
         }
         getData();
     } , []);
@@ -42,9 +42,11 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
     }
 
 
-    const handleCasualImageonchange = (e:any)=>{
+    const handleCasualImageonchange = async (e:any)=>{
+        const UploadableFile = e.target.files;
         const file = e.target.files[0];
         console.log(file);
+        
         
         if(file){
             const reader = new FileReader();
@@ -52,6 +54,16 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                 setcasusalImage(reader.result);
             }
             reader.readAsDataURL(file);
+            if(UploadableFile){
+                const Casualurl = await uploadDataonCloudinary(UploadableFile);
+                const res = await updatePortFolio({clerkId:userId , updateData:{resume:Casualurl}});
+                if(res){
+                    toast.success("Image Updated");
+                }
+                else{
+                    toast.error("Some error occured");
+                }
+            }
         }else{
             alert("Select Image");
         }
@@ -99,7 +111,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                     <div className='flex gap-4 flex-wrap' >
                     <div onClick={handleAvatarClick} className='h-28 w-28 border-[1px] border-zinc-600 p-1  rounded-full relative cursor-pointer' >
                         {
-                            avatar != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709736817/x1sgofoxhunnio860nxn.jpg" height={1500} width={1500} alt='avatar' />
+                            avatar != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src={Data.avatar} height={1500} width={1500} alt='avatar' />
                         }
                         <input onChange={handleAvatarOnchange} type="file" hidden ref={hiddenInputRef} />
                     </div>
@@ -108,11 +120,9 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                     {/* casual image componenet */}
                     <div onClick={handleCasualRef} className='h-28 w-28 p-1 border-[1px] border-zinc-700 rounded-full cursor-pointer' >
                     {
-                            casusalImage     != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1709736817/x1sgofoxhunnio860nxn.jpg" height={1500} width={1500} alt='avatar' />
+                            casusalImage     != null ? <Image className='h-full w-full object-cover rounded-full' src={casusalImage} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src={Data.resume} height={1500} width={1500} alt='avatar' />
                         }
-                        <input onChange={(e)=>{
-                            setcasusalImage(e.target.files);
-                        }} type='file' hidden ref={hiddenCasualRef} />
+                        <input onChange={handleCasualImageonchange} type='file' hidden ref={hiddenCasualRef} />
                     </div>
                     </div>
                 </div>
@@ -125,7 +135,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                     <div className='w-full flex justify-between' >
                         <div>
                             <h1 className='text-sm text-zinc-400 font-medium' >Full Name</h1>
-                            <p className='font-medium text-sm text-zinc-900' >Nikhil Kumar</p>
+                            <p className='font-medium text-sm text-zinc-900' >{Data.name}</p>
                         </div>
                         <div>
                         <h1 className='text-sm text-zinc-400 font-medium' >Email Address</h1>
