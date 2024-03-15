@@ -3,11 +3,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { getPortfolioBasedonuserClerkId, updatePortFolio } from '@/lib/actions/portfolio.action'
-import { Edit2, Mail, User } from 'lucide-react'
+import { Edit, Edit2, Mail, User } from 'lucide-react'
 import Image from 'next/image'
 import React, { useEffect, useId, useRef, useState } from 'react'
 import uploadDataonCloudinary from '../Cloudinary'
 import { Toaster, toast } from 'sonner'
+import { persenolDemoData } from '@/types'
     
 
 
@@ -21,7 +22,13 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
     const [avatar, setavatar] = useState<any>(null);
     const [casusalImage, setcasusalImage] = useState<any>(null);
 
-    const [Data, setData] = useState<any>(null)
+    const [Data, setData] = useState<any>({
+        name:"Loading",
+        email:"loading@gmail.com",
+        avatar:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525817/bfk4wwqosg5khhornwl5.jpg",
+        resume:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525850/s3hik5lctq2dzqtzvcnk.jpg",
+
+    })
     
 
     useEffect(()=>{
@@ -93,6 +100,9 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
             alert("Select Image");
         }
     }
+
+
+   
     
   return (
  
@@ -128,26 +138,38 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                 </div>
 
 
+               
                 {/* YOUR PERSENOL INFORMATION */}
 
-                <div className=' h-40  border-[1px] px-4 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
+                <div className=' pb-4 border-[1px] px-6 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
+                    <div className=' flex justify-between' >
                     <h1 className='text-lg font-semibold text-zinc-700' >Personol Info</h1>
-                    <div className='w-full flex justify-between' >
+                    <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
+                        <Edit size={15} />
+                        <p className='text-sm font-medium' >Edit</p>
+                    </div>
+
+                    </div>
+                    <div className='w-full flex justify-between mt-10' >
                         <div>
                             <h1 className='text-sm text-zinc-400 font-medium' >Full Name</h1>
                             <p className='font-medium text-sm text-zinc-900' >{Data.name}</p>
                         </div>
                         <div>
                         <h1 className='text-sm text-zinc-400 font-medium' >Email Address</h1>
-                            <p className='font-medium text-sm text-zinc-900' >nikhildesign00@gmail.com</p>
+                            <p className='font-medium text-sm text-zinc-900' >{Data.email}</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Username</h1>
-                            <p className='font-medium text-sm text-zinc-900' >void.tsx</p>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                            <p className='font-medium text-sm text-zinc-900' >Github</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Mobile</h1>
-                            <p className='font-medium text-sm text-zinc-900' >9878827854</p>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                            <p className='font-medium text-sm text-zinc-900' >Linkedin</p>
+                        </div>
+                        <div>
+                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                            <p className='font-medium text-sm text-zinc-900' >External</p>
                         </div>
 
                     </div>

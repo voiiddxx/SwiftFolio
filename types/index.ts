@@ -183,3 +183,14 @@ export type updatingcustomSectionParams = {
         customid:string
     }
 }
+
+export const persenolDemoData = [
+    {
+        'name':'Nikhil'
+    }
+]
+
+
+export interface IPersenol {
+    name:"nikhil"
+}
