@@ -19,19 +19,12 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { createCustomSection } from '@/lib/actions/custom.action'
-import { Loader2 } from 'lucide-react'
+
+import { UpdateCustomSectionHeadingAsperclerkId, createCustomSection } from '@/lib/actions/custom.action'
+import { Edit, Loader2 } from 'lucide-react'
 import { Toaster, toast } from 'sonner'
 
 
@@ -42,8 +35,10 @@ const formSchema = z.object({
 
 type customFormProps = {
     useridclerk: string | any
+    type:"ADD" | "EDIT"
+    customId?:any
 }
-const CustomForm = ({useridclerk} : customFormProps) => {
+const CustomForm = ({useridclerk , type , customId} : customFormProps) => {
 
     
 
@@ -56,19 +51,37 @@ const CustomForm = ({useridclerk} : customFormProps) => {
     
       async function onSubmit(values: z.infer<typeof formSchema>) { 
     
-     const data = await  createCustomSection({customSection:{...values} , clerkId:useridclerk});
-     if(data){
-      toast.success("Added");
-     }else{
-      toast.error("Some error");
-     }
+          if(type == "ADD"){
+            const data = await  createCustomSection({customSection:{...values} , clerkId:useridclerk});
+            if(data){
+             toast.success("Added");
+            }else{
+             toast.error("Some error");
+            }
+          }
+          else{
+            // console.log("we got your every data" , values.heading , customId , useridclerk);
+            const data = await UpdateCustomSectionHeadingAsperclerkId({data:{customid:customId , clerkId:useridclerk , heading:values.heading}});
+
+            if(data){
+              toast.success("Updated" + values.heading);
+              console.log(data);
+              
+            }else{
+              toast.error("Some error occured");
+            }
+          }
       
       }
   
   return (
     <div>
       <Dialog>
-    <DialogTrigger>Add Custom Section</DialogTrigger>
+    <DialogTrigger>
+      {
+        type=='ADD'? 'Add Custom Section' : <Edit/>
+      }
+    </DialogTrigger>
     <DialogContent>
       <DialogHeader>
       <Toaster position='top-right' richColors duration={2000} />
@@ -81,10 +94,10 @@ const CustomForm = ({useridclerk} : customFormProps) => {
             render={({ field }) => (
               <FormItem className="mt-6" >
                 <FormControl>
-                  <Input placeholder="Your project Name" {...field} />
+                  <Input placeholder="Heading..." {...field} />
                 </FormControl>
                 <FormDescription>
-                  This is Your Project Name.
+                  This Will be Heading of your custom section.
                 </FormDescription>
                 <FormMessage />
               </FormItem>

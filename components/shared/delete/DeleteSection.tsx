@@ -12,16 +12,17 @@ import {
   } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { delteAchivement } from "@/lib/actions/achivement.action"
-import { deleteCustomSection } from "@/lib/actions/custom.action"
+import { deleteCompleteCustomasperclerkid, deleteCustomSection } from "@/lib/actions/custom.action"
 import { DeleteProject } from "@/lib/actions/project.action"
 import { Trash } from "lucide-react"
+import { Toaster, toast } from "sonner"
   
 
 
     type deleteSectionProps = {
         deleteId: string,
         additionsId?: any
-        type: "PROJECT" | "ACHIVEMENT" | "CUSTOM"
+        type: "PROJECT" | "ACHIVEMENT" | "CUSTOM" | "COMPLETE SINGLE CUSTOM"
     }
 
 const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) => {
@@ -44,6 +45,14 @@ const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) =>
               await deleteCustomSection(deleteId , additionsId);
               
             }
+            else if (type == "COMPLETE SINGLE CUSTOM"){
+            const data = await deleteCompleteCustomasperclerkid(deleteId);
+            if(data){
+              toast.success("Deleted");
+            }
+            console.log(data.message);
+            
+            }
         } catch (error) {
             throw new Error(error as string);
         }
@@ -60,6 +69,7 @@ const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) =>
   }
   <AlertDialogContent>
     <AlertDialogHeader>
+    <Toaster position='top-right' richColors duration={2000} />
       <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
       <AlertDialogDescription>
         This action cannot be undone. This will permanently delete your Project
