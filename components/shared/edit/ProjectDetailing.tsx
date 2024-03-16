@@ -11,6 +11,7 @@ import {
     PopoverContent,
     PopoverTrigger,
   } from "@/components/ui/popover";
+import ProjectEditForm from './ProjectEditForm'
 
     type ProjectDetailingProps = {
         userId:string
@@ -72,7 +73,7 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="h-16 border-b flex gap-2 items-center">
-                          
+                          <ProjectEditForm projectId={curr._id} key={userId} />
                         </div>
                         <div className="h-16 border-b flex gap-2 items-center">
                       
