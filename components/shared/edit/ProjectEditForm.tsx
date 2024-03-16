@@ -30,7 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { AlertTriangle, Github, Radio, Truck } from "lucide-react";
+import { AlertTriangle, Edit, Github, Radio, Truck } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
@@ -86,7 +86,11 @@ const ProjectEditForm = ({projectId}:projectEditProps) => {
   return (
     <div>
       <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerTrigger>
+            <div className="flex items-center text-indigo-700 gap-2" >
+                <p className="text-sm" >Edit Project</p>
+            </div>
+        </DrawerTrigger>
         <DrawerContent>
         <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
           <DrawerHeader>

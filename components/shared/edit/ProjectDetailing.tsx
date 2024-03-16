@@ -71,11 +71,12 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                       <PopoverTrigger>
                         <MoreVerticalIcon className="text-zinc-600" size={17} />
                       </PopoverTrigger>
-                      <PopoverContent>
-                        <div className="h-16 border-b flex gap-2 items-center">
+                      <PopoverContent className='w-32' >
+                        <div className="h-10 border-b flex gap-2 items-center">
                           <ProjectEditForm projectId={curr._id} key={userId} />
                         </div>
-                        <div className="h-16 border-b flex gap-2 items-center">
+                        <div className="h-10  flex gap-2 items-center">
+                                <DeleteSection deleteId={curr._id} type='PROJECT' key={userId} />
                       
                         </div>
                       </PopoverContent>
