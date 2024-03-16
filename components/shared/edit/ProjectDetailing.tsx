@@ -48,14 +48,14 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                </div>
                 </div>
 
-                <div className='w-full px-12 py-8 flex flex-wrap gap-4' >
+                <div className='w-full min-h-screen px-12 py-8 flex flex-wrap gap-4 bg-slate-50' >
                 {
                    Projects.length < 1 ? <div className='w-full h-full flex justify-center items-center'  >
                     <h1>No Project Found</h1>
                    </div> : <div>
                     {
                          Projects.map((curr:any)=>{
-                            return <div className='pb-4 w-[300px] border-[1px] border-zinc-300 rounded-lg px-2 py-2' >
+                            return <div className='pb-4 w-[300px] bg-white border-[1px] border-zinc-300 rounded-lg px-2 py-2 shadow-[0px_20px_83px_10px_#f7fafc]' >
                                 <div className='h-[200px]  rounded-md bg-red-500' >
                                     <Image className='h-full w-full object-cover rounded-md'  src={curr.projectthumbnail} height={900} width={900} alt='projectimage' />
                                 </div>

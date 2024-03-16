@@ -11,6 +11,7 @@ import { getAcheivemtUSingClerkid } from '@/lib/actions/achivement.action'
 import Image from 'next/image'
 import Addachivement from '../achievements/Addachivement'
 import DeleteSection from '../delete/DeleteSection'
+import { EditAchivement } from './EditAchivement'
 
     type achivementProps = {
         userId: string
@@ -61,7 +62,7 @@ const AchivementDetail = ({userId} : achivementProps) => {
                                                 </PopoverTrigger>
                                                 <PopoverContent>
                                                     <div className='h-16 border-b flex gap-2 items-center' >
-                                            <Addachivement type='EDIT' useridclerk={userId} achivementId={curr._id} />
+                                            <EditAchivement achivementId={curr._id} userId={userId} />
                                                     </div>
                                                     <div className='h-16 border-b flex gap-2 items-center' >
                                            <DeleteSection deleteId={curr._id} type='ACHIVEMENT'  />
