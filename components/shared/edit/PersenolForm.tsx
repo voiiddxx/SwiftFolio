@@ -71,10 +71,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
         }
       }
 
-    const handleUpdate = ()=>{
-
-    }
-
+    
     
   return (
     <div>
@@ -208,7 +205,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
                 <div>
                  <FormField
           control={form.control}
-          name="external"
+          name="heading"
           render={({ field }) => (
             <FormItem className='w-full' >
               <FormLabel>Heading</FormLabel>
@@ -230,7 +227,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
                 <div>
                  <FormField
           control={form.control}
-          name="external"
+          name="about"
           render={({ field }) => (
             <FormItem className='w-full' >
               <FormLabel>About</FormLabel>

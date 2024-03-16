@@ -1,149 +1,192 @@
-"use client"
-import { Button } from '@/components/ui/button'
-import { Plus, School } from 'lucide-react'
-import React, { useEffect, useState } from 'react'   
-import Schooling from '../schooling/Schooling'
-import { deletSchoolWithId, getSchoolasperClerkId } from '@/lib/actions/school.action'
-import { ICollege } from '@/lib/database/models/education.model'
-import College from '../college/College'
-import { DeleteCollegeAsPerId } from '@/lib/actions/education.action'
+"use client";
+import { Button } from "@/components/ui/button";
+import { Brain, GraduationCap, MoreVerticalIcon, Plus, School } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import Schooling from "../schooling/Schooling";
+import {
+  deletSchoolWithId,
+  getSchoolasperClerkId,
+} from "@/lib/actions/school.action";
+import { ICollege } from "@/lib/database/models/education.model";
+import College from "../college/College";
+import { DeleteCollegeAsPerId } from "@/lib/actions/education.action";
+import { ISchool } from "@/lib/database/models/school.model";
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover";
 
-    type SchoolDetailingProps = {
-        userId:string
-        school:any
-        college:any
-        
+type SchoolDetailingProps = {
+  userId: string;
+  school: any;
+  college: any;
+};
+
+const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
+  const handleSchoolDelte = async (deleteId: string) => {
+    const deleted = await deletSchoolWithId({
+      schoolId: school[0]._id,
+      deleteId: deleteId,
+    });
+
+    if (deleted) {
+      window.location.reload();
+    } else {
+      console.log("some error occured");
     }
+  };
 
-const SchoolingDetail = ({userId , school , college } : SchoolDetailingProps) => {
+  const handleDelete = async (deleteId: string) => {
+    const data = await DeleteCollegeAsPerId({
+      collegeId: college[0]._id,
+      deleteId: deleteId,
+    });
+  };
 
-    const handleSchoolDelte = async (deleteId:string )=>{
-        const deleted = await deletSchoolWithId({schoolId:school[0]._id , deleteId: deleteId});
-
-        if(deleted){
-            window.location.reload();
-        }
-        else{
-            console.log("some error occured");
-            
-        }
-    }
-
-
-    
-  const handleDelete = async ( deleteId : string) =>{  
-      const data = await DeleteCollegeAsPerId({collegeId: college[0]._id , deleteId:deleteId});
-  }
-
-  
-  
-    
   return (
-    <div className='w-full min-h-screen' >
-            <div className='h-20 w-full border-b flex justify-center  px-12 flex-col' >
-                <h1 className='text-lg font-semibold text-zinc-800' >Edit Your Schooling Information</h1>
-                <p className='text-sm font-normal text-zinc-600' >Update your schooling information </p>
-                </div>
+    <div className="w-full min-h-screen">
+      <div className="h-20 w-full border-b flex justify-center  px-12 flex-col">
+        <div>
+          <h1 className="text-lg font-semibold text-zinc-800">
+            Qualification Information
+          </h1>
+          <p className="text-sm font-normal text-zinc-600">
+            Update your schooling information{" "}
+          </p>
+        </div>
+      </div>
 
-                <div className='mt-8 mx-12  flex-wrap border-b' >
-                    {
-                        school.length  && (
-                            <div className='w-full flex gap-4' >
-                                {
-                        school[0].school.map((curr:any)=>{
-                            return <div className='pb-4 w-[350px] bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 rounded-md px-4 py-2' >
-                                <div className='h-14 w-14 bg-slate-50 rounded-full flex justify-center items-center ' >
-                                <School strokeWidth={1.5} className='text-violet-700' />
-                                </div>
+      <div className="pt-8 px-12  flex-wrap border-b bg-slate-50 pb-10">
+        {school.length && (
+          <div className="w-full flex gap flex-col">
+            <div className="flex justify-between">
+              <div>
+                <h1 className="text-xl font-semibold">Schooling</h1>
+                <p className="text-sm text-zinc-500 mb-4">
+                  Your Schooling information given below
+                </p>
+              </div>
+              <div>
+                <Button>
+                  <Plus color="white" strokeWidth={1.75} size={18} />
+                  <Schooling type="ADD" userId={userId} key={userId} />
+                </Button>
+              </div>
+            </div>
+            {school[0].school.map((curr: ISchool) => {
+              return (
+                <div className="min-h-[150px] w-[300px] bg-white rounded-lg px-4 py-4 shadow-[0px_20px_83px_10px_#f7fafc]">
+                  <div className="flex justify-between items-center" >
+                  <div className="h-12 w-12 bg-violet-100 rounded-3xl flex justify-center items-center">
+                    <Brain
+                      className="text-violet-800"
+                      size={20}
+                      strokeWidth={1.5}
+                    />
+                  </div>
 
-                                <h1 className='text-lg font-medium text-zinc-900 mt-4' >Kiran Public School</h1>
-                                <h1 className='font-normal mt-1 text-zinc-700' >{curr.schoolClass}</h1>
-                                <p className='text-[12px] mt-1 font-normal text-zinc-500' >{curr.extraDetail}</p>
-                                <p className='text-sm font-normal mt-1 ' >{curr.finalYear   }</p>
-
-                                <div className='flex justify-between gap-2 mt-4' >
-                                <Schooling type='EDIT' userId={userId} schoolId={school._id} updatedId={curr._id} key={curr._id} />
-                                <Button onClick={()=>{
-                                    handleSchoolDelte(curr._id);
-                                }} className='bg-red-500 w-full' >Delete</Button>
-                                </div>
-
-                            </div>
-                        })
-                    }
-                     <div className='h-[300px] w-[350px] bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 rounded-md px-4 py-2 border-dashed'>
-                    <div className='h-full w-full flex justify-center items-center rounded' >
-                        <div className='flex flex-col justify-center items-center' >
-                            <div className=' px-4 py-2 bg-violet-100 rounded-full flex justify-center items-center' >
-                            <Schooling type='ADD' userId={userId} key={userId} />
-                            </div>
+                  <div>
+                  <Popover>
+                      <PopoverTrigger>
+                        <MoreVerticalIcon className="text-zinc-600" size={17} />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="h-16 border-b flex gap-2 items-center">
                           
                         </div>
-                    </div>
-                    </div>
-                            </div>
-                            
-                        )
-                    }
+                        <div className="h-16 border-b flex gap-2 items-center">
+                      
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  </div>
 
+                  <h1 className="text-violet-500 font-medium text-sm mt-4">
+                    {curr.schoolName}
+                  </h1>
+                  <p className="text-xl mt-1 font-medium text-zinc-700">
+                    {curr.schoolClass}
+                  </p>
+                  <p className="text-[13px] text-zinc-500 mt-1 ">2021</p>
+
+                  <p className="text-[10px] text-zinc-400 mt-1 leading-4 ">
+                    {curr.extraDetail}
+                  </p>
                 </div>
-  {/*  COLLEGE COMPONENT SECTION */}
+              );
+            })}
+          </div>
+        )}
+      </div>
+      {/*  COLLEGE COMPONENT SECTION */}
 
-                        <div className='mx-12 mt-8' >
-                            {/* heading for the college */}
-                            <div>
-                                <h1 className='text-xl font-medium' >College</h1>
-                                <p className='text-zinc-600 text-sm' >College section</p>
-                            </div>
+      <div className="pt-8 px-12  flex-wrap border-b bg-slate-50 pb-10">
+        {college.length && (
+          <div className="w-full flex gap flex-col">
+            <div className="flex justify-between">
+              <div>
+                <h1 className="text-xl font-semibold">College</h1>
+                <p className="text-sm text-zinc-500 mb-4">
+                  Your College information given below
+                </p>
+              </div>
+              <div>
+                <Button>
+                  <Plus color="white" strokeWidth={1.75} size={18} />
+                  <College type="ADD" userId={userId} key={userId} />
+                </Button>
+              </div>
+            </div>
+            {college[0].college.map((curr: ICollege) => {
+              return (
+                <div className="min-h-[150px] w-[300px] bg-white rounded-lg px-4 py-4 shadow-[0px_20px_83px_10px_#f7fafc]">
+                  <div className="flex justify-between items-center" >
+                  <div className="h-12 w-12 bg-violet-100 rounded-3xl flex justify-center items-center">
+                    <GraduationCap
+                      className="text-violet-800"
+                      size={20}
+                      strokeWidth={1.5}
+                    />
+                  </div>
 
-                            {/* COLLEGE CARD COMPONENETS */}
-
-                            {
-                                college.length && (
-                                    <div>
-                                         <div className='w-full flex gap-4' >
-                                {
-                        college[0].college.map((curr:ICollege)=>{
-                            return <div className='pb-4 w-[350px] bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 rounded-md px-4 py-2' >
-                                <div className='h-14 w-14 bg-slate-50 rounded-full flex justify-center items-center ' >
-                                <School strokeWidth={1.5} className='text-violet-700' />
-                                </div>
-
-                                <h1 className='text-lg font-medium text-zinc-900 mt-4' >Kiran Public School</h1>
-                                <h1 className='font-normal mt-1 text-zinc-700' >{curr.instituteName}</h1>
-                                <p className='text-[12px] mt-1 font-normal text-zinc-500' >{curr.extraDetail}</p>
-                                <p className='text-sm font-normal mt-1 ' >{curr.batchStartDate} - {curr.batchEndDate}</p>
-
-                                <div className='flex justify-between gap-2 mt-4' >
-                                <College type='ADD' userId={userId} />
-                                <Button onClick={()=>{
-                                    handleDelete(curr._id);
-                                }} className='bg-red-500 w-full' >Delete</Button>
-                                </div>
-
-                            </div>
-                        })
-                    }
-                     <div className='h-[300px] w-[350px] bg-white shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] border-[1px] border-zinc-300 rounded-md px-4 py-2 border-dashed'>
-                    <div className='h-full w-full flex justify-center items-center rounded' >
-                        <div className='flex flex-col justify-center items-center' >
-                            <div className=' px-4 py-2 bg-violet-100 rounded-full flex justify-center items-center' >
-                            <College type='ADD' userId={userId} />
-                            </div>
+                  <div>
+                  <Popover>
+                      <PopoverTrigger>
+                        <MoreVerticalIcon className="text-zinc-600" size={17} />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="h-16 border-b flex gap-2 items-center">
                           
                         </div>
-                    </div>
-                    </div>
-                            </div>
-                                    </div>
-                                )
-                            }
-
+                        <div className="h-16 border-b flex gap-2 items-center">
+                      
                         </div>
-          
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  </div>
 
+                  <h1 className="text-violet-500 font-medium text-sm mt-4">
+                    {curr.instituteName}
+                  </h1>
+                  <p className="text-xl mt-1 font-medium text-zinc-700">
+                    {curr.degree}
+                  </p>
+                  <p className="text-[13px] text-zinc-500 mt-1 ">{curr.batchStartDate} - {curr.batchEndDate}</p>
+
+                  <p className="text-[10px] text-zinc-400 mt-1 leading-4 ">
+                    {curr.extraDetail}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SchoolingDetail
+export default SchoolingDetail;
