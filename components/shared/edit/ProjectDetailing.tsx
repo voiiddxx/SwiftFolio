@@ -1,11 +1,16 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { getProjectByclerkId } from '@/lib/actions/project.action'
-import { Plus } from 'lucide-react'
+import { MoreVerticalIcon, Plus } from 'lucide-react'
 import Image from 'next/image'
 import React, { useEffect, useId, useState } from 'react'
 import Addproject from '../projects/Addproject'
 import DeleteSection from '../delete/DeleteSection'
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover";
 
     type ProjectDetailingProps = {
         userId:string
@@ -49,26 +54,35 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                    </div> : <div>
                     {
                          Projects.map((curr:any)=>{
-                            return <div className='min-h-40 w-full rounded shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] bg-white border-[1px] border-zinc-100 px-4 py-4 flex justify-between'>
-                                    <div className='flex gap-6 w-full' >
-                                        <div className='w-[200px] py-0  rounded-md' >
-                                            <Image className='h-full w-full object-cover rounded' src={curr.projectthumbnail} height={900} width={900} alt='projectimage' />
-                                        </div>
-                                        <div >
-                                        <h1 className='text-lg font-medium' > {curr.projectname}</h1>
-                                        <p className='text-[13px]' >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit ab earum omnis animi quidem doloremque!</p>
-                                        <div className='bg-violet-100 w-[170px]  rounded-full' >
-                                            <p className='text-sm mt-2 px-2 text-violet-900' >Under Developement</p>
-                                        </div>
-    
-                                        <div className='flex mt-8 gap-4' >
-                                    {/* <Button>Edit Project</Button> */}
-                                    <Addproject type='EDIT' useridclerk={userId} projectId={curr._id} />
-                                        <DeleteSection deleteId={curr._id} type='PROJECT'  />
-                                   
-                                        </div>
-                                        </div>
+                            return <div className='pb-4 w-[300px] border-[1px] border-zinc-300 rounded-lg px-2 py-2' >
+                                <div className='h-[200px]  rounded-md bg-red-500' >
+                                    <Image className='h-full w-full object-cover rounded-md'  src={curr.projectthumbnail} height={900} width={900} alt='projectimage' />
+                                </div>
+                                <h1 className='text-lg mt-2 font-medium text-violet-700' >{curr.projectname}</h1>
+                                <p className='text-[11px] text-zinc-500 leading-5 tracking-wide' >{curr.projectdetail}</p>
+
+                                <div className='flex justify-between items-center mt-6' > 
+                                <div className='bg-yellow-200 px-2  rounded-full' >
+                                    <p className='text-yellow-800 text-[10px] ' >{curr.projectstatus}</p>
                                     </div>
+                                    <div>
+                                    <Popover>
+                      <PopoverTrigger>
+                        <MoreVerticalIcon className="text-zinc-600" size={17} />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="h-16 border-b flex gap-2 items-center">
+                          
+                        </div>
+                        <div className="h-16 border-b flex gap-2 items-center">
+                      
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                                    </div>
+
+                                </div>
+
                             </div>
                         })
                     }
