@@ -9,6 +9,7 @@ import React, { useEffect, useId, useRef, useState } from 'react'
 import uploadDataonCloudinary from '../Cloudinary'
 import { Toaster, toast } from 'sonner'
 import { persenolDemoData } from '@/types'
+import PersenolForm from './PersenolForm'
     
 
 
@@ -145,10 +146,10 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
 
                 <div className=' pb-4 border-[1px] px-6 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
                     <div className=' flex justify-between' >
-                    <h1 className='text-lg font-medium text-zinc-700' >Personol Info</h1>
+                    <h1 className='text-lg font-medium text-zinc-900' >Personol Info</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
-                        <p className='text-sm font-medium' >Edit</p>
+                      <PersenolForm type='Persenol'  userId={userId} key={userId}  />
                     </div>
 
                     </div>
@@ -159,7 +160,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                         </div>
                         <div>
                         <h1 className='text-sm text-zinc-400 font-medium' >Email Address</h1>
-                            <p className='font-medium text-sm text-zinc-900' >{Data.email}</p>
+                            <p className='font-medium text-sm text-zinc-900' >{Data.mailurl}</p>
                         </div>
                         <div>
                         <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
@@ -185,7 +186,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                     <h1 className='text-lg font-medium text-zinc-700' >Heading</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
-                        <p className='text-sm font-medium' >Edit</p>
+                       <PersenolForm type='Heading' userId={userId}  key={userId} />
                     </div>
                     </div>
                     <p className='mt-3 font-medium' >
@@ -198,14 +199,14 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                <div className='px-12 mt-5' >
                <div className='w-full rounded-lg border-[1px] border-zinc-300 px-6 py-2' >
                 <div className=' flex justify-between' >
-                    <h1 className='text-lg font-medium text-zinc-700' >About</h1>
+                    <h1 className='text-lg font-medium text-zinc-900' >About</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
-                        <p className='text-sm font-medium' >Edit</p>
+                     <PersenolForm type='About' userId={userId} key={userId} />
                     </div>
                     </div>
-                    <p className='mt-3 font-normal text-sm' >
-                       {Data.about}
+                    <p className='mt-3 font-normal text-sm leading-5 tracking-wide' >
+                       {Data.about} 
                     </p>
                 </div>
                </div>
