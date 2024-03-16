@@ -4,6 +4,7 @@ import { deleteSkillasPerid, getSkillUsingclerkId } from '@/lib/actions/skill.ac
 import { Plus, Trash } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Toaster, toast } from 'sonner'
+import Addskill from '../skills/Addskill'
 
 
 type SkillDetailPropss = {
@@ -55,7 +56,7 @@ const SkillDetail = ({data} : SkillDetailPropss) => {
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
                         <Plus size={18} />
-                        Add Your Skills
+                        <Addskill userclerkId={data} />
                     </Button>
                </div>
                 </div>

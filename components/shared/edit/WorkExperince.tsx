@@ -1,20 +1,29 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import WorkForm from '../works/WorkForm'
-import { MoreVerticalIcon, Plus, SunIcon } from 'lucide-react'
+import { MoreVerticalIcon, Plus, SunIcon, Trash } from 'lucide-react'
 import { IWork } from '@/lib/database/models/work.model'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { deleteWorkById } from '@/lib/actions/work.action'
 
 
     type WorkExperinceProps = {
         userId:string,
         work:any
     }
+
+
+   
 const WorkExperince = ({userId , work}:WorkExperinceProps) => {
+  const handleWorkDelete = async  (workDeleteId : string)=>{
+    const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
+    
+}
+
   return (
     <div className="w-full min-h-screen bg-slate-50">
       <div className="h-20 w-full border-b flex justify-center  px-12 flex-col">
@@ -63,12 +72,13 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
                         <MoreVerticalIcon className="text-zinc-600" size={17} />
                       </PopoverTrigger>
                       <PopoverContent>
-                        <div className="h-16 border-b flex gap-2 items-center">
-                          
+                      <div onClick={()=>{
+                          handleWorkDelete(curr._id);
+                        }} className="h-16 border-b flex gap-2 cursor-pointer items-center text-red-600">
+                          <Trash size={17} strokeWidth={1.5} />
+                          <p className="text-sm font-medium" >Delete</p>
                         </div>
-                        <div className="h-16 border-b flex gap-2 items-center">
-                      
-                        </div>
+                        
                       </PopoverContent>
                     </Popover>
                   </div>

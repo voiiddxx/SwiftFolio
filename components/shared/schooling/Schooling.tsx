@@ -22,7 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from '@/components/ui/input'
-import { addSchooling, updateSchoolData } from '@/lib/actions/school.action'
+import { addSchooling} from '@/lib/actions/school.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
 
@@ -72,7 +72,7 @@ const Schooling = ({userId , type , schoolId , updatedId} : SchoolingFormProps) 
         }
       }
       else{
-        const response = await updateSchoolData({schoolId:schoolId , updateId:updatedId , school:{...values}});
+        // const response = await updateSchoolData({schoolId:schoolId , updateId:updatedId , school:{...values}});
 
       }
        

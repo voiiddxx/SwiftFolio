@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Brain, GraduationCap, MoreVerticalIcon, Plus, School } from "lucide-react";
+import { Brain, GraduationCap, MoreVerticalIcon, Plus, School, Trash } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Schooling from "../schooling/Schooling";
 import {
@@ -92,12 +92,13 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
                         <MoreVerticalIcon className="text-zinc-600" size={17} />
                       </PopoverTrigger>
                       <PopoverContent>
-                        <div className="h-16 border-b flex gap-2 items-center">
-                          
+                        <div onClick={()=>{
+                          handleSchoolDelte(curr._id);
+                        }} className="h-16 border-b flex gap-2 cursor-pointer items-center text-red-600">
+                          <Trash size={17} strokeWidth={1.5} />
+                          <p className="text-sm font-medium" >Delete</p>
                         </div>
-                        <div className="h-16 border-b flex gap-2 items-center">
-                      
-                        </div>
+                       
                       </PopoverContent>
                     </Popover>
                   </div>
@@ -158,11 +159,14 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="h-16 border-b flex gap-2 items-center">
-                          
+                        <div onClick={()=>{
+                          handleDelete(curr._id);
+                        }} className="h-16 border-b flex gap-2 cursor-pointer items-center text-red-600">
+                          <Trash size={17} strokeWidth={1.5} />
+                          <p className="text-sm font-medium" >Delete</p>
                         </div>
-                        <div className="h-16 border-b flex gap-2 items-center">
-                      
                         </div>
+                        
                       </PopoverContent>
                     </Popover>
                   </div>
