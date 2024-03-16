@@ -1,6 +1,6 @@
 "use server"
 
-import { addSkillParams } from "@/types";
+import { addSkillParams, deleteskillParams } from "@/types";
 import Skill from "../database/models/skills.model";
 import connectToDatabase from "../database/mongodb";
 
@@ -37,3 +37,48 @@ export const getSkillUsingclerkId = async (clerkId: string) => {
         throw new Error(error as string);
     }
 }
+
+
+// SERVER ACTION FOR DELTING THE SKILL
+
+export const deleteSkillasPerid = async({clerkid , skillId , araaySkillid}  : deleteskillParams)=>{
+    try {
+        await connectToDatabase();
+        const skills = await Skill.findByIdAndUpdate({
+            '_id':skillId,
+        } , {
+            $pull:{
+                'allSkill':{
+                    '_id':araaySkillid
+                }
+            },
+            'multi':false
+        },
+        {
+            new:true
+        }
+        );
+        if(!skills){
+            return JSON.parse(JSON.stringify({message:"Some issue occured"}));
+        }
+        return JSON.parse(JSON.stringify(skills));
+    } catch (error) {
+        console.log(error);
+        throw new Error(error as string);
+        
+    }
+}
+
+
+// await connectToDatabase();
+// const deletedData = await School.findByIdAndUpdate({
+//     '_id':schoolId,
+// } , 
+// {
+//     $pull:{
+//         'school':{
+//             '_id':deleteId
+//         }
+//     },
+//     'multi':false
+// });

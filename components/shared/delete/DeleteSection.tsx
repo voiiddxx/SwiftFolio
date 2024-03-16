@@ -64,7 +64,10 @@ const DeleteSection = ( {deleteId , type , additionsId} : deleteSectionProps) =>
         
   {
     type!=="PROJECT" ? <AlertDialogTrigger>
+      <div className="flex gap-2 items-center" >
       <Trash size={15} color="red"/> 
+      <p className='text-red-500 text-sm font-medium' >Delete</p>
+      </div>
     </AlertDialogTrigger> : <AlertDialogTrigger className="text-sm text-red-400">Delete</AlertDialogTrigger>
   }
   <AlertDialogContent>

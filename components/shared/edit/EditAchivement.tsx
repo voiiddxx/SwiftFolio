@@ -93,7 +93,9 @@ export const EditAchivement = ({achivementId , userId}:editAschivementProps) => 
   return (
     <div>
         <Drawer>
-  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerTrigger>
+    <p className='text-sm font-medium text-violet-700' >Edit</p>
+  </DrawerTrigger>
   <DrawerContent className='px-12' >
     <DrawerHeader>
     <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />

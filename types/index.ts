@@ -194,3 +194,9 @@ export const persenolDemoData = [
 export interface IPersenol {
     name:"nikhil"
 }
+
+export type deleteskillParams = {
+    clerkid?:string,
+    skillId:string
+    araaySkillid:string
+}

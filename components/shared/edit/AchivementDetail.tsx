@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
-import { Edit, MoreVerticalIcon, Plus, Trash } from 'lucide-react'
+import { Edit, Edit2, MoreVerticalIcon, Plus, Trash } from 'lucide-react'
 import {
     Popover,
     PopoverContent,
@@ -60,11 +60,12 @@ const AchivementDetail = ({userId} : achivementProps) => {
                                                 <PopoverTrigger>
                                                 <MoreVerticalIcon className='text-zinc-600' size={17} />
                                                 </PopoverTrigger>
-                                                <PopoverContent>
+                                                <PopoverContent className='w-40' >
                                                     <div className='h-16 border-b flex gap-2 items-center' >
+                                                        <Edit2 className='text-violet-700' size={14}/>
                                             <EditAchivement achivementId={curr._id} userId={userId} />
                                                     </div>
-                                                    <div className='h-16 border-b flex gap-2 items-center' >
+                                                    <div className='h-16  flex gap-2 items-center' >
                                            <DeleteSection deleteId={curr._id} type='ACHIVEMENT'  />
                                                     </div>
                                                     
