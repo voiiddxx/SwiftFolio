@@ -106,16 +106,17 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
     
   return (
  
-      <div className='w-full min-h-screen' >
+      <div className='w-full min-h-screen bg-slate-50' >
         
     <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
-                <div className='h-20 w-full border-b flex justify-center  md:px-12 px-4 flex-col' >
+                <div className='h-20 w-full border-b flex justify-center  md:px-12 px-4 flex-col bg-white' >
                 <h1 className='md:text-lg  md:font-semibold font-medium text-zinc-800' >Edit Your Personol Information</h1>
                 <p className='md:text-sm text-[12px] font-normal text-zinc-600' >Please fill information below given</p>
                 </div>
 
                 {/* Your assets parts */}
-                <div className='md:mx-12 mx-4 mt-8 border-b pb-4' >
+               <div className='bg-slate-50' >
+               <div className='md:mx-12 mx-4 pt-8 border-b pb-4' >
                     <h1 className='md:text-lg text-sm font-medium mb-2' >Your Assets</h1>
 
                     <div className='flex gap-4 flex-wrap' >
@@ -141,7 +142,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                
                 {/* YOUR PERSENOL INFORMATION */}
 
-                <div className='pb-4 md:border-[1px] md:px-4 px-2 py-2 md:border-zinc-300 rounded-lg mt-4 md:mx-12 mx-4' >
+                <div className='pb-4 bg-white md:border-[1px] md:px-4 px-2 py-2 md:border-zinc-200 rounded-lg mt-4 md:mx-12 mx-4' >
                     <div className=' flex justify-between' >
                     <h1 className='md:text-lg text-sm font-medium text-zinc-900' >Personol Info</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
@@ -177,8 +178,8 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
 
 
                 {/* HEADING SECTION */}
-               <div className='md:px-12 px-4 mt-5' >
-               <div className='w-full rounded-lg border-[1px] border-zinc-300 md:px-4 px-2 py-2' >
+               <div className='md:mx-12 mx-4 mt-5 bg-white' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-200 md:px-4 px-2 py-2' >
                 <div className=' flex justify-between' >
                     <h1 className='md:text-lg text-sm font-medium text-zinc-700' >Heading</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
@@ -193,8 +194,8 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                </div>
 
                {/* ABOUT SECTION COMPONENT */}
-               <div className='md:px-12 px-4 mt-5' >
-               <div className='w-full rounded-lg border-[1px] border-zinc-300 md:px-4 px-2 py-2' >
+               <div className='md:mx-12 mx-4 mt-5 bg-white' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-200 md:px-4 px-2 py-2' >
                 <div className=' flex justify-between' >
                     <h1 className='md:text-lg text-sm font-medium text-zinc-900' >About</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
@@ -209,6 +210,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                </div>
                
 
+               </div>
             </div>
    
   )

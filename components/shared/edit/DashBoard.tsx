@@ -68,7 +68,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
     const [sideBarOption, setsideBarOption] = useState<string>("persenol");
 
   return (
-    <div className='min-h-screen w-full  overflow-hidden' >
+    <div className='min-h-screen w-full  bg-white   bg-dot-black/[0.2] ' >
         <div className='w-full  border-b'>
             <Header/>
         </div>
@@ -77,18 +77,18 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {
                 IsAdmin && (
                     
-        <div className='min-h-screen  bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] md:mt-10 mt-4 border-[1px] border-zinc-300 rounded-md flex md:mx-32 mx-4 ' >
+        <div className='min-h-screen   bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] md:mt-10 mt-4 border-[1px] border-zinc-100 rounded-md flex md:mx-32 mx-4 ' >
         {/* sidebar for section transistions */}
         <div className=' md:w-80 w-24 bg-white border-r' >
             {/* upper heading of sidebar */}
             <div className='h-20 w-full border-b flex items-center md:justify-start justify-center px-2' >
                 <div className='hidden md:block' >
                 <div className=' flex items-center gap-1' >
-                    <Flame/>
+                    <Flame className='text-violet-700' strokeWidth={1.5}/>
                     <h1 className='text-md font-semibold hidden md:block' >Sections</h1>
                 </div>
                 </div>
-                <div className='h-12 w-12' >
+                <div className='h-12 w-12 md:hidden' >
                     <Image className='h-full w-full object-contain' src="/logo.svg" height={500} width={500} alt='logo' />
                 </div>
             </div>
@@ -98,7 +98,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("persenol")
             }} className='h-14 w-full  flex justify-between items-center px-4 ' >
                 <div className='flex items-center gap-2' >
-                <User size={17} />
+                <User className='text-violet-700' size={17} />
                 <p className='text-sm font-medium hidden md:block' >Personol Data </p>
                 </div>
                 
@@ -107,7 +107,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("Schooling");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div  className='flex items-center gap-2' >
-                <School size={17} />
+                <School className='text-violet-700' size={17} />
                 <p className='text-sm font-medium hidden md:block' >Qualification</p>
                 </div>
                 
@@ -117,7 +117,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("Work")
             }} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
-                <Briefcase size={17} />
+                <Briefcase className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Work Experince</p>
                 </div>
                 
@@ -126,7 +126,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("Project")
             }} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
-                <Boxes size={17} />
+                <Boxes className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Projects</p>
                 </div>
                 
@@ -135,7 +135,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("Ach");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
-                <Trophy size={17} />
+                <Trophy className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Achievments</p>
                 </div>
                 
@@ -144,7 +144,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("Skill");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
-                <Network size={17} />
+                <Network className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Skills</p>
                 </div>
                 
@@ -153,7 +153,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
                 setsideBarOption("1")
             ]} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
-                <Gem size={17} />
+                <Gem className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Custom Sections</p>
                 </div>
             </div>
