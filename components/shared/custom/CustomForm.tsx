@@ -1,7 +1,5 @@
 "use client"
 import React from 'react'
-
-
 import {
     Dialog,
     DialogContent,
@@ -24,7 +22,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 import { UpdateCustomSectionHeadingAsperclerkId, createCustomSection } from '@/lib/actions/custom.action'
-import { Edit, Loader2 } from 'lucide-react'
+import { Edit, Loader2, Plus } from 'lucide-react'
 import { Toaster, toast } from 'sonner'
 
 
@@ -65,7 +63,7 @@ const CustomForm = ({useridclerk , type , customId} : customFormProps) => {
 
             if(data){
               toast.success("Updated" + values.heading);
-              console.log(data);
+              console.log(data  );
               
             }else{
               toast.error("Some error occured");
@@ -79,7 +77,10 @@ const CustomForm = ({useridclerk , type , customId} : customFormProps) => {
       <Dialog>
     <DialogTrigger>
       {
-        type=='ADD'? 'Add Custom Section' : <Edit/>
+        type=='ADD'? <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add New Custom Section</p>
+      </div> : <Edit/>
       }
     </DialogTrigger>
     <DialogContent>

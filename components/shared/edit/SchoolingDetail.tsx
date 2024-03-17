@@ -44,6 +44,11 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
     }
   };
 
+
+  const renderSchoolForm = ()=>{
+    return <Schooling type="ADD" userId="54" key="46" schoolId={2451} />
+  }
+
   const handleDelete = async (deleteId: string) => {
     const data = await DeleteCollegeAsPerId({
       collegeId: college[0]._id,
@@ -76,8 +81,7 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
               </div>
               <div>
                 <Button>
-                  <Plus color="white" strokeWidth={1.75} size={18} />
-                  <div className="hidden md:block" >
+                  <div className="flex items-center justify-center" >
                   <Schooling  type="ADD" userId={userId} key={userId} />
                   </div>
                 </Button>
@@ -147,8 +151,7 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
               </div>
               <div>
                 <Button>
-                  <Plus color="white" strokeWidth={1.75} size={18} />
-                 <div className="hidden md:block" >
+                 <div className="flex items-center justify-center" >
                  <College type="ADD" userId={userId} key={userId} />
                  </div>
                 </Button>

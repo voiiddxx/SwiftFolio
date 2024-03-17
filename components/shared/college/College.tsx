@@ -27,6 +27,7 @@ import { addCollege } from '@/lib/actions/education.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
 import { Toaster, toast } from 'sonner'
+import { Plus } from 'lucide-react'
 
 const formSchema = z.object({
     degree: z.string().min(2).max(50),
@@ -81,7 +82,12 @@ const College = ({userId , type}: CollegeProps) => {
 
   return (
     <Dialog>
-    <DialogTrigger>Add Your College Degree</DialogTrigger>
+    <DialogTrigger>
+    <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add college</p>
+      </div>
+    </DialogTrigger>
     <DialogContent>
       <DialogHeader>
       <Toaster position='top-center' duration={2000} richColors />

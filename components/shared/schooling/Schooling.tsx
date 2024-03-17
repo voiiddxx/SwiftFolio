@@ -25,6 +25,7 @@ import { Input } from '@/components/ui/input'
 import { addSchooling} from '@/lib/actions/school.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
+import { Plus } from 'lucide-react'
 
 
 const formSchema = z.object({
@@ -81,7 +82,12 @@ const Schooling = ({userId , type , schoolId , updatedId} : SchoolingFormProps) 
        
   return (
     <Dialog>
-    <DialogTrigger>Schooling</DialogTrigger>
+    <DialogTrigger>
+      <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add Schooling</p>
+      </div>
+    </DialogTrigger>
     <DialogContent className='' >
       <DialogHeader>
       <Toaster position='top-center' richColors />

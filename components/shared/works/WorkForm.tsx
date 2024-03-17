@@ -25,7 +25,7 @@ import { Input } from '@/components/ui/input'
 import { AddWorkExperince } from '@/lib/actions/work.action'
 import { Textarea } from '@/components/ui/textarea'
 import AiForm from '../AiForm'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Plus } from 'lucide-react'
 
     type WorkFormProps = {
         userId: any,
@@ -73,7 +73,12 @@ const WorkForm = ({userId , type} : WorkFormProps) => {
 
   return (
     <Dialog>
-    <DialogTrigger>Add Work Experiencee</DialogTrigger>
+    <DialogTrigger>
+    <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add Work Experince</p>
+      </div>
+    </DialogTrigger>
     <DialogContent>
       <DialogHeader>
       <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />

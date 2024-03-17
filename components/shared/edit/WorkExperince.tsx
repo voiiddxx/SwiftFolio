@@ -48,10 +48,7 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
               </div>
               <div>
                 <Button>
-                  <Plus color="white" strokeWidth={1.75} size={18} />
-                  <div className='hidden md:block' >
                   <WorkForm type="ADD" userId={userId} key={userId} />
-                  </div>
                 </Button>
               </div>
             </div>

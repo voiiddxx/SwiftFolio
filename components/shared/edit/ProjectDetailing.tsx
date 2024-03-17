@@ -42,10 +42,8 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
 
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
-                        <Plus size={18} />
-                        <div className='hidden md:block' >
-
-                        </div>
+                      <Addproject type='ADD' useridclerk={userId} key={userId}  />
+                        
                     </Button>
                </div>
                 </div>

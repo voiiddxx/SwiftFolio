@@ -30,7 +30,7 @@ const AchivementDetail = ({userId} : achivementProps) => {
     }  , [])
   return (
     <div className='w-full min-h-screen overflow-hidden' >
-         <div className='h-20 w-full border-b flex justify-between items-center  md:px-12 px-6 ' >
+         <div className='h-20 w-full border-b flex justify-between items-center  md:px-12 px-4' >
                <div>
                <h1 className='md:text-lg text-sm md:font-semibold font-medium text-zinc-800' > Achivements</h1>
                 <p className='md:text-sm text-[10px] font-normal text-zinc-600' >Please fill information below given</p>
@@ -38,10 +38,8 @@ const AchivementDetail = ({userId} : achivementProps) => {
 
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
-                        <Plus size={18} />
-                       <div className='hidden md:block' >
                        <Addachivement type='ADD' useridclerk={userId} />
-                       </div>
+
                     </Button>
                </div>
                 </div>  
@@ -49,7 +47,7 @@ const AchivementDetail = ({userId} : achivementProps) => {
                 {/* achivements card shown below */}
                 <div className='' >
                     {
-                        Achivement.length < 1 ? <div></div> : <div className='flex md:px-12 px-6 flex-wrap gap-4' >
+                        Achivement.length < 1 ? <div></div> : <div className='flex md:px-12 px-4 flex-wrap gap-4' >
                             {
                                 Achivement.map((curr:any)=>{
                                     return <div className='h-[300px] w-[300px]  mt-5' >

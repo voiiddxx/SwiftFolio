@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input"
 import uploadDataonCloudinary from "../Cloudinary"
 import { useState } from "react"
 import { addAchevementtoDatabase, updateAchivementSection } from '@/lib/actions/achivement.action'
-import { Edit, Loader2 } from 'lucide-react'
+import { Edit, Loader2, Plus } from 'lucide-react'
 import { Toaster, toast } from 'sonner'
 
 const formSchema = z.object({
@@ -80,7 +80,12 @@ const Addachivement = ({useridclerk , achivementId , type} : achementProps) => {
     <Dialog>
     <DialogTrigger>
       {
-        type=='EDIT' ? <Edit size={15} color='black'/> : <div>Add Your Achievements</div>
+        type=='EDIT' ? <Edit size={15} color='black'/> : <div>
+          <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add Achivements</p>
+      </div>
+        </div>
       }
 
     </DialogTrigger>

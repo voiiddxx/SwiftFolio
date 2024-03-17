@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { addSkilltoDatabase } from '@/lib/actions/skill.action'
+import { Plus } from 'lucide-react'
 
 
 const formSchema = z.object({
@@ -76,7 +77,12 @@ const Addskill = ({userclerkId} : SkillProps) => {
     <>
   
      <Dialog>
-    <DialogTrigger>Add Skills</DialogTrigger>
+    <DialogTrigger>
+    <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add Skills</p>
+      </div>
+    </DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Fill Required Information</DialogTitle>

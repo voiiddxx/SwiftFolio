@@ -43,11 +43,7 @@ const CustomDetailing = ({ data }: CustomProps) => {
 
         <div className="flex">
           <Button className="flex items-center gap-2">
-            <Plus size={18} />
-           <div className="hidden md:block" >
            <CustomForm type="ADD" useridclerk={data} />
-
-           </div>
           </Button>
         </div>
       </div>

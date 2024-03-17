@@ -28,7 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { AlertTriangle, ArrowUp, Divide, Github, Loader2, Radio, Sparkles, Truck } from "lucide-react"
+import { AlertTriangle, ArrowUp, Divide, Github, Loader2, Plus, Radio, Sparkles, Truck } from "lucide-react"
 import uploadDataonCloudinary from "../Cloudinary"
 import { addProjecttoDatabase, updateProject } from "@/lib/actions/project.action"
 import { useState } from "react"
@@ -98,7 +98,12 @@ const Addproject = ({useridclerk , type , projectId}:addProjectProps) => {
   return (
     <Dialog>
   <DialogTrigger> {
-    type=="EDIT" ? <p className="text-blue-700 text-sm" >Edit project</p> : <div>Add Project</div> 
+    type=="EDIT" ? <p className="text-blue-700 text-sm" >Edit project</p> : <div>
+      <div className='flex items-center'>
+        <Plus size={20} color='white' />
+        <p className='hidden md:block text-sm text-white font-medium' >Add Projects</p>
+      </div>
+    </div> 
     } </DialogTrigger>
   <DialogContent>
     <DialogHeader>
