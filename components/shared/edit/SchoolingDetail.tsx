@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Brain, GraduationCap, MoreVerticalIcon, Plus, School, Trash } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Schooling from "../schooling/Schooling";
 import {
   deletSchoolWithId,
@@ -25,6 +25,13 @@ type SchoolDetailingProps = {
 
 const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
   const handleSchoolDelte = async (deleteId: string) => {
+
+    const SchoolButton = useRef<any>(null);
+
+    const handleSchoolButton=()=>{
+      SchoolButton.current.click();
+    }
+
     const deleted = await deletSchoolWithId({
       schoolId: school[0]._id,
       deleteId: deleteId,
@@ -45,35 +52,38 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
   };
 
   return (
-    <div className="w-full min-h-screen">
-      <div className="h-20 w-full border-b flex justify-center  px-12 flex-col">
+    <div className="w-full min-h-screen overflow-hidden">
+      <div className="h-20 w-full border-b flex justify-center  md:px-12 px-4 flex-col">
         <div>
-          <h1 className="text-lg font-semibold text-zinc-800">
+          <h1 className="md:text-lg text-sm md:font-semibold font-medium text-zinc-800">
             Qualification Information
           </h1>
-          <p className="text-sm font-normal text-zinc-600">
+          <p className="md:text-sm text-[12px] font-normal text-zinc-500">
             Update your schooling information{" "}
           </p>
         </div>
       </div>
 
-      <div className="pt-8 px-12  flex-wrap border-b bg-slate-50 pb-10">
+      <div className="pt-8 md:px-12 px-4 flex-wrap border-b bg-slate-50 pb-10">
         {school.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">
               <div>
-                <h1 className="text-xl font-semibold">Schooling</h1>
-                <p className="text-sm text-zinc-500 mb-4">
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">Schooling</h1>
+                <p className="md:text-sm text-zinc-500 mb-4 text-[10px] ">
                   Your Schooling information given below
                 </p>
               </div>
               <div>
                 <Button>
                   <Plus color="white" strokeWidth={1.75} size={18} />
-                  <Schooling type="ADD" userId={userId} key={userId} />
+                  <div className="hidden md:block" >
+                  <Schooling  type="ADD" userId={userId} key={userId} />
+                  </div>
                 </Button>
               </div>
             </div>
+            <div className="flex gap-3 flex-wrap" >
             {school[0].school.map((curr: ISchool) => {
               return (
                 <div className="min-h-[150px] w-[300px] bg-white rounded-lg px-4 py-4 shadow-[0px_20px_83px_10px_#f7fafc]">
@@ -118,28 +128,33 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
                 </div>
               );
             })}
-          </div>
+
+            </div>
+                     </div>
         )}
       </div>
       {/*  COLLEGE COMPONENT SECTION */}
 
-      <div className="pt-8 px-12  flex-wrap border-b bg-slate-50 pb-10">
+      <div className="pt-8 md:px-12 px-4  flex-wrap border-b bg-slate-50 pb-10">
         {college.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">
               <div>
-                <h1 className="text-xl font-semibold">College</h1>
-                <p className="text-sm text-zinc-500 mb-4">
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">College</h1>
+                <p className="md:text-sm text-[10px] text-zinc-500 mb-4">
                   Your College information given below
                 </p>
               </div>
               <div>
                 <Button>
                   <Plus color="white" strokeWidth={1.75} size={18} />
-                  <College type="ADD" userId={userId} key={userId} />
+                 <div className="hidden md:block" >
+                 <College type="ADD" userId={userId} key={userId} />
+                 </div>
                 </Button>
               </div>
             </div>
+            <div className="flex gap-4 flex-wrap" >
             {college[0].college.map((curr: ICollege) => {
               return (
                 <div className="min-h-[150px] w-[300px] bg-white rounded-lg px-4 py-4 shadow-[0px_20px_83px_10px_#f7fafc]">
@@ -186,6 +201,7 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
                 </div>
               );
             })}
+            </div>
           </div>
         )}
       </div>

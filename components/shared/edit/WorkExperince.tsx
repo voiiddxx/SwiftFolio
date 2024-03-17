@@ -24,36 +24,39 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
 }
 
   return (
-    <div className="w-full min-h-screen bg-slate-50">
-      <div className="h-20 w-full border-b flex justify-center  px-12 flex-col">
+    <div className="w-full min-h-screen ">
+      <div className="h-20 w-full border-b flex justify-center  md:px-12 px-4 flex-col border-r">
         <div>
-          <h1 className="text-lg font-semibold text-zinc-800">
+          <h1 className="md:text-lg text-sm md:font-semibold font-medium text-zinc-800">
             Work Experience
           </h1>
-          <p className="text-sm font-normal text-zinc-600">
+          <p className="md:text-sm text-[10px] font-normal text-zinc-600">
             Update your work information
           </p>
         </div>
       </div>
 
-      <div className="pt-8 px-12  flex-wrap border-b bg-slate-50 pb-10">
+      <div className="pt-8 md:px-12 px-4  flex-wrap border-b bg-slate-50 pb-10">
         {work.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">
               <div>
-                <h1 className="text-xl font-semibold">Work</h1>
-                <p className="text-sm text-zinc-500 mb-4">
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">Work</h1>
+                <p className="md:text-sm text-[10px] text-zinc-500 mb-4">
                   Your Schooling information given below
                 </p>
               </div>
               <div>
                 <Button>
                   <Plus color="white" strokeWidth={1.75} size={18} />
+                  <div className='hidden md:block' >
                   <WorkForm type="ADD" userId={userId} key={userId} />
+                  </div>
                 </Button>
               </div>
             </div>
-            {work[0].work.map((curr: IWork) => {
+           <div className='flex gap-4 flex-wrap' >
+           {work[0].work.map((curr: IWork) => {
               return (
                 <div className="min-h-[150px] w-[300px] bg-white rounded-lg px-4 py-4 shadow-[0px_20px_83px_10px_#f7fafc]">
                   <div className="flex justify-between items-center" >
@@ -96,7 +99,8 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
                   </p>
                 </div>
               );
-            })}
+          })}
+           </div>
           </div>
         )}
       </div>

@@ -34,21 +34,23 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
   let projects = [1,2]
   return (
     <div className='min-h-screen w-full' >
-           <div className='h-20 w-full border-b flex justify-between items-center  px-12 ' >
+           <div className='h-20 w-full border-b flex justify-between items-center  md:px-12 px-4 ' >
                <div>
-               <h1 className='text-lg font-semibold text-zinc-800' >Edit Your Projects</h1>
-                <p className='text-sm font-normal text-zinc-600' >Please fill information below given</p>
+               <h1 className='md:text-lg text-sm md:font-semibold font-medium text-zinc-800' >Projects</h1>
+                <p className='md:text-sm text-[10px] font-normal text-zinc-600' >Please fill information below given</p>
                </div>
 
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
                         <Plus size={18} />
-                        <Addproject type='ADD' useridclerk={useId}  />
+                        <div className='hidden md:block' >
+
+                        </div>
                     </Button>
                </div>
                 </div>
 
-                <div className='w-full min-h-screen px-12 py-8 flex flex-wrap gap-4 bg-slate-50' >
+                <div className='w-full min-h-screen md:px-12 px-4 py-8 flex flex-wrap gap-4 bg-slate-50' >
                 {
                    Projects.length < 1 ? <div className='w-full h-full flex justify-center items-center'  >
                     <h1>No Project Found</h1>
@@ -62,9 +64,9 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                                 <h1 className='text-lg mt-2 font-medium text-violet-700' >{curr.projectname}</h1>
                                 <p className='text-[11px] text-zinc-500 leading-5 tracking-wide' >{curr.projectdetail}</p>
 
-                                <div className='flex justify-between items-center mt-6' > 
-                                <div className='bg-yellow-200 px-2  rounded-full' >
-                                    <p className='text-yellow-800 text-[10px] ' >{curr.projectstatus}</p>
+                                <div className='flex justify-between items-center mt-4' > 
+                                <div className=' px-2  rounded-full' >
+                                    <p className='text-violet-700 text-[10px] ' > {curr.projectstatus}</p>
                                     </div>
                                     <div>
                                     <Popover>

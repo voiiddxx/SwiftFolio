@@ -29,15 +29,14 @@ const CustomDetailing = ({ data }: CustomProps) => {
     };
     getCustomData();
   }, []);
-  const res = [6, 6, 6];
   return (
-    <div className="min-h-screen w-full">
-      <div className="h-20 w-full border-b flex justify-between items-center  px-12 ">
+    <div className="min-h-screen w-full overflow-hidden">
+      <div className="h-20 w-full border-b flex justify-between items-center md:px-12 px-4 ">
         <div>
-          <h1 className="text-lg font-semibold text-zinc-800">
-            Edit Your Projects
+          <h1 className="md:text-lg text-sm md:font-semibold font-medium text-zinc-800">
+            Custom
           </h1>
-          <p className="text-sm font-normal text-zinc-600">
+          <p className="md:text-sm text-[10px] font-normal text-zinc-600">
             Please fill information below given
           </p>
         </div>
@@ -45,13 +44,16 @@ const CustomDetailing = ({ data }: CustomProps) => {
         <div className="flex">
           <Button className="flex items-center gap-2">
             <Plus size={18} />
-            <CustomForm type="ADD" useridclerk={data} />
+           <div className="hidden md:block" >
+           <CustomForm type="ADD" useridclerk={data} />
+
+           </div>
           </Button>
         </div>
       </div>
 
       {/* CUSTOM HEADINGS SECTION */}
-      <div className="w-full  flex gap-4 px-12 pt-4 flex-wrap ">
+      <div className="w-full  flex gap-4 md:px-12 px-4 pt-4 flex-wrap ">
         {custom.map((curr: any, index: any) => {
           return (
             <div>
@@ -96,11 +98,19 @@ const CustomDetailing = ({ data }: CustomProps) => {
                         size={18}
                       />
                     </div>
-                    <MoreVerticalIcon
-                      className="text-zinc-500"
-                      strokeWidth={1.5}
-                      size={15}
-                    />
+                    <Popover>
+                      <PopoverTrigger>
+                        <MoreVerticalIcon className="text-zinc-600" size={17} />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="h-16 border-b flex gap-2 items-center">
+                          <CustomForm type="EDIT" useridclerk={data} customId={curr._id} key={curr._id} />
+                        </div>
+                        <div className="h-16 border-b flex gap-2 items-center">
+                          <DeleteSection deleteId={curr._id} type="COMPLETE SINGLE CUSTOM" />
+                        </div>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                   <div>
                     <h1 className="text-sm font-medium mt-4">{curr.heading}</h1>
@@ -120,11 +130,11 @@ const CustomDetailing = ({ data }: CustomProps) => {
       <div>
         {custom.map((card: any) => {
           return (
-            <div className=" border-b mx-12 pb-8" >
+            <div className=" border-b md:mx-12 px-4 pb-8" >
               <div className="h-20 w-full  mt-8">
-                <h1 className="text-lg font-medium text-zinc-800">
+                <h1 className="md:text-lg font text-sm-medium text-zinc-800">
                     {card.heading}</h1>
-                <p className="text-sm font-normal text-zinc-600">
+                <p className="md:text-sm text-[10px] font-normal text-zinc-600">
                   Explore Your All Design Section
                 </p>
               </div>
@@ -163,7 +173,7 @@ const CustomDetailing = ({ data }: CustomProps) => {
                     </div>
                   );
                 })}
-                <div className="h-[250px] w-[300px]  rounded-sm border-[2px] border-zinc-300 border-dashed flex flex-col justify-center items-center px-12">
+                <div className="h-[250px] w-[300px]  rounded-sm border-[2px] border-zinc-300 border-dashed flex flex-col justify-center items-center md:px-12 px-4">
                   <div className="h-14 w-14 bg-violet-700 rounded-full flex justify-center items-center">
                     <CustomFieldform
                       type="ADD"

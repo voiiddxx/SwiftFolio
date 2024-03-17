@@ -47,16 +47,19 @@ const SkillDetail = ({data} : SkillDetailPropss) => {
      <div className='min-h-screen w-full' >
         
     <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
-        <div className='h-20 w-full border-b flex justify-between items-center  px-12 ' >
+        <div className='h-20 w-full border-b flex justify-between items-center  md:px-12 px-4 ' >
                <div>
-               <h1 className='text-lg font-semibold text-zinc-800' >Customize Your Skills</h1>
-                <p className='text-sm font-normal text-zinc-600' >Please fill information below given</p>
+               <h1 className='md:text-lg text-sm md:font-semibold font-medium text-zinc-800' >Your Skills</h1>
+                <p className='md:text-sm text-[10px] font-normal text-zinc-600' >Please fill information below given</p>
                </div>
 
                <div className='flex' >
                     <Button className='flex items-center gap-2' >
                         <Plus size={18} />
-                        <Addskill userclerkId={data} />
+                       <div className='hidden md:block' >
+                       <Addskill userclerkId={data} />
+
+                       </div>
                     </Button>
                </div>
                 </div>
@@ -66,11 +69,11 @@ const SkillDetail = ({data} : SkillDetailPropss) => {
 
                {
                 SkillsRes.length && (
-                    <div className='flex gap-4 px-12 flex-wrap'  >
+                    <div className='flex gap-4 md:px-12 px-4 flex-wrap'  >
                     {
                         SkillsRes[0].allSkill.map((curr:any)=>{
-                            return <div className='bg-violet-700 px-4 mt-4 py-2 rounded relative'>
-                                        <h1 className='text-white' >{curr.userSkill}</h1>
+                            return <div className='md:bg-violet-700 bg-violet-300 md:px-4 mt-4 md:py-2 px-2 py-1 rounded relative'>
+                                        <h1 className='md:text-white text-violet-800 text-sm md:text-lg' >{curr.userSkill}</h1>
                                         <div className='absolute top-[-7px] h-5 w-5 bg-white rounded-full right-[-7px] border-[1px] border-zinc-400 flex justify-center items-center' >
                                            <Trash onClick={()=>{
                                             deleteSkill(curr._id);

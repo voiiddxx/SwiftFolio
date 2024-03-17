@@ -13,6 +13,7 @@ import { getSchoolasperClerkId } from '@/lib/actions/school.action'
 import { getCollegeasPerClerkId } from '@/lib/actions/education.action'
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action'
 import WorkExperince from './WorkExperince'
+import Header from '../Header'
 
     type DashBoardProps = {
         userId: any
@@ -66,42 +67,44 @@ const DashBoard = ({userId} : DashBoardProps) => {
     const [sideBarOption, setsideBarOption] = useState<string>("persenol");
 
   return (
-    <div className='min-h-screen w-full px-24' >
-        <div className='h-20 w-full  border-b'></div>
+    <div className='min-h-screen w-full  overflow-hidden' >
+        <div className='w-full  border-b'>
+            <Header/>
+        </div>
         
         {/* edit form componenet places here */}
             {
                 IsAdmin && (
                     
-        <div className='min-h-screen w-full bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] mt-10 border-[1px] border-zinc-300 rounded-lg flex ' >
+        <div className='min-h-screen  bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] mt-10 border-[1px] border-zinc-300 rounded-md flex md:mx-32 mx-4 ' >
         {/* sidebar for section transistions */}
-        <div className='px-1 w-80 bg-white border-r' >
+        <div className=' md:w-80 w-24 bg-white border-r' >
             {/* upper heading of sidebar */}
             <div className='h-20 w-full border-b flex items-center justify-start px-2' >
                 <div className=' flex items-center gap-1' >
                     <Flame/>
-                    <h1 className='text-lg font-semibold' >Sections</h1>
+                    <h1 className='text-md font-semibold hidden md:block' >Sections</h1>
                 </div>
             </div>
 
             {/* all the components below downs */}
             <div onClick={()=>{
                 setsideBarOption("persenol")
-            }} className='h-14 w-full  flex justify-between items-center px-4' >
+            }} className='h-14 w-full  flex justify-between items-center px-4 ' >
                 <div className='flex items-center gap-2' >
                 <User size={17} />
-                <p className='text-sm font-medium' >Personol Data</p>
+                <p className='text-sm font-medium hidden md:block' >Personol Data </p>
                 </div>
-                <p>1</p>
+                
             </div>
             <div onClick={()=>{
                 setsideBarOption("Schooling");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div  className='flex items-center gap-2' >
                 <School size={17} />
-                <p className='text-sm font-medium' >Qualification</p>
+                <p className='text-sm font-medium hidden md:block' >Qualification</p>
                 </div>
-                <p>2</p>
+                
             </div>
             
             <div onClick={()=>{
@@ -109,45 +112,44 @@ const DashBoard = ({userId} : DashBoardProps) => {
             }} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Briefcase size={17} />
-                <p className='text-sm font-medium' >Work Experince</p>
+                <p className='text-sm font-medium md:block hidden' >Work Experince</p>
                 </div>
-                <p>1</p>
+                
             </div>
             <div onClick={()=>{
                 setsideBarOption("Project")
             }} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Boxes size={17} />
-                <p className='text-sm font-medium' >Projects</p>
+                <p className='text-sm font-medium md:block hidden' >Projects</p>
                 </div>
-                <p>5</p>
+                
             </div>
             <div  onClick={()=>{
                 setsideBarOption("Ach");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Trophy size={17} />
-                <p className='text-sm font-medium' >Achievments</p>
+                <p className='text-sm font-medium md:block hidden' >Achievments</p>
                 </div>
-                <p></p>
+                
             </div>
             <div  onClick={()=>{
                 setsideBarOption("Skill");
             }}  className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Network size={17} />
-                <p className='text-sm font-medium' >Skills</p>
+                <p className='text-sm font-medium md:block hidden' >Skills</p>
                 </div>
-                <p></p>
+                
             </div>
             <div  onClick={()=>[
                 setsideBarOption("1")
             ]} className='h-14 w-full  flex justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Gem size={17} />
-                <p className='text-sm font-medium' >Custom Sections</p>
+                <p className='text-sm font-medium md:block hidden' >Custom Sections</p>
                 </div>
-                <p>1</p>
             </div>
             
             

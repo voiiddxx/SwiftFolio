@@ -1,7 +1,4 @@
 "use client"
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { getPortfolioBasedonuserClerkId, updatePortFolio } from '@/lib/actions/portfolio.action'
 import { Edit, Edit2, Mail, User } from 'lucide-react'
 import Image from 'next/image'
@@ -112,17 +109,17 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
       <div className='w-full min-h-screen' >
         
     <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
-                <div className='h-20 w-full border-b flex justify-center  px-12 flex-col' >
-                <h1 className='text-lg font-semibold text-zinc-800' >Edit Your Personol Information</h1>
-                <p className='text-sm font-normal text-zinc-600' >Please fill information below given</p>
+                <div className='h-20 w-full border-b flex justify-center  md:px-12 px-4 flex-col' >
+                <h1 className='md:text-lg  md:font-semibold font-medium text-zinc-800' >Edit Your Personol Information</h1>
+                <p className='md:text-sm text-[12px] font-normal text-zinc-600' >Please fill information below given</p>
                 </div>
 
                 {/* Your assets parts */}
-                <div className='mx-12 mt-8 border-b pb-6' >
-                    <h1 className='text-lg font-medium mb-2' >Your Assets</h1>
+                <div className='md:mx-12 mx-4 mt-8 border-b pb-4' >
+                    <h1 className='md:text-lg text-sm font-medium mb-2' >Your Assets</h1>
 
                     <div className='flex gap-4 flex-wrap' >
-                    <div onClick={handleAvatarClick} className='h-28 w-28 border-[1px] border-zinc-600 p-1  rounded-full relative cursor-pointer' >
+                    <div onClick={handleAvatarClick} className='md:h-28 md:w-28 h-20 w-20 border-[1px] border-zinc-600 p-1  rounded-full relative cursor-pointer' >
                         {
                             avatar != null ? <Image className='h-full w-full object-cover rounded-full' src={avatar} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src={Data.avatar} height={1500} width={1500} alt='avatar' />
                         }
@@ -131,7 +128,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
 
 
                     {/* casual image componenet */}
-                    <div onClick={handleCasualRef} className='h-28 w-28 p-1 border-[1px] border-zinc-700 rounded-full cursor-pointer' >
+                    <div onClick={handleCasualRef} className='md:h-28 md:w-28 h-20 w-20 p-1 border-[1px] border-zinc-700 rounded-full cursor-pointer' >
                     {
                             casusalImage     != null ? <Image className='h-full w-full object-cover rounded-full' src={casusalImage} height={1500} width={1500} alt='avatar' /> : <Image className='h-full w-full object-cover rounded-full' src={Data.resume} height={1500} width={1500} alt='avatar' />
                         }
@@ -144,34 +141,34 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                
                 {/* YOUR PERSENOL INFORMATION */}
 
-                <div className=' pb-4 border-[1px] px-6 py-2 border-zinc-300 rounded-lg mt-6 mx-12' >
+                <div className='pb-4 border-[1px] md:px-4 px-2 py-2 border-zinc-300 rounded-lg mt-4 md:mx-12 mx-4' >
                     <div className=' flex justify-between' >
-                    <h1 className='text-lg font-medium text-zinc-900' >Personol Info</h1>
+                    <h1 className='md:text-lg text-sm font-medium text-zinc-900' >Personol Info</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
-                        <Edit size={15} />
+                        <Edit className='hidden md:block'  size={15} />
                       <PersenolForm type='Persenol'  userId={userId} key={userId}  />
                     </div>
 
                     </div>
-                    <div className='w-full flex justify-between mt-10' >
+                    <div className='w-full flex justify-between mt-10 flex-wrap gap-5' >
                         <div>
-                            <h1 className='text-sm text-zinc-400 font-medium' >Full Name</h1>
+                            <h1 className='text-[10px] md:text-sm text-zinc-400 font-medium' >Full Name</h1>
                             <p className='font-medium text-sm text-zinc-900' >{Data.name}</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Email Address</h1>
+                        <h1 className='text-[10px] md:text-sm text-zinc-400 font-medium' >Email Address</h1>
                             <p className='font-medium text-sm text-zinc-900' >{Data.mailurl}</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                        <h1 className='text-[10px] md:text-sm text-zinc-400 font-medium' >Links</h1>
                             <p className='font-medium text-sm text-zinc-900' >Github</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                        <h1 className='text-[10px] md:text-sm text-zinc-400 font-medium' >Links</h1>
                             <p className='font-medium text-sm text-zinc-900' >Linkedin</p>
                         </div>
                         <div>
-                        <h1 className='text-sm text-zinc-400 font-medium' >Links</h1>
+                        <h1 className='text-[10px] md:text-sm text-zinc-400 font-medium' >Links</h1>
                             <p className='font-medium text-sm text-zinc-900' >External</p>
                         </div>
 
@@ -180,32 +177,32 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
 
 
                 {/* HEADING SECTION */}
-               <div className='px-12 mt-5' >
-               <div className='w-full rounded-lg border-[1px] border-zinc-300 px-6 py-2' >
+               <div className='md:px-12 px-4 mt-5' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-300 md:px-4 px-2 py-2' >
                 <div className=' flex justify-between' >
-                    <h1 className='text-lg font-medium text-zinc-700' >Heading</h1>
+                    <h1 className='md:text-lg text-sm font-medium text-zinc-700' >Heading</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
                        <PersenolForm type='Heading' userId={userId}  key={userId} />
                     </div>
                     </div>
-                    <p className='mt-3 font-medium' >
+                    <p className='mt-3 font-medium text-[12px] md:text-sm' >
                         {Data.heading}
                     </p>
                 </div>
                </div>
 
                {/* ABOUT SECTION COMPONENT */}
-               <div className='px-12 mt-5' >
-               <div className='w-full rounded-lg border-[1px] border-zinc-300 px-6 py-2' >
+               <div className='md:px-12 px-4 mt-5' >
+               <div className='w-full rounded-lg border-[1px] border-zinc-300 md:px-4 px-2 py-2' >
                 <div className=' flex justify-between' >
-                    <h1 className='text-lg font-medium text-zinc-900' >About</h1>
+                    <h1 className='md:text-lg text-sm font-medium text-zinc-900' >About</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >
                         <Edit size={15} />
                      <PersenolForm type='About' userId={userId} key={userId} />
                     </div>
                     </div>
-                    <p className='mt-3 font-normal text-sm leading-5 tracking-wide' >
+                    <p className='mt-3 font-normal md:text-sm leading-5 text-zinc-600 tracking-wide text-[12px]' >
                        {Data.about} 
                     </p>
                 </div>
