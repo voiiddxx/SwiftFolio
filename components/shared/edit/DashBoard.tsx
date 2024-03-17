@@ -14,6 +14,7 @@ import { getCollegeasPerClerkId } from '@/lib/actions/education.action'
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action'
 import WorkExperince from './WorkExperince'
 import Header from '../Header'
+import Image from 'next/image'
 
     type DashBoardProps = {
         userId: any
@@ -76,14 +77,19 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {
                 IsAdmin && (
                     
-        <div className='min-h-screen  bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] mt-10 border-[1px] border-zinc-300 rounded-md flex md:mx-32 mx-4 ' >
+        <div className='min-h-screen  bg-white shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px] md:mt-10 mt-4 border-[1px] border-zinc-300 rounded-md flex md:mx-32 mx-4 ' >
         {/* sidebar for section transistions */}
         <div className=' md:w-80 w-24 bg-white border-r' >
             {/* upper heading of sidebar */}
-            <div className='h-20 w-full border-b flex items-center justify-start px-2' >
+            <div className='h-20 w-full border-b flex items-center md:justify-start justify-center px-2' >
+                <div className='hidden md:block' >
                 <div className=' flex items-center gap-1' >
                     <Flame/>
                     <h1 className='text-md font-semibold hidden md:block' >Sections</h1>
+                </div>
+                </div>
+                <div className='h-12 w-12' >
+                    <Image className='h-full w-full object-contain' src="/logo.svg" height={500} width={500} alt='logo' />
                 </div>
             </div>
 

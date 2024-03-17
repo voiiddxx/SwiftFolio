@@ -117,8 +117,8 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input placeholder="JohnDev" {...field} />
-              </FormControl>
-              <FormDescription>
+              </FormControl> 
+              <FormDescription className='hidden md:block' >
                 This is your public display name.
               </FormDescription>
               <FormMessage />
@@ -134,7 +134,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Input placeholder="johndev@gmail.com" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
                 This is your public display email address.
               </FormDescription>
               <FormMessage />
@@ -153,7 +153,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Input placeholder="githu.com/voiiddxx" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
                 This is your github url link.
               </FormDescription>
               <FormMessage />
@@ -169,7 +169,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Input placeholder="linkedin.com/voiiddxx" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
               This is your linkedin url link.
               </FormDescription>
               <FormMessage />
@@ -188,7 +188,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Input placeholder="blog.com/voiiddxx" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
               This is your additionol url link.
               </FormDescription>
               <FormMessage />
@@ -212,7 +212,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Textarea placeholder='Full Stack Developer...' {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
               This is your public headline for portfolio.
               </FormDescription>
               <FormMessage />
@@ -234,7 +234,7 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
               <FormControl>
                 <Textarea placeholder='Computer Science passionate student , currently in thrid year of engineering...' {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className='hidden md:block' >
               This is your public about for portfolio.
               </FormDescription>
               <FormMessage />

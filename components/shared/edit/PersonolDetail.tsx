@@ -141,7 +141,7 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
                
                 {/* YOUR PERSENOL INFORMATION */}
 
-                <div className='pb-4 border-[1px] md:px-4 px-2 py-2 border-zinc-300 rounded-lg mt-4 md:mx-12 mx-4' >
+                <div className='pb-4 md:border-[1px] md:px-4 px-2 py-2 md:border-zinc-300 rounded-lg mt-4 md:mx-12 mx-4' >
                     <div className=' flex justify-between' >
                     <h1 className='md:text-lg text-sm font-medium text-zinc-900' >Personol Info</h1>
                     <div className='flex border-[1px] border-zinc-400 items-center px-2 py-1 rounded-sm gap-1' >

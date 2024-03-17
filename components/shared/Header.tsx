@@ -30,8 +30,11 @@ const Header = () => {
     </div>
     {/* MobileNav */}
     <div className="sticky top-0 z-50 bg-white flex justify-between px-6 md:hidden" >
-      <div  >
-      <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
+      <div >
+      <div  className="h-16 w-28" >
+    <Image className="h-full w-full object-contain" src="/try.jpg" height={800} width={800} alt='newdata' />
+     
+    </div>
       </div>
       <div className="flex gap-4 items-center" >
       <SignedIn>
@@ -39,7 +42,6 @@ const Header = () => {
       </SignedIn>
       <SignedOut>
         <Link href="/sign-in" >
-          
         <Button size={"lg"} >Signup</Button>
         </Link>
           </SignedOut>
@@ -51,8 +53,8 @@ const Header = () => {
     </div>
     {/* desktop navbat */}
     <div className=" sticky top-0 w-full h-20 py-4 md:px-32  items-center justify-between  border-zinc-200 bg-white text-white z-50 hidden md:flex" > 
-    <div>
-      <Image className="h-40 w-40"  src="/logo.svg" height={800} width={800} alt="logo" />
+    <div  className="h-16 w-28" >
+    <Image className="h-full w-full object-contain" src="/try.jpg" height={800} width={800} alt='newdata' />
      
     </div>
     <div className="flex" >

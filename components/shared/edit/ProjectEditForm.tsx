@@ -103,7 +103,7 @@ const ProjectEditForm = ({projectId}:projectEditProps) => {
           {/* form for the project editing setup */}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mx-12">
-              <div className="flex gap-5 ">
+              <div className="flex gap-5 md:flex-row flex-col">
                 <FormField
                   control={form.control}
                   name="projectname"
