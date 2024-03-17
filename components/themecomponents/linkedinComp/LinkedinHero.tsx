@@ -1,4 +1,4 @@
-
+"use client"
 import Header from '@/components/shared/Header'
 import { Briefcase, Github,  Link, Link2, Linkedin, Mail, School } from 'lucide-react'
 import React from 'react'
@@ -9,6 +9,7 @@ import { ICollege } from '@/lib/database/models/education.model';
 import { IWork } from '@/lib/database/models/work.model';
 import Editbutton from '@/components/shared/edit/Editbutton';
 import LinkedinQualification from './LinkedinQualification';
+import { useRouter } from 'next/navigation';
 
 type LinkedProps = {
     persenolData:any
@@ -24,19 +25,31 @@ type LinkedProps = {
 }
 
 const LinkedinHero = ({persenolData , school , college , work , achivement , project , custom , admin , userId , skills} : LinkedProps) => {
+    // const router = useRouter();
 
 
   return (
     <div className='bg-slate-100' >
-        {/* <Header/> */}
         {
       admin && (
-        <div className='absolute z-10 md:top-24 top-14 right-2 h-20 w-full flex justify-end items-center md:pr-12'>
-          <Editbutton portfolioId={persenolData._id} />
+       <div onClick={()=>{
+        // router.push(`/portfolio/edit/${persenolData.clerkId}`)
+       }} className='absolute top-4 right-4'  >
+        <div className='h-12 rounded-lg w-48 bg-violet-700 flex justify-center items-center' >
+          <p className='text-white' >Edit Your Portfolio</p>
+
         </div>
+         
+       </div>
       )
     }
-        <div className='min-h-screen md:mt-6 rounded-t-sm md:mx-56  bg-white ' >
+
+        
+
+
+        {/* <Header/> */}
+        
+        <div className='min-h-screen md:mt-0 rounded-t-sm md:mx-56  bg-white' >
         
             {/* Cover Image or upper part */}
             <div className='w-full h-52 bg-black relative ' >

@@ -17,8 +17,6 @@ import CustomFieldform from '@/components/shared/custom/CustomFieldform';
 const LinkedInTabs = ({achivement , custom , project , admin , userid} : LinkedinProps) => {
 
 
-    
-    const res = [2,4,5];
   return (
     <div className='min-h-44 px-12 pt-7' >
       <Tabs defaultValue="project" className="">
@@ -32,7 +30,7 @@ const LinkedInTabs = ({achivement , custom , project , admin , userid} : Linkedi
    
     {
         custom.length > 0 && (
-            <div>
+            <div className='flex' >
                 {
                     custom.map((curr:any)=>{
                         return <TabsTrigger value={curr.heading}>{curr.heading}</TabsTrigger>
@@ -63,21 +61,7 @@ const LinkedInTabs = ({achivement , custom , project , admin , userid} : Linkedi
                             <ArrowRight className='hover:animate-bounce'  size={15}/>
                         </div>
 
-                        {
-    admin===true ?  <div className='w-full flex justify-between'>
-      
-    <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
-                <Edit size={15}/>
-                {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
-                <Addproject type='EDIT'  useridclerk={userid} projectId={curr._id}/>
-              </div>
-              
-              <div className='px-2 mx-3 bg-gray-700 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
-                <Trash size={15}/>
-                <DeleteSection type='PROJECT' deleteId={curr._id} />
-              </div>
-    </div> : <div></div>
-   }
+                       
                     </div>
                 </div>
             })
@@ -90,17 +74,7 @@ const LinkedInTabs = ({achivement , custom , project , admin , userid} : Linkedi
         {
             achivement.map((curr : any)=>{
                 return <div className='w-[300px] relative'  >
-                    {
-                  admin==false ?  <h1></h1>
-               
-                   : <div><div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
-                   <Addachivement type='EDIT' achivementId={curr._id} useridclerk={userid} />
-                   </div>
-                   <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
-                   <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
-                   </div></div>
-
-                }
+                   
                     <div className='h-[250px] w-[300px] rounded-md border-[1px] px-2 py-2' >
                     <div className='h-full w-full bg-red-200 rounded' >
                         <Image className='h-full w-full rounded object-cover'  src={curr.aimage} height={900} width={900} alt='achivement image' />
@@ -125,16 +99,7 @@ const LinkedInTabs = ({achivement , custom , project , admin , userid} : Linkedi
                 <div className='h-[250px] w-[300px] rounded-md border-[1px] px-2 py-2' >
                 <div className='h-full w-full bg-red-200 rounded relative' >
                     <Image className='h-full w-full rounded object-cover'  src={card.customImage} height={900} width={900} alt='achivement image' />
-                    {
-                            admin == true ? <div>
-                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
-                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
-                            </div>
-                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
-                              <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
-                            </div>
-                            </div> : <div></div>
-                           }
+                   
                 </div>
 
             </div>

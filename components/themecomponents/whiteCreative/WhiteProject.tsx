@@ -34,7 +34,7 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
 
                 <div className='w-full flex justify-between items-center'>
                 <div className='h-14 w-24 bg-blue-700 rounded-full'>
-                  <Image className=' h-16 w-24 object-cover rounded-md' src={curr.projectthumbnail} height={50} width={50} alt='project'/>
+                  <Image className=' h-16 w-24 object-cover rounded-md' src={curr.projectthumbnail} height={500} width={500} alt='project'/>
                 </div>
                 <div className='h-6 bg-green-100 bg-opacity-65 flex justify-center items-center pl-2 pr-2 rounded-xl'>
                
@@ -52,22 +52,6 @@ const WhiteProject = async ({data , adminData} : projectstypeProps) => {
                 <div className='mt-5 flex justify-end items-end'>
                   <ArrowRight className='text-blue-500 hover:text-black cursor-pointer' />
                 </div>
-
-                {
-                  adminData===true ?  <div className='w-full flex justify-between'>
-                    
-                  <div className='px-2  mx-3 bg-blue-200 bg-opacity-25 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
-                              <Edit className='text-blue-600' size={15}/>
-                              {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
-                              <Addproject type='EDIT'  useridclerk={user?.id} projectId={curr._id}/>
-                            </div>
-                            
-                            <div className='px-2 mx-3 bg-red-300 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
-                              <Trash className='text-red-600' size={15}/>
-                              <DeleteSection type='PROJECT' deleteId={curr._id} />
-                            </div>
-                  </div> : <div></div>
-                 }
 
               </div>
           </div>

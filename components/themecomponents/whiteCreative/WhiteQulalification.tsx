@@ -66,15 +66,6 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
           <h1 className='text-lg font-medium text-zinc-900  mt-2'>{curr.schoolClass}</h1>
           <p className='text-blue-500 font-normal text-sm mt-2' >{curr.schoolName}</p>
           <p className='text-zinc-600 font-normal md:mr-80 mt-2 text-sm'>{curr.extraDetail}</p>
-
-       {
-        isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700' size={16} />
-        <Trash onClick={()=>{
-            handleSchoolDelte(curr._id);
-        }} className='text-red-800 cursor-pointer' size={16} />
-      </div>)
-       }
       </div>
 
     </div>
@@ -109,17 +100,7 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
                             <p className='text-zinc-500 font-normal text-sm' > {curr.batchStartDate} - {curr.batchEndDate} </p>
                             <h1 className='text-lg font-medium text-zinc-900  mt-2'>{curr.degree}</h1>
                             <p className='text-teal-600 font-normal text-sm mt-2' >{curr.instituteName}</p>
-                            <p className='text-zinc-600 font-normal md:mr-80 mt-2 text-sm'>{curr.extraDetail}</p>
-                            {
-        isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700' size={16} />
-        <Trash  onClick={()=>{
-            alert("called")
-            handleDelete(curr._id);
-        }} className='text-red-800' size={16} />
-      </div>)
-       }
-                        </div>
+                            <p className='text-zinc-600 font-normal md:mr-80 mt-2 text-sm'>{curr.extraDetail}</p>              </div>
                   
                       </div>
                     })
@@ -163,14 +144,7 @@ const WhiteQulalification =  ({userSchool ,  userCollege , userWork , isAdmin} :
           <h1 className='text-lg font-semibold text-zinc-900  mt-2'>{curr.role}</h1>
           <p className='text-blue-700 font-normal text-sm mt-2' >{curr.companyName}</p>
           <p className='text-zinc-600 font-normal md:mr-80 mt-2'>{curr.contribution} </p>
-          {
-        isAdmin && ( <div className='flex gap-4 mt-4' >
-        <Edit className='text-blue-700 ' size={16} />
-        <Trash onClick={()=>{
-            handleWorkDelete(curr._id);
-        }} className='text-red-800 cursor-pointer' size={16} />
-      </div>)
-       }
+          
       </div>
 
     </div>

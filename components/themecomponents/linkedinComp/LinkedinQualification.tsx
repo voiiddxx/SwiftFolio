@@ -59,17 +59,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
                            
 
                         </div>
-                        {
-                                admin && (
-                                    <div className="w-full flex justify-end" >
-                                        <div onClick={()=>{
-                                            handleSchoolDelte(curr._id)
-                                        }} className="mb-3">
-                                            <Trash className="text-red-600" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
+                       
                         </div>
                     })
                 }
@@ -98,17 +88,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
 
                         </div>
 
-                        {
-                                admin && (
-                                    <div className="w-full flex justify-end" >
-                                        <div onClick={()=>{
-                                            handleDelete(curr._id)
-                                        }}  className="mb-3">
-                                            <Trash className="text-red-600" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
+                      
                         </div>
                     })
                 }
@@ -145,17 +125,7 @@ const LinkedinQualification = ({college , school , work , admin} : QualiParams) 
 
                         </div>
 
-                        {
-                                admin && (
-                                    <div className="w-full flex justify-end" >
-                                        <div onClick={()=>{
-                                            handleWorkDelete(curr._id)
-                                        }}  className="mb-3">
-                                            <Trash className="text-red-600" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
+                        
                         </div>
                     })
                 }
