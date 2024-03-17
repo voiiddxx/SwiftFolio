@@ -70,7 +70,7 @@ const Hero = () => {
   const router = useRouter();
   // bg-MobileMailBgImage
   return (
-   <div className="bg-white bg-dot-black/[0.2]" >
+   <div className="bg-white" >
     <Header/>
     <div className=" px-4  w-full flex flex-col items-center justify-start pb-24">
       {/* hEADING PART */}
