@@ -21,8 +21,8 @@ const DarkCustom = ( {customData , IsAdmin} : customProps) => {
                     curr.data.length < 1 ? <div></div> :
                     <div>
                         <div className='w-full flex justify-center items-center flex-col gap-1'>
-                            <h1 className='text-xl text-green-300 font-bold' >{curr.heading}</h1>
-                            <p className='font-light text-zinc-500'>This is custom section subtitle</p>
+                            <h1 className='text-xl text-green-300 font-medium' >{curr.heading}</h1>
+                            <p className='font-light text-sm text-zinc-500'>This is custom section subtitle</p>
                         </div>
 
                        <div className='w-full flex justify-center items-center gap-4 flex-wrap'>
@@ -34,16 +34,6 @@ const DarkCustom = ( {customData , IsAdmin} : customProps) => {
                                   
                                
                             <Image className='h-[300px] w-full object-cover rounded-md grayscale hover:grayscale-0' src={card.customImage} height={300} width={300} alt='customsectionimage'/>
-                           {
-                            IsAdmin == true ? <div>
-                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
-                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk="550"  />
-                            </div>
-                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
-                              <DeleteSection deleteId={curr._id}  additionsId={card._id} type='CUSTOM'/>
-                            </div>
-                            </div> : <div></div>
-                           }
                             <div className='h-12 w-full mt-5 bg-gray-600 bg-opacity-20 rounded-md flex justify-between items-center px-4'>
                             
                             <p className='font-light text-zinc-400'>{card.customTitle}</p>

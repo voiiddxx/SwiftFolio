@@ -3,6 +3,7 @@
 import { createPortfolioparams, updatePortFolioParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import Portfolio from "../database/models/portfolio.model";
+import { sendMail } from "../mail";
 
 
 
@@ -12,8 +13,18 @@ export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
     try {           
         await connectToDatabase();
         const newPortfolio = await Portfolio.create({...portfolio});
-        console.log("this is new ",newPortfolio);
-        
+            if(newPortfolio){
+                await sendMail({
+                    name:'SwiftFolio',
+                    to:portfolio.mailurl,
+                    subject:'Welcome to SwiftFolio',
+          
+                    body:`
+                    <h1>Hello Nikhil Welcome to the swiftfolio</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora sint accusantium, ipsum vitae sed adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias commodi corporis totam minus, doloribus debitis ea inventore excepturi sapiente architecto atque iure aperiam magnam cupiditate, distinctio reprehenderit rem. Ea.</p>`
+                  });
+            }
+
         return JSON.parse(JSON.stringify(newPortfolio));
     } catch (error) {
         console.log(error);
@@ -49,6 +60,8 @@ export const updatePortFolio = async({clerkId , updateData} : updatePortFolioPar
         const UpdatedUser = await Portfolio.findOneAndUpdate(filter , {...updateData} , {
             new:true
         });
+
+        
         if(!UpdatedUser){
             return JSON.parse(JSON.stringify({message:"Some issue occured"}));
         }

@@ -16,7 +16,7 @@ const DarkSkill = ({skills} : any) => {
         return (
             <div className='w-full bg-heroBgImage' >
               <div className='h-20 w-full flex justify-center items-center flex-col'>
-            <h1 className='font-semibold text-2xl mt-3 text-green-300'>Skills That Matters</h1>
+            <h1 className='font-medium text-2xl mt-3 text-green-300'>Skills That Matters</h1>
             <p className='font-light text-sm text-zinc-400'>All the skills that matters out there</p>
               </div>
 

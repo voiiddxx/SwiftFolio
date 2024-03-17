@@ -5,7 +5,7 @@ import { deleteWorkById } from '@/lib/actions/work.action'
 import { ICollege } from '@/lib/database/models/education.model'
 import { ISchool } from '@/lib/database/models/school.model'
 import { IWork } from '@/lib/database/models/work.model'
-import { Blend, BookOpen, Building2, Edit, GraduationCap, School, Target, Trash } from 'lucide-react'
+import { Blend, BookOpen, Building2, Edit, GraduationCap, School, Sun, Target, Trash } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -34,8 +34,6 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
 
   const handleSchoolDelte = async (deleteId:string)=>{
       const deleted = await deletSchoolWithId({schoolId:userSchool[0]._id , deleteId: deleteId});
-
-
   }
 
 
@@ -74,17 +72,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            </div>
            </div>
 
-           {
-                                isAdmin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleSchoolDelte(curr._id)
-                                        }} className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
+          
           </div>
         })
       }
@@ -107,17 +95,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            <p  className='text-zinc-500 text-[12px] ' >{curr.extraDetail}</p>
            </div>
            </div>
-           {
-                                isAdmin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleDelete(curr._id)
-                                        }}  className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
+          
           </div>
         })
       }
@@ -138,7 +116,7 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
           return <div className='flex gap-4 flex-col md:flex-row' >
            <div>
            <div className=' h-12 w-12 bg-zinc-700 bg-opacity-25 rounded-md flex justify-center items-center' >
-            <Blend strokeWidth={1} className='text-indigo-400 h-72'  />
+            <Sun strokeWidth={1} className='text-indigo-400 h-72'  />
            </div>
            </div>
            <div>
@@ -148,18 +126,6 @@ const DarkQualification = ({userwork , userSchool , userCollege , isAdmin} : edu
            <p  className='text-zinc-500 text-[12px] ' >{curr.contribution}</p>
            </div>
            </div>
-           
-           {
-                                isAdmin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleWorkDelete(curr._id)
-                                        }}  className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
           </div>
         })
       }

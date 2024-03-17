@@ -16,20 +16,46 @@ import {
 import MobileNav from "./home/MobileNav"
 import { UserButton } from "@clerk/nextjs"
 import { SignedIn, SignedOut } from "@clerk/clerk-react"
+import { sendMail } from "@/lib/mail"
 
 
 const Header = () => {
 
+    const sendMailNow = async ()=>{
+      try {
+        // await sendMail({
+        //   name:'SwiftFolio',
+        //   to:'nikhildesign00@gmail.com',
+        //   subject:'Welcome to SwiftFolio',
+
+        //   body:`<>
+
+        //   <h1>Hello Nikhil Welcome to the swiftfolio</h1>
+        //   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora sint accusantium, ipsum vitae sed adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias commodi corporis totam minus, doloribus debitis ea inventore excepturi sapiente architecto atque iure aperiam magnam cupiditate, distinctio reprehenderit rem. Ea.</p></>`
+        // })
+      } catch (error) {
+        console.log(error);
+        
+      }
+
+    }
+
+
   
   return (
     <>
-    <div className="h-10 w-full flex justify-center items-center bg-violet-700" >
+    <div onClick={sendMailNow} className="h-10 w-full flex justify-center items-center bg-violet-700" >
     <Flame className="text-white mr-1" size={10} />
       <p className="text-[12px] text-white" >
         Free access to all template to our first 50 coustomer</p>
     </div>
     {/* MobileNav */}
     <div className="sticky top-0 z-50 bg-white flex justify-between px-6 md:hidden" >
+
+
+
+
+
       <div >
       <div  className="h-16 w-28" >
     <Image className="h-full w-full object-contain" src="/try.jpg" height={800} width={800} alt='newdata' />

@@ -17,7 +17,7 @@ const ConversionProject =  async ({admin , projects}:conversionPprojectProps) =>
     <div className='relative' >
        <div className='min-h-screen w-[100%] bg-black absolute top-3/4' ></div>
         {
-            projects.length> 1 && (
+            projects.length && (
                 <div className='min-h-screen w-full md:px-32 pl-4 pt-20' >
         <div>
             <p className='text-xl bg-gradient-to-r from-violet-500 to-orange-500 text-transparent bg-clip-text font-semibold' >PROJECTS</p>
@@ -41,21 +41,7 @@ const ConversionProject =  async ({admin , projects}:conversionPprojectProps) =>
                                     <h1>View Project</h1>
                                     <ArrowRight/>
                                 </div>
-                                {
-                  admin===true ?  <div className='w-full flex justify-between'>
-                    
-                  <div className='px-2  mx-3 bg-blue-200 bg-opacity-25 my-2 py-1 flex justify-center items-center gap-3 rounded-md'>
-                              <Edit className='text-blue-600' size={15}/>
-                              {/* <p className='text-[12px] text-orange-300'>Edit</p> */}
-                              <Addproject type='EDIT'  useridclerk={user?.id} projectId={curr._id}/>
-                            </div>
-                            
-                            <div className='px-2 mx-3 bg-red-300 bg-opacity-20 my-2  py-1 flex justify-center items-center gap-3 rounded-md'>
-                              <Trash className='text-red-600' size={15}/>
-                              <DeleteSection type='PROJECT' deleteId={curr._id} />
-                            </div>
-                  </div> : <div></div>
-                 }
+                               
                             </div>
                         </div>
                     </div>

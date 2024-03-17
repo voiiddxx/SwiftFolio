@@ -1,3 +1,4 @@
+"use client"
 import { Iportfolio } from '@/lib/database/models/portfolio.model'
 import './Darkheroprem.css'
 import Editbutton from '@/components/shared/edit/Editbutton'
@@ -5,26 +6,35 @@ import AiForm from '@/components/shared/AiForm'
 import AiImageForm from '@/components/shared/AiImageForm'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { HeartHandshake } from 'lucide-react'
+import { HeartHandshake, UserRound } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { useId } from 'react'
 
 
   type portfolioProps = {
     data:Iportfolio,
     adminData: boolean
+    userId:any
   }
 
-const DarkpremHero = ({data , adminData} : portfolioProps) => {
+const DarkpremHero = ({data , adminData, userId} : portfolioProps) => {
 
-  
+  const router = useRouter();
   
   
   return (
     <>
     {
       adminData && (
-        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
-          <Editbutton portfolioId={data._id} />
+       <div onClick={()=>{
+        router.push(`/portfolio/edit/${useId}`)
+       }} className='absolute top-4 right-4'  >
+        <div className='h-12 rounded-lg w-48 bg-violet-700 flex justify-center items-center' >
+          <p className='text-white' >Edit Your Portfolio</p>
+
         </div>
+         
+       </div>
       )
     }
     {/* {
@@ -65,7 +75,7 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
 
           <div className="hero-button">
            <Link href={data.linkedinurl}>
-            <Button className='bg-white text-teal-700 font-medium' > <HeartHandshake className='mr-1' /> Connect Now</Button>
+            <Button className='bg-white text-teal-700 font-medium' >  Connect With Me ⚡</Button>
            </Link>
             <a href={data.githuburl}>
             <div className="github-button">
@@ -76,10 +86,10 @@ const DarkpremHero = ({data , adminData} : portfolioProps) => {
         
       </div>
       <div className='w-full flex flex-wrap items-center justify-center gap-8 text-teal-300 mt-16 ' >
-        <p className='text-green-300' >-NextJs</p>
-        <p className='text-red-300'>-ReactJs</p>
-        <p>-TypeScript</p>
-        <p className='text-yellow-300' >-Flutter</p>
+        <p className='text-green-300' >Linkedin</p>
+        <p className='text-red-300'>Github</p>
+        <p>Email</p>
+        <p className='text-yellow-300' >Additiniols</p>
       </div>
     </div>  
   </div>

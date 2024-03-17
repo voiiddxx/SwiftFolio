@@ -1,5 +1,7 @@
+"use client"
 import Editbutton from '@/components/shared/edit/Editbutton'
 import { ArrowRightIcon, Dot, Github, Linkedin, Radio, Twitter } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 type whiteHeroProps = {
@@ -7,13 +9,20 @@ type whiteHeroProps = {
   adminData: boolean
 }
 const WhiteHero = ({data , adminData} : whiteHeroProps) => {
+  const router = useRouter();
   return (
     <>
-    {
+     {
       adminData && (
-        <div className='absolute top h-20 w-full flex justify-end items-center pr-12'>
-          <Editbutton portfolioId={data._id} />
+       <div onClick={()=>{
+        router.push(`/portfolio/edit/${data.clerkId}`)
+       }} className='absolute top-4 right-4'  >
+        <div className='h-12 rounded-lg w-48 bg-violet-700 flex justify-center items-center' >
+          <p className='text-white' >Edit Your Portfolio</p>
+
         </div>
+         
+       </div>
       )
     }
     <div className='min-h-screen w-full bg-whiteCreativeBGImage flex justify-center items-start md:pl-56 flex-col'>

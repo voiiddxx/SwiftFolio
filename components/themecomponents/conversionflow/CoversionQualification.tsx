@@ -72,24 +72,8 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                        
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' >{curr.finalYear}</p>
-                                            {
-                                admin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleSchoolDelte(curr._id)
-                                        }} className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
-                            {
-                                admin == false && (
-                                    <div>
-                                        <ArrowUpRight size={15} />
-                                    </div>
-                                )
-                            }
+                                         
+                           
                                             
                                         </div>
                                 </div>
@@ -118,24 +102,7 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                         {/* right div */}
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' >{curr.batchStartDate} - {curr.batchEndDate}</p>
-                                            {
-                                admin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleDelete(curr._id)
-                                        }} className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
-                            {
-                                admin == false && (
-                                    <div>
-                                        <ArrowUpRight size={15} />
-                                    </div>
-                                )
-                            }
+                                      
                                         </div>
                                 </div>
                                 }
@@ -182,24 +149,6 @@ const CoversionQualification = ({ admin , college , school , work} : converSionQ
                                         {/* right div */}
                                         <div className=' flex' >
                                             <p className='text-sm md:text-xl font-medium text-zinc-600 mt-8' > {curr.startDate} - {curr.endDate}</p>
-                                            {
-                                admin && (
-                                    <div className="w-full flex justify-start" >
-                                        <div onClick={()=>{
-                                            handleWorkDelete(curr._id)
-                                        }} className="mb-3">
-                                            <Trash className="text-red-300" size={15} />
-                                        </div>
-                                    </div>
-                                )
-                            }
-                            {
-                                admin == false && (
-                                    <div>
-                                        <ArrowUpRight size={15} />
-                                    </div>
-                                )
-                            }
                                         </div>
                                 </div>
                                 }

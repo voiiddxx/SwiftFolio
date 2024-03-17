@@ -41,16 +41,6 @@ const ConversionCustom = async ({admin , custom}:conversionCustomprops) => {
                                                             <p className='font-medium text-zinc-300' >Visit</p>
                                                             <ArrowRight className='text-zinc-300'  size={15}/>
                                                         </div>
-                                                        {
-                            admin == true ? <div>
-                               <div className='h-8 w-8 bg-white absolute top-2 right-2 rounded-md flex justify-center items-center pt-1' >
-                              <CustomFieldform customId={curr._id} type='EDIT' useridclerk={user?.id}  />
-                            </div>
-                            <div className='h-8 w-8 bg-white absolute top-2 right-12 rounded-md flex justify-center items-center pt-1' >
-                              <DeleteSection deleteId={curr._id}  additionsId={curr._id} type='CUSTOM'/>
-                            </div>
-                            </div> : <div></div>
-                           }
                                                     </div>
                                                 </div>
                                             })

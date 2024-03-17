@@ -32,17 +32,7 @@ const Conversionachivement = async ({achivement , admin} : conversionAchivementP
                     <p className='text-white text-sm' >Explore</p>
                     <ArrowRight className='text-white' size={15} />
                   </div>
-                  {
-                  admin==false ?  <h1></h1>
-               
-                   : <div  ><div className='h-8 w-8 bg-white absolute  top-2 right-2 rounded-md flex items-center justify-center'>
-                   <Addachivement type='EDIT' achivementId={curr._id} useridclerk={user?.id} />
-                   </div>
-                   <div className='h-8 w-8 bg-white absolute  top-2 right-12 rounded-md flex items-center justify-center'>
-                   <DeleteSection deleteId={curr._id} type='ACHIVEMENT'/>
-                   </div></div>
-
-                }
+                 
   
               </div>
             })
