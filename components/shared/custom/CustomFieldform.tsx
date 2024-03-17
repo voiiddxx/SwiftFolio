@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { addCustomFieldtoDatabase } from '@/lib/actions/custom.action'
 import uploadDataonCloudinary from '../Cloudinary'
-import { Edit, Loader2 } from 'lucide-react'
+import { Edit, Loader2, Plus } from 'lucide-react'
 import { Toaster, toast } from 'sonner'
 
 
@@ -76,7 +76,9 @@ const CustomFieldform = ({useridclerk , customId , heading , type} : CustomField
     <div>
         <Dialog>
     {
-      type=='ADD' ? <DialogTrigger>Add {heading}</DialogTrigger> : <DialogTrigger>
+      type=='ADD' ? <DialogTrigger className='flex justify-center items-center' > 
+        <Plus size={25} className='text-white' />
+      </DialogTrigger> : <DialogTrigger>
         <Edit color='black' size={18}/>
       </DialogTrigger> 
     }

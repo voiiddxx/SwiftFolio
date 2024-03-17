@@ -120,8 +120,8 @@ const CustomDetailing = ({ data }: CustomProps) => {
       <div>
         {custom.map((card: any) => {
           return (
-            <div className=" border-b mx-12 pb-8    " >
-              <div className="h-20 w-full px-12 mt-8">
+            <div className=" border-b mx-12 pb-8" >
+              <div className="h-20 w-full  mt-8">
                 <h1 className="text-lg font-medium text-zinc-800">
                     {card.heading}</h1>
                 <p className="text-sm font-normal text-zinc-600">
@@ -149,17 +149,11 @@ const CustomDetailing = ({ data }: CustomProps) => {
                               size={17}
                             />
                           </PopoverTrigger>
-                          <PopoverContent>
-                            <div className="h-16 border-b flex gap-2 items-center">
-                              <CustomFieldform
-                                customId={curr._id}
-                                type="EDIT"
-                                useridclerk={data}
-                              />
-                            </div>
-                            <div className="h-16 border-b flex gap-2 items-center">
-                              <DeleteSection
-                                deleteId={curr._id}
+                          <PopoverContent className="w-40" >
+                            <div className="h-16 flex gap-2 items-center">
+                            <DeleteSection
+                                deleteId={card._id}
+                                additionsId={curr._id}
                                 type="CUSTOM"
                               />
                             </div>

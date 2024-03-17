@@ -21,7 +21,6 @@ import { deleteWorkById } from '@/lib/actions/work.action'
 const WorkExperince = ({userId , work}:WorkExperinceProps) => {
   const handleWorkDelete = async  (workDeleteId : string)=>{
     const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
-    
 }
 
   return (
@@ -50,7 +49,7 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
               <div>
                 <Button>
                   <Plus color="white" strokeWidth={1.75} size={18} />
-                  {/* <Schooling type="ADD" userId={userId} key={userId} /> */}
+                  <WorkForm type="ADD" userId={userId} key={userId} />
                 </Button>
               </div>
             </div>
