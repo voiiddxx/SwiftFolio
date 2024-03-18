@@ -7,6 +7,7 @@ import DarkSkill from "@/components/themecomponents/darkpremium/DarkSkill"
 import Darkachivement from "@/components/themecomponents/darkpremium/Darkachivement"
 import Darkfooter from "@/components/themecomponents/darkpremium/Darkfooter"
 import DarkpremHero from "@/components/themecomponents/darkpremium/DarkpremHero"
+import { Button } from "@/components/ui/button"
 import { getAcheivemtUSingClerkid } from "@/lib/actions/achivement.action"
 import { getCustomSection } from "@/lib/actions/custom.action"
 import { getCollegeasPerClerkId } from "@/lib/actions/education.action"
@@ -16,6 +17,9 @@ import { getSchoolasperClerkId } from "@/lib/actions/school.action"
 import { getSkillUsingclerkId } from "@/lib/actions/skill.action"
 import { getWorkExperinceAsPerclerkId } from "@/lib/actions/work.action"
 import { currentUser } from "@clerk/nextjs"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 
 
@@ -43,7 +47,24 @@ const page = async ({
   
   
 
-  
+  console.log("this is value of portfolio",portfolio);
+    if(portfolio.length == 0){
+      return <div className=" min-h-screen w-full bg-white flex flex-col justify-center items-center px-10 ">
+       <div className="h-[450px] w-[450px] object-cover" >
+       <Image className="w-full h-full object-cover" src="https://res.cloudinary.com/dwkmxsthr/image/upload/v1710736851/sfnlandxnafe2lr448be.jpg" height={1000} width={1000} alt="error image" />
+       </div>
+       <div className=" flex justify-center items-center flex-col" > 
+      <h1 className="text-4xl font-semibold text-violet-700" >Opps!</h1>
+      <p className="text-xl font-normal text-center mt-2 text-zinc-600" >Seems Like Your Haven't Crrated Your Portfolio</p>
+      <div className=" flex gap-2 mt-4" >
+        <Link href="/" ><Button size={"lg"} variant={"outline"} >Go to Home Page</Button></Link>
+        <Link href="/portfolio/create" ><Button size={"lg"}  >Create Your Portfolio</Button></Link>
+      </div>
+
+       </div>
+        
+      </div>
+    }
   
   const admin = portfolio[0].clerkId===user?.id;
   

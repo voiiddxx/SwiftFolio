@@ -22,7 +22,7 @@ const MobileNav = () => {
       <div>
       <div className=" sticky top-0 bg-white flex justify-between px-2 md:hidden border-b" >
       <div  >
-      <Image className="h-20 w-32"  src="/logo.svg" height={800} width={800} alt="logo" />
+      <Image className="h-10 w-10"  src="/logo.svg" height={800} width={800} alt="logo" />
       </div>
       <div className="flex gap-4 items-center" >
       <SignedIn>

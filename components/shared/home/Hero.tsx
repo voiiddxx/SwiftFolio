@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import Header from "../Header";
-import { CheckCheck, Ghost, Radio, Zap } from "lucide-react";
+import { ArrowRight, CheckCheck, Ghost, Radio, Zap } from "lucide-react";
 import Footer from "../Footer";
 import Link from "next/link";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
@@ -12,6 +12,7 @@ import ParllaxEffectLanding from "./ParllaxEffectLanding";
 import Testimoniol from "./Testimoniol";
 import Questions from "./Questions";
 import Feedback from "./Feedback";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Hero = () => {
 
@@ -83,10 +84,20 @@ const Hero = () => {
       </div>
       <p className="text-gray-500 md:mr-96 md:ml-96 px-4 text-center font-normal md:text-lg  mt-5 leading-7 text-[14px]" >Swiftfolio is a platform where any individual can create thier portfolio with just one click, and boost their portfolio with creative design  and boost your resume selection proces  </p>
       <div className="flex gap-2 mt-6 mx-16" >
-      <Link href='/sign-in' >  <Button size={"lg"} className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-violet-700  flex items-center" >
+     <SignedOut> <Link href='/sign-up' >  <Button size={"lg"} className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-violet-700  flex items-center" >
           <Zap className="mr-1 text-violet-700"  size={16} />
-          Register Now</p></Button ></Link>
+          Register Now</p></Button ></Link></SignedOut>
+        <SignedOut>
         <Link href="/portfolio/create" ><Button size={"lg"} className="bg-violet-700 text-white hover:bg-zinc-900"  > <Ghost className="mr-1" color="white" size={16} /> Genreate Portfolio</Button></Link>
+        </SignedOut>
+        <SignedIn>
+        <Link href="/template" >
+          <div className="h-16 w-80 rounded-lg bg-violet-600 flex justify-center items-center gap-2" >
+        <p className="text-white font-normal " >Access your portfolio</p>
+        <ArrowRight color="white" strokeWidth={1.5} />
+          </div>
+        </Link>
+        </SignedIn>
       </div>
 
 
