@@ -27,7 +27,7 @@ const DarkpremHero = ({data , adminData, userId} : portfolioProps) => {
     {
       adminData && (
        <div onClick={()=>{
-        router.push(`/portfolio/edit/${useId}`)
+        router.push(`/portfolio/edit/${userId}`)
        }} className='absolute top-4 right-4'  >
         <div className='h-12 rounded-lg w-48 bg-violet-700 flex justify-center items-center' >
           <p className='text-white' >Edit Your Portfolio</p>

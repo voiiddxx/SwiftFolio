@@ -33,7 +33,6 @@ const Conversionachivement = async ({achivement , admin} : conversionAchivementP
                     <ArrowRight className='text-white' size={15} />
                   </div>
                  
-  
               </div>
             })
           }

@@ -17,18 +17,6 @@ import { Briefcase, GraduationCap, School, Trash } from "lucide-react"
 const LinkedinQualification = ({college , school , work , admin} : QualiParams) => {
 
 
-    const handleDelete = async ( deleteId : string) =>{
-          const data = await DeleteCollegeAsPerId({collegeId: college[0]._id , deleteId:deleteId});
-      }
-    
-      const handleSchoolDelte = async (deleteId:string)=>{
-          const deleted = await deletSchoolWithId({schoolId:school[0]._id , deleteId: deleteId});
-      }
-    
-    
-      const handleWorkDelete = async  (workDeleteId : string)=>{
-          const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
-      }
   return (
     <div>
       

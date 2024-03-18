@@ -37,7 +37,7 @@ const AchivementDetail = ({userId} : achivementProps) => {
                </div>
 
                <div className='flex' >
-                    <Button className='flex items-center gap-2' >
+                <Button className='flex items-center gap-2' >
                        <Addachivement type='ADD' useridclerk={userId} />
 
                     </Button>

@@ -64,8 +64,7 @@ const TemplateComponents = () => {
   ]
 
     const {userId} = useAuth();
-    console.log(userId);
-    
+   
 
     const router = useRouter();
     return (
