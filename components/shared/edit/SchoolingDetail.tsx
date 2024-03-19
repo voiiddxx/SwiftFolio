@@ -26,12 +26,7 @@ type SchoolDetailingProps = {
 const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
   const handleSchoolDelte = async (deleteId: string) => {
 
-    const SchoolButton = useRef<any>(null);
-
-    const handleSchoolButton=()=>{
-      SchoolButton.current.click();
-    }
-
+   
     const deleted = await deletSchoolWithId({
       schoolId: school[0]._id,
       deleteId: deleteId,
@@ -45,15 +40,17 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
   };
 
 
-  const renderSchoolForm = ()=>{
-    return <Schooling type="ADD" userId="54" key="46" schoolId={2451} />
-  }
+
 
   const handleDelete = async (deleteId: string) => {
     const data = await DeleteCollegeAsPerId({
       collegeId: college[0]._id,
       deleteId: deleteId,
     });
+    if(data){
+      window.location.reload();
+    }
+
   };
 
   return (

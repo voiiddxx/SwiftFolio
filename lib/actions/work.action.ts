@@ -56,7 +56,10 @@ export const deleteWorkById = async ({ workId , deleteId} : DeleteWorkParams) =>
             },
             'multi':false
         });
-        
+        if(!deleteWork){
+            return JSON.parse(JSON.stringify({message:"Some issue occured"}));
+        }
+        return JSON.parse(JSON.stringify({message:"OK"}));
     } catch (error) {
         console.log(error);
         throw new Error(error as string);

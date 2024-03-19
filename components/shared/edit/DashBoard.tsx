@@ -96,7 +96,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             {/* all the components below downs */}
             <div onClick={()=>{
                 setsideBarOption("persenol")
-            }} className='h-14 w-full  flex justify-between items-center px-4 ' >
+            }} className='h-14 w-full cursor-pointer hover:bg-slate-50  flex justify-center md:justify-between items-center px-4 ' >
                 <div className='flex items-center gap-2' >
                 <User className='text-violet-700' size={17} />
                 <p className='text-sm font-medium hidden md:block' >Personol Data </p>
@@ -105,7 +105,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             </div>
             <div onClick={()=>{
                 setsideBarOption("Schooling");
-            }}  className='h-14 w-full  flex justify-between items-center px-4' >
+            }}  className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div  className='flex items-center gap-2' >
                 <School className='text-violet-700' size={17} />
                 <p className='text-sm font-medium hidden md:block' >Qualification</p>
@@ -115,7 +115,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             
             <div onClick={()=>{
                 setsideBarOption("Work")
-            }} className='h-14 w-full  flex justify-between items-center px-4' >
+            }} className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Briefcase className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Work Experince</p>
@@ -124,7 +124,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             </div>
             <div onClick={()=>{
                 setsideBarOption("Project")
-            }} className='h-14 w-full  flex justify-between items-center px-4' >
+            }} className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Boxes className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Projects</p>
@@ -133,7 +133,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             </div>
             <div  onClick={()=>{
                 setsideBarOption("Ach");
-            }}  className='h-14 w-full  flex justify-between items-center px-4' >
+            }}  className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Trophy className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Achievments</p>
@@ -142,7 +142,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             </div>
             <div  onClick={()=>{
                 setsideBarOption("Skill");
-            }}  className='h-14 w-full  flex justify-between items-center px-4' >
+            }}  className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Network className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Skills</p>
@@ -151,7 +151,7 @@ const DashBoard = ({userId} : DashBoardProps) => {
             </div>
             <div  onClick={()=>[
                 setsideBarOption("1")
-            ]} className='h-14 w-full  flex justify-between items-center px-4' >
+            ]} className='h-14 w-full cursor-pointer hover:bg-slate-200  flex justify-center md:justify-between items-center px-4' >
                 <div className='flex items-center gap-2' >
                 <Gem className='text-violet-700' size={17} />
                 <p className='text-sm font-medium md:block hidden' >Custom Sections</p>

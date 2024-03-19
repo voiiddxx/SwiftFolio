@@ -80,8 +80,6 @@ const PersenolForm = ({type , userId} : persenolFormProps) => {
   <p className='text-sm font-medium' >Edit</p>
   </DrawerTrigger>
   <DrawerContent>
-    
-  <Toaster className='z-30 absolute' position='top-center' richColors duration={2000} />
     <DrawerHeader className='mx-10' >
       <DrawerTitle>
         {

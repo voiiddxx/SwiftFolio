@@ -21,6 +21,12 @@ import { deleteWorkById } from '@/lib/actions/work.action'
 const WorkExperince = ({userId , work}:WorkExperinceProps) => {
   const handleWorkDelete = async  (workDeleteId : string)=>{
     const deleted = await deleteWorkById({workId:work[0]._id , deleteId:workDeleteId});
+
+    if(deleted){
+      window.location.reload();
+    }else{
+      alert("Some issue occured");
+    }
 }
 
   return (

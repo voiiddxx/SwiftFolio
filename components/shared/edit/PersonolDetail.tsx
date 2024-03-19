@@ -25,9 +25,8 @@ const PersonolDetail = ({userId} : persenolDetailprops) => {
         email:"loading@gmail.com",
         avatar:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525817/bfk4wwqosg5khhornwl5.jpg",
         resume:"https://res.cloudinary.com/dwkmxsthr/image/upload/v1710525850/s3hik5lctq2dzqtzvcnk.jpg",
-        heading:"I Am Full Stack Developer || SIH2K23 FInalist || NextJs || Nodejs || MERN",
-        about:" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, quae? Unde adipisci at earum laudantium alias pariatur maxime, placeat iste, voluptates quidem blanditiis culpa veniam velit! Accusamus aperiam non aliquid."
-
+        heading:"Loading Your Data , Please Wait",
+        about:"Loading Your Data , Please Wait"
     })
     
 

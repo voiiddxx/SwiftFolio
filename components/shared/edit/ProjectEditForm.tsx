@@ -30,7 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { AlertTriangle, Edit, Github, Radio, Truck } from "lucide-react";
+import { AlertTriangle, Edit, Github, Loader2, Radio, Truck } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
@@ -197,7 +197,12 @@ const ProjectEditForm = ({projectId}:projectEditProps) => {
                     </FormItem>
                   )}
                 />
-              <Button className="w-full"  type="submit">Submit</Button>
+               <Button disabled={form.formState.isSubmitting} className="w-full" type="submit">
+          {form.formState.isSubmitting ? <div className="flex justify-center items-center gap-2" >
+            <Loader2 className="text-white animate-spin" /> 
+            <p>Please wait..</p>
+          </div> : 'Submit Project' }
+        </Button>
             </form>
           </Form>
 

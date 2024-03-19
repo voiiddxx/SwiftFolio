@@ -3,6 +3,7 @@
 import { DeletCollegeParams, addCollegeParams } from "@/types";
 import connectToDatabase from "../database/mongodb";
 import College from "../database/models/education.model";
+import { Ruthie } from "next/font/google";
 
 export const addCollege =  async ({college , clerkId} : addCollegeParams) => {
     try {
@@ -58,8 +59,11 @@ export const DeleteCollegeAsPerId = async ({collegeId  , deleteId} : DeletColleg
             },
             "multi":false
         });
-        
-        
+
+        if(!allCollege){
+            return JSON.parse(JSON.stringify({message:"Some error while deleting the college"}));
+        }
+        return JSON.parse(JSON.stringify({message:"OK"}));
 
 
     } catch (error) {
