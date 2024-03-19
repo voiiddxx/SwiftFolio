@@ -52,7 +52,7 @@ const ProjectDetailing = ({userId} : ProjectDetailingProps) => {
                 {
                    Projects.length < 1 ? <div className='w-full h-full flex justify-center items-center'  >
                     <h1>No Project Found</h1>
-                   </div> : <div>
+                   </div> : <div className='flex gap-4 flex-wrap' >
                     {
                          Projects.map((curr:any)=>{
                             return <div className='pb-4 w-[300px] bg-white border-[1px] border-zinc-300 rounded-lg px-2 py-2 shadow-[0px_20px_83px_10px_#f7fafc]' >
