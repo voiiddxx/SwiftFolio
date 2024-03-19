@@ -76,6 +76,8 @@ const config = {
         'whiteLogin':"url(/whiteLogin.png)",
         'MobileMailBgImage':"url(/ads.svg)",
         'DottedBgImage':"url(/dotted.png)",
+        'loadingWithText':"url(/loadingbg.svg)",
+        'loadingWithBgOnly':"url(/loadingpng.svg)",
       },
       borderRadius: {
         lg: "var(--radius)",

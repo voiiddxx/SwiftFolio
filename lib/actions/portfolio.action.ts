@@ -10,6 +10,7 @@ import { sendMail } from "../mail";
 
 
 export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
+    
     try {           
         await connectToDatabase();
         const newPortfolio = await Portfolio.create({...portfolio});
@@ -21,7 +22,10 @@ export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
           
                     body:`
                     <h1>Hello Nikhil Welcome to the swiftfolio</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora sint accusantium, ipsum vitae sed adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias commodi corporis totam minus, doloribus debitis ea inventore excepturi sapiente architecto atque iure aperiam magnam cupiditate, distinctio reprehenderit rem. Ea.</p>`
+                    <p>Thankyou for choosing us!,</p>
+                    <p>Now create your portfolio with new minimal and clean ui and boost your resume and other socials with your portfolio links, and don't worry we are adding more design in future </p>
+                    <p>For any Queries please contact at nikhildesign00@gmail.com , you can ping this mail whenever you want , we are 24/7 available for your queries </p>
+                    `
                   });
             }
 
