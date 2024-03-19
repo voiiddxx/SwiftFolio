@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-    type skills = {
+    type skillsProps = {
         skills: any
     }
 
-const DarkSkill = ({skills} : any) => {
+const DarkSkill = ({skills} : skillsProps) => {
 
   
   // return <div></div>

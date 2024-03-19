@@ -13,10 +13,9 @@ import React from 'react'
         IsAdmin: boolean
     }
 
-const Darkachivement = async ( {achivements , IsAdmin} : darkAchivementProps) => {
+const Darkachivement =  ( {achivements , IsAdmin} : darkAchivementProps) => {
   
 
-  const user = await currentUser();
 
 
   

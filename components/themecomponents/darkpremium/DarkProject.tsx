@@ -14,10 +14,9 @@ type projectstypeProps = {
 }
 
 
-const DarkProject = async ({data , adminData} : projectstypeProps) => {
+const DarkProject = ({data , adminData} : projectstypeProps) => {
 
-  const user = await currentUser();
-
+  
 
   
   return (

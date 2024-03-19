@@ -10,6 +10,12 @@ import { getSkillUsingclerkId } from '@/lib/actions/skill.action';
 import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action';
 import React, { useEffect, useState } from 'react'
 import DarkpremHero from './DarkpremHero';
+import DarkQualification from './DarkQualification';
+import DarkProject from './DarkProject';
+import Darkachivement from './Darkachivement';
+import DarkCustom from './DarkCustom';
+import DarkSkill from './DarkSkill';
+import Darkfooter from './Darkfooter';
 
     type darkIndexProps = {
         userId:any
@@ -44,7 +50,7 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     }
 
     //  GETTING WORK OF USER
-    const getWork = async()=>{
+    const getUserWork = async()=>{
         const res = await getWorkExperinceAsPerclerkId(userId);
         if(res){
             console.log(res);
@@ -87,7 +93,7 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getProject = async()=>{
         const res = await getProjectByclerkId(userId);
         if(res){
-            console.log(res);
+            console.log("this is the value of projects",res);
             
             setprojects(res);
         }else{
@@ -102,8 +108,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
         const res = await getAcheivemtUSingClerkid(userId);
         if(res){
             console.log(res);
-            
-            
             setachivements(res);
         }else{
             console.log("Error while getting achivements data");
@@ -140,7 +144,7 @@ const DarkIndex = ({userId} :darkIndexProps) => {
         getPortFolio();
         getUserSchool();
         getUserCollege();
-        getUserSchool();
+        getUserWork();
         getProject();
         getAchivements();
         getCustomData();
@@ -153,6 +157,41 @@ const DarkIndex = ({userId} :darkIndexProps) => {
            {
             portfolio != null ? <div>
                 <DarkpremHero data={portfolio[0]} adminData={admin} userId={userId} key={userId} />
+            </div> : <div>
+                <h1>Opps I think data is loading</h1>
+            </div>
+           }
+           {
+            work != null ? <div>
+                <DarkQualification isAdmin={admin} userCollege={college} userSchool={school} userwork={work} key={userId} />
+            </div> : <div>
+                <h1>Opps I think data is loading</h1>
+            </div>
+           }
+           {
+            projects != null ? <div>
+                <DarkProject adminData={admin} data={projects} key={userId} />
+            </div> : <div>
+                <h1>Opps I think data is loading</h1>
+            </div>
+           }
+           {
+            achivements != null ? <div>
+                <Darkachivement IsAdmin={admin} achivements={achivements} key={userId} />
+            </div> : <div>
+                <h1>Opps I think data is loading</h1>
+            </div>
+           }
+           {
+            custom != null ? <div>
+                <DarkCustom IsAdmin={admin} customData={custom} key={userId} />
+            </div> : <div>
+                <h1>Opps I think data is loading</h1>
+            </div>
+           }
+           {
+            portfolio != null ? <div>
+                <Darkfooter data={portfolio[0]} key={userId} />
             </div> : <div>
                 <h1>Opps I think data is loading</h1>
             </div>
