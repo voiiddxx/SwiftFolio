@@ -37,7 +37,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getPortFolio =async()=>{
         const res = await getPortfolioBasedonuserClerkId(userId);
         if(res){
-            console.log(res);
             if(res[0].clerkId == userId){
                 setadmin(true);
             }
@@ -53,8 +52,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getUserWork = async()=>{
         const res = await getWorkExperinceAsPerclerkId(userId);
         if(res){
-            console.log(res);
-            
             setwork(res);
         }else{
             console.log("Error while getting data of user work experince");
@@ -66,8 +63,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getUserCollege = async()=>{
         const res = await getCollegeasPerClerkId(userId);
         if(res){
-            console.log(res);
-            
             setcollege(res);
         }else{
             console.log("Error while getting data of user college ");
@@ -79,8 +74,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getUserSchool =async()=>{
         const res = await getSchoolasperClerkId(userId);
         if(res){
-            console.log(res);
-            
             setschool(res);
         }else{
             console.log("Error while getting data of user school");
@@ -93,8 +86,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getProject = async()=>{
         const res = await getProjectByclerkId(userId);
         if(res){
-            console.log("this is the value of projects",res);
-            
             setprojects(res);
         }else{
             console.log("Error while getting ptrojects");
@@ -107,7 +98,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getAchivements = async()=>{
         const res = await getAcheivemtUSingClerkid(userId);
         if(res){
-            console.log(res);
             setachivements(res);
         }else{
             console.log("Error while getting achivements data");
@@ -118,8 +108,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getCustomData = async ()=>{
         const res = await getCustomSection(userId);
         if(res){
-            console.log(res);
-            
             setcustom(res);
         }else{
             console.log("Error while getting custom data");
@@ -130,8 +118,6 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     const getSkill = async()=>{
         const res = await getSkillUsingclerkId(userId);
         if(res){
-            console.log(res);
-            
             setSkill(res);
         }else{
             console.log("Error while getting skill data");
