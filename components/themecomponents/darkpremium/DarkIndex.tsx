@@ -144,42 +144,36 @@ const DarkIndex = ({userId} :darkIndexProps) => {
             portfolio != null ? <div>
                 <DarkpremHero data={portfolio[0]} adminData={admin} userId={userId} key={userId} />
             </div> : <div>
-                <h1>Opps I think data is loading</h1>
             </div>
            }
            {
             work != null ? <div>
                 <DarkQualification isAdmin={admin} userCollege={college} userSchool={school} userwork={work} key={userId} />
             </div> : <div>
-                <h1>Opps I think data is loading</h1>
             </div>
            }
            {
             projects != null ? <div>
                 <DarkProject adminData={admin} data={projects} key={userId} />
-            </div> : <div>
-                <h1>Opps I think data is loading</h1>
+            </div> : <div className='min-h-screen w-full bg-zinc-900' >
             </div>
            }
            {
             achivements != null ? <div>
                 <Darkachivement IsAdmin={admin} achivements={achivements} key={userId} />
-            </div> : <div>
-                <h1>Opps I think data is loading</h1>
+            </div> : <div className='min-h-screen w-full bg-zinc-900' >
             </div>
            }
            {
             custom != null ? <div>
                 <DarkCustom IsAdmin={admin} customData={custom} key={userId} />
-            </div> : <div>
-                <h1>Opps I think data is loading</h1>
+            </div> : <div className='min-h-screen w-full bg-zinc-900' >
             </div>
            }
            {
             portfolio != null ? <div>
                 <Darkfooter data={portfolio[0]} key={userId} />
-            </div> : <div>
-                <h1>Opps I think data is loading</h1>
+            </div> : <div className='min-h-screen w-full bg-zinc-900' >
             </div>
            }
         </div>
