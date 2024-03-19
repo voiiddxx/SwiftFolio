@@ -1,26 +1,6 @@
 
-import DarkAbout from "@/components/themecomponents/darkpremium/DarkAbout"
-import DarkCustom from "@/components/themecomponents/darkpremium/DarkCustom"
 import DarkIndex from "@/components/themecomponents/darkpremium/DarkIndex"
-import DarkProject from "@/components/themecomponents/darkpremium/DarkProject"
-import DarkQualification from "@/components/themecomponents/darkpremium/DarkQualification"
-import DarkSkill from "@/components/themecomponents/darkpremium/DarkSkill"
-import Darkachivement from "@/components/themecomponents/darkpremium/Darkachivement"
-import Darkfooter from "@/components/themecomponents/darkpremium/Darkfooter"
-import DarkpremHero from "@/components/themecomponents/darkpremium/DarkpremHero"
-import { Button } from "@/components/ui/button"
-import { getAcheivemtUSingClerkid } from "@/lib/actions/achivement.action"
-import { getCustomSection } from "@/lib/actions/custom.action"
-import { getCollegeasPerClerkId } from "@/lib/actions/education.action"
-import { getPortfolioBasedonuserClerkId } from "@/lib/actions/portfolio.action"
-import { getProjectByclerkId } from "@/lib/actions/project.action"
-import { getSchoolasperClerkId } from "@/lib/actions/school.action"
-import { getSkillUsingclerkId } from "@/lib/actions/skill.action"
-import { getWorkExperinceAsPerclerkId } from "@/lib/actions/work.action"
 import { currentUser } from "@clerk/nextjs"
-import Image from "next/image"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
 
 
 
@@ -68,16 +48,7 @@ const page = async ({
   
   return (
     <div>
-      <DarkIndex userId={user?.id}/>
-      {/* <DarkpremHero data={portfolio[0]} adminData={admin} userId={user?.id} />
-      <DarkAbout data={portfolio[0]}/>
-      <DarkQualification userwork={works} userCollege={colleges} userSchool={schools} isAdmin={admin} />
-      <DarkProject  data={projects} adminData={admin} />
-      <Darkachivement achivements={achivements} IsAdmin={admin} />
-      <DarkCustom customData={customData} IsAdmin={admin} />
-      <DarkSkill skills={skills}/>
-      <Darkfooter data={portfolio[0]} /> */}
-      
+      <DarkIndex userId={user?.id}/> 
     </div>
 
   )

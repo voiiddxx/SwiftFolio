@@ -1,6 +1,10 @@
+import { Loader } from "lucide-react";
+
 export default function Loading(){
-    return <div className="min-h-screen w-full bg-black bg-dot-white/[0.2] flex justify-center items-center flex-col" >
-        <h1 className="md:text-xl text-sm font-medium text-gray-500 mb-2 text-center" >Please Wait</h1>
-        <h1 className="text-2xl md:text-4xl text-white font-bold" >Your Portfolio is rendering</h1>
+    return  <div className="min-h-screen w-full flex justify-center items-center flex-col" >
+    <div className='flex justify-center items-center gap-2' >
+        <Loader className='animate-spin text-violet-700' size={19} />
+        <p className='text-violet-700 animate-pulse font-medium' >Please Wait Your Portfolio is Rendering</p>
     </div>
+</div>
 }

@@ -16,6 +16,7 @@ import Darkachivement from './Darkachivement';
 import DarkCustom from './DarkCustom';
 import DarkSkill from './DarkSkill';
 import Darkfooter from './Darkfooter';
+import { Loader, Rotate3D } from 'lucide-react';
 
     type darkIndexProps = {
         userId:any
@@ -143,9 +144,11 @@ const DarkIndex = ({userId} :darkIndexProps) => {
            {
             portfolio != null ? <div>
                 <DarkpremHero data={portfolio[0]} adminData={admin} userId={userId} key={userId} />
-            </div> : <div className="min-h-screen w-full bg-black bg-dot-white/[0.2] flex justify-center items-center flex-col" >
-        <h1 className="text-xl font-medium text-gray-500 mb-4" >Please Wait</h1>
-        <h1 className="text-4xl text-white font-bold" >Your Portfolio is rendering</h1>
+            </div> : <div className="min-h-screen w-full flex justify-center items-center flex-col" >
+                <div className='flex justify-center items-center gap-2' >
+                    <Loader className='animate-spin text-violet-700' size={19} />
+                    <p className='text-violet-700 animate-pulse font-medium' >Please Wait Your Portfolio is Rendering</p>
+                </div>
     </div>
            }
            {
