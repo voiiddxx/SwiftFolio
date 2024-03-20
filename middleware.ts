@@ -7,6 +7,7 @@ export default authMiddleware({
         '/themes/darkpremium/:id',
         '/themes/whitecreative/:id',
         '/themes/linkedin/:id',
+        '/themes/conversionflow/:id',
         '/api/webhook/clerk'
     ],
     ignoredRoutes:[

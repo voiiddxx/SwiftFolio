@@ -84,7 +84,7 @@ const Hero = () => {
       </div>
       <p className="text-gray-500 md:mr-96 md:ml-96 px-4 text-center font-normal md:text-lg  mt-5 leading-7 text-[14px]" >Swiftfolio is a platform where any individual can create thier portfolio with just one click, and boost their portfolio with creative design  and boost your resume selection proces  </p>
       <div className="flex gap-2 mt-6 mx-16" >
-     <SignedOut> <Link href='/sign-up' >  <Button size={"lg"} className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-violet-700  flex items-center" >
+     <SignedOut> <Link href='/portfolio/create' >  <Button size={"lg"} className="bg-transparent border-indigo-800 hover:border-white hover:bg-white text-white" variant="outline" ><p className="text-violet-700  flex items-center" >
           <Zap className="mr-1 text-violet-700"  size={16} />
           Register Now</p></Button ></Link></SignedOut>
         <SignedOut>
