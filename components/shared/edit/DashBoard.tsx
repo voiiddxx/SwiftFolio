@@ -15,6 +15,7 @@ import { getWorkExperinceAsPerclerkId } from '@/lib/actions/work.action'
 import WorkExperince from './WorkExperince'
 import Header from '../Header'
 import Image from 'next/image'
+import { getPortfolioBasedonuserClerkId } from '@/lib/actions/portfolio.action'
 
     type DashBoardProps = {
         userId: any
@@ -28,8 +29,10 @@ const DashBoard = ({userId} : DashBoardProps) => {
 
     useEffect(()=>{ 
         const CheckingAdminorNot = async()=>{
-            const res = await getProjectByclerkId(userId);
+            const res = await getPortfolioBasedonuserClerkId(userId);
             if(res){
+                console.log("data is fetching fo the user pannel" , res);
+                
                 if(res[0].clerkId == userId){
                     setIsAdmin(true);
                 }

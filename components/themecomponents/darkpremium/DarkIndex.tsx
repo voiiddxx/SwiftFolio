@@ -36,8 +36,11 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     // GETTING DATA OF USER PORTFOLIO
 
     const getPortFolio =async()=>{
+        alert("checking that we are getting uderid pr not" + userId);
         const res = await getPortfolioBasedonuserClerkId(userId);
         if(res){
+            console.log("this is the data of res" , res);
+            alert(`${JSON.stringify(res)}`);
             if(res[0].clerkId == userId){
                 setadmin(true);
             }
