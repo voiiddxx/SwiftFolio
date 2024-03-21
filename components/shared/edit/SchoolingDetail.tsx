@@ -67,6 +67,26 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
       </div>
 
       <div className="pt-8 md:px-12 px-4 flex-wrap border-b bg-slate-50 pb-10">
+
+        {
+          !school.length && (
+            <div className="flex justify-between">
+              <div>
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">Schooling</h1>
+                <p className="md:text-sm text-zinc-500 mb-4 text-[10px] ">
+                  Your Schooling information given below
+                </p>
+              </div>
+              <div>
+                <Button>
+                  <div className="flex items-center justify-center" >
+                  <Schooling  type="ADD" userId={userId} key={userId} />
+                  </div>
+                </Button>
+              </div>
+            </div>
+          )
+        }
         {school.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">
@@ -137,6 +157,25 @@ const SchoolingDetail = ({ userId, school, college }: SchoolDetailingProps) => {
       {/*  COLLEGE COMPONENT SECTION */}
 
       <div className="pt-8 md:px-12 px-4  flex-wrap border-b bg-slate-50 pb-10">
+        {
+          !college.length && (
+            <div className="flex justify-between">
+              <div>
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">College</h1>
+                <p className="md:text-sm text-[10px] text-zinc-500 mb-4">
+                  Your College information given below
+                </p>
+              </div>
+              <div>
+                <Button>
+                 <div className="flex items-center justify-center" >
+                 <College type="ADD" userId={userId} key={userId} />
+                 </div>
+                </Button>
+              </div>
+            </div>
+          )
+        }
         {college.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">

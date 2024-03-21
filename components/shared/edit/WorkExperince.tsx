@@ -43,6 +43,25 @@ const WorkExperince = ({userId , work}:WorkExperinceProps) => {
       </div>
 
       <div className="pt-8 md:px-12 px-4  flex-wrap border-b bg-slate-50 pb-10">
+
+
+        {
+          !work.length && (
+            <div className="flex justify-between">
+              <div>
+                <h1 className="md:text-xl text-sm md:font-semibold font-normal">Work</h1>
+                <p className="md:text-sm text-[10px] text-zinc-500 mb-4">
+                  Your Schooling information given below
+                </p>
+              </div>
+              <div>
+                <Button>
+                  <WorkForm type="ADD" userId={userId} key={userId} />
+                </Button>
+              </div>
+            </div>
+          )
+        }
         {work.length && (
           <div className="w-full flex gap flex-col">
             <div className="flex justify-between">
