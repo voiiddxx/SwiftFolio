@@ -4,6 +4,8 @@ import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark, neobrutalism } from "@clerk/themes";
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from '@vercel/analytics/react';
+
 const kanit = Poppins({ 
   subsets: ["latin"],
   weight:["300" ,  "400" , "500" , "700" , "900"]
@@ -28,6 +30,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class"
             defaultTheme="dark" >
         {children}
+        <Analytics />
         </ThemeProvider>
         </body>
     </html>
