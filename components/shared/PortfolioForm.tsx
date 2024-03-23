@@ -104,13 +104,7 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
         <p className="text-zinc-600 text-[10px] mt-2 md:text-[15px]" >Please enter prior informaation for initial portfolio</p>
        </div>
        <div className="flex gap-2" >
-        <Button  className="bg-white text-zinc-700 border-zinc-300 " variant="outline" size="icon" ><X className="text-red-500"  /></Button>
-
-
-
-        <Button size="icon" disabled={form.formState.isSubmitting} type="submit" className="bg-violet-600 text-white hover:bg-zinc-800" >{form.formState.isSubmitting ? (
-            <LoaderIcon className="animate-spin" />
-          ):<Check/> }</Button>
+        
        </div>
       </div>
 
@@ -258,15 +252,18 @@ const PortfolioForm =  ({userId} : portfolioformProps) => {
  <Label className="text-zinc-600" >Your Professinol Avatar</Label>
       <Input onChange={(e)=>{
         setavatar(e.target.files)
-      }} className="bg-violet-700 outline-none border-none"  type="file"/>
+      }} className="bg-zinc-700 outline-none border-none"  type="file"/>
  </div>
  <div>
  <Label className="text-zinc-600" >Your casual Image</Label>
       <Input onChange={(e)=>{
         setresume(e.target.files)
-      }} className="bg-violet-700 outline-none border-none"  type="file"/>
+      }} className="bg-zinc-700 outline-none border-none"  type="file"/>
  </div></div>
   </div>
+  <Button  disabled={form.formState.isSubmitting} type="submit" className="bg-violet-600 text-white hover:bg-zinc-800 w-full" >{form.formState.isSubmitting ? (
+            <LoaderIcon className="animate-spin" />
+          ): `Create Now`  }</Button>
 
   {/* <Button className="w-full bg-white text-black" type="submit">Submit</Button> */}
 </form>

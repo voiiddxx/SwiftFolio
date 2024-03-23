@@ -91,12 +91,18 @@ const Hero = () => {
         <Link href="/portfolio/create" ><Button size={"lg"} className="bg-violet-700 text-white hover:bg-zinc-900"  > <Ghost className="mr-1" color="white" size={16} /> Genreate Portfolio</Button></Link>
         </SignedOut>
         <SignedIn>
+        <div className="flex flex-col items-center justify-center" >
         <Link href="/template" >
           <div className="h-16 w-80 rounded-lg bg-violet-600 flex justify-center items-center gap-2" >
         <p className="text-white font-normal " >Access your portfolio</p>
         <ArrowRight color="white" strokeWidth={1.5} />
           </div>
         </Link>
+        <Link href='/portfolio/create' >
+          <p className="text-sm font-normal text-violet-700 underline mt-2" >Create Your Portfolio</p>
+        </Link>
+
+        </div>
         </SignedIn>
       </div>
 

@@ -10,7 +10,6 @@ import { sendMail } from "../mail";
 
 
 export const createPortfolio = async ({portfolio} : createPortfolioparams) => {
-    
     try {           
         await connectToDatabase();
         const newPortfolio = await Portfolio.create({...portfolio});
