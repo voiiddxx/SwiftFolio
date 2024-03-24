@@ -6,9 +6,6 @@ import { AiTextGenreation, GenreateImageParams } from "@/types";
 import OpenAI from 'openai';
 
 
-const apikeyforopenai = "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";
-
-
 
  const openai = new OpenAI({
     apiKey: process.env.OPEN_AI_KEY,
@@ -32,13 +29,9 @@ export const createAboutusingAi = async ({promptMessage} : AiTextGenreation)=>{
         console.log(aiResponse.choices);
 
         return JSON.parse(JSON.stringify(aiResponse.choices[0].message.content));
-
-        
-        
-          
-        
     } catch (error) {
         console.log(error);
+        throw new Error(error as string);
         
     }
 }
@@ -54,14 +47,7 @@ export const genreateCustomImageusingAI = async ({promptMessage}:GenreateImagePa
             quality:'hd',
             n:1
         });
-        console.log(res.data);
-        console.log(res.data[0].url);
-        
-        
         return JSON.parse(JSON.stringify(res.data[0].url));
-        
-
-        
     } catch (error) {
         
     }
