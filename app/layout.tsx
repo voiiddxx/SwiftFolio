@@ -3,7 +3,6 @@ import { Poppins   } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark, neobrutalism } from "@clerk/themes";
-import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from '@vercel/analytics/react';
 
 const kanit = Poppins({ 
@@ -22,16 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{
-        baseTheme: dark
-    }} >
+    <ClerkProvider>
       <html lang="en">
       <body className={kanit.className}>
-        <ThemeProvider attribute="class"
-            defaultTheme="dark" >
         {children}
         <Analytics />
-        </ThemeProvider>
         </body>
     </html>
     </ClerkProvider>

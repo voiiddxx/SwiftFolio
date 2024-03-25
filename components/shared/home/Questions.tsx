@@ -11,7 +11,7 @@ const Questions = () => {
   return (
     <div className='w-full flex justify-center items-center flex-col px-10' >
             <h1 className='text-2xl font-semibold mt-20' >Answers of all your <span className='text-violet-700' >queries</span> </h1>
-            <p className='text-gray-700 mt-2 text-center' >Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p className='text-gray-700 mt-2 text-center' >Answers of your all doubts , you can mail us for futher details</p>
         <div className='md:w-[800px] min-w-[300px] mt-10 mx-10' >
         <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">

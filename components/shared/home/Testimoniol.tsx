@@ -6,32 +6,32 @@ export const Testimoniol = () => {
 const testimonials = [
     {
       quote:
-        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-      name: "Charles Dickens",
-      title: "A Tale of Two Cities",
+        "I was blown away by how easy it was to create my portfolio using this platform. The customizable templates made it simple to showcase my work exactly how I envisioned it. Highly recommend!",
+      name: "Neha",
+      title: "CSE'21",
     },
     {
       quote:
-        "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-      name: "William Shakespeare",
-      title: "Hamlet",
+        "This platform exceeded all my expectations. Not only was it easy to use, but the customer support team was incredibly helpful and responsive whenever I had questions. I couldn't be happier with my portfolio",
+      name: "Void",
+      title: "CSE'21",
     },
     {
-      quote: "All that we see or seem is but a dream within a dream.",
-      name: "Edgar Allan Poe",
-      title: "A Dream Within a Dream",
-    },
-    {
-      quote:
-        "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-      name: "Jane Austen",
-      title: "Pride and Prejudice",
+      quote: "As someone with no coding experience, I was amazed at how professional my portfolio looked after just a few clicks. The AI-powered features really took my portfolio to the next level!",
+      name: "Somyaaa",
+      title: "",
     },
     {
       quote:
-        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-      name: "Herman Melville",
-      title: "Moby-Dick",
+        "Thanks to this platform, I was able to create a stunning portfolio that helped me land my dream job. The feedback and analytics features were invaluable in tracking my progress and refining my portfolio for maximum impact.",
+      name: "Pankaj",
+      title: "Mech'21",
+    },
+    {
+      quote:
+        "I've tried other portfolio builders before, but none compare to this one. The minimalist designs are perfect for highlighting my work, and the intuitive interface made the whole process a breeze.",
+      name: "Rajeev",
+      title: "MBA",
     },
   ];
   return (
@@ -57,7 +57,7 @@ const testimonials = [
         direction="left"
         speed="normal"
       />
-    </div>
+    </div>  
      
     </div>
   )

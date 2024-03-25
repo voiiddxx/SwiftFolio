@@ -11,7 +11,6 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import ParllaxEffectLanding from "./ParllaxEffectLanding";
 import Testimoniol from "./Testimoniol";
 import Questions from "./Questions";
-import Feedback from "./Feedback";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Hero = () => {
@@ -29,7 +28,7 @@ const Hero = () => {
     {
       title: "No Coding Required",
       description:
-        "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+        "Our platform empowers users to customize their portfolios without any coding knowledge required. With intuitive tools and pre-designed templates, individuals can effortlessly personalize every aspect of their showcase.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
           No Coding Required
@@ -39,7 +38,7 @@ const Hero = () => {
     {
       title: "Easily Cusomizable",
       description:
-        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of Minimal Designs and embrace the simplicity of real-time updates.",
+        "Our platform enables effortless customization, offering intuitive tools for users to tailor their portfolios with ease. From layouts to fonts, our diverse templates cater to various styles. With just a few clicks,",
       content: (
         <div className="h-full w-full  flex items-center justify-center text-white">
           Easy Customizable
@@ -49,7 +48,7 @@ const Hero = () => {
     {
       title: "Minimal Designs",
       description:
-        "Experience real-time updates and never stress about Minimal Designs again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        " Our platform boasts sleek and minimalistic designs, offering users a refined aesthetic without unnecessary clutter. Each template is meticulously crafted to highlight content while maintaining an elegant simplicity.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
           Minimal Designs
@@ -59,7 +58,7 @@ const Hero = () => {
     {
       title: "AI Powered Features",
       description:
-        "Experience real-time updates and never stress about Minimal Designs again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "Our platform harnesses the power of AI to offer cutting-edge features that streamline the portfolio creation process. From intelligent content suggestions to automated layout optimization, our AI-powered tools help users create polished and professional portfolios with minimal effort.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
           AI Powered Features
