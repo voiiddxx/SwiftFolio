@@ -45,7 +45,7 @@ const page = async ({
   
   return (
     <div>
-      <DarkIndex userId={user?.id}/> 
+      <DarkIndex userId={id}/> 
     </div>
 
   )
