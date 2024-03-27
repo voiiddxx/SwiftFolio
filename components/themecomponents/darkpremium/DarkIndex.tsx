@@ -20,8 +20,9 @@ import { Loader, Rotate3D } from 'lucide-react';
 
     type darkIndexProps = {
         userId:any
+        adminid:any
     };
-const DarkIndex = ({userId} :darkIndexProps) => {
+const DarkIndex = ({userId , adminid} :darkIndexProps) => {
     const [admin, setadmin] = useState<boolean>(false);
     const [portfolio, setportfolio] = useState<any>(null);
     const [work, setwork] = useState<any>(null);
@@ -36,12 +37,9 @@ const DarkIndex = ({userId} :darkIndexProps) => {
     // GETTING DATA OF USER PORTFOLIO
 
     const getPortFolio =async()=>{
-        alert("checking that we are getting uderid pr not" + userId);
         const res = await getPortfolioBasedonuserClerkId(userId);
         if(res){
-            console.log("this is the data of res" , res);
-            alert(`${JSON.stringify(res)}`);
-            if(res[0].clerkId == userId){
+            if(res[0].clerkId == adminid){
                 setadmin(true);
             }
             setportfolio(res);
@@ -106,7 +104,7 @@ const DarkIndex = ({userId} :darkIndexProps) => {
         }else{
             console.log("Error while getting achivements data");
             
-        }
+        }[]
     }
     // GETTING DATA OF USER CUSTOM
     const getCustomData = async ()=>{
